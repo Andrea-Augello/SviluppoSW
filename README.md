@@ -43,4 +43,4 @@ consultati alle visite successive o anche da altri reparti durante visite di nat
 L’utente può controllare lo storico delle sue visite e stampare in ogni momento la cartella clinica a
 fronte del pagamento di una determinata cifra (il pagamento non deve essere gestito).
 
-__Parte opzionale: gestione dei pagamenti e delle ricevute.__
+_Parte opzionale: gestione dei pagamenti e delle ricevute._
