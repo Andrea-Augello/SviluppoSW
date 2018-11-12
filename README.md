@@ -44,3 +44,16 @@ L’utente può controllare lo storico delle sue visite e stampare in ogni momen
 fronte del pagamento di una determinata cifra (il pagamento non deve essere gestito).
 
 _Parte opzionale: gestione dei pagamenti e delle ricevute._
+
+
+ ## To do list:
+ 
+ - [x] Scoprire cosa si deve fare.
+- [ ] Progetto concettuale database.
+- [ ] Progetto logico database.
+- [ ] Casi d'uso.
+- [ ] Diagramma delle classi.
+- [ ] Diagramma delle interazioni.
+
+*...*
+- [ ] Implementazione.
