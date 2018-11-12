@@ -4,5 +4,6 @@
 - [ ] Casi d'uso.
 - [ ] Diagramma delle classi.
 - [ ] Diagramma delle interazioni.
+
 *...*
 - [ ] Implementazione.
