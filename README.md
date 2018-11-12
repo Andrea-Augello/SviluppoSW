@@ -13,7 +13,7 @@ considerarsi come minime per la tesina in oggetto e possono essere estese dallo 
 qualora questo non violi la natura e l’intento del sistema richiesto. Lo studente, durante la stesura
 del progetto, deve dimostrare capacità di interazione con il committente al fine di estendere o
 integrare, se necessario, le specifiche riportate di seguito.
-Descrizione generale del sistema
+## Descrizione generale del sistema
 Si richiede di progettare e sviluppare un software di gestione di un ospedale di grandi
 dimensione per la parte che riguarda la prenotazione delle prestazioni sanitarie.
 L’ospedale è diviso in reparti ed ambulatori ed ognuno di questi fornisce prestazioni sanitarie con
