@@ -1,9 +1,9 @@
 # SviluppoSW
 
-## Tema di Progetto
-## Corso:
-## Basi di Dati e Progettazione del Software
-## (a.a 2018/19)
+**Tema di Progetto**
+**Corso:**
+**Basi di Dati e Progettazione del Software
+(a.a 2018/19)**
 Si richiede la progettazione di un sistema per il supporto a tutte le attività di gestione delle
 prenotazioni sanitarie all’interno di un grande ospedale. Le specifiche di seguito espresse sono da
 considerarsi come minime per la tesina in oggetto e possono essere estese dallo studente
