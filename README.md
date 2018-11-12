@@ -45,8 +45,7 @@ fronte del pagamento di una determinata cifra (il pagamento non deve essere gest
 
 _Parte opzionale: gestione dei pagamenti e delle ricevute._
 ## To do list:
- 
- - [x] Scoprire cosa si deve fare.
+- [x] Scoprire cosa si deve fare.
 - [ ] Progetto concettuale database.
 - [ ] Progetto logico database.
 - [ ] Casi d'uso.
