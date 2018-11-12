@@ -51,6 +51,5 @@ _Parte opzionale: gestione dei pagamenti e delle ricevute._
 - [ ] Casi d'uso.
 - [ ] Diagramma delle classi.
 - [ ] Diagramma delle interazioni.
-
-*...*
+- *...*
 - [ ] Implementazione.
