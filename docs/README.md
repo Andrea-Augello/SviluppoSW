@@ -5,7 +5,9 @@
 **Corso:**
 
 **Basi di Dati e Progettazione del Software
-(a.a 2018/19)**
+(a.a 2018/19)**  
+
+![Generic image](https://andrea-augello.github.io/SviluppoSW/media/hospital.jpg)
 
 Si richiede la progettazione di un sistema per il supporto a tutte le attività di gestione delle
 prenotazioni sanitarie all’interno di un grande ospedale. Le specifiche di seguito espresse sono da
