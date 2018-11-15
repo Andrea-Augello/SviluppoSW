@@ -1,6 +1,4 @@
----
-title: Sviluppo del Software
---- 
+# SviluppoSW
 
 **Tema di Progetto**
 
