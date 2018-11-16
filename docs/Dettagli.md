@@ -13,3 +13,5 @@ __A:__
 __Q:__ Il server SMTP lo dobbiamo fare noi?  
 __A:__
  
+__Q:__ Come funzionano le politiche dei reparti?  
+__A:__
