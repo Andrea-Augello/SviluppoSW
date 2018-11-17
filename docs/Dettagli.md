@@ -1,7 +1,11 @@
 __Q:__ Gli utenti devono registrarsi?  
 __A:__
-> 
+>
  
+__Q:__ Bisogna supportare solo la ricetta elettronica (codice IMPEGNATIVA) o anche quella rossa (codice IMPEGNATIVA + codice SOLE)?  
+__A:__
+> 
+  
 __Q:__ Deve essere un unico software o esistono versioni diverse per utenti e personale meidco?  
 __A:__
 >
