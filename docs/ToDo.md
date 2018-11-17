@@ -19,7 +19,10 @@
 - [ ] Diagramma delle classi.
   - [ ] Individuazione degli oggetti partecipanti ai casi d'uso.
   - [ ] Produzione del glossario.
+  - [ ] Identificazione di oggetti `<<entity>>`, `<<boundary>>` e `<<control>>`.
+  - [ ] Generalizzazione e specializzazione.
 - [ ] Diagramma delle interazioni.
+  - [ ] Associare gli oggetti ai casi d'uso.
 - [ ] *???*
 - [ ] **Mandare mail e SMS con java**.
   - [ ] Scelta del server SMTP. 
