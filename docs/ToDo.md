@@ -17,6 +17,8 @@
   - [ ] Definire i casi d'uso.
   - [ ] *Dividere in package?*
 - [ ] Diagramma delle classi.
+  - [ ] Individuazione degli oggetti partecipanti ai casi d'uso.
+  - [ ] Produzione del glossario.
 - [ ] Diagramma delle interazioni.
 - [ ] *???*
 - [ ] **Mandare mail e SMS con java**.
