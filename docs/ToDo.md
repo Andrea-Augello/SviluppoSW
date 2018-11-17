@@ -1,10 +1,28 @@
-# To do list:
-- [x] Scoprire cosa si deve fare.
+# To do list:  
+  
+- [x] Formare il gruppo  
+- [ ] Scoprire cosa si deve fare.  
+  - [x] Ottenere il [testo](https://andrea-augello.github.io/SviluppoSW/) del tema di progetto.
+  - [ ] Ottenere ulteriori [dettagli](https://andrea-augello.github.io/SviluppoSW/Dettagli).
 - [ ] Progetto concettuale database.
 - [ ] Progetto logico database.
-- [ ] Casi d'uso.
+- [ ] Scelta del DBMS
+- [ ] Costruzione del database.
+- [ ] Casi d'uso.  
+  - [ ] Identificare tutti gli attori.
+  - [ ] Identificare gli scenari.
+  - [ ] Identificare i casi d'uso.
+  - [ ] Identificare le relazioni tra attori e casi d'uso.
+  - [ ] Definire i casi d'uso.
+  - [ ] *Dividere in package?*
 - [ ] Diagramma delle classi.
 - [ ] Diagramma delle interazioni.
-- [ ] *...*
+- [ ] *???*
 - [ ] **Mandare mail e SMS con java**.
+  - [ ] Scelta del server SMTP. 
+  - [ ] *???*
+- [ ] GUI.
+  - [ ] Produzione dei [mockup](https://mockflow.com/).
+  - [ ] Interfaccia utente effettiva.
 - [ ] Implementazione.
+- [ ] System Testing.
