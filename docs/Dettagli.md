@@ -25,3 +25,15 @@ __A:__
 __Q:__ Come funzionano le politiche dei reparti?  
 __A:__
 >
+
+__Q:__ Cosa deve includere la cartella clinica?  
+__A:__
+>
+
+__Q:__ Come va gestita la stampa?  
+__A:__
+>
+
+__Q:__ Parte opzionale: come vanno gestiti pagamenti e ricevute?  
+__A:__
+>
