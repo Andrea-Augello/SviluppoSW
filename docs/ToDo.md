@@ -4,10 +4,11 @@
 - [ ] Scoprire cosa si deve fare.  
   - [x] Ottenere il [testo](https://andrea-augello.github.io/SviluppoSW/) del tema di progetto.
   - [ ] Ottenere ulteriori [dettagli](https://andrea-augello.github.io/SviluppoSW/Dettagli).
-- [ ] Progetto concettuale database.
-- [ ] Progetto logico database.
-- [ ] Scelta del DBMS
-- [ ] Costruzione del database.
+- [ ] Database.
+  - [ ] Progetto concettuale database.
+  - [ ] Progetto logico database.
+  - [ ] Scelta del DBMS
+  - [ ] Costruzione del database.
 - [ ] Casi d'uso.  
   - [ ] Identificare tutti gli attori.
   - [ ] Identificare gli scenari.
