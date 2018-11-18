@@ -2,6 +2,10 @@ __Q:__ Gli utenti devono registrarsi?
 __A:__
 >
 
+__Q:__ Il DBMS è su un server remoto differente dal computer sul quale è in esecuzione il software?  
+__A:__
+>
+
 __Q:__ Va ricordato dell'esame esattamente 24 ore prima o in un qualunque momento il giorno prima?  
 __A:__
 > 
