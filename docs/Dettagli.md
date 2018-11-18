@@ -50,6 +50,10 @@ __Q:__ Le prestazioni in sequenza possono spostare altre prestazioni già prenot
 __A:__
 > 
 
+__Q:__ Il ricovero va trattato come una prestazione sanitaria normale?  
+__A:__
+> 
+
 __Q:__ È necessaria una parte web?  
 __A:__
 >
