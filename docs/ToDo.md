@@ -26,9 +26,12 @@
     - [ ] Progetto logico database.
     - [ ] Scelta del DBMS
     - [ ] Costruzione del database.
-  - [ ] **Mandare mail e SMS con java**.
+  - [ ] Notifiche via mail ed SMS.
+    - [ ] Selezione della libreria per creare l'user agent (java.mail ?).
     - [ ] Scelta del server SMTP. 
     - [ ] *???*
+  - [ ] Altre librerie esterne.
+    - [ ] [PDF](https://itextpdf.com/).
 - [ ] GUI.
   - [ ] Produzione dei [mockup](https://mockflow.com/).
   - [ ] Interfaccia utente effettiva.
