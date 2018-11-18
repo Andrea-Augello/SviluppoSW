@@ -4,11 +4,6 @@
 - [ ] Scoprire cosa si deve fare.  
   - [x] Ottenere il [testo](https://andrea-augello.github.io/SviluppoSW/) del tema di progetto.
   - [ ] Ottenere ulteriori [dettagli](https://andrea-augello.github.io/SviluppoSW/Dettagli).
-- [ ] Database.
-  - [ ] Progetto concettuale database.
-  - [ ] Progetto logico database.
-  - [ ] Scelta del DBMS
-  - [ ] Costruzione del database.
 - [ ] Casi d'uso.  
   - [ ] Identificare tutti gli attori.
   - [ ] Identificare gli scenari.
@@ -21,12 +16,19 @@
   - [ ] Produzione del glossario.
   - [ ] Identificazione di oggetti `<<entity>>`, `<<boundary>>` e `<<control>>`.
   - [ ] Generalizzazione e specializzazione.
+  - [ ] Individuare le aggregazioni. 
 - [ ] Diagramma delle interazioni.
   - [ ] Associare gli oggetti ai casi d'uso.
-- [ ] *???*
-- [ ] **Mandare mail e SMS con java**.
-  - [ ] Scelta del server SMTP. 
-  - [ ] *???*
+- [ ] System Design.
+  - [ ] Individuare i sottosistemi.
+  - [ ] Database.
+    - [ ] Progetto concettuale database.
+    - [ ] Progetto logico database.
+    - [ ] Scelta del DBMS
+    - [ ] Costruzione del database.
+  - [ ] **Mandare mail e SMS con java**.
+    - [ ] Scelta del server SMTP. 
+    - [ ] *???*
 - [ ] GUI.
   - [ ] Produzione dei [mockup](https://mockflow.com/).
   - [ ] Interfaccia utente effettiva.
