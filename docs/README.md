@@ -50,3 +50,6 @@ _Parte opzionale: gestione dei pagamenti e delle ricevute._
 ### [Q&A sui dettagli implementativi](https://andrea-augello.github.io/SviluppoSW/Dettagli)
 
 ### [To do list](https://andrea-augello.github.io/SviluppoSW/ToDo)
+
+### Documenti  
+  #### [RAD](https://andrea-augello.github.io/SviluppoSW/RAD)
