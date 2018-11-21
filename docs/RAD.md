@@ -12,12 +12,15 @@
 
 <!-- /TOC -->
 
-## 1. Sezione 1
+## 1. Introduzione
 ### 1.1 Sottosezione
 ### 1.2 Sottosezione 2
 #### 1.2.1 Test
 ##### 1.2.1.1 Test 2
-## 2. Sezione 2
-## 3. Sezione 3
+## 2. Sistema corrente
+## 3. Sistema proposto
+
 
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
+
+## 4. Glossario
