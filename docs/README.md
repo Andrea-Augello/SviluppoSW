@@ -1,5 +1,13 @@
 # SviluppoSW
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
+- [SviluppoSW](#svilupposw)
+	- [Descrizione generale del sistema](#descrizione-generale-del-sistema)
+	- [[Q&A sui dettagli implementativi](https://andrea-augello.github.io/SviluppoSW/Dettagli)](#qa-sui-dettagli-implementativihttpsandrea-augellogithubiosvilupposwdettagli)
+	- [[To do list](https://andrea-augello.github.io/SviluppoSW/ToDo)](#to-do-listhttpsandrea-augellogithubiosvilupposwtodo)
+	- [Documenti](#documenti)
+
+<!-- /TOC -->
 **Tema di Progetto**
 
 **Corso:**
@@ -47,10 +55,9 @@ fronte del pagamento di una determinata cifra (il pagamento non deve essere gest
 
 _Parte opzionale: gestione dei pagamenti e delle ricevute._
 
-### [Q&A sui dettagli implementativi](https://andrea-augello.github.io/SviluppoSW/Dettagli)
+## [Q&A sui dettagli implementativi](https://andrea-augello.github.io/SviluppoSW/Dettagli)
 
-### [To do list](https://andrea-augello.github.io/SviluppoSW/ToDo)
+## [To do list](https://andrea-augello.github.io/SviluppoSW/ToDo)
 
-### Documenti  
-1.  #### [RAD](https://andrea-augello.github.io/SviluppoSW/RAD)
-1.
+## Documenti  
+*  #### [RAD](https://andrea-augello.github.io/SviluppoSW/RAD)
