@@ -24,24 +24,41 @@
 #### Diagramma dei casi d'uso di alto livello.
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
 #### Casi d'uso:
-##### CreaPrenotazione
-|||
-|_|_|
-|Attori   |   |
-|Precondizioni   |   |
-|Flusso degli eventi   |   |
-|PostCondizioni   |   |
 
-  |  
---|--
-Attori  |  
-Precondizioni  |  
-Flusso degli eventi  |  
-PostCondizioni  |  
+##### CreaPrenotazione
+__Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__  
+__Flusso degli eventi:__  
+__Postcondizioni:__  
+
 ##### ModificaPrenotazione
+__Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__  
+__Flusso degli eventi:__  
+__Postcondizioni:__  
+
 ##### VisualizzaFSE
+__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS
+__Precondizioni:__  
+__Flusso degli eventi:__  
+__Postcondizioni:__  
+
 ##### InserisciDettagliVisita
+__Attori:__  _PersonaleMedico_, DBMS
+__Precondizioni:__  
+__Flusso degli eventi:__  
+__Postcondizioni:__  
+
 ##### GestioneRisorseUmane
+__Attori:__  _PersonaleAmministrativo_, DBMS
+__Precondizioni:__  
+__Flusso degli eventi:__  
+__Postcondizioni:__  
+
 ##### NotificaPrenotazione
+__Attori:__  _Tempo_, DBMS  
+__Precondizioni:__  
+__Flusso degli eventi:__  
+__Postcondizioni:__  
 
 ## 4. Glossario
