@@ -28,38 +28,40 @@
 
 ##### CreaPrenotazione
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__  
-__Flusso degli eventi:__  
-__Postcondizioni:__  
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__ ``` ```  
+__Postcondizioni:__  ` `
 
 ##### ModificaPrenotazione
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__  
-__Flusso degli eventi:__  
-__Postcondizioni:__  
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__ ``` ```  
+__Postcondizioni:__  ` `
+
 
 ##### VisualizzaFSE
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS
-__Precondizioni:__  
-__Flusso degli eventi:__  
-__Postcondizioni:__  
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__ ``` ```  
+__Postcondizioni:__  ` `
 
 ##### InserisciDettagliVisita
 __Attori:__  _PersonaleMedico_, DBMS
-__Precondizioni:__  
-__Flusso degli eventi:__  
-__Postcondizioni:__  
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__ ``` ```  
+__Postcondizioni:__  ` `
 
 ##### GestioneRisorseUmane
 __Attori:__  _PersonaleAmministrativo_, DBMS
-__Precondizioni:__  
-__Flusso degli eventi:__  
-__Postcondizioni:__  
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__ ``` ```  
+__Postcondizioni:__  ` `
 
 ##### NotificaPrenotazione
 __Attori:__  _Tempo_, DBMS  
-__Precondizioni:__  
-__Flusso degli eventi:__  
-__Postcondizioni:__  
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__ ``` ```  
+__Postcondizioni:__  ` `
+
 
 ## 4. Glossario
