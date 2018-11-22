@@ -30,7 +30,6 @@
 
 <!-- /TOC -->
 
-<<<<<<< HEAD
 # 1. Introduzione
 ## 1.1 Obiettivo del Sistema
 ## 1.2 Scopo del sistema
@@ -45,14 +44,13 @@
 ## 3.3 Requisiti non funzionali
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
-=======
+
 ---
 
 ## 1. Introduzione
 ## 2. Sistema corrente
 ## 3. Sistema proposto
 ### Casi d'uso
->>>>>>> e243c0c73f2a395506ddf770d78a16580a0cc652
 #### Diagramma dei casi d'uso di alto livello.
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
 #### Descrizione dei casi d'uso di alto livello:
@@ -98,11 +96,8 @@ __Precondizioni:__ ` `
 __Flusso degli eventi:__ ``` ```  
 __Postcondizioni:__  ` `
 
-<<<<<<< HEAD
+---
 ### 3.4.2 Modello degli oggetti
 ### 3.4.3 Modello dinamico
 ### 3.4.4 Interfaccia utente - navigazione e mock-up
-=======
----
->>>>>>> e243c0c73f2a395506ddf770d78a16580a0cc652
 ## 4. Glossario
