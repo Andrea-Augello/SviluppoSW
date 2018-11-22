@@ -44,13 +44,6 @@
 ## 3.3 Requisiti non funzionali
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
-
----
-
-## 1. Introduzione
-## 2. Sistema corrente
-## 3. Sistema proposto
-### Casi d'uso
 #### Diagramma dei casi d'uso di alto livello.
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
 #### Descrizione dei casi d'uso di alto livello:
