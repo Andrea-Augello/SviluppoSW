@@ -1,4 +1,5 @@
 # Requirement Analysis Document
+---
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Requirement Analysis Document](#requirement-analysis-document)
@@ -18,6 +19,8 @@
 
 <!-- /TOC -->
 
+---
+
 ## 1. Introduzione
 ## 2. Sistema corrente
 ## 3. Sistema proposto
@@ -25,43 +28,47 @@
 #### Diagramma dei casi d'uso di alto livello.
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
 #### Descrizione dei casi d'uso di alto livello:
-
+---
 ##### CreaPrenotazione
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ ``` ```  
 __Postcondizioni:__  ` `
 
+---
 ##### ModificaPrenotazione
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ ``` ```  
 __Postcondizioni:__  ` `
 
-
+---
 ##### VisualizzaFSE
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ ``` ```  
 __Postcondizioni:__  ` `
 
+---
 ##### InserisciDettagliVisita
 __Attori:__  _PersonaleMedico_, DBMS  
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ ``` ```  
 __Postcondizioni:__  ` `
 
+---
 ##### GestioneRisorseUmane
 __Attori:__  _PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ ``` ```  
 __Postcondizioni:__  ` `
 
+---
 ##### NotificaPrenotazione
 __Attori:__  _Tempo_, DBMS  
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ ``` ```  
 __Postcondizioni:__  ` `
 
-
+---
 ## 4. Glossario
