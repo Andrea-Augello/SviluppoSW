@@ -3,9 +3,9 @@
 - [x] Formare il gruppo  
 - [ ] Scoprire cosa si deve fare.  
   - [x] Ottenere il [testo](https://andrea-augello.github.io/SviluppoSW/) del tema di progetto.
-  - [ ] Ottenere ulteriori [dettagli](https://andrea-augello.github.io/SviluppoSW/Dettagli).
+  - [x] Ottenere ulteriori [dettagli](https://andrea-augello.github.io/SviluppoSW/Dettagli).
 - [ ] Casi d'uso.  
-  - [ ] Identificare tutti gli attori.
+  - [x] Identificare tutti gli attori.
   - [ ] Identificare gli scenari.
   - [ ] Identificare i casi d'uso.
   - [ ] Identificare le relazioni tra attori e casi d'uso.
@@ -19,6 +19,7 @@
   - [ ] Individuare le aggregazioni. 
 - [ ] Diagramma delle interazioni.
   - [ ] Associare gli oggetti ai casi d'uso.
+- [ ] Produrre il [RAD](https://andrea-augello.github.io/SviluppoSW/RAD)  
 - [ ] System Design.
   - [ ] Individuare i sottosistemi.
   - [ ] Database.
