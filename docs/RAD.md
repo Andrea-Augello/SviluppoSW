@@ -30,6 +30,7 @@
 
 <!-- /TOC -->
 
+---
 # 1. Introduzione
 ## 1.1 Obiettivo del Sistema
 ## 1.2 Scopo del sistema
