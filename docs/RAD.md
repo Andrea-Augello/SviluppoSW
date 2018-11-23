@@ -36,7 +36,7 @@
 ## 1.2 Scopo del sistema
 ## 1.4 Definizioni, acronimi, e abbreviazioni
 
-Definizione/Acronimo  | Descrizione  
+Definizione/Acronimo  | 	Descrizione  
 ----------------------|------------  
 CUP|  Centro unico di prenotazione  
 FSE  | Fascicolo sanitario elettronico  
