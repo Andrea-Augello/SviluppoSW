@@ -35,6 +35,15 @@
 ## 1.1 Obiettivo del Sistema
 ## 1.2 Scopo del sistema
 ## 1.4 Definizioni, acronimi, e abbreviazioni
+Definizione/Acronimo  | Descrizione  
+--|--
+CUP|  
+FSE  | Fascicolo sanitario elettronico  
+Personale Amministrativo	|
+Personale Medico |  
+  |  
+  |  
+  |  
 ## 1.5 Riferimenti
 
 # 2. Sistema corrente
