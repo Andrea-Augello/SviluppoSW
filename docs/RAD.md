@@ -89,7 +89,7 @@ __Precondizioni:__ ` `
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
-	 della giornata.
+   della giornata.
 	2. Il sistema mostra i dettagli già presenti.
 3. PersonaleMedico insersce ulteriori dati.
 4. PersonaleMedico conferma le modifiche effettuate.
