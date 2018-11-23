@@ -8,7 +8,7 @@
 - [ ] Ampliare e completare l'elenco delle definizioni.
 - [ ] Casi d'uso.  
   - [x] Identificare tutti gli attori.
-  - [ ] Identificare i casi d'uso di alto livello.
+  - [x] Identificare i casi d'uso di alto livello.
   - [ ] Descrivere i casi d'uso di alto livello.
   - [ ] Identificare i casi d'uso di basso livello.
   - [ ] Identificare le relazioni tra attori e casi d'uso.
