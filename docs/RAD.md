@@ -16,12 +16,11 @@
 	- [3.4 Modelli del sistema](#34-modelli-del-sistema)
 		- [3.4.1 Casi d'uso](#341-casi-duso)
 			- [Diagramma dei casi d'uso di alto livello.](#diagramma-dei-casi-duso-di-alto-livello)
-			- [Descrizione dei casi d'uso di alto livello:](#descrizione-dei-casi-duso-di-alto-livello)
+			- [Descrizione dei casi d'uso di alto livello](#descrizione-dei-casi-duso-di-alto-livello)
 				- [CreaPrenotazione](#creaprenotazione)
 				- [ModificaPrenotazione](#modificaprenotazione)
 				- [VisualizzaFSE](#visualizzafse)
 				- [InserisciDettagliVisita](#inseriscidettaglivisita)
-				- [GestioneRisorseUmane](#gestionerisorseumane)
 				- [NotificaPrenotazione](#notificaprenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 		- [3.4.3 Modello dinamico](#343-modello-dinamico)
@@ -40,9 +39,9 @@ Definizione/Acronimo  | 	Descrizione
 ----------------------|------------  
 CUP|  Centro unico di prenotazione  
 FSE  | Fascicolo sanitario elettronico  
-Personale Amministrativo	| Permettono al paziente di effettuare le prenotazioni senza dovere utilizzare il computer 
+Personale Amministrativo	| Permettono al paziente di effettuare le prenotazioni senza dovere utilizzare il computer
 Personale Medico |  I medici  
-  
+
 ## 1.5 Riferimenti
 
 # 2. Sistema corrente
@@ -55,7 +54,7 @@ Personale Medico |  I medici
 ### 3.4.1 Casi d'uso
 #### Diagramma dei casi d'uso di alto livello.
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
-#### Descrizione dei casi d'uso di alto livello:
+#### Descrizione dei casi d'uso di alto livello
 ---
 ##### CreaPrenotazione
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
@@ -65,7 +64,7 @@ __Postcondizioni:__  ` `
 
 ---
 ##### ModificaPrenotazione
-__Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Attori:__ _Paziente, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ ``` ```  
 __Postcondizioni:__  ` `
@@ -80,13 +79,6 @@ __Postcondizioni:__  ` `
 ---
 ##### InserisciDettagliVisita
 __Attori:__  _PersonaleMedico_, DBMS  
-__Precondizioni:__ ` `  
-__Flusso degli eventi:__ ``` ```  
-__Postcondizioni:__  ` `
-
----
-##### GestioneRisorseUmane
-__Attori:__  _PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ ``` ```  
 __Postcondizioni:__  ` `
