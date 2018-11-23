@@ -37,13 +37,11 @@
 ## 1.4 Definizioni, acronimi, e abbreviazioni
 Definizione/Acronimo  | Descrizione  
 --|--
-CUP|  
+CUP|  Centro unico di prenotazione
 FSE  | Fascicolo sanitario elettronico  
-Personale Amministrativo	|
-Personale Medico |  
-  |  
-  |  
-  |  
+Personale Amministrativo	| Permettono al paziente di effettuare le prenotazioni senza dovere utilizzare il computer
+Personale Medico |  I medici
+  
 ## 1.5 Riferimenti
 
 # 2. Sistema corrente
