@@ -38,7 +38,7 @@
 Definizione/Acronimo  | 	Descrizione  
 ----------------------|------------  
 CUP|  Centro unico di prenotazione  
-FSE  | Fascicolo sanitario elettronico  
+FSE  | Il Fascicolo Sanitario Elettronico è lo strumento attraverso il quale il cittadino può tracciare e consultare tutta la storia della propria vita sanitaria, condividendola con i professionisti sanitari per garantire un servizio più efficace ed efficiente.  
 Personale Amministrativo	| Permettono al paziente di effettuare le prenotazioni senza dovere utilizzare il computer
 Personale Medico |  I medici  
 
