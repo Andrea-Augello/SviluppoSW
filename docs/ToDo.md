@@ -4,13 +4,15 @@
 - [ ] Scoprire cosa si deve fare.  
   - [x] Ottenere il [testo](https://andrea-augello.github.io/SviluppoSW/) del tema di progetto.
   - [x] Ottenere ulteriori [dettagli](https://andrea-augello.github.io/SviluppoSW/Dettagli).
+- [ ] Compilare la parte discorsiva del RAD.
+- [ ] Ampliare e completare l'elenco delle definizioni.
 - [ ] Casi d'uso.  
   - [x] Identificare tutti gli attori.
-  - [ ] Identificare gli scenari.
-  - [ ] Identificare i casi d'uso.
+  - [ ] Identificare i casi d'uso di alto livello.
+  - [ ] Descrivere i casi d'uso di alto livello.
+  - [ ] Identificare i casi d'uso di basso livello.
   - [ ] Identificare le relazioni tra attori e casi d'uso.
   - [ ] Definire i casi d'uso.
-  - [ ] *Dividere in package?*
 - [ ] Diagramma delle classi.
   - [ ] Individuazione degli oggetti partecipanti ai casi d'uso.
   - [ ] Produzione del glossario.
