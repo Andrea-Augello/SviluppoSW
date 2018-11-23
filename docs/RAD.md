@@ -93,7 +93,8 @@ __Flusso degli eventi:__
 	2. Il sistema mostra i dettagli già presenti.
 3. PersonaleMedico insersce ulteriori dati.
 4. PersonaleMedico conferma le modifiche effettuate.
-	5. Il sistema comunica al DBMS le informazioni sulla visita aggiornate.
+	5. Il sistema comunica al DBMS le informazioni sulla visita
+	   aggiornate.
 ```  
 __Postcondizioni:__  `Il sistema mostra un messaggio di conferma delle modifiche `
 
