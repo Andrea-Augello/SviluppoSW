@@ -85,7 +85,7 @@ __Postcondizioni:__  ` `
 ---
 ##### InserisciDettagliVisita
 __Attori:__  _PersonaleMedico_, DBMS  
-__Precondizioni:__ ` `  
+__Precondizioni:__ `Il sistema mostra la schermata principale`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
