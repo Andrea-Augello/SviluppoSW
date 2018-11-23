@@ -36,11 +36,11 @@
 ## 1.2 Scopo del sistema
 ## 1.4 Definizioni, acronimi, e abbreviazioni
 Definizione/Acronimo  | Descrizione  
---|--
-CUP|  Centro unico di prenotazione
+----------------------|------------  
+CUP|  Centro unico di prenotazione  
 FSE  | Fascicolo sanitario elettronico  
-Personale Amministrativo	| Permettono al paziente di effettuare le prenotazioni senza dovere utilizzare il computer
-Personale Medico |  I medici
+Personale Amministrativo	| Permettono al paziente di effettuare le prenotazioni senza dovere utilizzare il computer  
+Personale Medico |  I medici  
   
 ## 1.5 Riferimenti
 
