@@ -59,7 +59,8 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
 #### Casi d'uso di alto livello.
-![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
+![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png) 
+
 ---
 ##### CreaPrenotazione
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
