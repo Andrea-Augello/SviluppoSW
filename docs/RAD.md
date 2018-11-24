@@ -77,9 +77,36 @@ __Flusso degli eventi:__
 	   Se non ne trova chiede di registrarsi;
 	5. Il sistema chiede all'utente di compilare un from
 	   con i dati della ricetta.
-6. L'utente inserisce numero di ricetta, codice di urgenza e
-   prestazione richiesta. 
+6. L'utente inserisce il numero di ricetta, il codice di urgenza e
+   la prestazione richiesta.
+	7. Il sistema chiede se si voglia prenotare in convenzione col
+ 	   SSN o in regime ALPI
+8. L'utente mette una spunta su "Servizio sanitario nazionale" o su
+   "Attività di libera professione intramoenia"
+	9. Se l'utente seleziona SSN il sistema mostra il costo del ticket.
+ 	10. Il sistema chiede al DBMS i giorni e gli orari in cui è
+ 	    possibile prenotare, tenendo conto del codice di urgenza
+	11. Il sistema mostra all'utente giorni e orari in cui è
+	    possibile effettuare la prenotazione.
+12. L'utente seleziona e conferma giorno e ora.
+	13. Il sistema comunica la nuova prenotazione al DBMS
+	14. Il sistema manda una notifica di avvenuta prenotazione
+	    all'utente.
 ```  
+__Flusso alternativo__:
+```
+	9. Se l'utente seleziona ALPI il sistema mostra l'elenco dei
+	   professionisti che eseguono quel tipo di visite e il loro
+		 onorario.
+10. L'utente seleziona il medico da cui vuole farsi visitare
+ 	11. Il sistema chiede al DBMS i giorni e gli orari in cui il
+	    medico non ha altre prenotazioni.
+	12. Il sistema chiede all'utente di scegliere giorno e ora.
+13. L'utente seleziona e conferma giorno e ora.
+	14. Il sistema comunica la nuova prenotazione al DBMS
+	15. Il sistema manda una notifica di avvenuta prenotazione
+	    all'utente.
+```
 __Postcondizioni:__  ` `  
 [_Vista dettagliata_](#crea-prenotazione)
 
