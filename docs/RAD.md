@@ -60,13 +60,26 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
 #### Casi d'uso di alto livello.
-![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png) 
+![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
 
 ---
 ##### CreaPrenotazione
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ ` `  
-__Flusso degli eventi:__ ``` ```  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'attore principale seleziona
+   l'opzione "Crea Prenotazione"
+	2. Il sistema chiede il codice fiscale del paziente per
+	   cui si sta prenotando la visita
+3. L'utente inserisce in un box di testo il CF e conferma
+	4. Il sistema chiede al DBMS i dati relativi al quel CF.
+	   Se non ne trova chiede di registrarsi;
+	5. Il sistema chiede all'utente di compilare un from
+	   con i dati della ricetta.
+6. L'utente inserisce numero di ricetta, codice di urgenza e
+   prestazione richiesta. 
+```  
 __Postcondizioni:__  ` `  
 [_Vista dettagliata_](#crea-prenotazione)
 
