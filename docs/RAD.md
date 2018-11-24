@@ -15,8 +15,7 @@
 	- [3.3 Requisiti non funzionali](#33-requisiti-non-funzionali)
 	- [3.4 Modelli del sistema](#34-modelli-del-sistema)
 		- [3.4.1 Casi d'uso](#341-casi-duso)
-			- [Diagramma dei casi d'uso di alto livello.](#diagramma-dei-casi-duso-di-alto-livello)
-			- [Descrizione dei casi d'uso di alto livello](#descrizione-dei-casi-duso-di-alto-livello)
+			- [Casi d'uso di alto livello.](#casi-duso-di-alto-livello)
 				- [CreaPrenotazione](#creaprenotazione)
 				- [ModificaPrenotazione](#modificaprenotazione)
 				- [VisualizzaFSE](#visualizzafse)
@@ -58,9 +57,8 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 ## 3.3 Requisiti non funzionali
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
-#### Diagramma dei casi d'uso di alto livello.
+#### Casi d'uso di alto livello.
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
-#### Descrizione dei casi d'uso di alto livello
 ---
 ##### CreaPrenotazione
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
@@ -72,14 +70,38 @@ __Postcondizioni:__  ` `
 ##### ModificaPrenotazione
 __Attori:__ _Paziente, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ ` `  
-__Flusso degli eventi:__ ``` ```  
-__Postcondizioni:__  ` `
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando Paziente o PersonaleAmministrativo
+   seleziona l'opzione "Modifica Prenotazione" dalla schermata
+	 principale.
+	2. Il sistema mostra l'elenco di tutte le prenotazioni con
+	   data successiva a quella corrente + 24 ore.
+3. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
+   che desidera modificare.
+	4. Il sistema mostra i dati relativi alla Prenotazione.
+5. L'attore principale modifica la data e l'ora scegliendo tra
+   quelle proposte OPPURE elimina la Prenotazione e conferma.
+	6. Il sistema chiede un ulteriore conferma specificando le
+	 	 differenze con la precedente prenotazione.
+7. L'attore principale conferma o annulla le modifiche.
+	8. Se l'utente conferma le modifiche il sistema le comunica
+	   al DBMS e invia al Paziente a cui è collegata la
+		 prenotazione una notifica, altrimenti mostra il messaggio
+		 "Modifiche annullate"
+```  
+__Postcondizioni:__  `Il sistema mostra nuovamente la schermata principale`
 
 ---
 ##### VisualizzaFSE
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ ` `  
-__Flusso degli eventi:__ ``` ```  
+__Flusso degli eventi:__
+```
+1.
+	2.
+3.
+```  
 __Postcondizioni:__  ` `
 
 ---
