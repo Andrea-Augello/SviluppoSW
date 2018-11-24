@@ -21,6 +21,7 @@
 				- [VisualizzaFSE](#visualizzafse)
 				- [InserisciDettagliVisita](#inseriscidettaglivisita)
 				- [NotificaPrenotazione](#notificaprenotazione)
+			- [Crea Prenotazione](#crea-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 		- [3.4.3 Modello dinamico](#343-modello-dinamico)
 		- [3.4.4 Interfaccia utente - navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
@@ -65,6 +66,7 @@ __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ ``` ```  
 __Postcondizioni:__  ` `
+[_Vista dettagliata_](#crea-prenotazione)
 
 ---
 ##### ModificaPrenotazione
@@ -128,6 +130,9 @@ __Flusso degli eventi:__ ``` ```
 __Postcondizioni:__  ` `
 
 ---
+
+#### Crea Prenotazione
+![Use case "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/CreaPrenotazione.png)
 ### 3.4.2 Modello degli oggetti
 ### 3.4.3 Modello dinamico
 ### 3.4.4 Interfaccia utente - navigazione e mock-up
