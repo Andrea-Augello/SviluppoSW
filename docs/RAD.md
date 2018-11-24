@@ -65,7 +65,7 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ ``` ```  
-__Postcondizioni:__  ` `
+__Postcondizioni:__  ` `  
 [_Vista dettagliata_](#crea-prenotazione)
 
 ---
@@ -92,7 +92,8 @@ __Flusso degli eventi:__
 	   prenotazione una notifica, altrimenti mostra il messaggio
 	   "Modifiche annullate"
 ```  
-__Postcondizioni:__  `Il sistema mostra nuovamente la schermata principale`
+__Postcondizioni:__  `Il sistema mostra nuovamente la schermata principale`  
+[_Vista dettagliata_]()
 
 ---
 ##### VisualizzaFSE
@@ -104,7 +105,8 @@ __Flusso degli eventi:__
 	2.
 3.
 ```  
-__Postcondizioni:__  ` `
+__Postcondizioni:__  ` `  
+[_Vista dettagliata_]()
 
 ---
 ##### InserisciDettagliVisita
@@ -120,14 +122,16 @@ __Flusso degli eventi:__
 	5. Il sistema comunica al DBMS le informazioni sulla visita
 	   aggiornate.
 ```  
-__Postcondizioni:__  `Il sistema mostra un messaggio di conferma delle modifiche `
+__Postcondizioni:__  `Il sistema mostra un messaggio di conferma delle modifiche `  
+[_Vista dettagliata_]()
 
 ---
 ##### NotificaPrenotazione
 __Attori:__  _Tempo_, DBMS  
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ ``` ```  
-__Postcondizioni:__  ` `
+__Postcondizioni:__  ` `  
+[_Vista dettagliata_]()
 
 ---
 
