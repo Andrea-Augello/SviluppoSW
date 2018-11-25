@@ -50,6 +50,7 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 
 ## 1.5 Riferimenti
 - [Sanità digitale - Agenzia per l'Italia digitale](https://www.agid.gov.it/it/piattaforme/sanita-digitale)
+- [Tarifari nazionale delle prestazioni del SSN](http://www.salute.gov.it/portale/temi/p2_6.jsp?id=3662&area=programmazioneSanitariaLea&menu=vuoto)
 
 # 2. Sistema corrente
 
@@ -60,7 +61,7 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
 #### Casi d'uso di alto livello.
-![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png) 
+![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
 
 ---
 ##### CreaPrenotazione
