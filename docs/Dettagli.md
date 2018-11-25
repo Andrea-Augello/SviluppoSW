@@ -1,5 +1,6 @@
 __Q:__ Gli utenti devono registrarsi?  
 __A:__ Si. L'autenticazione potrebbe accettare come input codice fiscale e password.  
+_Non è però richiesta necessariamente_
 >
 
 
@@ -36,11 +37,11 @@ __A:__ Sarebbe preferibile tenere degli slot liberi in caso di eventuali ricette
 >
 
 __Q:__ Bisogna supportare solo la ricetta elettronica (codice IMPEGNATIVA) o anche quella rossa (codice IMPEGNATIVA + codice SOLE)?  
-__A:__
+__A:__ Ormai vengono emesse solo ricette elettroniche
 >
 
 __Q:__ Vanno effettuati controlli sulla validità dei numeri di ricetta o basta assicurarsi della loro unicità?  
-__A:__
+__A:__ Si può ipotizzare l'esistenza di un database con le ricette, ma è discrezionale
 >
 
 __Q:__ Va supportato solo il SSN o anche le intramoenia?  
