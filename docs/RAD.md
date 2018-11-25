@@ -65,7 +65,7 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 ---
 ##### CreaPrenotazione
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ ` `  
+__Precondizioni:__ `L'utente si trova nella schermata principale `  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale seleziona
@@ -107,7 +107,7 @@ __Flusso alternativo__:
 	15. Il sistema manda una notifica di avvenuta prenotazione
 	    all'utente.
 ```
-__Postcondizioni:__  ` `  
+__Postcondizioni:__  `L'utente è nuovamente nella schermata principale`  
 [_Vista dettagliata_](#crea-prenotazione)
 
 ---
