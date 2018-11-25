@@ -77,25 +77,25 @@ __Flusso degli eventi:__
    OPPURE
 	 PersonaleMedico seleziona il paziente dalla lista delle visite
 	 del giorno.
-	4. Il sistema chiede al DBMS i dati relativi al quel CF.
-	   Se non ne trova chiede di registrarsi;
-	5. Il sistema chiede all'utente di compilare un from
+	4. Il sistema chiede al DBMS i dati relativi al quel paziente.
+5. Il DBMS comunica al sistema i dati
+	6. Il sistema chiede all'utente di compilare un from
 	   con i dati della ricetta.
-6. L'utente inserisce il numero di ricetta, il codice di urgenza e
+7. L'utente inserisce il numero di ricetta, il codice di urgenza e
    la prestazione richiesta.
-	7. Il sistema chiede se si voglia prenotare in convenzione col
+	8. Il sistema chiede se si voglia prenotare in convenzione col
  	   SSN o in regime ALPI
-8. L'utente mette una spunta su "Servizio sanitario nazionale" o su
+9. L'utente mette una spunta su "Servizio sanitario nazionale" o su
    "Attività di libera professione intramoenia"
-	9. Se l'utente seleziona SSN il sistema mostra il costo del ticket.
- 	10. Il sistema chiede al DBMS, tenendo conto del codice di
+	10. Se l'utente seleziona SSN il sistema mostra il costo del ticket.
+ 	11. Il sistema chiede al DBMS, tenendo conto del codice di
  	    urgenza, quali giorni e orari non sono disponibili.
-11. Il DBMS comunica al sistema l'elenco delle prenotazioni.
-	12. Il sistema mostra all'utente giorni e orari in cui è
+12. Il DBMS comunica al sistema l'elenco delle prenotazioni.
+	13. Il sistema mostra all'utente giorni e orari in cui è
 	    possibile effettuare la prenotazione.
-13. L'utente seleziona e conferma giorno e ora.
-	14. Il sistema comunica la nuova prenotazione al DBMS.
-	15. Il sistema manda una notifica di avvenuta prenotazione
+14. L'utente seleziona e conferma giorno e ora.
+	15. Il sistema comunica la nuova prenotazione al DBMS.
+	16. Il sistema manda una notifica di avvenuta prenotazione
 	    all'utente.
 ```  
 __Flusso alternativo__:
