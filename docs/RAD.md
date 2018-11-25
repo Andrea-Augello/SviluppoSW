@@ -84,13 +84,14 @@ __Flusso degli eventi:__
 8. L'utente mette una spunta su "Servizio sanitario nazionale" o su
    "Attività di libera professione intramoenia"
 	9. Se l'utente seleziona SSN il sistema mostra il costo del ticket.
- 	10. Il sistema chiede al DBMS i giorni e gli orari in cui è
- 	    possibile prenotare, tenendo conto del codice di urgenza
-	11. Il sistema mostra all'utente giorni e orari in cui è
+ 	10. Il sistema chiede al DBMS, tenendo conto del codice di
+ 	    urgenza, quali giorni e orari non sono disponibili.
+11. Il DBMS comunica al sistema l'elenco delle prenotazioni.
+	12. Il sistema mostra all'utente giorni e orari in cui è
 	    possibile effettuare la prenotazione.
-12. L'utente seleziona e conferma giorno e ora.
-	13. Il sistema comunica la nuova prenotazione al DBMS
-	14. Il sistema manda una notifica di avvenuta prenotazione
+13. L'utente seleziona e conferma giorno e ora.
+	14. Il sistema comunica la nuova prenotazione al DBMS.
+	15. Il sistema manda una notifica di avvenuta prenotazione
 	    all'utente.
 ```  
 __Flusso alternativo__:
@@ -100,11 +101,14 @@ __Flusso alternativo__:
 		 onorario.
 10. L'utente seleziona il medico da cui vuole farsi visitare
  	11. Il sistema chiede al DBMS i giorni e gli orari in cui il
-	    medico non ha altre prenotazioni.
-	12. Il sistema chiede all'utente di scegliere giorno e ora.
-13. L'utente seleziona e conferma giorno e ora.
-	14. Il sistema comunica la nuova prenotazione al DBMS
-	15. Il sistema manda una notifica di avvenuta prenotazione
+	    medico non può effettuare visite.
+12. Il DBMS comunica al sistema l'elenco delle prenotazioni relative
+    al medico scelto dall'utente.
+	13. Il sistema chiede all'utente di scegliere giorno e ora tra
+	    quelli in cui il medico è disponibile.
+14. L'utente seleziona e conferma giorno e ora.
+	15. Il sistema comunica la nuova prenotazione al DBMS.
+	16. Il sistema manda una notifica di avvenuta prenotazione
 	    all'utente.
 ```
 __Postcondizioni:__  `L'utente è nuovamente nella schermata principale`  
