@@ -75,8 +75,8 @@ __Flusso degli eventi:__
 3. PersonaleAmministrativo o Paziente inserisce in un box di testo
    il CF del paziente per ui si sta prenotando la visita
    OPPURE
-	 PersonaleMedico seleziona il paziente dalla lista delle visite
-	 del giorno.
+   PersonaleMedico seleziona il paziente dalla lista delle visite
+   del giorno.
 	4. Il sistema chiede al DBMS i dati relativi al quel paziente.
 5. Il DBMS comunica al sistema i dati
 	6. Il sistema chiede all'utente di compilare un from
@@ -102,7 +102,7 @@ __Flusso alternativo__:
 ```
 	9. Se l'utente seleziona ALPI il sistema mostra l'elenco dei
 	   professionisti che eseguono quel tipo di visite e il loro
-		 onorario.
+	   onorario.
 10. L'utente seleziona il medico da cui vuole farsi visitare
  	11. Il sistema chiede al DBMS i giorni e gli orari in cui il
 	    medico non può effettuare visite.
