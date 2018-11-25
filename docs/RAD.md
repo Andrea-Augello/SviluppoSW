@@ -70,9 +70,13 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale seleziona
    l'opzione "Crea Prenotazione"
-	2. Il sistema chiede il codice fiscale del paziente per
-	   cui si sta prenotando la visita
-3. L'utente inserisce in un box di testo il CF e conferma
+	2. Il sistema chiede di identificare il paziente per cui si
+	   sta prenotando la visita.
+3. PersonaleAmministrativo o Paziente inserisce in un box di testo
+   il CF del paziente per ui si sta prenotando la visita
+   OPPURE
+	 PersonaleMedico seleziona il paziente dalla lista delle visite
+	 del giorno.
 	4. Il sistema chiede al DBMS i dati relativi al quel CF.
 	   Se non ne trova chiede di registrarsi;
 	5. Il sistema chiede all'utente di compilare un from
