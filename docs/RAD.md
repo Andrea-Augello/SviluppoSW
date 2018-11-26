@@ -66,9 +66,57 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 ---
 ##### CreaPrenotazione
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ ` `  
-__Flusso degli eventi:__ ``` ```  
-__Postcondizioni:__  ` `  
+__Precondizioni:__ `L'utente si trova nella schermata principale `  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'attore principale seleziona
+   l'opzione "Crea Prenotazione"
+	2. Il sistema chiede di identificare il paziente per cui si
+	   sta prenotando la visita.
+3. PersonaleAmministrativo o Paziente inserisce in un box di testo
+   il CF del paziente per ui si sta prenotando la visita
+   OPPURE
+   PersonaleMedico seleziona il paziente dalla lista delle visite
+   del giorno.
+	4. Il sistema chiede al DBMS i dati relativi al quel paziente.
+5. Il DBMS comunica al sistema i dati
+	6. Il sistema chiede all'utente di compilare un from
+	   con i dati della ricetta.
+7. L'utente inserisce il numero di ricetta, il codice di urgenza e
+   la prestazione richiesta.
+	8. Il sistema chiede se si voglia prenotare in convenzione col
+ 	   SSN o in regime ALPI
+9. L'utente mette una spunta su "Servizio sanitario nazionale" o su
+   "Attività di libera professione intramoenia"
+	10. Se l'utente seleziona SSN il sistema mostra il costo del ticket.
+ 	11. Il sistema chiede al DBMS, tenendo conto del codice di
+ 	    urgenza, quali giorni e orari non sono disponibili.
+12. Il DBMS comunica al sistema l'elenco delle prenotazioni.
+	13. Il sistema mostra all'utente giorni e orari in cui è
+	    possibile effettuare la prenotazione.
+14. L'utente seleziona e conferma giorno e ora.
+	15. Il sistema comunica la nuova prenotazione al DBMS.
+	16. Il sistema manda una notifica di avvenuta prenotazione
+	    all'utente.
+```  
+__Flusso alternativo__:
+```
+	9. Se l'utente seleziona ALPI il sistema mostra l'elenco dei
+	   professionisti che eseguono quel tipo di visite e il loro
+	   onorario.
+10. L'utente seleziona il medico da cui vuole farsi visitare
+ 	11. Il sistema chiede al DBMS i giorni e gli orari in cui il
+	    medico non può effettuare visite.
+12. Il DBMS comunica al sistema l'elenco delle prenotazioni relative
+    al medico scelto dall'utente.
+	13. Il sistema chiede all'utente di scegliere giorno e ora tra
+	    quelli in cui il medico è disponibile.
+14. L'utente seleziona e conferma giorno e ora.
+	15. Il sistema comunica la nuova prenotazione al DBMS.
+	16. Il sistema manda una notifica di avvenuta prenotazione
+	    all'utente.
+```
+__Postcondizioni:__  `L'utente è nuovamente nella schermata principale`  
 [_Vista dettagliata_](#crea-prenotazione)
 
 ---
