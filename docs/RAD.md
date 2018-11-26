@@ -74,13 +74,13 @@ __Flusso degli eventi:__
 	2. Il sistema chiede di identificare il paziente per cui si
 	   sta prenotando la visita.
 3. PersonaleAmministrativo o Paziente inserisce in un box di testo
-   il CF del paziente per ui si sta prenotando la visita
+   il CF del paziente per cui si sta prenotando la visita
    OPPURE
    PersonaleMedico seleziona il paziente dalla lista delle visite
    del giorno.
-	4. Il sistema chiede al DBMS i dati relativi al quel paziente.
-5. Il DBMS comunica al sistema i dati
-	6. Il sistema chiede all'utente di compilare un from
+	4. Il sistema chiede al DBMS i dati relativi a quel paziente.
+5. Il DBMS comunica al sistema i dati.
+	6. Il sistema chiede all'utente di compilare un form
 	   con i dati della ricetta.
 7. L'utente inserisce il numero di ricetta, il codice di urgenza e
    la prestazione richiesta.
@@ -88,7 +88,8 @@ __Flusso degli eventi:__
  	   SSN o in regime ALPI
 9. L'utente mette una spunta su "Servizio sanitario nazionale" o su
    "Attività di libera professione intramoenia"
-	10. Se l'utente seleziona SSN il sistema mostra il costo del ticket.
+	10. Se l'utente seleziona SSN il sistema mostra il costo del
+	    ticket.
  	11. Il sistema chiede al DBMS, tenendo conto del codice di
  	    urgenza, quali giorni e orari non sono disponibili.
 12. Il DBMS comunica al sistema l'elenco delle prenotazioni.
