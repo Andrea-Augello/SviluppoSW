@@ -210,14 +210,19 @@ __Postcondizioni:__  ` `
 ![Use case "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/CreaPrenotazione.png)
 
 #### Modifica Prenotazione
+![Use case "ModificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/ModificaPrenotazione.png)
 
 #### Visualizza FSE
+![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)
 
 #### Effettua Autenticazione
+![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/EffettuaAutenticazione.png)
 
 #### Inserisci Dettagli Visita
+![Use case "InserisciDettagliVisita"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/InserisciDettagliVisita.png)
 
 #### Notifica Prenotazione
+![Use case "NotificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/NotificaPrenotazione.png)
 
 ### 3.4.2 Modello degli oggetti
 ### 3.4.3 Modello dinamico
