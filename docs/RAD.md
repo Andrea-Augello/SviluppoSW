@@ -19,6 +19,7 @@
 				- [CreaPrenotazione](#creaprenotazione)
 				- [ModificaPrenotazione](#modificaprenotazione)
 				- [VisualizzaFSE](#visualizzafse)
+				- [EffettuaAutenticazione](#effettuaautenticazione)
 				- [InserisciDettagliVisita](#inseriscidettaglivisita)
 				- [NotificaPrenotazione](#notificaprenotazione)
 			- [Crea Prenotazione](#crea-prenotazione)
@@ -154,6 +155,19 @@ __Precondizioni:__ ` `
 __Flusso degli eventi:__
 ```
 1.
+	2.
+3.
+```  
+__Postcondizioni:__  ` `  
+[_Vista dettagliata_]()
+
+---
+##### EffettuaAutenticazione
+__Attori:__  _AttorePrincipale_, DBMS  
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__
+```
+1.  
 	2.
 3.
 ```  
