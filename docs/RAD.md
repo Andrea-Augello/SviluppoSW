@@ -136,7 +136,7 @@ __Flusso degli eventi:__
    seleziona l'opzione "Modifica Prenotazione" dalla schermata
 	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
 	   relative al paziente con data successiva a quella corrente
-		 + 24 ore.
+	   +24 ore.
 3. Il DBSM comunica al sistema le prenotazioni.
 	4. Il sistema mostra all'utente la lista di prenotazioni
 	   ottenuta.
