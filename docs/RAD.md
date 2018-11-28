@@ -171,15 +171,15 @@ __Postcondizioni:__  ` `
 
 ---
 ##### EffettuaAutenticazione
-__Attori:__  _AttorePrincipale_, DBMS  
-__Precondizioni:__ ` `  
+__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
 __Flusso degli eventi:__
 ```
-1.  
+1. Il caso d'uso inizia quando l'utente  
 	2.
 3.
 ```  
-__Postcondizioni:__  ` `  
+__Postcondizioni:__  `L'utente può `  
 [_Vista dettagliata_](#effettua-autenticazione)
 
 ---
