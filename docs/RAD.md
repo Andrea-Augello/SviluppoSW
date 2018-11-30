@@ -38,7 +38,12 @@
 ---
 # 1. Introduzione
 ## 1.1 Obiettivo del Sistema
+Il sistema si propone di gestire l'intera offerta delle prenotazioni sanitarie con efficienza,strutturando razionalmente le procedure di accesso alle informazioni e supportando modalità di comunicazioni con gli utenti.
+
 ## 1.2 Scopo del sistema
+Lo scopo del sistema è di fornire ai cittadini un servizio che migliori drasticamente l'esperienza di interfacciarsi con il sistema sanitario attraverso una reale informatizzazione ed automatizzazione dei processi. Questi ultimi, trazionalmente eseguiti da operatori, 
+al fine di essere migliorati necessitano di una profonda digitalizzazione. La conseguenza della maggiore efficienza si traduce in significative riduzioni dei costi e nel miglioramento dell'esperienza del cittadino in senso lato.
+
 ## 1.4 Definizioni, acronimi, e abbreviazioni
 
 Definizione/Acronimo  | 	Descrizione  
