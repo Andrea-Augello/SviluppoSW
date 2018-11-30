@@ -53,3 +53,5 @@ _Parte opzionale: gestione dei pagamenti e delle ricevute._
 
 ## Documenti  
 *  #### [RAD](https://andrea-augello.github.io/SviluppoSW/RAD)
+*  #### [SDD](https://andrea-augello.github.io/SviluppoSW/SDD)
+*  #### [ODD](https://andrea-augello.github.io/SviluppoSW/ODD)
