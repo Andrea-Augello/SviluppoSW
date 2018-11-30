@@ -1,0 +1,3 @@
+cwd:  "{PROJECT_PATH}"
+cmd: "javac -cp .src/libs/ -d /classes ./src/*.java"
+sh: true,
