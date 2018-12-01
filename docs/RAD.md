@@ -180,11 +180,16 @@ __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS
 __Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando l'utente  
-	2.
-3.
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Effettua Autenticazione".
+	2.Il sistema chiede di inserire i dati di autenticazione correttamente.
+3. Il paziente inserisce CF e password
+   OPPURE
+   Il personale medico o il personale amministrativo inseriscono il loro codice identificativo e password.
+	4.il sistema chiede al DBMS se l'utente che tenta di autenticarsi è già registrato.
+5.Il DBMS comunica al sistema se i dati sono stati inseriti correttamente.
+	6.Il sistema comunica all'utente che l'operazione è stata effettuata con successo.
 ```  
-__Postcondizioni:__  `L'utente può `  
+__Postcondizioni:__  `L'utente si trova nella schermata iniziale.`  
 [_Vista dettagliata_](#effettua-autenticazione)
 
 ---
