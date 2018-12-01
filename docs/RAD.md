@@ -208,7 +208,10 @@ __Postcondizioni:__  `Il sistema mostra un messaggio di conferma delle modifiche
 ##### NotificaPrenotazione
 __Attori:__  _Tempo_, DBMS  
 __Precondizioni:__ ` `  
-__Flusso degli eventi:__ ``` ```  
+__Flusso degli eventi:__ 
+```
+???
+```  
 __Postcondizioni:__  ` `  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
 
