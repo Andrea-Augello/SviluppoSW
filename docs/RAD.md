@@ -41,7 +41,7 @@
 Il sistema si propone di gestire l'intera offerta delle prenotazioni sanitarie con efficienza,strutturando razionalmente le procedure di accesso alle informazioni e supportando modalità di comunicazioni con gli utenti.
 
 ## 1.2 Scopo del sistema
-Lo scopo del sistema è di fornire ai cittadini un servizio che migliori drasticamente l'esperienza di interfacciarsi con il sistema sanitario attraverso una reale informatizzazione ed automatizzazione dei processi. Questi ultimi, trazionalmente eseguiti da operatori, 
+Lo scopo del sistema è di fornire ai cittadini un servizio che migliori drasticamente l'esperienza di interfacciarsi con il sistema sanitario attraverso una reale informatizzazione ed automatizzazione dei processi. Questi ultimi, trazionalmente eseguiti da operatori,
 al fine di essere migliorati necessitano di una profonda digitalizzazione. La conseguenza della maggiore efficienza si traduce in significative riduzioni dei costi e nel miglioramento dell'esperienza del cittadino in senso lato.
 
 ## 1.4 Definizioni, acronimi, e abbreviazioni
@@ -180,16 +180,32 @@ __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS
 __Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Effettua Autenticazione".
-	2.Il sistema chiede di inserire i dati di autenticazione correttamente.
-3. Il paziente inserisce CF e password
+1. Il caso d'uso inizia quando un utente non autenticato cerca di
+   eseguire una operazione.
+	2. Il sistema chiede di inserire un codice univoco di indentificazione
+3. Il Paziente o PersonaleAmministrativo inserisce il CF
    OPPURE
-   Il personale medico o il personale amministrativo inseriscono il loro codice identificativo e password.
-	4.il sistema chiede al DBMS se l'utente che tenta di autenticarsi è già registrato.
-5.Il DBMS comunica al sistema se i dati sono stati inseriti correttamente.
-	6.Il sistema comunica all'utente che l'operazione è stata effettuata con successo.
+   PersonaleMedico inserisce il suo codice identificativo.
+	4. Il sistema chiede al DBMS informazioni sull'utente individuato
+	   in modo univoco dai dati inseriti.
+5. Il DBMS comunica al sistema se l'utente è presente nel database ed
+   eventuali informazioni connesse.
+	6. Se l'utente è presente nel database il sistema richiede
+	   l'inserimento di password.
+		 ALTRIMENTI
+		 Se l'utente è Paziente o PersonaleAmministrativo il Sistema
+		 richede le ulteriori informazioni necessarie ad inserire nel
+		 database il Paziente.
+7. L'utente inserisce in un form i dati richiesti dal sistema.
+	8. Il sistema controlla che la password inserita corrisponda a
+	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
-__Postcondizioni:__  `L'utente si trova nella schermata iniziale.`  
+__Flusso alternativo:__
+```
+  8. Il sistema comunica al DBMS i dati dell'utente.
+9. Il DBMS registra il nuovo utente
+```
+__Postcondizioni:__  `L'utente prosegue l'operazione iniziata precedetemente `  
 [_Vista dettagliata_](#effettua-autenticazione)
 
 ---
