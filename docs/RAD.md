@@ -195,7 +195,7 @@ __Flusso degli eventi:__
 	   l'inserimento di password.
 		 ALTRIMENTI
 		 Se l'utente è Paziente o PersonaleAmministrativo il Sistema
-		 richede le ulteriori informazioni necessarie ad inserire nel
+		 richiede le ulteriori informazioni necessarie ad inserire nel
 		 database il Paziente.
 7. L'utente inserisce in un form i dati richiesti dal sistema.
 	8. Il sistema controlla che la password inserita corrisponda a
