@@ -197,6 +197,7 @@ __Flusso degli eventi:__
    della giornata.
 	2. Il sistema mostra i dettagli già presenti.
 3. PersonaleMedico insersce ulteriori dati.
+	4. Il sistema mostra a PersonaleMedico 
 4. PersonaleMedico conferma le modifiche effettuate.
 	5. Il sistema comunica al DBMS le informazioni sulla visita
 	   aggiornate.
