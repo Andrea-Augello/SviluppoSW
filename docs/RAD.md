@@ -169,10 +169,12 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale  seleziona l'opzione
    "Visualizza FSE" relativamente ad un paziente.
-	2. IL sistema chiede al DBMS il fascicolo relativo a quel paziente.
+	2. IL sistema chiede al DBMS i dati su tutte le visite precedentemente
+	   effettuate dal paziente.
 3. Il DBMS comunica al sistema i dati.
-	4. Il sistema restituisce il fascicolo del paziente richiesto.
-
+	4. Il sistema restituisce un documento con le informazioni del
+	   paziente e l'elenco in ordine cronologico delle visite
+	   effettuate con i relativi dettagli rilevanti.
 ```  
 __Postcondizioni:__  `L'utente è nuovamente nella schermata iniziale.`  
 [_Vista dettagliata_](#visualizza-fse))
