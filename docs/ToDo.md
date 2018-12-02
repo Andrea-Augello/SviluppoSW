@@ -1,10 +1,10 @@
 # To do list:  
   
 - [x] Formare il gruppo  
-- [ ] Scoprire cosa si deve fare.  
+- [x] Scoprire cosa si deve fare.  
   - [x] Ottenere il [testo](https://andrea-augello.github.io/SviluppoSW/) del tema di progetto.
   - [x] Ottenere ulteriori [dettagli](https://andrea-augello.github.io/SviluppoSW/Dettagli).
-- [ ] Compilare la parte discorsiva del RAD.
+- [x] Compilare la parte discorsiva del RAD.
 - [ ] Ampliare e completare l'elenco delle definizioni.
 - [ ] Casi d'uso.  
   - [x] Identificare tutti gli attori.
