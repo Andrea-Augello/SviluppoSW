@@ -41,8 +41,10 @@
 Il sistema si propone di gestire l'intera offerta delle prenotazioni sanitarie con efficienza,strutturando razionalmente le procedure di accesso alle informazioni e supportando modalità di comunicazioni con gli utenti.
 
 ## 1.2 Scopo del sistema
-Lo scopo del sistema è di fornire ai cittadini un servizio che migliori drasticamente l'esperienza di interfacciarsi con il sistema sanitario attraverso una reale informatizzazione ed automatizzazione dei processi. Questi ultimi, trazionalmente eseguiti da operatori, al fine di essere migliorati necessitano di una profonda digitalizzazione.  
-La conseguenza della maggiore efficienza si traduce in significative riduzioni dei costi e nel miglioramento dell'esperienza del cittadino in senso lato.
+
+Lo scopo del sistema è di fornire ai cittadini un servizio che migliori drasticamente l'esperienza di interfacciarsi con il sistema sanitario attraverso una reale informatizzazione ed automatizzazione dei processi. Questi ultimi, trazionalmente eseguiti da operatori,
+al fine di essere migliorati necessitano di una profonda digitalizzazione. La conseguenza della maggiore efficienza si traduce in significative riduzioni dei costi e nel miglioramento dell'esperienza del cittadino in senso lato.
+
 
 ## 1.4 Definizioni, acronimi, e abbreviazioni
 
@@ -158,14 +160,19 @@ __Postcondizioni:__  `Il sistema mostra nuovamente la schermata principale`
 ---
 ##### VisualizzaFSE
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ ` `  
+__Precondizioni:__ `Il sistema è nella schermata iniziale`  
 __Flusso degli eventi:__
 ```
-1.
-	2.
-3.
+1. Il caso d'uso inizia quando l'attore principale  seleziona l'opzione
+   "Visualizza FSE" relativamente ad un paziente.
+	2. IL sistema chiede al DBMS i dati relativi a tutte le visite precedentemente
+	   effettuate dal paziente.
+3. Il DBMS comunica al sistema i dati.
+	4. Il sistema restituisce un documento con le informazioni del
+	   paziente e l'elenco in ordine cronologico delle visite
+	   effettuate completo dei relativi dettagli rilevanti.
 ```  
-__Postcondizioni:__  ` `  
+__Postcondizioni:__  `L'utente è nuovamente nella schermata iniziale.`  
 [_Vista dettagliata_](#visualizza-fse))
 
 ---
