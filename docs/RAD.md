@@ -198,12 +198,15 @@ __Flusso degli eventi:__
 	2. Il sistema mostra i dettagli già presenti su quella visita.
 3. PersonaleMedico insersce ulteriori dati e modifica quelli presenti.
    Eventualmente conferma i cambiamenti.
-	 4. 
-4. PersonaleMedico conferma le modifiche effettuate.
-	5. Il sistema comunica al DBMS le informazioni sulla visita
-	   aggiornate.
+	 4. Il sistema mostra a PersonaleMedico una schermata riassuntiva
+	    delle modifiche effettuate.
+5. PersonaleMedico conferma o annulla le modifiche effettuate.
+	6. Se PersonaleMedico ha confermato il sistema comunica al
+	   DBMS le informazioni aggiornate sulla visita.
+7. Il DBMS aggiorna i dati riguardanti la visita immagazzinati.
+ 	8. Il sistema mostra un messaggio popup sull'esito dell'operazione.
 ```  
-__Postcondizioni:__  `Il sistema mostra un messaggio di conferma delle modifiche `  
+__Postcondizioni:__  `Il sistema torna alla schermata principale`  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
 
 ---
