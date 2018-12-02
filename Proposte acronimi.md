@@ -2,7 +2,7 @@ SOSIA: **S**istema **OS**pedaliero **I**nformatico **A**utomatico
 SPINA: **S**istema **P**renotazione **IN**formatico **A**utomatico  
 PINA: **P**renotazione **I**nformatica **A**utomatica  
 SPRINT: **S**istema **PR**enotazione **INT**elligente  
-SPINTA: **S**istema **P**renotazione **INT**elligente **A**utomatico  
+SPINTA: **S**istema **P**renotazione **INT**elligente **A**utomatica  
 SOIL: **S**istema **O**spedaliero **I**nte**L**ligente  
 SPIC: **S**istema **P**renotazione **I**nformati**C**o  
 PERA: **P**renotazione **E**lett**R**onica **A**utomatizzata  
