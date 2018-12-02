@@ -217,13 +217,18 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
    della giornata.
-	2. Il sistema mostra i dettagli già presenti.
-3. PersonaleMedico insersce ulteriori dati.
-4. PersonaleMedico conferma le modifiche effettuate.
-	5. Il sistema comunica al DBMS le informazioni sulla visita
-	   aggiornate.
+	2. Il sistema mostra i dettagli già presenti sulla visita selezionata.
+3. PersonaleMedico insersce ulteriori dati o modifica quelli presenti.
+   Eventualmente conferma i cambiamenti.
+	 4. Il sistema mostra a PersonaleMedico una schermata riassuntiva
+	    delle modifiche effettuate.
+5. PersonaleMedico conferma o annulla le modifiche effettuate.
+	6. Se PersonaleMedico ha confermato il sistema comunica al
+	   DBMS le informazioni aggiornate sulla visita.
+7. Il DBMS aggiorna i dati riguardanti la visita immagazzinati.
+ 	8. Il sistema mostra un messaggio relativo all'esito dell'operazione.
 ```  
-__Postcondizioni:__  `Il sistema mostra un messaggio di conferma delle modifiche `  
+__Postcondizioni:__  `Il sistema torna alla schermata principale`  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
 
 ---
