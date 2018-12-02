@@ -168,13 +168,14 @@ __Precondizioni:__ `Il sistema è nella schermata iniziale`
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale  seleziona l'opzione "Visualizza FSE".
-	2. Il sistema chiede di identificare l'attore principale che intende visualizzare il fascicolo.
-3. Il personale Medico seleziona il paziente dalla lista dei pazienti in cura nel reparto
+2.Il sistema propone due opzioni: lista pazienti oppure singolo paziente
+	3.Il personale Medico seleziona l'opzione lista pazienti
+	4. Il personale Medico seleziona il paziente dalla lista dei pazienti in cura nel reparto
   OPPURE
-  Il Personale Amministrativo inserisce in un box il CF del paziente.
-	4. IL sistema chiede al DBMS il fascicolo relativo a quel paziente.
-5. Il DBMS comunica al sistema i dati.
-	6. Il sistema restituisce il fascicolo del paziente richiesto.
+  Il Personale Amministrativo inserisce il CF del paziente.
+	5. IL sistema chiede al DBMS il fascicolo relativo a quel paziente.
+6. Il DBMS comunica al sistema i dati.
+	7. Il sistema restituisce il fascicolo del paziente richiesto.
 
 ```  
 __Postcondizioni:__  `L'utente è nuovamente nella schermata iniziale.`  
