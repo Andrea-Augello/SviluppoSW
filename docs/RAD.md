@@ -138,16 +138,16 @@ __Precondizioni:__ `Il sistema è nella schermata iniziale`
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando Paziente o PersonaleAmministrativo
-   seleziona l'opzione "Modifica Prenotazione" dalla schermata
+   seleziona l'opzione "Modifica Prenotazione" dalla schermata principale
 	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
 	   relative al paziente con data successiva a quella corrente
-	   +24 ore.
-3. Il DBSM comunica al sistema le prenotazioni.
+	   +24 ore e le informazioni relative.
+3. Il DBSM comunica al sistema le prenotazioni richieste.
 	4. Il sistema mostra all'utente la lista di prenotazioni
 	   ottenuta.
 5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
    che desidera modificare.
-	6. Il sistema mostra i dati relativi alla Prenotazione.
+	6. Il sistema mostra i dati relativi alla prenotazione scelta.
 7. L'attore principale modifica la data e l'ora scegliendo tra
    quelle proposte OPPURE elimina la Prenotazione e conferma.
 	8. Il sistema chiede un ulteriore conferma specificando le
