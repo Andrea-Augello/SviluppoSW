@@ -147,7 +147,7 @@ __Flusso degli eventi:__
 	   ottenuta.
 5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
    che desidera modificare.
-	6. Il sistema mostra i dati relativi alla prenotazione selezionata.
+	6. Il sistema mostra i dati relativi alla Prenotazione selezionata.
 7. L'attore principale modifica la data e l'ora scegliendo tra
    le opzioni proposte OPPURE elimina la Prenotazione e conferma.
 	8. Il sistema richiede un ulteriore conferma specificando le
