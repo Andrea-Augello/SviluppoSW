@@ -165,8 +165,8 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale  seleziona l'opzione
    "Visualizza FSE" relativamente ad un paziente.
-	2. IL sistema chiede al DBMS i dati relativi a tutte le visite precedentemente
-	   effettuate dal paziente.
+	2. IL sistema chiede al DBMS i dati relativi a tutte le visite
+	   precedentemente effettuate dal paziente.
 3. Il DBMS comunica al sistema i dati.
 	4. Il sistema restituisce un documento con le informazioni del
 	   paziente e l'elenco in ordine cronologico delle visite
