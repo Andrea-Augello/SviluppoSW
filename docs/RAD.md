@@ -196,7 +196,7 @@ __Flusso degli eventi:__
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
    della giornata.
 	2. Il sistema mostra i dettagli già presenti sulla visita selezionata.
-3. PersonaleMedico insersce ulteriori dati e modifica quelli presenti.
+3. PersonaleMedico insersce ulteriori dati o modifica quelli presenti.
    Eventualmente conferma i cambiamenti.
 	 4. Il sistema mostra a PersonaleMedico una schermata riassuntiva
 	    delle modifiche effettuate.
