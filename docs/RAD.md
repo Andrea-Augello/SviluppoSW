@@ -84,8 +84,8 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale seleziona
    l'opzione "Crea Prenotazione"
-	2. Il sistema chiede al DBMS i dati relativi al paziente per il quale
-	   si sta prenotando.
+	2. Il sistema chiede al DBMS i dati relativi al paziente per il
+	   quale si sta prenotando.
 3. Il DBMS comunica al sistema i dati.
 	4. Il sistema chiede all'utente di compilare un form
 	   con i dati della ricetta.
