@@ -204,7 +204,7 @@ __Flusso degli eventi:__
 	6. Se PersonaleMedico ha confermato il sistema comunica al
 	   DBMS le informazioni aggiornate sulla visita.
 7. Il DBMS aggiorna i dati riguardanti la visita immagazzinati.
- 	8. Il sistema mostra un messaggio sull'esito dell'operazione.
+ 	8. Il sistema mostra un messaggio relativo all'esito dell'operazione.
 ```  
 __Postcondizioni:__  `Il sistema torna alla schermata principale`  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
