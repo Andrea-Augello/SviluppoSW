@@ -30,7 +30,7 @@
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 		- [3.4.3 Modello dinamico](#343-modello-dinamico)
-		- [3.4.4 Interfaccia utente - navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
+		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
 	- [4. Glossario](#4-glossario)
 
 <!-- /TOC -->
@@ -41,8 +41,10 @@
 Il sistema si propone di gestire l'intera offerta delle prenotazioni sanitarie con efficienza,strutturando razionalmente le procedure di accesso alle informazioni e supportando modalità di comunicazioni con gli utenti.
 
 ## 1.2 Scopo del sistema
+
 Lo scopo del sistema è di fornire ai cittadini un servizio che migliori drasticamente l'esperienza di interfacciarsi con il sistema sanitario attraverso una reale informatizzazione ed automatizzazione dei processi. Questi ultimi, trazionalmente eseguiti da operatori,
 al fine di essere migliorati necessitano di una profonda digitalizzazione. La conseguenza della maggiore efficienza si traduce in significative riduzioni dei costi e nel miglioramento dell'esperienza del cittadino in senso lato.
+
 
 ## 1.4 Definizioni, acronimi, e abbreviazioni
 
@@ -82,50 +84,44 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale seleziona
    l'opzione "Crea Prenotazione"
-	2. Il sistema chiede di identificare il paziente per cui si
-	   sta prenotando la visita.
-3. PersonaleAmministrativo o Paziente inserisce in un box di testo
-   il CF del paziente per cui si sta prenotando la visita
-   OPPURE
-   PersonaleMedico seleziona il paziente dalla lista delle visite
-   del giorno.
-	4. Il sistema chiede al DBMS i dati relativi a quel paziente.
-5. Il DBMS comunica al sistema i dati.
-	6. Il sistema chiede all'utente di compilare un form
+	2. Il sistema chiede al DBMS i dati relativi al paziente per il quale
+	   si sta prenotando.
+3. Il DBMS comunica al sistema i dati.
+	4. Il sistema chiede all'utente di compilare un form
 	   con i dati della ricetta.
-7. L'utente inserisce il numero di ricetta, il codice di urgenza e
+5. L'utente inserisce il numero di ricetta, il codice di urgenza e
    la prestazione richiesta.
-	8. Il sistema chiede se si voglia prenotare in convenzione col
+	6. Il sistema chiede se si voglia prenotare in convenzione col
  	   SSN o in regime ALPI
-9. L'utente mette una spunta su "Servizio sanitario nazionale" o su
+7. L'utente mette una spunta su "Servizio sanitario nazionale" o su
    "Attività di libera professione intramoenia"
-	10. Se l'utente seleziona SSN il sistema mostra il costo del
+	8. Se l'utente seleziona SSN il sistema mostra il costo del
 	    ticket.
- 	11. Il sistema chiede al DBMS, tenendo conto del codice di
+ 	9. Il sistema chiede al DBMS, tenendo conto del codice di
  	    urgenza, quali giorni e orari non sono disponibili.
-12. Il DBMS comunica al sistema l'elenco delle prenotazioni.
-	13. Il sistema mostra all'utente giorni e orari in cui è
+10. Il DBMS comunica al sistema l'elenco delle prenotazioni.
+	11. Il sistema mostra all'utente giorni e orari in cui è
 	    possibile effettuare la prenotazione.
-14. L'utente seleziona e conferma giorno e ora.
-	15. Il sistema comunica la nuova prenotazione al DBMS.
-	16. Il sistema manda una notifica di avvenuta prenotazione
+12. L'utente seleziona e conferma giorno e ora.
+	13. Il sistema comunica la nuova prenotazione al DBMS.
+	14. Il sistema manda una notifica di avvenuta prenotazione
 	    all'utente.
 ```  
 __Flusso alternativo__:
 ```
-	9. Se l'utente seleziona ALPI il sistema mostra l'elenco dei
+	7. Se l'utente seleziona ALPI il sistema mostra l'elenco dei
 	   professionisti che eseguono quel tipo di visite e il loro
 	   onorario.
-10. L'utente seleziona il medico da cui vuole farsi visitare
- 	11. Il sistema chiede al DBMS i giorni e gli orari in cui il
+8. L'utente seleziona il medico da cui vuole farsi visitare
+ 	9. Il sistema chiede al DBMS i giorni e gli orari in cui il
 	    medico non può effettuare visite.
-12. Il DBMS comunica al sistema l'elenco delle prenotazioni relative
+10. Il DBMS comunica al sistema l'elenco delle prenotazioni relative
     al medico scelto dall'utente.
-	13. Il sistema chiede all'utente di scegliere giorno e ora tra
+	11. Il sistema chiede all'utente di scegliere giorno e ora tra
 	    quelli in cui il medico è disponibile.
-14. L'utente seleziona e conferma giorno e ora.
-	15. Il sistema comunica la nuova prenotazione al DBMS.
-	16. Il sistema manda una notifica di avvenuta prenotazione
+12. L'utente seleziona e conferma giorno e ora.
+	13. Il sistema comunica la nuova prenotazione al DBMS.
+	14. Il sistema manda una notifica di avvenuta prenotazione
 	    all'utente.
 ```
 __Postcondizioni:__  `L'utente è nuovamente nella schermata principale`  
@@ -239,5 +235,5 @@ __Postcondizioni:__  ` `
 
 ### 3.4.2 Modello degli oggetti
 ### 3.4.3 Modello dinamico
-### 3.4.4 Interfaccia utente - navigazione e mock-up
+### 3.4.4 Interfaccia utente: navigazione e mock-up
 ## 4. Glossario
