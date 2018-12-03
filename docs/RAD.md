@@ -242,7 +242,7 @@ __Flusso degli eventi:__
 3. Il DBMS restituisce al sistema le informazioni richieste
 	4. Il sistema invia ad ogni paziente una notifica contenente le informazioni relative alle sue prenotazioni
 ```  
-__Postcondizioni:__  `Tutti i pazienti con visite in programma il giorno seguente hanno ricevuto un promemoria`  
+__Postcondizioni:__  `Tutti i pazienti con visite in programma dopo due giorni hanno ricevuto un promemoria`  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
 
 ---
