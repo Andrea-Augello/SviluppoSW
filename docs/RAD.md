@@ -347,6 +347,7 @@ __Flusso degli eventi:__
 ```  
 __Postcondizioni:__  ` `  
 [Diagramma delle sequenze](#)
+
 ---
 
 #### Modifica Prenotazione
