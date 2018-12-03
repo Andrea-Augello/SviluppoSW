@@ -26,8 +26,8 @@
 			- [Modifica Prenotazione](#modifica-prenotazione)
 			- [Visualizza FSE](#visualizza-fse)
 			- [Effettua Autenticazione](#effettua-autenticazione)
-				- [LoginPersonale](#loginpersonale)
-				- [LoginPaziente](#loginpaziente)
+				- [AutenticaPersonale](#autenticapersonale)
+				- [AutenticaPaziente](#autenticapaziente)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
@@ -256,7 +256,7 @@ __Postcondizioni:__  ` `
 ![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/EffettuaAutenticazione.png)
 
 ---
-##### LoginPersonale
+##### AutenticaPersonale
 __Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
 __Flusso degli eventi:__
@@ -282,7 +282,7 @@ __Postcondizioni:__  `L'utente può operare`
 [Diagramma delle sequenze](#)
 
 ---
-##### LoginPaziente
+##### AutenticaPaziente
 __Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
 __Flusso degli eventi:__
