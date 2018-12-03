@@ -286,7 +286,9 @@ __Attori:__ _Paziente, PersonaleAmministrativo, PersonaleMedico_ DBMS
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ 
 ```
-1. Il caso d'uso inizia
+1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
+   prenotare una visita in convenzione con il sistema sanitario nazionale.
+	2. 
 ```  
 __Postcondizioni:__  ` `  
 [Diagramma delle sequenze](#)  
@@ -295,7 +297,10 @@ __Postcondizioni:__  ` `
 __Attori:__ _Paziente, PersonaleAmministrativo,_ DBMS      
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__ 
-``` 
+```
+1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
+   prenotare una visita in regime intramoenia.
+	2.
 ```  
 __Postcondizioni:__  ` `  
 [Diagramma delle sequenze](#)  
