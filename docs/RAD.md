@@ -27,6 +27,7 @@
 			- [Visualizza FSE](#visualizza-fse)
 			- [Effettua Autenticazione](#effettua-autenticazione)
 				- [LoginPersonale](#loginpersonale)
+				- [LoginPaziente](#loginpaziente)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
@@ -257,13 +258,13 @@ __Postcondizioni:__  ` `
 ---
 ##### LoginPersonale
 __Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `L'unente non si è ancora autenticato in questa sessione`  
+__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando un utente non autenticato cerca di
    interagire con il sistema.
 	2. Il sistema chiede all'utente di inserire il suo codice
-	   identificativo
+	   identificativo.
 3. L'utente inserisce il proprio numero di matricola e conferma.
 	4. Il sistema chiede al DBMS informazioni sull'utente individuato
 	   univocamente attraverso il codice.
@@ -273,6 +274,30 @@ __Flusso degli eventi:__
       il codice inserito è errato e chiede di reinserirlo.
 	  ALTRIMENTI
 	  Il sistema chiede all'utente di inserire la password.
+7. L'utente inserisce e conferma la password.
+	8. Il sistema controlla che la password inserita corrisponda a
+	   quella nota, se non lo è chiede nuovamente di autenticarsi.
+```  
+__Postcondizioni:__  `L'utente può operare`  
+[Diagramma delle sequenze](#)
+
+---
+##### LoginPaziente
+__Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando Paziente non autenticato cerca di
+   interagire con il sistema.
+	2. Il sistema chiede a Paziente di inserire il suo codice
+	   fiscale.
+3. Paziente inserisce il proprio CF e conferma.
+	4. Il sistema chiede al DBMS informazioni sul Paziente individuato
+	   univocamente attraverso il codice.
+5. Il DBMS comunica al sistema se il Paziente è presente nel database ed
+   eventuali informazioni connesse.
+	6. Se l'utente è presente nel database il sistema chiede all'utente
+	   di inserire la password.
 7. L'utente inserisce e conferma la password.
 	8. Il sistema controlla che la password inserita corrisponda a
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
