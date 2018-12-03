@@ -30,7 +30,7 @@
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 		- [3.4.3 Modello dinamico](#343-modello-dinamico)
-		- [3.4.4 Interfaccia utente - navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
+		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
 	- [4. Glossario](#4-glossario)
 
 <!-- /TOC -->
@@ -41,8 +41,10 @@
 Il sistema si propone di gestire l'intera offerta delle prenotazioni sanitarie con efficienza,strutturando razionalmente le procedure di accesso alle informazioni e supportando modalità di comunicazioni con gli utenti.
 
 ## 1.2 Scopo del sistema
-Lo scopo del sistema è di fornire ai cittadini un servizio che migliori drasticamente l'esperienza di interfacciarsi con il sistema sanitario attraverso una reale informatizzazione ed automatizzazione dei processi. Questi ultimi, trazionalmente eseguiti da operatori,
-al fine di essere migliorati necessitano di una profonda digitalizzazione. La conseguenza della maggiore efficienza si traduce in significative riduzioni dei costi e nel miglioramento dell'esperienza del cittadino in senso lato.
+
+Lo scopo del sistema è di fornire ai cittadini un servizio che migliori drasticamente l'esperienza di interfacciarsi con il sistema sanitario attraverso una reale informatizzazione ed automatizzazione dei processi. Questi ultimi, trazionalmente eseguiti da operatori, al fine di essere migliorati necessitano di una profonda digitalizzazione.  
+La conseguenza della maggiore efficienza si traduce in significative riduzioni dei costi e nel miglioramento dell'esperienza del cittadino in senso lato.
+
 
 ## 1.4 Definizioni, acronimi, e abbreviazioni
 
@@ -82,50 +84,44 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale seleziona
    l'opzione "Crea Prenotazione"
-	2. Il sistema chiede di identificare il paziente per cui si
-	   sta prenotando la visita.
-3. PersonaleAmministrativo o Paziente inserisce in un box di testo
-   il CF del paziente per cui si sta prenotando la visita
-   OPPURE
-   PersonaleMedico seleziona il paziente dalla lista delle visite
-   del giorno.
-	4. Il sistema chiede al DBMS i dati relativi a quel paziente.
-5. Il DBMS comunica al sistema i dati.
-	6. Il sistema chiede all'utente di compilare un form
+	2. Il sistema chiede al DBMS i dati relativi al paziente per il
+	   quale si sta prenotando.
+3. Il DBMS comunica al sistema i dati.
+	4. Il sistema chiede all'utente di compilare un form
 	   con i dati della ricetta.
-7. L'utente inserisce il numero di ricetta, il codice di urgenza e
+5. L'utente inserisce il numero di ricetta, il codice di urgenza e
    la prestazione richiesta.
-	8. Il sistema chiede se si voglia prenotare in convenzione col
+	6. Il sistema chiede se si voglia prenotare in convenzione col
  	   SSN o in regime ALPI
-9. L'utente mette una spunta su "Servizio sanitario nazionale" o su
+7. L'utente mette una spunta su "Servizio sanitario nazionale" o su
    "Attività di libera professione intramoenia"
-	10. Se l'utente seleziona SSN il sistema mostra il costo del
+	8. Se l'utente seleziona SSN il sistema mostra il costo del
 	    ticket.
- 	11. Il sistema chiede al DBMS, tenendo conto del codice di
+ 	9. Il sistema chiede al DBMS, tenendo conto del codice di
  	    urgenza, quali giorni e orari non sono disponibili.
-12. Il DBMS comunica al sistema l'elenco delle prenotazioni.
-	13. Il sistema mostra all'utente giorni e orari in cui è
+10. Il DBMS comunica al sistema l'elenco delle prenotazioni.
+	11. Il sistema mostra all'utente giorni e orari in cui è
 	    possibile effettuare la prenotazione.
-14. L'utente seleziona e conferma giorno e ora.
-	15. Il sistema comunica la nuova prenotazione al DBMS.
-	16. Il sistema manda una notifica di avvenuta prenotazione
+12. L'utente seleziona e conferma giorno e ora.
+	13. Il sistema comunica la nuova prenotazione al DBMS.
+	14. Il sistema manda una notifica di avvenuta prenotazione
 	    all'utente.
 ```  
 __Flusso alternativo__:
 ```
-	9. Se l'utente seleziona ALPI il sistema mostra l'elenco dei
+	7. Se l'utente seleziona ALPI il sistema mostra l'elenco dei
 	   professionisti che eseguono quel tipo di visite e il loro
 	   onorario.
-10. L'utente seleziona il medico da cui vuole farsi visitare
- 	11. Il sistema chiede al DBMS i giorni e gli orari in cui il
+8. L'utente seleziona il medico da cui vuole farsi visitare
+ 	9. Il sistema chiede al DBMS i giorni e gli orari in cui il
 	    medico non può effettuare visite.
-12. Il DBMS comunica al sistema l'elenco delle prenotazioni relative
+10. Il DBMS comunica al sistema l'elenco delle prenotazioni relative
     al medico scelto dall'utente.
-	13. Il sistema chiede all'utente di scegliere giorno e ora tra
+	11. Il sistema chiede all'utente di scegliere giorno e ora tra
 	    quelli in cui il medico è disponibile.
-14. L'utente seleziona e conferma giorno e ora.
-	15. Il sistema comunica la nuova prenotazione al DBMS.
-	16. Il sistema manda una notifica di avvenuta prenotazione
+12. L'utente seleziona e conferma giorno e ora.
+	13. Il sistema comunica la nuova prenotazione al DBMS.
+	14. Il sistema manda una notifica di avvenuta prenotazione
 	    all'utente.
 ```
 __Postcondizioni:__  `L'utente è nuovamente nella schermata principale`  
@@ -138,19 +134,19 @@ __Precondizioni:__ `Il sistema è nella schermata iniziale`
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando Paziente o PersonaleAmministrativo
-   seleziona l'opzione "Modifica Prenotazione" dalla schermata
+   seleziona l'opzione "Modifica Prenotazione" dalla schermata principale
 	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
 	   relative al paziente con data successiva a quella corrente
-	   +24 ore.
-3. Il DBSM comunica al sistema le prenotazioni.
+	   +24 ore e le relative informazioni.
+3. Il DBSM comunica al sistema le prenotazioni richieste.
 	4. Il sistema mostra all'utente la lista di prenotazioni
 	   ottenuta.
 5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
    che desidera modificare.
-	6. Il sistema mostra i dati relativi alla Prenotazione.
+	6. Il sistema mostra i dati relativi alla Prenotazione selezionata.
 7. L'attore principale modifica la data e l'ora scegliendo tra
-   quelle proposte OPPURE elimina la Prenotazione e conferma.
-	8. Il sistema chiede un ulteriore conferma specificando le
+   le opzioni proposte OPPURE elimina la Prenotazione e conferma.
+	8. Il sistema richiede un ulteriore conferma specificando le
 	   differenze con la precedente prenotazione.
 9. L'attore principale conferma o annulla le modifiche.
 	10. Se l'utente conferma le modifiche il sistema le comunica
@@ -164,14 +160,19 @@ __Postcondizioni:__  `Il sistema mostra nuovamente la schermata principale`
 ---
 ##### VisualizzaFSE
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ ` `  
+__Precondizioni:__ `Il sistema è nella schermata iniziale`  
 __Flusso degli eventi:__
 ```
-1.
-	2.
-3.
+1. Il caso d'uso inizia quando l'attore principale  seleziona l'opzione
+   "Visualizza FSE" relativamente ad un paziente.
+	2. IL sistema chiede al DBMS i dati relativi a tutte le visite
+	   precedentemente effettuate dal paziente.
+3. Il DBMS comunica al sistema i dati.
+	4. Il sistema restituisce un documento con le informazioni del
+	   paziente e l'elenco in ordine cronologico delle visite
+	   effettuate completo dei relativi dettagli rilevanti.
 ```  
-__Postcondizioni:__  ` `  
+__Postcondizioni:__  `L'utente è nuovamente nella schermata iniziale.`  
 [_Vista dettagliata_](#visualizza-fse))
 
 ---
@@ -180,11 +181,32 @@ __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS
 __Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando l'utente  
-	2.
-3.
+1. Il caso d'uso inizia quando un utente non autenticato cerca di
+   eseguire una operazione.
+	2. Il sistema chiede di inserire un codice univoco di indentificazione
+3. Il Paziente o PersonaleAmministrativo inserisce il CF
+   OPPURE
+   PersonaleMedico inserisce il suo codice identificativo.
+	4. Il sistema chiede al DBMS informazioni sull'utente individuato
+	   in modo univoco dai dati inseriti.
+5. Il DBMS comunica al sistema se l'utente è presente nel database ed
+   eventuali informazioni connesse.
+	6. Se l'utente è presente nel database il sistema richiede
+	   l'inserimento di password.
+           ALTRIMENTI
+	   Se l'utente è Paziente o PersonaleAmministrativo il Sistema
+	   richiede le ulteriori informazioni necessarie ad inserire nel
+	   database il Paziente.
+7. L'utente inserisce in un form i dati richiesti dal sistema.
+	8. Il sistema controlla che la password inserita corrisponda a
+	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
-__Postcondizioni:__  `L'utente può `  
+__Flusso alternativo:__
+```
+  8. Il sistema comunica al DBMS i dati dell'utente.
+9. Il DBMS registra il nuovo utente
+```
+__Postcondizioni:__  `L'utente prosegue l'operazione iniziata precedetemente `  
 [_Vista dettagliata_](#effettua-autenticazione)
 
 ---
@@ -195,13 +217,18 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
    della giornata.
-	2. Il sistema mostra i dettagli già presenti.
-3. PersonaleMedico insersce ulteriori dati.
-4. PersonaleMedico conferma le modifiche effettuate.
-	5. Il sistema comunica al DBMS le informazioni sulla visita
-	   aggiornate.
+	2. Il sistema mostra i dettagli già presenti sulla visita selezionata.
+3. PersonaleMedico insersce ulteriori dati o modifica quelli presenti.
+   Eventualmente conferma i cambiamenti.
+	 4. Il sistema mostra a PersonaleMedico una schermata riassuntiva
+	    delle modifiche effettuate.
+5. PersonaleMedico conferma o annulla le modifiche effettuate.
+	6. Se PersonaleMedico ha confermato il sistema comunica al
+	   DBMS le informazioni aggiornate sulla visita.
+7. Il DBMS aggiorna i dati riguardanti la visita immagazzinati.
+ 	8. Il sistema mostra un messaggio relativo all'esito dell'operazione.
 ```  
-__Postcondizioni:__  `Il sistema mostra un messaggio di conferma delle modifiche `  
+__Postcondizioni:__  `Il sistema torna alla schermata principale`  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
 
 ---
@@ -240,5 +267,5 @@ __Postcondizioni:__  `Tutti i pazienti con visite in programma il giorno seguent
 
 ### 3.4.2 Modello degli oggetti
 ### 3.4.3 Modello dinamico
-### 3.4.4 Interfaccia utente - navigazione e mock-up
+### 3.4.4 Interfaccia utente: navigazione e mock-up
 ## 4. Glossario
