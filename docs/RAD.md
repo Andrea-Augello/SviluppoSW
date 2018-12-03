@@ -29,6 +29,7 @@
 				- [AutenticaPersonale](#autenticapersonale)
 				- [AutenticaPaziente](#autenticapaziente)
 				- [RegistraPaziente](#registrapaziente)
+			- [AutorizzazionePaziente](#autorizzazionepaziente)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
@@ -323,6 +324,23 @@ __Flusso degli eventi:__
 9.
 ```
 __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
+[Diagramma delle sequenze](#)
+
+---
+#### AutorizzazionePaziente
+__Attori:__ _PersonaleAmministrativo,_ DBMS
+__Precondizioni:__ `PersonaleAmministrativo cerca di modificare una prenotazione per un paziente`
+__Flusso degli eventi:__
+```
+1.
+	2.
+3.
+	4.
+5.
+	6.
+7.
+```
+__Postcondizioni:__
 [Diagramma delle sequenze](#)
 
 ---
