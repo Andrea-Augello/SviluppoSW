@@ -28,6 +28,7 @@
 			- [Effettua Autenticazione](#effettua-autenticazione)
 				- [AutenticaPersonale](#autenticapersonale)
 				- [AutenticaPaziente](#autenticapaziente)
+				- [RegistraPaziente](#registrapaziente)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
@@ -303,6 +304,25 @@ __Flusso degli eventi:__
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
 __Postcondizioni:__  `L'utente può operare`  
+[Diagramma delle sequenze](#)
+
+---
+##### RegistraPaziente
+__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS
+__Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`
+__Flusso degli eventi:__
+```
+1.
+	2.
+3.
+	4.
+5.
+	6.
+7.
+	8.
+9.
+```
+__Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
 [Diagramma delle sequenze](#)
 
 ---
