@@ -193,10 +193,10 @@ __Flusso degli eventi:__
    eventuali informazioni connesse.
 	6. Se l'utente è presente nel database il sistema richiede
 	   l'inserimento di password.
-		 ALTRIMENTI
-		 Se l'utente è Paziente o PersonaleAmministrativo il Sistema
-		 richiede le ulteriori informazioni necessarie ad inserire nel
-		 database il Paziente.
+           ALTRIMENTI
+	   Se l'utente è Paziente o PersonaleAmministrativo il Sistema
+	   richiede le ulteriori informazioni necessarie ad inserire nel
+	   database il Paziente.
 7. L'utente inserisce in un form i dati richiesti dal sistema.
 	8. Il sistema controlla che la password inserita corrisponda a
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
