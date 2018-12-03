@@ -14,3 +14,4 @@ SPRIG: **S**istema **PR**enotazione **I**ntelli**G**ente
 SCIATICA: **S**istema **C**up **I**nform**ATI**co **A**utomatico    
 PPI: **P**rogramma **P**renotazione **I**informatica  
 PROSA: **PR**ogramma **O**spedale **A**utomatico  
+PAPER: **P**rogr**A**mma **P**renotazione **E**lett**R**onica  
