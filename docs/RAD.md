@@ -244,14 +244,8 @@ __Postcondizioni:__  ` `
 #### Crea Prenotazione
 ![Use case "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/CreaPrenotazione.png)
 
-####
-__Attori:__    
-__Precondizioni:__ ` `  
-__Flusso degli eventi:__ ``` ```  
-__Postcondizioni:__  ` `  
-
-#### InserisciDettagliRicetta
-__Attori:__  __Paziente, PersonaleMedico, PersonaleAmministrativo__, DBMS  
+### InserisciDettagliRicetta
+__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ `L'utente si trova nella schermata principale `  
 __Flusso degli eventi:__ 
 ```
@@ -266,23 +260,45 @@ __Flusso degli eventi:__
 5. Il DBMS restituisce le informazioni richieste.
 	6. Se esiste almeno una ricetta che soddisfa i parametri
 	   il sistema notifica che quella prenotazione è già stata 
-	   effettuata e richiede di inserire i dati corretti.
+	   effettuata e richiede di inserire i dati corretti,
+	   ALTRIMENTI 
+	   Il sistema chiede di confermare i dettagli inseriti.
 ```  
 __Postcondizioni:__  `Il sistema ha immagazzinato le informazioni sulla prenotazione `  
 [Diagramma delle sequenze](#)  
 
-####
-__Attori:__    
-__Precondizioni:__ ` `  
-__Flusso degli eventi:__ ``` ```  
-__Postcondizioni:__  ` `  
+#### ScegliRegimeVisita
+__Attori:__ _Paziente, PersonaleAmministrativo_    
+__Precondizioni:__ `Il sistema ha immagazzinato i dettagli della ricetta `  
+__Flusso degli eventi:__ 
+```
+1. Il caso d'uso inizia quando l'utente conferma i dati della ricetta .
+	2. Il sistema chiede se si voglia prenotare in convenzione col
+ 	   SSN o in regime ALPI
+3. L'utente seleziona su "Servizio sanitario nazionale" o 
+   "Attività di libera professione intramoenia"
+```  
+__Postcondizioni:__  `Il sistema ha registrato la scelta dell'utente `  
+[Diagramma delle sequenze](#)  
 
-####
-__Attori:__    
+#### PrenotaVisitaSSN
+__Attori:__ _Paziente, PersonaleAmministrativo, PersonaleMedico_ DBMS      
 __Precondizioni:__ ` `  
-__Flusso degli eventi:__ ``` ```  
+__Flusso degli eventi:__ 
+```
+1. Il caso d'uso inizia
+```  
 __Postcondizioni:__  ` `  
+[Diagramma delle sequenze](#)  
 
+#### PrenotaVisitaALPI
+__Attori:__ _Paziente, PersonaleAmministrativo,_ DBMS      
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__ 
+``` 
+```  
+__Postcondizioni:__  ` `  
+[Diagramma delle sequenze](#)  
 #### Modifica Prenotazione
 ![Use case "ModificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/ModificaPrenotazione.png)
 
