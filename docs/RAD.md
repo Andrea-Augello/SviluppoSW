@@ -323,7 +323,27 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
    prenotare una visita in regime intramoenia.
-	2.
+	2. Il sistema chiede al DBSM quali medici effettuano il tipo di
+	   visita richiesto e il loro onorario.
+3. Il DBMS trasmette al sistema i dati richiesti.
+	4. Il sistema mostra la lista di medici all'utente chiedendo di
+	   indicarne uno.
+5. Il paziente seleziona il medico presso il quale vuole sottoporsi alla
+   visita.
+	6. Il sistema chiede al DBMS giorni e orari in cui il medico
+	   selezionato non può effettuare ulteriori visite.
+7. Il DBMS comunica al sistema l'elenco delle prenotazioni relative
+   al medico scelto dall'utente.	 
+	8. Il sistema chiede all'utente di scegliere giorno e ora tra
+       quelli in cui il medico è disponibile.
+9. L'utente seleziona e conferma giorno e ora.	   
+	10. Il sistema comunica la nuova prenotazione al DBSM.
+	11. Il sistema chiede al DBMS i documenti richiesti per la visita.
+12. Il DBMS comunica le informazioni richieste.
+	13. Il sistema invia una notifica di avvenuta prenotazione
+	   all'utente, riportando i documenti
+	   da portare.
+
 ```  
 __Postcondizioni:__  ` `  
 [Diagramma delle sequenze](#)
