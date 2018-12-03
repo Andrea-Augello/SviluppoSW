@@ -244,6 +244,45 @@ __Postcondizioni:__  ` `
 #### Crea Prenotazione
 ![Use case "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/CreaPrenotazione.png)
 
+####
+__Attori:__    
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__ ``` ```  
+__Postcondizioni:__  ` `  
+
+#### InserisciDettagliRicetta
+__Attori:__  __Paziente, PersonaleMedico, PersonaleAmministrativo__, DBMS  
+__Precondizioni:__ `L'utente si trova nella schermata principale `  
+__Flusso degli eventi:__ 
+```
+1. Il caso d'uso inizia quando l'attore principale seleziona
+   l'opzione "Crea Prenotazione". 
+	2. Il sistema chiede all'utente di compilare un form
+	   con i dati della ricetta.
+3. L'utente inserisce il numero di ricetta, il codice di urgenza e
+   la prestazione richiesta.
+	4. Il sistema chiede al DBMS il numero di prenotazioni
+	   con lo stesso numero di ricetta per la stessa prestazione.
+5. Il DBMS restituisce le informazioni richieste.
+	6. Se esiste almeno una ricetta che soddisfa i parametri
+	   il sistema notifica che quella prenotazione è già stata 
+	   effettuata e richiede di inserire i dati corretti.
+```  
+__Postcondizioni:__  `Il sistema ha immagazzinato le informazioni sulla prenotazione `  
+[Diagramma delle sequenze](#)  
+
+####
+__Attori:__    
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__ ``` ```  
+__Postcondizioni:__  ` `  
+
+####
+__Attori:__    
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__ ``` ```  
+__Postcondizioni:__  ` `  
+
 #### Modifica Prenotazione
 ![Use case "ModificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/ModificaPrenotazione.png)
 
