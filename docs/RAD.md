@@ -295,7 +295,22 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
    prenotare una visita in convenzione con il sistema sanitario nazionale.
-	2.
+	2. Il sistema, tenendo conto del codice di urgenza, chiede al DBMS
+	   quali giorni e orari non sono disponibili per la nuova
+	   prenotazione.  
+3. Il DBMS comunica al sistema l'elenco delle prenotazioni.
+	4. Il sistema propone al paziente le date disponibili per effettuare
+	   la visita.
+5. Il paziente sceglie tra le opzioni proposte e conferma la scelta.
+	6. Il sistema comunica la nuova prenotazione al DBSM, eventualmente
+	   spostando prenotazioni meno urgenti per permettere l'evasione
+	   della richiesta.
+	7. Il sistema chiede al DBMS il costo della prestazione e i
+	   documenti richiesti.
+8. Il DBMS comunica le informazioni richieste.
+	9. Il sistema invia una notifica di avvenuta prenotazione
+	   all'utente, riportando il costo del ticket e i documenti
+	   da portare.
 ```  
 __Postcondizioni:__  ` `  
 [Diagramma delle sequenze](#)  
