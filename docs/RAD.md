@@ -24,6 +24,10 @@
 				- [NotificaPrenotazione](#notificaprenotazione)
 			- [Crea Prenotazione](#crea-prenotazione)
 			- [Modifica Prenotazione](#modifica-prenotazione)
+				- [EliminaPrenotazione](#eliminaprenotazione)
+				- [SpostaPrenotazione](#spostaprenotazione)
+				- [NomeCaso](#nomecaso)
+				- [NomeCaso](#nomecaso)
 			- [Visualizza FSE](#visualizza-fse)
 			- [Effettua Autenticazione](#effettua-autenticazione)
 				- [AutenticaPersonale](#autenticapersonale)
@@ -251,6 +255,40 @@ __Postcondizioni:__  ` `
 #### Modifica Prenotazione
 ![Use case "ModificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/ModificaPrenotazione.png)
 
+---
+##### EliminaPrenotazione
+__Attori:__
+__Precondizioni:__
+__Flusso degli eventi:__
+__Postcondizioni:__
+[_Diagramma delle sequenze_](#)
+
+---
+##### SpostaPrenotazione
+__Attori:__
+__Precondizioni:__
+__Flusso degli eventi:__
+__Postcondizioni:__
+[_Diagramma delle sequenze_](#)
+
+---
+##### NomeCaso
+__Attori:__
+__Precondizioni:__
+__Flusso degli eventi:__
+__Postcondizioni:__
+[_Diagramma delle sequenze_](#)
+
+---
+##### NomeCaso
+__Attori:__
+__Precondizioni:__
+__Flusso degli eventi:__
+__Postcondizioni:__
+[_Diagramma delle sequenze_](#)
+
+---
+
 #### Visualizza FSE
 ![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)
 
@@ -281,7 +319,7 @@ __Flusso degli eventi:__
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
 __Postcondizioni:__  `L'utente può operare`  
-[Diagramma delle sequenze](#)
+[_Diagramma delle sequenze_](#)
 
 ---
 ##### AutenticaPaziente
@@ -305,7 +343,7 @@ __Flusso degli eventi:__
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
 __Postcondizioni:__  `L'utente può operare`  
-[Diagramma delle sequenze](#)
+[_Diagramma delle sequenze_](#)
 
 ---
 ##### RegistraPaziente
@@ -323,7 +361,7 @@ __Flusso degli eventi:__
 	4. Il sistema comunica i dati del nuovo paziente al DBMS.
 ```
 __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
-[Diagramma delle sequenze](#)
+[_Diagramma delle sequenze_](#)
 
 ---
 #### AutorizzazionePaziente
@@ -351,7 +389,7 @@ __Flusso degli eventi:__
 	   Il sistema autorizza l'operazione
 ```
 __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenotazione selezionata`
-[Diagramma delle sequenze](#)
+[_Diagramma delle sequenze_](#)
 
 ---
 
