@@ -285,8 +285,8 @@ __Postcondizioni:__  `L'utente può operare`
 
 ---
 ##### AutenticaPaziente
-__Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
+__Attori:__  _Paziente_, DBMS  
+__Precondizioni:__ `Paziente non si è ancora autenticato in questa sessione`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando Paziente non autenticato cerca di
@@ -313,8 +313,10 @@ __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS
 __Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`
 __Flusso degli eventi:__
 ```
-1.
-	2.
+1. Il caso d'uso inizia quando durante un'autenticazione Paziente o 
+   PersonaleAmministrativo inserisce un CF che non corrisponde a nessun
+   paziente nel database.
+	2. Il sistema 
 3.
 	4.
 5.
