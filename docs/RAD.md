@@ -257,10 +257,18 @@ __Postcondizioni:__  ` `
 
 ---
 ##### EliminaPrenotazione
-__Attori:__
-__Precondizioni:__
+__Attori:__ _Paziente, PersonaleAmministrativo_, DBMS
+__Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`
 __Flusso degli eventi:__
-__Postcondizioni:__
+```
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Cancella
+   prenotazione"
+   2. Il sistema avvisa l'utente che l'operazione intrapresa è
+      irreversibile e chiede se si è sicuri di voler proseguire
+3. L'utente conferma.
+	4. Il sistema comunica al DBMS la rimozione della prenotazione.
+```
+__Postcondizioni:__ `La prenotazione è scomparsa dal sistema`
 [_Diagramma delle sequenze_](#)
 
 ---
