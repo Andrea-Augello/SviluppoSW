@@ -26,6 +26,10 @@
 			- [Modifica Prenotazione](#modifica-prenotazione)
 			- [Visualizza FSE](#visualizza-fse)
 			- [Effettua Autenticazione](#effettua-autenticazione)
+				- [AutenticaPersonale](#autenticapersonale)
+				- [AutenticaPaziente](#autenticapaziente)
+				- [RegistraPaziente](#registrapaziente)
+			- [AutorizzazionePaziente](#autorizzazionepaziente)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
@@ -138,7 +142,7 @@ __Flusso degli eventi:__
 	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
 	   relative al paziente con data successiva a quella corrente
 	   +24 ore e le relative informazioni.
-3. Il DBSM comunica al sistema le prenotazioni richieste.
+3. Il DBMS comunica al sistema le prenotazioni richieste.
 	4. Il sistema mostra all'utente la lista di prenotazioni
 	   ottenuta.
 5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
@@ -252,6 +256,104 @@ __Postcondizioni:__  ` `
 
 #### Effettua Autenticazione
 ![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/EffettuaAutenticazione.png)
+
+---
+##### AutenticaPersonale
+__Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando un utente non autenticato cerca di
+   interagire con il sistema.
+	2. Il sistema chiede all'utente di inserire il suo codice
+	   identificativo.
+3. L'utente inserisce il proprio numero di matricola e conferma.
+	4. Il sistema chiede al DBMS informazioni sull'utente individuato
+	   univocamente attraverso il codice.
+5. Il DBMS comunica al sistema se l'utente è presente nel database ed
+   eventuali informazioni connesse.
+	6. Se l'utente non è presente nel database il sistema informa che
+      il codice inserito è errato e chiede di reinserirlo.
+	  ALTRIMENTI
+	  Il sistema chiede all'utente di inserire la password.
+7. L'utente inserisce e conferma la password.
+	8. Il sistema controlla che la password inserita corrisponda a
+	   quella nota, se non lo è chiede nuovamente di autenticarsi.
+```  
+__Postcondizioni:__  `L'utente può operare`  
+[Diagramma delle sequenze](#)
+
+---
+##### AutenticaPaziente
+__Attori:__  _Paziente_, DBMS  
+__Precondizioni:__ `Paziente non si è ancora autenticato in questa sessione`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando Paziente non autenticato cerca di
+   interagire con il sistema.
+	2. Il sistema chiede a Paziente di inserire il suo codice
+	   fiscale.
+3. Paziente inserisce il proprio CF e conferma.
+	4. Il sistema chiede al DBMS informazioni sul Paziente individuato
+	   univocamente attraverso il codice.
+5. Il DBMS comunica al sistema se il Paziente è presente nel database ed
+   eventuali informazioni connesse.
+	6. Se l'utente è presente nel database il sistema chiede all'utente
+	   di inserire la password.
+7. L'utente inserisce e conferma la password.
+	8. Il sistema controlla che la password inserita corrisponda a
+	   quella nota, se non lo è chiede nuovamente di autenticarsi.
+```  
+__Postcondizioni:__  `L'utente può operare`  
+[Diagramma delle sequenze](#)
+
+---
+##### RegistraPaziente
+__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS
+__Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando durante un'autenticazione Paziente o
+   PersonaleAmministrativo inserisce un CF che non corrisponde a nessun
+   paziente nel database.
+	2. Il sistema mostra un form per inserire i dati necessari
+	   all'inserimento nel sistema
+3. L'utente compila il modulo, eventualmente non riempiendo i campi
+   facoltativi e invia i dati.
+	4. Il sistema comunica i dati del nuovo paziente al DBMS.
+```
+__Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
+[Diagramma delle sequenze](#)
+
+---
+#### AutorizzazionePaziente
+__Attori:__ _PersonaleAmministrativo,_ DBMS
+__Precondizioni:__ `PersonaleAmministrativo cerca di modificare una prenotazione per un paziente`
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando PersonaleAmministrativo seleziona "Modifica
+   Prenotazione".
+	2. Il sistema chiede di inserire il CF del paziente la cui
+	   prenotazione va modificata.
+3. PersonaleAmministrativo inserisce il CF.
+	4. Il sistema chiede al DBMS tutte le prenotazioni relative
+	   al paziente.
+5. Il DBMS restituisce tutte le prenotazioni relative al paziente.
+	6. Se non ve ne sono il sistema comunica che non sono presenti
+	   prenotazioni a nome del Paziente
+	   ALTRIMENTI
+	   Il sistema chiede di inserire il codice identificativo della
+	   prenotazione
+7. PersonaleAmministrativo inserisce il codice
+	8. Se non c'è nessuna prenotazione corrispondente a quel codice
+	   il sistema comunica un messaggio di errore
+	   ALTRIMENTI
+	   Il sistema autorizza l'operazione
+```
+__Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenotazione selezionata`
+[Diagramma delle sequenze](#)
+
+---
 
 #### Inserisci Dettagli Visita
 ![Use case "InserisciDettagliVisita"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/InserisciDettagliVisita.png)
