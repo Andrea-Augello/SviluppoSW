@@ -26,7 +26,7 @@
 			- [Modifica Prenotazione](#modifica-prenotazione)
 				- [EliminaPrenotazione](#eliminaprenotazione)
 				- [SpostaPrenotazione](#spostaprenotazione)
-				- [NomeCaso](#nomecaso)
+				- [ConfermaModifica](#confermamodifica)
 				- [NomeCaso](#nomecaso)
 			- [Visualizza FSE](#visualizza-fse)
 			- [Effettua Autenticazione](#effettua-autenticazione)
@@ -257,16 +257,13 @@ __Postcondizioni:__  ` `
 
 ---
 ##### EliminaPrenotazione
-__Attori:__ _Paziente, PersonaleAmministrativo_, DBMS
+__Attori:__ _Paziente, PersonaleAmministrativo_
 __Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Cancella
    prenotazione"
-   2. Il sistema avvisa l'utente che l'operazione intrapresa è
-      irreversibile e chiede se si è sicuri di voler proseguire
-3. L'utente conferma.
-	4. Il sistema comunica al DBMS la rimozione della prenotazione.
+   2. Il sistema da inizio al caso d'uso ConfermaModifica.
 ```
 __Postcondizioni:__ `La prenotazione è scomparsa dal sistema`
 [_Diagramma delle sequenze_](#)
@@ -280,10 +277,17 @@ __Postcondizioni:__
 [_Diagramma delle sequenze_](#)
 
 ---
-##### NomeCaso
+##### ConfermaModifica
 __Attori:__
-__Precondizioni:__
+__Precondizioni:__ `L'utente ha apportato modifiche ad una prenotazione `
 __Flusso degli eventi:__
+```
+1. L'utente conferma o annulla l'operazione.
+	2. Se l'utente conferma il sistema comunica al DBMS la modifica
+	   ALTRIMENTI
+	   Il sistema mostra un messaggio comunicando che le modifiche sono
+	   state annullate.
+```
 __Postcondizioni:__
 [_Diagramma delle sequenze_](#)
 
