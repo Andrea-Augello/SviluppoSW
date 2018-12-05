@@ -285,10 +285,15 @@ __Flusso degli eventi:__
 	1. Il sistema riassume le modifiche effettuate dall'utente e
 	   chiede di confermarle o annullarle.
 2. L'utente conferma o annulla l'operazione.
-	3. Se l'utente conferma il sistema comunica al DBMS la modifica
-	   ALTRIMENTI
-	   Il sistema mostra un messaggio comunicando che le modifiche sono
-	   state annullate.
+	3. L'utente conferma e il sistema comunica al DBMS la modifica.
+4.Il DBMS attua le modifiche richieste.
+	5. Il sistema comunica all'utente l'avvenuta modifica.	   
+
+```
+__Flusso alternativo:__
+```
+	3. L'utente annulla l'operazione.
+4. Il sistema mostra all'utente un messaggio di avviso annullamento.	
 ```
 __Postcondizioni:__ `L'utente torna alla schermata principale`
 [_Diagramma delle sequenze_](#)
