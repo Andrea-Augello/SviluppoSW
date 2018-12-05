@@ -147,7 +147,7 @@ __Flusso degli eventi:__
 	   ottenuta.
 5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
    che desidera modificare.
-	6. Il sistema mostra i dati relativi alla Prenotazione selezionata.
+	6. Il sistema mostra i dati relativi alla Prenotazione selezionata
 7. L'attore principale modifica la data e l'ora scegliendo tra
    le opzioni proposte OPPURE elimina la Prenotazione e conferma.
 	8. Il sistema richiede un ulteriore conferma specificando le
@@ -187,7 +187,8 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando un utente non autenticato cerca di
    eseguire una operazione.
-	2. Il sistema chiede di inserire un codice univoco di indentificazione
+	2. Il sistema chiede di inserire un codice univoco di 
+	   indentificazione
 3. Il Paziente o PersonaleAmministrativo inserisce il CF
    OPPURE
    PersonaleMedico inserisce il suo codice identificativo.
@@ -221,16 +222,18 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
    della giornata.
-	2. Il sistema mostra i dettagli già presenti sulla visita selezionata.
+	2. Il sistema mostra i dettagli già presenti sulla visita 
+	   selezionata.
 3. PersonaleMedico insersce ulteriori dati o modifica quelli presenti.
    Eventualmente conferma i cambiamenti.
-	 4. Il sistema mostra a PersonaleMedico una schermata riassuntiva
-	    delle modifiche effettuate.
+	 4. Il sistema mostra a PersonaleMedico una schermata 
+	    riassuntiva delle modifiche effettuate.
 5. PersonaleMedico conferma o annulla le modifiche effettuate.
 	6. Se PersonaleMedico ha confermato il sistema comunica al
 	   DBMS le informazioni aggiornate sulla visita.
 7. Il DBMS aggiorna i dati riguardanti la visita immagazzinati.
- 	8. Il sistema mostra un messaggio relativo all'esito dell'operazione.
+ 	8. Il sistema mostra un messaggio relativo all'esito della
+	   operazione.
 ```  
 __Postcondizioni:__  `Il sistema torna alla schermata principale`  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
@@ -298,8 +301,8 @@ __Flusso degli eventi:__
 	   univocamente attraverso il codice.
 5. Il DBMS comunica al sistema se il Paziente è presente nel database ed
    eventuali informazioni connesse.
-	6. Se l'utente è presente nel database il sistema chiede all'utente
-	   di inserire la password.
+	6. Se l'utente è presente nel database il sistema chiede 
+	   all'utente di inserire la password.
 7. L'utente inserisce e conferma la password.
 	8. Il sistema controlla che la password inserita corrisponda a
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
