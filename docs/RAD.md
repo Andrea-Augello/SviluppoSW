@@ -312,7 +312,7 @@ __Flusso degli eventi:__
 	   all'utente, riportando il costo del ticket e i documenti
 	   da portare.
 ```  
-__Postcondizioni:__  ` `  
+__Postcondizioni:__  `Nel sistema risulta registrata la visita`  
 [Diagramma delle sequenze](#)  
 
 ---
@@ -345,7 +345,7 @@ __Flusso degli eventi:__
 	   da portare.
 
 ```  
-__Postcondizioni:__  ` `  
+__Postcondizioni:__  `Nel sistema risulta registrata la visita`  
 [Diagramma delle sequenze](#)
 
 ---
