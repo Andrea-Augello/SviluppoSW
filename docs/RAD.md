@@ -142,7 +142,7 @@ __Flusso degli eventi:__
 	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
 	   relative al paziente con data successiva a quella corrente
 	   +24 ore e le relative informazioni.
-3. Il DBSM comunica al sistema le prenotazioni richieste.
+3. Il DBMS comunica al sistema le prenotazioni richieste.
 	4. Il sistema mostra all'utente la lista di prenotazioni
 	   ottenuta.
 5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
@@ -313,17 +313,14 @@ __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS
 __Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando durante un'autenticazione Paziente o 
+1. Il caso d'uso inizia quando durante un'autenticazione Paziente o
    PersonaleAmministrativo inserisce un CF che non corrisponde a nessun
    paziente nel database.
-	2. Il sistema 
-3.
-	4.
-5.
-	6.
-7.
-	8.
-9.
+	2. Il sistema mostra un form per inserire i dati necessari
+	   all'inserimento nel sistema
+3. L'utente compila il modulo, eventualmente non riempiendo i campi
+   facoltativi e invia i dati.
+	4. Il sistema comunica i dati del nuovo paziente al DBMS.
 ```
 __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
 [Diagramma delle sequenze](#)
