@@ -270,10 +270,22 @@ __Postcondizioni:__ `La prenotazione è scomparsa dal sistema`
 
 ---
 ##### SpostaPrenotazione
-__Attori:__
-__Precondizioni:__
+__Attori:__`_PersonaleAmministrativo, Paziente_`, DBMS
+__Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`
 __Flusso degli eventi:__
-__Postcondizioni:__
+```
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Sposta
+   prenotazione"
+	2. Il sistema chiede al BDMS le informazioni necessarie per fornire 
+           all'utente i giorni disponibili in cui spostare la prenotazione.
+3. Il DMBS restituisce le informazioni richieste.
+4. L'utente sceglie il giorno e l'ora tra quelle proposte.
+	5. Il sistema da inizio al caso d'uso ConfermaModifica.
+	6. Il sistema da inizio al caso d'uso EliminaPrenotazione.		
+```
+__Postcondizioni:__ `L'utente torna alla schermata principale`
+```
+```
 [_Diagramma delle sequenze_](#)
 
 ---
