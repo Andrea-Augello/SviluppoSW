@@ -278,7 +278,7 @@ __Postcondizioni:__
 
 ---
 ##### ConfermaModifica
-__Attori:__
+__Attori:__ `_PersonaleAmministrativo, Paziente_`, DBMS
 __Precondizioni:__ `L'utente ha apportato modifiche ad una prenotazione `
 __Flusso degli eventi:__
 ```
