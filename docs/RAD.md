@@ -282,13 +282,15 @@ __Attori:__ `_PersonaleAmministrativo, Paziente_`, DBMS
 __Precondizioni:__ `L'utente ha apportato modifiche ad una prenotazione `
 __Flusso degli eventi:__
 ```
-1. L'utente conferma o annulla l'operazione.
-	2. Se l'utente conferma il sistema comunica al DBMS la modifica
+	1. Il sistema riassume le modifiche effettuate dall'utente e
+	   chiede di confermarle o annullarle.
+2. L'utente conferma o annulla l'operazione.
+	3. Se l'utente conferma il sistema comunica al DBMS la modifica
 	   ALTRIMENTI
 	   Il sistema mostra un messaggio comunicando che le modifiche sono
 	   state annullate.
 ```
-__Postcondizioni:__
+__Postcondizioni:__ `L'utente torna alla schermata principale`
 [_Diagramma delle sequenze_](#)
 
 ---
