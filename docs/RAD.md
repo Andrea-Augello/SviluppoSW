@@ -331,15 +331,26 @@ __Attori:__ _PersonaleAmministrativo,_ DBMS
 __Precondizioni:__ `PersonaleAmministrativo cerca di modificare una prenotazione per un paziente`
 __Flusso degli eventi:__
 ```
-1.
-	2.
-3.
-	4.
-5.
-	6.
-7.
+1. Il caso d'uso inizia quando PersonaleAmministrativo seleziona "Modifica
+   Prenotazione".
+	2. Il sistema chiede di inserire il CF del paziente la cui
+	   prenotazione va modificata.
+3. PersonaleAmministrativo inserisce il CF.
+	4. Il sistema chiede al DBMS tutte le prenotazioni relative
+	   al paziente.
+5. Il DBMS restituisce tutte le prenotazioni relative al paziente.
+	6. Se non ve ne sono il sistema comunica che non sono presenti
+	   prenotazioni a nome del Paziente
+	   ALTRIMENTI
+	   Il sistema chiede di inserire il codice identificativo della
+	   prenotazione
+7. PersonaleAmministrativo inserisce il codice
+	8. Se non c'è nessuna prenotazione corrispondente a quel codice
+	   il sistema comunica un messaggio di errore
+	   ALTRIMENTI
+	   Il sistema autorizza l'operazione
 ```
-__Postcondizioni:__
+__Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenotazione selezionata`
 [Diagramma delle sequenze](#)
 
 ---
