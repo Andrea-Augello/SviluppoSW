@@ -257,9 +257,9 @@ __Postcondizioni:__  ` `
 
 ---
 ##### SpostaPrenotazione
-__Attori:__`_PersonaleAmministrativo, Paziente_`, DBMS
-__Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`
-__Flusso degli eventi:__
+__Attori:__`_PersonaleAmministrativo, Paziente_`, DBMS  
+__Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`  
+__Flusso degli eventi:__  
 ```
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Sposta
    prenotazione"
@@ -268,7 +268,6 @@ __Flusso degli eventi:__
 3. Il DBSM restituisce le informazioni richieste.
 4. L'utente sceglie il giorno e l'ora tra quelle proposte.
 	5. Il sistema da inizio al caso d'uso ConfermaModifica.
-	6. Il sistema da inizio al caso d'uso EliminaPrenotazione.		
 ```
 __Postcondizioni:__ `L'utente torna alla schermata principale`
 ```
