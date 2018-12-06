@@ -280,7 +280,8 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Cancella
 prenotazione"
-2. Il sistema da inizio al caso d'uso ConfermaModifica.
+	2. Il sistema predispone la cancellazione della prenotazione e
+	   da inizio al caso d'uso ConfermaModifica.
 ```
 __Postcondizioni:__ `La prenotazione è scomparsa dal sistema`  
 [_Diagramma delle sequenze_](#)
