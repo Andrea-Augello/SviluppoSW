@@ -154,8 +154,8 @@ __Flusso degli eventi:__
 	6. Il sistema mostra i dati relativi alla Prenotazione selezionata
 7. L'attore principale modifica la data e l'ora scegliendo tra
    le opzioni proposte OPPURE elimina la Prenotazione e conferma.
-	8. Il sistema richiede un ulteriore conferma specificando le
-	   differenze con la precedente prenotazione.
+	8. Il sistema richiede un ulteriore conferma riassumendo i
+	   cambiamenti fatti
 9. L'attore principale conferma o annulla le modifiche.
 	10. Se l'utente conferma le modifiche il sistema le comunica
 	   al DBMS e invia al Paziente a cui è collegata la
