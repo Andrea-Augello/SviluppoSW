@@ -33,7 +33,7 @@
 				- [AutenticaPersonale](#autenticapersonale)
 				- [AutenticaPaziente](#autenticapaziente)
 				- [RegistraPaziente](#registrapaziente)
-			- [AutorizzazionePaziente](#autorizzazionepaziente)
+				- [AutorizzazionePaziente](#autorizzazionepaziente)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
@@ -191,7 +191,7 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando un utente non autenticato cerca di
    eseguire una operazione.
-	2. Il sistema chiede di inserire un codice univoco di 
+	2. Il sistema chiede di inserire un codice univoco di
 	   indentificazione
 3. Il Paziente o PersonaleAmministrativo inserisce il CF
    OPPURE
@@ -226,11 +226,11 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
    della giornata.
-	2. Il sistema mostra i dettagli già presenti sulla visita 
+	2. Il sistema mostra i dettagli già presenti sulla visita
 	   selezionata.
 3. PersonaleMedico insersce ulteriori dati o modifica quelli presenti.
    Eventualmente conferma i cambiamenti.
-	 4. Il sistema mostra a PersonaleMedico una schermata 
+	 4. Il sistema mostra a PersonaleMedico una schermata
 	    riassuntiva delle modifiche effettuate.
 5. PersonaleMedico conferma o annulla le modifiche effettuate.
 	6. Se PersonaleMedico ha confermato il sistema comunica al
@@ -277,7 +277,7 @@ __Flusso degli eventi:__
 	   Il sistema chiede di confermare i dettagli inseriti.
 ```  
 __Postcondizioni:__  `Il sistema ha immagazzinato le informazioni sulla prenotazione `  
-[Diagramma delle sequenze](#)  
+[_Diagramma delle sequenze_](#)  
 
 ---
 ##### ScegliRegimeVisita
@@ -292,7 +292,7 @@ __Flusso degli eventi:__
    "Attività di libera professione intramoenia"
 ```  
 __Postcondizioni:__  `Il sistema ha registrato la scelta dell'utente `  
-[Diagramma delle sequenze](#)  
+[_Diagramma delle sequenze_](#)  
 
 ---
 ##### PrenotaVisitaSSN
@@ -306,12 +306,12 @@ __Flusso degli eventi:__
 	   quali giorni e orari non sono disponibili per la nuova
 	   prenotazione.  
 3. Il DBMS comunica al sistema l'elenco delle prenotazioni.
-	4. Il sistema propone al paziente le date disponibili per effettuare
-	   la visita.
+	4. Il sistema propone al paziente le date disponibili per
+	   effettuare la visita.
 5. Il paziente sceglie tra le opzioni proposte e conferma la scelta.
-	6. Il sistema comunica la nuova prenotazione al DBMS, eventualmente
-	   spostando prenotazioni meno urgenti per permettere l'evasione
-	   della richiesta.
+	6. Il sistema comunica la nuova prenotazione al DBMS,
+	   eventualmente spostando prenotazioni meno urgenti per
+	   permettere l'evasione della richiesta.
 	7. Il sistema chiede al DBMS il costo della prestazione e i
 	   documenti richiesti.
 8. Il DBMS comunica le informazioni richieste.
@@ -320,7 +320,7 @@ __Flusso degli eventi:__
 	   da portare.
 ```  
 __Postcondizioni:__  `Nel sistema risulta registrata la visita`  
-[Diagramma delle sequenze](#)  
+[_Diagramma delle sequenze_](#)  
 
 ---
 ##### PrenotaVisitaALPI
@@ -344,7 +344,7 @@ __Flusso degli eventi:__
 	8. Il sistema chiede all'utente di scegliere giorno e ora tra
        quelli in cui il medico è disponibile.
 9. L'utente seleziona e conferma giorno e ora.	   
-	10. Il sistema comunica la nuova prenotazione al DBMS. 
+	10. Il sistema comunica la nuova prenotazione al DBMS.
 	11. Il sistema chiede al DBMS i documenti richiesti per la visita.
 12. Il DBMS comunica le informazioni richieste.
 	13. Il sistema invia una notifica di avvenuta prenotazione
@@ -353,7 +353,7 @@ __Flusso degli eventi:__
 
 ```  
 __Postcondizioni:__  `Nel sistema risulta registrata la visita`  
-[Diagramma delle sequenze](#)
+[_Diagramma delle sequenze_](#)
 
 ---
 
@@ -364,7 +364,7 @@ __Postcondizioni:__  `Nel sistema risulta registrata la visita`
 ![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)
 
 #### Effettua Autenticazione
-![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/EffettuaAutenticazione.png)
+![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Effettua%20Autenticazione.png)
 
 ---
 ##### AutenticaPersonale
@@ -390,7 +390,7 @@ __Flusso degli eventi:__
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
 __Postcondizioni:__  `L'utente può operare`  
-[Diagramma delle sequenze](#)
+[_Diagramma delle sequenze_](#)
 
 ---
 ##### AutenticaPaziente
@@ -407,19 +407,19 @@ __Flusso degli eventi:__
 	   univocamente attraverso il codice.
 5. Il DBMS comunica al sistema se il Paziente è presente nel database ed
    eventuali informazioni connesse.
-	6. Se l'utente è presente nel database il sistema chiede 
+	6. Se l'utente è presente nel database il sistema chiede
 	   all'utente di inserire la password.
 7. L'utente inserisce e conferma la password.
 	8. Il sistema controlla che la password inserita corrisponda a
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
 __Postcondizioni:__  `L'utente può operare`  
-[Diagramma delle sequenze](#)
+[_Diagramma delle sequenze_](#)
 
 ---
 ##### RegistraPaziente
-__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS
-__Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`
+__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
+__Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando durante un'autenticazione Paziente o
@@ -432,12 +432,12 @@ __Flusso degli eventi:__
 	4. Il sistema comunica i dati del nuovo paziente al DBMS.
 ```
 __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
-[Diagramma delle sequenze](#)
+[_Diagramma delle sequenze_](#)
 
 ---
-#### AutorizzazionePaziente
-__Attori:__ _PersonaleAmministrativo,_ DBMS
-__Precondizioni:__ `PersonaleAmministrativo cerca di modificare una prenotazione per un paziente`
+##### AutorizzazionePaziente
+__Attori:__ _PersonaleAmministrativo,_ DBMS  
+__Precondizioni:__ `PersonaleAmministrativo cerca di modificare una prenotazione per un paziente`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleAmministrativo seleziona "Modifica
@@ -459,8 +459,8 @@ __Flusso degli eventi:__
 	   ALTRIMENTI
 	   Il sistema autorizza l'operazione
 ```
-__Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenotazione selezionata`
-[Diagramma delle sequenze](#)
+__Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenotazione selezionata`  
+[_Diagramma delle sequenze_](#)
 
 ---
 
