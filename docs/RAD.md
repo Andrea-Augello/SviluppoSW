@@ -269,9 +269,7 @@ __Flusso degli eventi:__
 4. L'utente sceglie il giorno e l'ora tra quelle proposte.
 	5. Il sistema da inizio al caso d'uso ConfermaModifica.
 ```
-__Postcondizioni:__ `L'utente torna alla schermata principale`
-```
-```
+__Postcondizioni:__ `L'utente torna alla schermata principale`  
 [_Diagramma delle sequenze_](#)
 
 ---
