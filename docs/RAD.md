@@ -23,6 +23,10 @@
 				- [InserisciDettagliVisita](#inseriscidettaglivisita)
 				- [NotificaPrenotazione](#notificaprenotazione)
 			- [Crea Prenotazione](#crea-prenotazione)
+				- [InserisciDettagliRicetta](#inseriscidettagliricetta)
+				- [ScegliRegimeVisita](#scegliregimevisita)
+				- [PrenotaVisitaSSN](#prenotavisitassn)
+				- [PrenotaVisitaALPI](#prenotavisitaalpi)
 			- [Modifica Prenotazione](#modifica-prenotazione)
 			- [Visualizza FSE](#visualizza-fse)
 			- [Effettua Autenticazione](#effettua-autenticazione)
@@ -249,7 +253,109 @@ __Postcondizioni:__  ` `
 ---
 
 #### Crea Prenotazione
-![Use case "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/CreaPrenotazione.png)
+![Use case "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/CreaPrenotazione.png)  
+
+---
+##### InserisciDettagliRicetta
+__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente si trova nella schermata principale `  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'attore principale seleziona
+   l'opzione "Crea Prenotazione".
+	2. Il sistema chiede all'utente di compilare un form
+	   con i dati della ricetta.
+3. L'utente inserisce il numero di ricetta, il codice di urgenza e
+   la prestazione richiesta.
+	4. Il sistema chiede al DBMS il numero di prenotazioni
+	   con lo stesso numero di ricetta per la stessa prestazione.
+5. Il DBMS restituisce le informazioni richieste.
+	6. Se esiste almeno una ricetta che soddisfa i parametri
+	   il sistema notifica che quella prenotazione è già stata
+	   effettuata e richiede di inserire i dati corretti,
+	   ALTRIMENTI
+	   Il sistema chiede di confermare i dettagli inseriti.
+```  
+__Postcondizioni:__  `Il sistema ha immagazzinato le informazioni sulla prenotazione `  
+[Diagramma delle sequenze](#)  
+
+---
+##### ScegliRegimeVisita
+__Attori:__ _Paziente, PersonaleAmministrativo_    
+__Precondizioni:__ `Il sistema ha immagazzinato i dettagli della ricetta `  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'utente conferma i dati della ricetta .
+	2. Il sistema chiede se si voglia prenotare in convenzione col
+ 	   SSN o in regime ALPI
+3. L'utente seleziona su "Servizio sanitario nazionale" o
+   "Attività di libera professione intramoenia"
+```  
+__Postcondizioni:__  `Il sistema ha registrato la scelta dell'utente `  
+[Diagramma delle sequenze](#)  
+
+---
+##### PrenotaVisitaSSN
+__Attori:__ _Paziente, PersonaleAmministrativo, PersonaleMedico_ DBMS      
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
+   prenotare una visita in convenzione con il sistema sanitario nazionale.
+	2. Il sistema, tenendo conto del codice di urgenza, chiede al DBMS
+	   quali giorni e orari non sono disponibili per la nuova
+	   prenotazione.  
+3. Il DBMS comunica al sistema l'elenco delle prenotazioni.
+	4. Il sistema propone al paziente le date disponibili per effettuare
+	   la visita.
+5. Il paziente sceglie tra le opzioni proposte e conferma la scelta.
+	6. Il sistema comunica la nuova prenotazione al DBMS, eventualmente
+	   spostando prenotazioni meno urgenti per permettere l'evasione
+	   della richiesta.
+	7. Il sistema chiede al DBMS il costo della prestazione e i
+	   documenti richiesti.
+8. Il DBMS comunica le informazioni richieste.
+	9. Il sistema invia una notifica di avvenuta prenotazione
+	   all'utente, riportando il costo del ticket e i documenti
+	   da portare.
+```  
+__Postcondizioni:__  `Nel sistema risulta registrata la visita`  
+[Diagramma delle sequenze](#)  
+
+---
+##### PrenotaVisitaALPI
+__Attori:__ _Paziente, PersonaleAmministrativo,_ DBMS      
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
+   prenotare una visita in regime intramoenia.
+	2. Il sistema chiede al DBMS quali medici effettuano il tipo di
+	   visita richiesto e il loro onorario.
+3. Il DBMS trasmette al sistema i dati richiesti.
+	4. Il sistema mostra la lista di medici all'utente chiedendo di
+	   indicarne uno.
+5. Il paziente seleziona il medico presso il quale vuole sottoporsi alla
+   visita.
+	6. Il sistema chiede al DBMS giorni e orari in cui il medico
+	   selezionato non può effettuare ulteriori visite.
+7. Il DBMS comunica al sistema l'elenco delle prenotazioni relative
+   al medico scelto dall'utente.	 
+	8. Il sistema chiede all'utente di scegliere giorno e ora tra
+       quelli in cui il medico è disponibile.
+9. L'utente seleziona e conferma giorno e ora.	   
+	10. Il sistema comunica la nuova prenotazione al DBMS. 
+	11. Il sistema chiede al DBMS i documenti richiesti per la visita.
+12. Il DBMS comunica le informazioni richieste.
+	13. Il sistema invia una notifica di avvenuta prenotazione
+	   all'utente, riportando i documenti
+	   da portare.
+
+```  
+__Postcondizioni:__  `Nel sistema risulta registrata la visita`  
+[Diagramma delle sequenze](#)
+
+---
 
 #### Modifica Prenotazione
 ![Use case "ModificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/ModificaPrenotazione.png)
