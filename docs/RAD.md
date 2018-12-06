@@ -366,8 +366,8 @@ __Postcondizioni:__  `Nel sistema risulta registrata la visita`
 
 ---
 ##### ScegliPrenotazione
-__Attori:__  _Paziente_, DBMS
-__Precondizioni:__  `Paziente si trova nella schermata prinicpale`
+__Attori:__  _Paziente_, DBMS  
+__Precondizioni:__  `Paziente si trova nella schermata prinicpale`  
 __Flusso degli eventi:__  
 ```
 1. Il caso d'uso inizia quando Paziente seleziona l'opzione "Modifica
@@ -387,7 +387,7 @@ __Postcondizioni:__ `Paziente è in grado di alterare le prenotazioni in elenco`
 [_Diagramma delle sequenze_](#)
 
 ---
-##### SpostaPrenotazione
+##### SpostaPrenotazione  
 __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
 __Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`  
 __Flusso degli eventi:__  
@@ -421,7 +421,7 @@ __Postcondizioni:__ `La prenotazione è scomparsa dal sistema`
 
 ---
 ##### ConfermaModifica
-__Attori:__ `_PersonaleAmministrativo, Paziente_`, DBMS  
+__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
 __Precondizioni:__ `L'utente ha apportato modifiche ad una prenotazione `  
 __Flusso degli eventi:__  
 ```
