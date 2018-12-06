@@ -361,8 +361,52 @@ __Postcondizioni:__  `Nel sistema risulta registrata la visita`
 ![Use case "ModificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/ModificaPrenotazione.png)
 
 #### Visualizza FSE
-![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)
+![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)  
 
+---
+##### NomeCaso1
+__Attori:__  _, _, DBMS  
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__
+```
+1. 
+	2.
+3.
+	4. 
+```  
+__Postcondizioni:__  ` `  
+[_Diagramma delle sequenze_](#))
+
+---
+---
+##### NomeCaso2
+__Attori:__  _, _, DBMS  
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__
+```
+1. 
+	2.
+3.
+	4. 
+```  
+__Postcondizioni:__  ` `  
+[_Diagramma delle sequenze_](#))
+
+---
+##### NomeCaso3
+__Attori:__  _, _, DBMS  
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__
+```
+1. 
+	2.
+3.
+	4. 
+```  
+__Postcondizioni:__  ` `  
+[_Diagramma delle sequenze_](#))
+
+---
 #### Effettua Autenticazione
 ![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Effettua%20Autenticazione.png)
 
