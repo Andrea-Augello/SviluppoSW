@@ -23,6 +23,10 @@
 				- [InserisciDettagliVisita](#inseriscidettaglivisita)
 				- [NotificaPrenotazione](#notificaprenotazione)
 			- [Crea Prenotazione](#crea-prenotazione)
+				- [InserisciDettagliRicetta](#inseriscidettagliricetta)
+				- [ScegliRegimeVisita](#scegliregimevisita)
+				- [PrenotaVisitaSSN](#prenotavisitassn)
+				- [PrenotaVisitaALPI](#prenotavisitaalpi)
 			- [Modifica Prenotazione](#modifica-prenotazione)
 				- [ScegliPrenotazione](#scegliprenotazione)
 				- [SpostaPrenotazione](#spostaprenotazione)
@@ -33,7 +37,7 @@
 				- [AutenticaPersonale](#autenticapersonale)
 				- [AutenticaPaziente](#autenticapaziente)
 				- [RegistraPaziente](#registrapaziente)
-			- [AutorizzazionePaziente](#autorizzazionepaziente)
+				- [AutorizzazionePaziente](#autorizzazionepaziente)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
@@ -151,7 +155,7 @@ __Flusso degli eventi:__
 	   ottenuta.
 5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
    che desidera modificare.
-	6. Il sistema mostra i dati relativi alla Prenotazione selezionata.
+	6. Il sistema mostra i dati relativi alla Prenotazione selezionata
 7. L'attore principale modifica la data e l'ora scegliendo tra
    le opzioni proposte OPPURE elimina la Prenotazione e conferma.
 	8. Il sistema richiede un ulteriore conferma specificando le
@@ -191,7 +195,8 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando un utente non autenticato cerca di
    eseguire una operazione.
-	2. Il sistema chiede di inserire un codice univoco di indentificazione
+	2. Il sistema chiede di inserire un codice univoco di
+	   indentificazione
 3. Il Paziente o PersonaleAmministrativo inserisce il CF
    OPPURE
    PersonaleMedico inserisce il suo codice identificativo.
@@ -225,16 +230,18 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
    della giornata.
-	2. Il sistema mostra i dettagli già presenti sulla visita selezionata.
+	2. Il sistema mostra i dettagli già presenti sulla visita
+	   selezionata.
 3. PersonaleMedico insersce ulteriori dati o modifica quelli presenti.
    Eventualmente conferma i cambiamenti.
-	 4. Il sistema mostra a PersonaleMedico una schermata riassuntiva
-	    delle modifiche effettuate.
+	 4. Il sistema mostra a PersonaleMedico una schermata
+	    riassuntiva delle modifiche effettuate.
 5. PersonaleMedico conferma o annulla le modifiche effettuate.
 	6. Se PersonaleMedico ha confermato il sistema comunica al
 	   DBMS le informazioni aggiornate sulla visita.
 7. Il DBMS aggiorna i dati riguardanti la visita immagazzinati.
- 	8. Il sistema mostra un messaggio relativo all'esito dell'operazione.
+ 	8. Il sistema mostra un messaggio relativo all'esito della
+	   operazione.
 ```  
 __Postcondizioni:__  `Il sistema torna alla schermata principale`  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
@@ -250,7 +257,109 @@ __Postcondizioni:__  ` `
 ---
 
 #### Crea Prenotazione
-![Use case "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/CreaPrenotazione.png)
+![Use case "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/CreaPrenotazione.png)  
+
+---
+##### InserisciDettagliRicetta
+__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente si trova nella schermata principale `  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'attore principale seleziona
+   l'opzione "Crea Prenotazione".
+	2. Il sistema chiede all'utente di compilare un form
+	   con i dati della ricetta.
+3. L'utente inserisce il numero di ricetta, il codice di urgenza e
+   la prestazione richiesta.
+	4. Il sistema chiede al DBMS il numero di prenotazioni
+	   con lo stesso numero di ricetta per la stessa prestazione.
+5. Il DBMS restituisce le informazioni richieste.
+	6. Se esiste almeno una ricetta che soddisfa i parametri
+	   il sistema notifica che quella prenotazione è già stata
+	   effettuata e richiede di inserire i dati corretti,
+	   ALTRIMENTI
+	   Il sistema chiede di confermare i dettagli inseriti.
+```  
+__Postcondizioni:__  `Il sistema ha immagazzinato le informazioni sulla prenotazione `  
+[_Diagramma delle sequenze_](#)  
+
+---
+##### ScegliRegimeVisita
+__Attori:__ _Paziente, PersonaleAmministrativo_    
+__Precondizioni:__ `Il sistema ha immagazzinato i dettagli della ricetta `  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'utente conferma i dati della ricetta .
+	2. Il sistema chiede se si voglia prenotare in convenzione col
+ 	   SSN o in regime ALPI
+3. L'utente seleziona su "Servizio sanitario nazionale" o
+   "Attività di libera professione intramoenia"
+```  
+__Postcondizioni:__  `Il sistema ha registrato la scelta dell'utente `  
+[_Diagramma delle sequenze_](#)  
+
+---
+##### PrenotaVisitaSSN
+__Attori:__ _Paziente, PersonaleAmministrativo, PersonaleMedico_ DBMS      
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
+   prenotare una visita in convenzione con il sistema sanitario nazionale.
+	2. Il sistema, tenendo conto del codice di urgenza, chiede al DBMS
+	   quali giorni e orari non sono disponibili per la nuova
+	   prenotazione.  
+3. Il DBMS comunica al sistema l'elenco delle prenotazioni.
+	4. Il sistema propone al paziente le date disponibili per
+	   effettuare la visita.
+5. Il paziente sceglie tra le opzioni proposte e conferma la scelta.
+	6. Il sistema comunica la nuova prenotazione al DBMS,
+	   eventualmente spostando prenotazioni meno urgenti per
+	   permettere l'evasione della richiesta.
+	7. Il sistema chiede al DBMS il costo della prestazione e i
+	   documenti richiesti.
+8. Il DBMS comunica le informazioni richieste.
+	9. Il sistema invia una notifica di avvenuta prenotazione
+	   all'utente, riportando il costo del ticket e i documenti
+	   da portare.
+```  
+__Postcondizioni:__  `Nel sistema risulta registrata la visita`  
+[_Diagramma delle sequenze_](#)  
+
+---
+##### PrenotaVisitaALPI
+__Attori:__ _Paziente, PersonaleAmministrativo,_ DBMS      
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
+   prenotare una visita in regime intramoenia.
+	2. Il sistema chiede al DBMS quali medici effettuano il tipo di
+	   visita richiesto e il loro onorario.
+3. Il DBMS trasmette al sistema i dati richiesti.
+	4. Il sistema mostra la lista di medici all'utente chiedendo di
+	   indicarne uno.
+5. Il paziente seleziona il medico presso il quale vuole sottoporsi alla
+   visita.
+	6. Il sistema chiede al DBMS giorni e orari in cui il medico
+	   selezionato non può effettuare ulteriori visite.
+7. Il DBMS comunica al sistema l'elenco delle prenotazioni relative
+   al medico scelto dall'utente.	 
+	8. Il sistema chiede all'utente di scegliere giorno e ora tra
+       quelli in cui il medico è disponibile.
+9. L'utente seleziona e conferma giorno e ora.	   
+	10. Il sistema comunica la nuova prenotazione al DBMS.
+	11. Il sistema chiede al DBMS i documenti richiesti per la visita.
+12. Il DBMS comunica le informazioni richieste.
+	13. Il sistema invia una notifica di avvenuta prenotazione
+	   all'utente, riportando i documenti
+	   da portare.
+
+```  
+__Postcondizioni:__  `Nel sistema risulta registrata la visita`  
+[_Diagramma delle sequenze_](#)
+
+---
 
 #### Modifica Prenotazione
 ![Use case "ModificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/ModificaPrenotazione.png)
@@ -338,7 +447,7 @@ __Postcondizioni:__ `L'utente torna alla schermata principale`
 ![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)
 
 #### Effettua Autenticazione
-![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/EffettuaAutenticazione.png)
+![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Effettua%20Autenticazione.png)
 
 ---
 ##### AutenticaPersonale
@@ -381,8 +490,8 @@ __Flusso degli eventi:__
 	   univocamente attraverso il codice.
 5. Il DBMS comunica al sistema se il Paziente è presente nel database ed
    eventuali informazioni connesse.
-	6. Se l'utente è presente nel database il sistema chiede all'utente
-	   di inserire la password.
+	6. Se l'utente è presente nel database il sistema chiede
+	   all'utente di inserire la password.
 7. L'utente inserisce e conferma la password.
 	8. Il sistema controlla che la password inserita corrisponda a
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
@@ -392,8 +501,8 @@ __Postcondizioni:__  `L'utente può operare`
 
 ---
 ##### RegistraPaziente
-__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS
-__Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`
+__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
+__Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando durante un'autenticazione Paziente o
@@ -409,9 +518,9 @@ __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`
 [_Diagramma delle sequenze_](#)
 
 ---
-#### AutorizzazionePaziente
-__Attori:__ _PersonaleAmministrativo,_ DBMS
-__Precondizioni:__ `PersonaleAmministrativo cerca di modificare una prenotazione per un paziente`
+##### AutorizzazionePaziente
+__Attori:__ _PersonaleAmministrativo,_ DBMS  
+__Precondizioni:__ `PersonaleAmministrativo cerca di modificare una prenotazione per un paziente`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleAmministrativo seleziona "Modifica
@@ -433,7 +542,7 @@ __Flusso degli eventi:__
 	   ALTRIMENTI
 	   Il sistema autorizza l'operazione
 ```
-__Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenotazione selezionata`
+__Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenotazione selezionata`  
 [_Diagramma delle sequenze_](#)
 
 ---
