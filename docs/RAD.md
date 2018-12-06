@@ -276,9 +276,9 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Sposta
    prenotazione"
-	2. Il sistema chiede al BDMS le informazioni necessarie per fornire 
+	2. Il sistema chiede al DBMS le informazioni necessarie per fornire
            all'utente i giorni disponibili in cui spostare la prenotazione.
-3. Il DMBS restituisce le informazioni richieste.
+3. Il DBSM restituisce le informazioni richieste.
 4. L'utente sceglie il giorno e l'ora tra quelle proposte.
 	5. Il sistema da inizio al caso d'uso ConfermaModifica.
 	6. Il sistema da inizio al caso d'uso EliminaPrenotazione.		
@@ -305,7 +305,7 @@ __Flusso degli eventi:__
 __Flusso alternativo:__
 ```
 	3. L'utente annulla l'operazione.
-4. Il sistema mostra all'utente un messaggio di avviso annullamento.	
+4. Il sistema mostra all'utente un messaggio di avviso annullamento.
 ```
 __Postcondizioni:__ `L'utente torna alla schermata principale`
 [_Diagramma delle sequenze_](#)
