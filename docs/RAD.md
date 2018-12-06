@@ -24,10 +24,10 @@
 				- [NotificaPrenotazione](#notificaprenotazione)
 			- [Crea Prenotazione](#crea-prenotazione)
 			- [Modifica Prenotazione](#modifica-prenotazione)
+				- [ScegliPrenotazione](#scegliprenotazione)
 				- [SpostaPrenotazione](#spostaprenotazione)
 				- [EliminaPrenotazione](#eliminaprenotazione)
 				- [ConfermaModifica](#confermamodifica)
-				- [NomeCaso](#nomecaso)
 			- [Visualizza FSE](#visualizza-fse)
 			- [Effettua Autenticazione](#effettua-autenticazione)
 				- [AutenticaPersonale](#autenticapersonale)
@@ -256,17 +256,41 @@ __Postcondizioni:__  ` `
 ![Use case "ModificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/ModificaPrenotazione.png)
 
 ---
+##### ScegliPrenotazione
+__Attori:__  _Paziente_, DBMS
+__Precondizioni:__  `Paziente si trova nella schermata prinicpale`
+__Flusso degli eventi:__  
+```
+1. Il caso d'uso inizia quando Paziente seleziona l'opzione "Modifica
+   Prenotazione" dalla schermata principale
+	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
+	   relative al paziente con data successiva a quella corrente
+	   +24 ore e le relative informazioni.
+3. Il DBMS comunica al sistema le prenotazioni richieste.
+	4. Il sistema mostra all'utente la lista di prenotazioni
+	   ottenuta, se la lista è vuota viene mostrato un messaggio
+	   di errore.
+5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
+   che desidera modificare.
+	6. Il sistema mostra i dati relativi alla Prenotazione selezionata.
+```
+__Postcondizioni:__ `Paziente è in grado di alterare le prenotazioni in elenco`  
+[_Diagramma delle sequenze_](#)
+
+---
 ##### SpostaPrenotazione
-__Attori:__`_PersonaleAmministrativo, Paziente_`, DBMS  
+__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
 __Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`  
 __Flusso degli eventi:__  
 ```
-1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Sposta
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Modifica
    prenotazione"
 	2. Il sistema chiede al DBMS le informazioni necessarie per fornire
-           all'utente i giorni disponibili in cui spostare la prenotazione.
+       all'utente i giorni disponibili in cui spostare la prenotazione.
 3. Il DBSM restituisce le informazioni richieste.
-4. L'utente sceglie il giorno e l'ora tra quelle proposte.
+	4. Il sistema mostra all'utente le opzioni disponibili per la nuova
+	   data.
+4. L'utente sceglie il giorno e l'ora tra quelli proposti.
 	5. Il sistema da inizio al caso d'uso ConfermaModifica.
 ```
 __Postcondizioni:__ `L'utente torna alla schermata principale`  
@@ -306,14 +330,6 @@ __Flusso alternativo:__
 	4. Il sistema mostra all'utente un messaggio di avviso annullamento.
 ```
 __Postcondizioni:__ `L'utente torna alla schermata principale`  
-[_Diagramma delle sequenze_](#)
-
----
-##### NomeCaso
-__Attori:__  
-__Precondizioni:__  
-__Flusso degli eventi:__  
-__Postcondizioni:__  
 [_Diagramma delle sequenze_](#)
 
 ---
