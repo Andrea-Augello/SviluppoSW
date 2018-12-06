@@ -24,8 +24,8 @@
 				- [NotificaPrenotazione](#notificaprenotazione)
 			- [Crea Prenotazione](#crea-prenotazione)
 			- [Modifica Prenotazione](#modifica-prenotazione)
-				- [EliminaPrenotazione](#eliminaprenotazione)
 				- [SpostaPrenotazione](#spostaprenotazione)
+				- [EliminaPrenotazione](#eliminaprenotazione)
 				- [ConfermaModifica](#confermamodifica)
 				- [NomeCaso](#nomecaso)
 			- [Visualizza FSE](#visualizza-fse)
@@ -256,19 +256,6 @@ __Postcondizioni:__  ` `
 ![Use case "ModificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/ModificaPrenotazione.png)
 
 ---
-##### EliminaPrenotazione
-__Attori:__ _Paziente, PersonaleAmministrativo_
-__Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Cancella
-   prenotazione"
-   2. Il sistema da inizio al caso d'uso ConfermaModifica.
-```
-__Postcondizioni:__ `La prenotazione è scomparsa dal sistema`
-[_Diagramma delle sequenze_](#)
-
----
 ##### SpostaPrenotazione
 __Attori:__`_PersonaleAmministrativo, Paziente_`, DBMS
 __Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`
@@ -289,10 +276,23 @@ __Postcondizioni:__ `L'utente torna alla schermata principale`
 [_Diagramma delle sequenze_](#)
 
 ---
+##### EliminaPrenotazione
+__Attori:__ _Paziente, PersonaleAmministrativo_  
+__Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`  
+__Flusso degli eventi:__  
+```
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Cancella
+prenotazione"
+2. Il sistema da inizio al caso d'uso ConfermaModifica.
+```
+__Postcondizioni:__ `La prenotazione è scomparsa dal sistema`  
+[_Diagramma delle sequenze_](#)
+
+---
 ##### ConfermaModifica
-__Attori:__ `_PersonaleAmministrativo, Paziente_`, DBMS
-__Precondizioni:__ `L'utente ha apportato modifiche ad una prenotazione `
-__Flusso degli eventi:__
+__Attori:__ `_PersonaleAmministrativo, Paziente_`, DBMS  
+__Precondizioni:__ `L'utente ha apportato modifiche ad una prenotazione `  
+__Flusso degli eventi:__  
 ```
 	1. Il sistema riassume le modifiche effettuate dall'utente e
 	   chiede di confermarle o annullarle.
@@ -302,20 +302,20 @@ __Flusso degli eventi:__
 	5. Il sistema comunica all'utente l'avvenuta modifica.	   
 
 ```
-__Flusso alternativo:__
+__Flusso alternativo:__  
 ```
 	3. L'utente annulla l'operazione.
 4. Il sistema mostra all'utente un messaggio di avviso annullamento.
 ```
-__Postcondizioni:__ `L'utente torna alla schermata principale`
+__Postcondizioni:__ `L'utente torna alla schermata principale`  
 [_Diagramma delle sequenze_](#)
 
 ---
 ##### NomeCaso
-__Attori:__
-__Precondizioni:__
-__Flusso degli eventi:__
-__Postcondizioni:__
+__Attori:__  
+__Precondizioni:__  
+__Flusso degli eventi:__  
+__Postcondizioni:__  
 [_Diagramma delle sequenze_](#)
 
 ---
