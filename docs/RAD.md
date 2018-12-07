@@ -389,14 +389,14 @@ __Postcondizioni:__ `Paziente è in grado di alterare le prenotazioni in elenco`
 ---
 ##### SpostaPrenotazione  
 __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
-__Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`  
+__Precondizioni:__ `L'utente è nella schermata principale`  
 __Flusso degli eventi:__  
 ```
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Modifica
    prenotazione"
 	2. Il sistema chiede al DBMS le informazioni necessarie per fornire
        all'utente i giorni disponibili in cui spostare la prenotazione.
-3. Il DBSM restituisce le informazioni richieste.
+3. Il DBMS restituisce le informazioni richieste.
 	4. Il sistema mostra all'utente le opzioni disponibili per la nuova
 	   data.
 4. L'utente sceglie il giorno e l'ora tra quelli proposti.
