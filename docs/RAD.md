@@ -393,7 +393,7 @@ __Flusso degli eventi:__
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Stampa FSE".
 	2. Il sistema produce un file in formato PDF riportante i dati
 	   anagrafici del paziente e l'elenco in ordine cronologico di
-	   tutte le visite effettuate, specificando per ognuna data, costo
+	   tutte le visite effettuate, specificando per ognuna data, costo,
 	   tipo di visita, il nome del medico che se ne è occupato e le
 	   sue annotazioni.
 ```  
