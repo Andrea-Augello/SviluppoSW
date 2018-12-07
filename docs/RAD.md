@@ -369,25 +369,24 @@ __Attori:__  _, _, DBMS
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__
 ```
-1. 
+1.
 	2.
 3.
-	4. 
+	4.
 ```  
 __Postcondizioni:__  ` `  
 [_Diagramma delle sequenze_](#))
 
----
 ---
 ##### NomeCaso2
 __Attori:__  _, _, DBMS  
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__
 ```
-1. 
+1.
 	2.
 3.
-	4. 
+	4.
 ```  
 __Postcondizioni:__  ` `  
 [_Diagramma delle sequenze_](#))
@@ -398,10 +397,10 @@ __Attori:__  _, _, DBMS
 __Precondizioni:__ ` `  
 __Flusso degli eventi:__
 ```
-1. 
+1.
 	2.
 3.
-	4. 
+	4.
 ```  
 __Postcondizioni:__  ` `  
 [_Diagramma delle sequenze_](#))
