@@ -364,15 +364,18 @@ __Postcondizioni:__  `Nel sistema risulta registrata la visita`
 ![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)  
 
 ---
-##### NomeCaso1
-__Attori:__  _, _, DBMS  
-__Precondizioni:__ ` `  
+##### VisualizzaStoricoVisite
+__Attori:__  _Paziente, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente si trova nella schermata principale`  
 __Flusso degli eventi:__
 ```
-1.
-	2.
-3.
-	4.
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Visualizza
+   storico visite"
+	2. Il sistema chiede al DBMS tutte le visite già effettuate dal
+	   paziente per cui si sta operando.
+3. Il DBMS restituisce i dati richiesti.
+	4. Il sistema mostra in una schermata l'elenco di tutte le
+	   visite riportando tipo di visita, data e costo.
 ```  
 __Postcondizioni:__  ` `  
 [_Diagramma delle sequenze_](#))
