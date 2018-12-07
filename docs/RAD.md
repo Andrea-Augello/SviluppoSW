@@ -381,7 +381,7 @@ __Flusso degli eventi:__
 	4. Il sistema mostra in una schermata l'elenco di tutte le
 	   visite riportando tipo di visita, data e costo.
 ```  
-__Postcondizioni:__  ` `  
+__Postcondizioni:__  `L'utente è in grado di accedere correttamente al suo storico visite`  
 [_Diagramma delle sequenze_](#))
 
 ---
@@ -391,7 +391,7 @@ __Precondizioni:__ ` `
 __Flusso degli eventi:__
 ```
 1.
-	2. Il sistema chiede al DBSM tutte le visite già effettuate dal
+	2. Il sistema chiede al DBMS tutte le visite già effettuate dal
 	   paziente per cui si sta operando.
 3. Il DBMS restituisce i dati richiesti.
 	4. Il sistema produce un file in formato PDF riportante i dati
@@ -410,7 +410,7 @@ __Precondizioni:__ ` `
 __Flusso degli eventi:__
 ```
 1.
-	2. Il sistema chiede al DBSM tutte le visite già effettuate dal
+	2. Il sistema chiede al DBMS tutte le visite già effettuate dal
 	   paziente per cui si sta operando.
 3. Il DBMS restituisce i dati richiesti.
 	4. Il sistema mostra una schermata riportante i dati anagrafici
