@@ -568,7 +568,11 @@ __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenot
 ### 3.4.2 Modello degli oggetti
 ### 3.4.3 Modello dinamico
 #### Diagrammi delle sequenze
+---
 ##### Sequenza InserisciDettagliRicetta
 ![InserisciDettagliRicetta](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InserisciDettagliRicetta.png)  
+[_Caso d'uso_](#inseriscidettagliricetta)
+ 
+ ---
 ### 3.4.4 Interfaccia utente: navigazione e mock-up
 ## 4. Glossario
