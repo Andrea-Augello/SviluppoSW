@@ -29,6 +29,10 @@
 				- [PrenotaVisitaALPI](#prenotavisitaalpi)
 			- [Modifica Prenotazione](#modifica-prenotazione)
 			- [Visualizza FSE](#visualizza-fse)
+				- [VisualizzaStoricoVisite](#visualizzastoricovisite)
+				- [StampaCartellaClinica](#stampacartellaclinica)
+				- [VisualizzaCartellaClinica](#visualizzacartellaclinica)
+				- [NomeCaso3](#nomecaso3)
 			- [Effettua Autenticazione](#effettua-autenticazione)
 				- [AutenticaPersonale](#autenticapersonale)
 				- [AutenticaPaziente](#autenticapaziente)
@@ -410,7 +414,7 @@ __Flusso degli eventi:__
 	   paziente per cui si sta operando.
 3. Il DBMS restituisce i dati richiesti.
 	4. Il sistema mostra una schermata riportante i dati anagrafici
-	   del paziente e l'elenco in ordine cronologico di tutte le 
+	   del paziente e l'elenco in ordine cronologico di tutte le
 	   visite effettuate, specificando per ognuna data, costo
 	   tipo di visita, il nome del medico che se ne è occupato e le
 	   sue annotazioni.
