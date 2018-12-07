@@ -248,10 +248,14 @@ __Attori:__  _Tempo_, DBMS
 __Precondizioni:__ `Nella giornata corrente non sono ancora state inviate le notifiche per le visite previste due giorni dopo`  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando mancano meno di 48 ore alla prima visita di due giorni dopo.
-	2. Il sistema chiede al DBMS l'elenco di tutti i pazienti che hanno una visita tra due giorni e le informazioni relative ad 	   ogni visita
+1. Il caso d'uso inizia quando mancano meno di 48 ore alla prima visita di 
+   due giorni dopo.
+	2. Il sistema chiede al DBMS l'elenco di tutti i pazienti che
+	   hanno una visita tra due giorni e le informazioni relative ad
+	   ogni visita.
 3. Il DBMS restituisce al sistema le informazioni richieste
-	4. Il sistema invia ad ogni paziente una notifica contenente le informazioni relative alle sue prenotazioni
+	4. Il sistema invia ad ogni paziente una notifica contenente le 
+	   informazioni relative alle sue prenotazioni.
 ```  
 __Postcondizioni:__  `Tutti i pazienti con visite in programma dopo due giorni hanno ricevuto un promemoria`  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
