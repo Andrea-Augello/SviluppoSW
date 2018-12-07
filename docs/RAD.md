@@ -176,7 +176,7 @@ __Precondizioni:__ `Il sistema è nella schermata iniziale`
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale  seleziona l'opzione
-   "Visualizza FSE" relativamente ad un paziente.
+   "Visualizza Storico Visite" relativamente ad un paziente.
 	2. IL sistema chiede al DBMS i dati relativi a tutte le visite
 	   precedentemente effettuate dal paziente.
 3. Il DBMS comunica al sistema i dati.
