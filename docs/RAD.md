@@ -42,6 +42,8 @@
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 		- [3.4.3 Modello dinamico](#343-modello-dinamico)
+			- [Diagrammi delle sequenze](#diagrammi-delle-sequenze)
+				- [Sequenza InserisciDettagliRicetta](#sequenza-inseriscidettagliricetta)
 		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
 	- [4. Glossario](#4-glossario)
 
@@ -291,7 +293,7 @@ __Flusso degli eventi:__
 	   Il sistema chiede di confermare i dettagli inseriti.
 ```  
 __Postcondizioni:__  `Il sistema ha immagazzinato le informazioni sulla prenotazione `  
-[_Diagramma delle sequenze_](#)  
+[_Diagramma delle sequenze_](#sequenza-inseriscidettagliricetta)  
 
 ---
 ##### ScegliRegimeVisita
@@ -565,5 +567,8 @@ __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenot
 
 ### 3.4.2 Modello degli oggetti
 ### 3.4.3 Modello dinamico
+#### Diagrammi delle sequenze
+##### Sequenza InserisciDettagliRicetta
+![InserisciDettagliRicetta](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InserisciDettagliRicetta.png)  
 ### 3.4.4 Interfaccia utente: navigazione e mock-up
 ## 4. Glossario
