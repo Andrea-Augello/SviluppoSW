@@ -438,7 +438,7 @@ __Flusso alternativo:__
 3. L'utente annulla l'operazione.
 	4. Il sistema mostra all'utente un messaggio di avviso annullamento.
 ```
-__Postcondizioni:__ `L'utente torna alla schermata principale`  
+__Postcondizioni:__ `L'utente è nuovamente nella schermata principale`  
 [_Diagramma delle sequenze_](#)
 
 ---
