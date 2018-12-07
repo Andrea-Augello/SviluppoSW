@@ -180,9 +180,9 @@ __Flusso degli eventi:__
 	2. IL sistema chiede al DBMS i dati relativi a tutte le visite
 	   precedentemente effettuate dal paziente.
 3. Il DBMS comunica al sistema i dati.
-	4. Il sistema restituisce un documento con le informazioni del
-	   paziente e l'elenco in ordine cronologico delle visite
-	   effettuate completo dei relativi dettagli rilevanti.
+	4. Il sistema restituisce un documento con le informazioni richieste.
+5. Se l'attore "PersonaleAmministrativo" seleziona l'opzione "Stampa FSE"
+	5.1 Il sistema restituisce un file da stampare.
 ```  
 __Postcondizioni:__  `L'utente è nuovamente nella schermata iniziale.`  
 [_Vista dettagliata_](#visualizza-fse))
