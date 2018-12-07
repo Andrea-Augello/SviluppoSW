@@ -309,7 +309,7 @@ __Flusso degli eventi:__
    "Attività di libera professione intramoenia"
 ```  
 __Postcondizioni:__  `Il sistema ha registrato la scelta dell'utente `  
-[_Diagramma delle sequenze_](#scegliregimevisita)  
+[_Diagramma delle sequenze_](#sequenza-scegliregimevisita)  
 
 ---
 ##### PrenotaVisitaSSN
@@ -337,7 +337,7 @@ __Flusso degli eventi:__
 	   da portare.
 ```  
 __Postcondizioni:__  `Nel sistema risulta registrata la visita`  
-[_Diagramma delle sequenze_](#)  
+[_Diagramma delle sequenze_](#sequenza-prenotavisitassn)  
 
 ---
 ##### PrenotaVisitaALPI
@@ -370,7 +370,7 @@ __Flusso degli eventi:__
 
 ```  
 __Postcondizioni:__  `Nel sistema risulta registrata la visita`  
-[_Diagramma delle sequenze_](#)
+[_Diagramma delle sequenze_](#sequenza-prenotavisitaalpi)
 
 ---
 
@@ -397,7 +397,7 @@ __Flusso degli eventi:__
 	6. Il sistema mostra i dati relativi alla Prenotazione selezionata.
 ```
 __Postcondizioni:__ `Paziente è in grado di alterare le prenotazioni in elenco`  
-[_Diagramma delle sequenze_](#)
+[_Diagramma delle sequenze_](#sequenza-scegliprenotazione)
 
 ---
 ##### SpostaPrenotazione  
@@ -416,7 +416,7 @@ __Flusso degli eventi:__
 	5. Il sistema da inizio al caso d'uso ConfermaModifica.
 ```
 __Postcondizioni:__ `L'utente torna alla schermata principale`  
-[_Diagramma delle sequenze_](#)
+[_Diagramma delle sequenze_](#sequenza-spostaprenotazione)
 
 ---
 ##### EliminaPrenotazione
@@ -430,7 +430,7 @@ prenotazione"
 	   da inizio al caso d'uso ConfermaModifica.
 ```
 __Postcondizioni:__ `La prenotazione è scomparsa dal sistema`  
-[_Diagramma delle sequenze_](#)
+[_Diagramma delle sequenze_](#sequenza-eliminaprenotazione)
 
 ---
 ##### ConfermaModifica
@@ -452,7 +452,7 @@ __Flusso alternativo:__
 	4. Il sistema mostra all'utente un messaggio di avviso annullamento.
 ```
 __Postcondizioni:__ `L'utente è nuovamente nella schermata principale`  
-[_Diagramma delle sequenze_](#)
+[_Diagramma delle sequenze_](#sequenza-confermamodifica)
 
 ---
 
@@ -486,7 +486,7 @@ __Flusso degli eventi:__
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
 __Postcondizioni:__  `L'utente può operare`  
-[_Diagramma delle sequenze_](#)
+[_Diagramma delle sequenze_](#sequenza-AutenticaPersonale)
 
 ---
 ##### AutenticaPaziente
@@ -510,7 +510,7 @@ __Flusso degli eventi:__
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
 __Postcondizioni:__  `L'utente può operare`  
-[_Diagramma delle sequenze_](#)
+[_Diagramma delle sequenze_](#sequenza-autenticapaziente)
 
 ---
 ##### RegistraPaziente
@@ -528,7 +528,7 @@ __Flusso degli eventi:__
 	4. Il sistema comunica i dati del nuovo paziente al DBMS.
 ```
 __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
-[_Diagramma delle sequenze_](#)
+[_Diagramma delle sequenze_](#sequenza-registrapaziente)
 
 ---
 ##### AutorizzazionePaziente
@@ -556,7 +556,7 @@ __Flusso degli eventi:__
 	   Il sistema autorizza l'operazione
 ```
 __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenotazione selezionata`  
-[_Diagramma delle sequenze_](#)
+[_Diagramma delle sequenze_](#sequenza-autorizzazionepaziente)
 
 ---
 
