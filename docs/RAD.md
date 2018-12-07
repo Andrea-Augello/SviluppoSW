@@ -400,6 +400,25 @@ __Postcondizioni:__  ` `
 [_Diagramma delle sequenze_](#))
 
 ---
+##### VisualizzaCartellaClinica
+__Attori:__  _PersonaleMedico_, DBMS  
+__Precondizioni:__ ` `  
+__Flusso degli eventi:__
+```
+1.
+	2. Il sistema chiede al DBSM tutte le visite già effettuate dal
+	   paziente per cui si sta operando.
+3. Il DBMS restituisce i dati richiesti.
+	4. Il sistema mostra una schermata riportante i dati anagrafici
+	   del paziente e l'elenco in ordine cronologico di tutte le 
+	   visite effettuate, specificando per ognuna data, costo
+	   tipo di visita, il nome del medico che se ne è occupato e le
+	   sue annotazioni.
+```  
+__Postcondizioni:__  ` `  
+[_Diagramma delle sequenze_](#))
+
+---
 ##### NomeCaso3
 __Attori:__  _, _, DBMS  
 __Precondizioni:__ ` `  
