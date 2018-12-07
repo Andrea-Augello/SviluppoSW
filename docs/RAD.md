@@ -387,20 +387,17 @@ __Postcondizioni:__  `L'utente è in grado di accedere correttamente al suo stor
 ---
 ##### StampaCartellaClinica
 __Attori:__  _PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ ` `  
+__Precondizioni:__ `L'utente ha visualizzato correttamente lo storico visite`  
 __Flusso degli eventi:__
 ```
-1.
-	2. Il sistema chiede al DBMS tutte le visite già effettuate dal
-	   paziente per cui si sta operando.
-3. Il DBMS restituisce i dati richiesti.
-	4. Il sistema produce un file in formato PDF riportante i dati
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Stampa FSE".
+	2. Il sistema produce un file in formato PDF riportante i dati
 	   anagrafici del paziente e l'elenco in ordine cronologico di
 	   tutte le visite effettuate, specificando per ognuna data, costo
 	   tipo di visita, il nome del medico che se ne è occupato e le
 	   sue annotazioni.
 ```  
-__Postcondizioni:__  ` `  
+__Postcondizioni:__  `L'utente è in grado di stampare correttamente il documento FSE`  
 [_Diagramma delle sequenze_](#))
 
 ---
