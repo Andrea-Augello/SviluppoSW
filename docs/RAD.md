@@ -44,6 +44,7 @@
 		- [3.4.3 Modello dinamico](#343-modello-dinamico)
 			- [Diagrammi delle sequenze](#diagrammi-delle-sequenze)
 				- [Sequenza InserisciDettagliRicetta](#sequenza-inseriscidettagliricetta)
+				- [Sequenza ScegliRegimeVisita](#sequenza-scegliregimevisita)
 		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
 	- [4. Glossario](#4-glossario)
 
@@ -308,7 +309,7 @@ __Flusso degli eventi:__
    "Attività di libera professione intramoenia"
 ```  
 __Postcondizioni:__  `Il sistema ha registrato la scelta dell'utente `  
-[_Diagramma delle sequenze_](#)  
+[_Diagramma delle sequenze_](#scegliregimevisita)  
 
 ---
 ##### PrenotaVisitaSSN
@@ -572,7 +573,12 @@ __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenot
 ##### Sequenza InserisciDettagliRicetta
 ![InserisciDettagliRicetta](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InserisciDettagliRicetta.png)  
 [_Caso d'uso_](#inseriscidettagliricetta)
- 
+
+ ---
+##### Sequenza ScegliRegimeVisita
+![InserisciDettagliRicetta](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/ScegliRegimeVisita.png)  
+[_Caso d'uso_](#scegliregimevisita)
+
  ---
 ### 3.4.4 Interfaccia utente: navigazione e mock-up
 ## 4. Glossario
