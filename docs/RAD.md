@@ -66,7 +66,7 @@ Personale Medico |
 Ricetta  |  
 SSN  | Servizio Sanitario Nazionale  
 Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei cittadini alla spesa pubblica come controprestazione per l'assistenza sanitaria fornita dallo Stato. Esiste inoltre un sistema di esenzioni per reddito, fasce di età e servizi considerati "salvavita".
-
+ | 
 
 
 ## 1.5 Riferimenti
