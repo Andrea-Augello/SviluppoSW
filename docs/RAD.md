@@ -45,6 +45,8 @@
 			- [Diagrammi delle sequenze](#diagrammi-delle-sequenze)
 				- [Sequenza InserisciDettagliRicetta](#sequenza-inseriscidettagliricetta)
 				- [Sequenza ScegliRegimeVisita](#sequenza-scegliregimevisita)
+				- [Sequenza PrenotaVisitaSSN](#sequenza-prenotavisitassn)
+				- [Sequenza PrenotaVisitaALPI](#sequenza-prenotavisitaalpi)
 		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
 	- [4. Glossario](#4-glossario)
 
