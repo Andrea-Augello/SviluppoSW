@@ -580,5 +580,15 @@ __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenot
 [_Caso d'uso_](#scegliregimevisita)
 
  ---
+##### Sequenza PrenotaVisitaSSN
+![InserisciDettagliRicetta](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/PrenotaVisitaSSN.png)  
+[_Caso d'uso_](#prenotavisitassn)
+
+ ---
+##### Sequenza PrenotaVisitaALPI
+![InserisciDettagliRicetta](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/PrenotaVisitaALPI.png)  
+[_Caso d'uso_](#prenotavisitaalpi)
+
+ ---
 ### 3.4.4 Interfaccia utente: navigazione e mock-up
 ## 4. Glossario
