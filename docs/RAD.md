@@ -467,6 +467,17 @@ __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenot
 #### Inserisci Dettagli Visita
 ![Use case "InserisciDettagliVisita"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/InserisciDettagliVisita.png)
 
+---
+##### NomeCaso
+__Attori:__
+__Precondizioni:__ ` `
+__Flusso degli eventi:__
+```
+```
+__Postcondizioni:__ ` `
+[_Diagramma delle sequenze_](#)
+
+---
 #### Notifica Prenotazione
 ![Use case "NotificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/NotificaPrenotazione.png)
 
