@@ -393,7 +393,7 @@ __Flusso degli eventi:__
 	2. Il sistema produce un file in formato PDF riportante i dati
 	   anagrafici del paziente e l'elenco in ordine cronologico di
 	   tutte le visite effettuate, specificando per ognuna data, costo,
-	   tipo di visita, il nome del medico che se ne è occupato e le
+	   tipo di visita, nome del medico che se ne è occupato e le
 	   sue annotazioni.
 ```  
 __Postcondizioni:__  `L'utente è in grado di stampare correttamente il documento FSE`  
@@ -412,7 +412,7 @@ __Flusso degli eventi:__
 	4. Il sistema mostra una schermata riportante i dati anagrafici
 	   del paziente e l'elenco in ordine cronologico di tutte le
 	   visite effettuate, specificando per ognuna data, costo
-	   tipo di visita, il nome del medico che se ne è occupato e le
+	   tipo di visita,nome del medico che se ne è occupato e le
 	   sue annotazioni.
 ```  
 __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite passate del paziente`  
