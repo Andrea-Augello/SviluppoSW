@@ -484,6 +484,23 @@ __Postcondizioni:__ ` PersonaleMedico ha inserito correttamente i dettagli della
 [_Diagramma delle sequenze_](#)
 
 ---
+
+##### ConfermaDiagnosi
+__Attori:__ _PersonaleMedico_, DBMS
+__Precondizioni:__ `Personale medico ha inserito correttamente la diagnosi `
+__Flusso degli eventi:__
+```
+1.Il caso d'uso inizia quando l'utente seleziona "Conferma Diagnosi"
+	2.Il sistema mostra all'utente una richiesta di conferma modifiche effettuate.
+3.L'utente conferma o annulla le modifiche.
+	4.Se l'utente ha confermato le modifiche il sistema comunica al DBMS le informazioni
+	  aggiornate sulla visita.
+5.Il sistema mostra un messaggio relativo all'esito dell'operazione.	  
+```
+__Postcondizioni:__ `Il sistema ritorna alla schermata principale`
+[_Diagramma delle sequenze_](#)
+
+---
 #### Notifica Prenotazione
 ![Use case "NotificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/NotificaPrenotazione.png)
 
