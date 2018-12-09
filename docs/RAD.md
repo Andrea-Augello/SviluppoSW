@@ -329,7 +329,7 @@ __Postcondizioni:__  `Il sistema ha registrato la scelta dell'utente `
 ---
 ##### PrenotaVisitaSSN
 __Attori:__ _Paziente, PersonaleAmministrativo, PersonaleMedico_ DBMS      
-__Precondizioni:__ ` `  
+__Precondizioni:__ `È in corso una procedura di prenotazione con una ricetta valida`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
@@ -357,7 +357,7 @@ __Postcondizioni:__  `Nel sistema risulta registrata la visita`
 ---
 ##### PrenotaVisitaALPI
 __Attori:__ _Paziente, PersonaleAmministrativo,_ DBMS      
-__Precondizioni:__ ` `  
+__Precondizioni:__ `È in corso una procedura di prenotazione con una ricetta valida`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
