@@ -33,6 +33,9 @@
 				- [EliminaPrenotazione](#eliminaprenotazione)
 				- [ConfermaModifica](#confermamodifica)
 			- [Visualizza FSE](#visualizza-fse)
+				- [VisualizzaStoricoVisite](#visualizzastoricovisite)
+				- [StampaCartellaClinica](#stampacartellaclinica)
+				- [VisualizzaCartellaClinica](#visualizzacartellaclinica)
 			- [Effettua Autenticazione](#effettua-autenticazione)
 				- [AutenticaPersonale](#autenticapersonale)
 				- [AutenticaPaziente](#autenticapaziente)
@@ -194,13 +197,13 @@ __Precondizioni:__ `Il sistema è nella schermata iniziale`
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale  seleziona l'opzione
-   "Visualizza FSE" relativamente ad un paziente.
+   "Visualizza Storico Visite" relativamente ad un paziente.
 	2. IL sistema chiede al DBMS i dati relativi a tutte le visite
 	   precedentemente effettuate dal paziente.
 3. Il DBMS comunica al sistema i dati.
-	4. Il sistema restituisce un documento con le informazioni del
-	   paziente e l'elenco in ordine cronologico delle visite
-	   effettuate completo dei relativi dettagli rilevanti.
+	4. Il sistema restituisce un documento con le informazioni richieste.
+5. Se l'attore "PersonaleAmministrativo" seleziona l'opzione "Stampa FSE"
+	5.1 Il sistema restituisce un file da stampare.
 ```  
 __Postcondizioni:__  `L'utente è nuovamente nella schermata iniziale.`  
 [_Vista dettagliata_](#visualizza-fse))
@@ -474,8 +477,61 @@ __Postcondizioni:__ `L'utente è nuovamente nella schermata principale`
 ---
 
 #### Visualizza FSE
-![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)
+![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)  
 
+---
+##### VisualizzaStoricoVisite
+__Attori:__  _Paziente, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente si trova nella schermata principale`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Visualizza
+   storico visite"
+	2. Il sistema chiede al DBMS tutte le visite già effettuate dal
+	   paziente per cui si sta operando.
+3. Il DBMS restituisce i dati richiesti.
+	4. Il sistema mostra in una schermata l'elenco di tutte le
+	   visite riportando tipo di visita, data e costo.
+```  
+__Postcondizioni:__  `L'utente è in grado di accedere correttamente al suo storico visite`  
+[_Diagramma delle sequenze_](#sequenza-visualizzastoricovisite)
+
+---
+##### StampaCartellaClinica
+__Attori:__  _PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente ha visualizzato correttamente lo storico visite`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Stampa FSE".
+	2. Il sistema produce un file in formato PDF riportante i dati
+	   anagrafici del paziente e l'elenco in ordine cronologico di
+	   tutte le visite effettuate, specificando per ognuna data, costo,
+	   tipo di visita, nome del medico che se ne è occupato e le
+	   sue annotazioni.
+```  
+__Postcondizioni:__  `L'utente è in grado di stampare correttamente il documento FSE`  
+[_Diagramma delle sequenze_](#sequenza-stampacartellaclinica)
+
+---
+##### VisualizzaCartellaClinica
+__Attori:__  _PersonaleMedico_, DBMS  
+__Precondizioni:__ `PersonaleMedico ha selezionato un paziente dalla schermata principale`  
+__Flusso degli eventi:__
+```
+1. PersonaleMedico seleziona l'opzione "Visualizza Cartella Clinica"
+	2. Il sistema chiede al DBMS le visite, comprese di tutte le informazioni allegate, già effettuate dal
+	   paziente per cui si sta operando.
+3. Il DBMS restituisce i dati richiesti.
+	4. Il sistema mostra una schermata riportante i dati anagrafici
+	   del paziente e l'elenco in ordine cronologico di tutte le
+	   visite effettuate, specificando per ognuna data, costo
+	   tipo di visita,nome del medico che se ne è occupato e le
+	   sue annotazioni.
+```  
+__Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite passate del paziente`  
+[_Diagramma delle sequenze_](#sequenza-visualizzacartellaclinica)
+
+---
 #### Effettua Autenticazione
 ![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Effettua%20Autenticazione.png)
 
