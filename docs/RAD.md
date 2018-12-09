@@ -32,7 +32,6 @@
 				- [VisualizzaStoricoVisite](#visualizzastoricovisite)
 				- [StampaCartellaClinica](#stampacartellaclinica)
 				- [VisualizzaCartellaClinica](#visualizzacartellaclinica)
-				- [NomeCaso3](#nomecaso3)
 			- [Effettua Autenticazione](#effettua-autenticazione)
 				- [AutenticaPersonale](#autenticapersonale)
 				- [AutenticaPaziente](#autenticapaziente)
@@ -382,7 +381,7 @@ __Flusso degli eventi:__
 	   visite riportando tipo di visita, data e costo.
 ```  
 __Postcondizioni:__  `L'utente è in grado di accedere correttamente al suo storico visite`  
-[_Diagramma delle sequenze_](#))
+[_Diagramma delle sequenze_](#sequenza-visualizzastoricovisite)
 
 ---
 ##### StampaCartellaClinica
@@ -398,15 +397,15 @@ __Flusso degli eventi:__
 	   sue annotazioni.
 ```  
 __Postcondizioni:__  `L'utente è in grado di stampare correttamente il documento FSE`  
-[_Diagramma delle sequenze_](#))
+[_Diagramma delle sequenze_](#sequenza-stampacartellaclinica)
 
 ---
 ##### VisualizzaCartellaClinica
 __Attori:__  _PersonaleMedico_, DBMS  
-__Precondizioni:__ ` `  
+__Precondizioni:__ `PersonaleMedico ha selezionato un paziente dalla schermata principale`  
 __Flusso degli eventi:__
 ```
-1.
+1. PersonaleMedico seleziona l'opzione "Visualizza Cartella Clinica"
 	2. Il sistema chiede al DBMS tutte le visite già effettuate dal
 	   paziente per cui si sta operando.
 3. Il DBMS restituisce i dati richiesti.
@@ -417,21 +416,7 @@ __Flusso degli eventi:__
 	   sue annotazioni.
 ```  
 __Postcondizioni:__  ` `  
-[_Diagramma delle sequenze_](#))
-
----
-##### NomeCaso3
-__Attori:__  _, _, DBMS  
-__Precondizioni:__ ` `  
-__Flusso degli eventi:__
-```
-1.
-	2.
-3.
-	4.
-```  
-__Postcondizioni:__  ` `  
-[_Diagramma delle sequenze_](#))
+[_Diagramma delle sequenze_](#sequenza-visualizzacartellaclinica)
 
 ---
 #### Effettua Autenticazione
