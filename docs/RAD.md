@@ -226,10 +226,10 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
    della giornata.
-	2. Il sistema mostra i dettagli già presenti sulla visita
-	   selezionata.
-3. PersonaleMedico insersce ulteriori dati o modifica quelli presenti.
-   Eventualmente conferma i cambiamenti.
+	2. Il sistema mostra all'utente le eventuali informazioni già inserite precedentemente 
+	   nei dettagli della visita selezionata.
+3. PersonaleMedico inserice ulteriori dati o modifica quelli presenti con la possibilità 
+   di confermare successivamente i cambiamenti fatti. 
 	 4. Il sistema mostra a PersonaleMedico una schermata
 	    riassuntiva delle modifiche effettuate.
 5. PersonaleMedico conferma o annulla le modifiche effettuate.
@@ -468,7 +468,7 @@ __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenot
 ![Use case "InserisciDettagliVisita"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/InserisciDettagliVisita.png)
 
 ---
-##### NomeCaso
+##### 
 __Attori:__
 __Precondizioni:__ ` `
 __Flusso degli eventi:__
