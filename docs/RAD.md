@@ -409,7 +409,7 @@ __Flusso degli eventi:__
 	   di errore.
 5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
    che desidera modificare.
-	6. Il sistema mostra i dati relativi alla Prenotazione selezionata.
+	6. Il sistema mostra i dati relativi alla Prenotazione selezionata
 ```
 __Postcondizioni:__ `Paziente è in grado di alterare le prenotazioni in elenco`  
 [_Diagramma delle sequenze_](#sequenza-scegliprenotazione)
@@ -422,11 +422,12 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Modifica
    prenotazione"
-	2. Il sistema chiede al DBMS le informazioni necessarie per fornire
-       all'utente i giorni disponibili in cui spostare la prenotazione.
+	2. Il sistema chiede al DBMS le informazioni necessarie per
+       fornire all'utente i giorni disponibili in cui spostare la
+	   prenotazione.
 3. Il DBMS restituisce le informazioni richieste.
-	4. Il sistema mostra all'utente le opzioni disponibili per la nuova
-	   data.
+	4. Il sistema mostra all'utente le opzioni disponibili per la
+	   nuova data.
 4. L'utente sceglie il giorno e l'ora tra quelli proposti.
 	5. Il sistema da inizio al caso d'uso ConfermaModifica.
 ```
@@ -464,7 +465,8 @@ __Flusso degli eventi:__
 __Flusso alternativo:__  
 ```
 3. L'utente annulla l'operazione.
-	4. Il sistema mostra all'utente un messaggio di avviso annullamento.
+	4. Il sistema mostra all'utente un messaggio di avviso
+	   annullamento.
 ```
 __Postcondizioni:__ `L'utente è nuovamente nella schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-confermamodifica)
