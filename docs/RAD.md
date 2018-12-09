@@ -406,7 +406,7 @@ __Precondizioni:__ `PersonaleMedico ha selezionato un paziente dalla schermata p
 __Flusso degli eventi:__
 ```
 1. PersonaleMedico seleziona l'opzione "Visualizza Cartella Clinica"
-	2. Il sistema chiede al DBMS tutte le visite già effettuate dal
+	2. Il sistema chiede al DBMS le visite, comprese di tutte le informazioni allegate, già effettuate dal
 	   paziente per cui si sta operando.
 3. Il DBMS restituisce i dati richiesti.
 	4. Il sistema mostra una schermata riportante i dati anagrafici
