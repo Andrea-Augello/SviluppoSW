@@ -468,13 +468,19 @@ __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenot
 ![Use case "InserisciDettagliVisita"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/InserisciDettagliVisita.png)
 
 ---
-##### 
-__Attori:__
-__Precondizioni:__ ` `
+##### InserisciDiagnosi
+__Attori:__ _PersonaleMedico_, DBMS
+__Precondizioni:__ `Il sistema mostra la schermata principale `
 __Flusso degli eventi:__
 ```
+1. Il caso d'uso inizia quando l'utente seleziona un paziente dalla schermata principale.
+	2. Il sistema richiede al DBMS le eventuali informazioni relative alla visita 
+	   connessa al paziente precedentemente selezionato.
+3. Il DBMS restituisce le informazioni richieste e, se non ve ne sono, mostra una
+   schermata con il messaggio: "Inserire diagnosi".
+	4. PersonaleMedico digita la diagnosi all'interno di un box apposito.
 ```
-__Postcondizioni:__ ` `
+__Postcondizioni:__ ` PersonaleMedico ha inserito correttamente i dettagli della visita sostenuta`
 [_Diagramma delle sequenze_](#)
 
 ---
