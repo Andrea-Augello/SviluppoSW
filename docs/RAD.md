@@ -84,11 +84,10 @@ ALPI  | Per _Attività Libero Professionista Intramoenia_ si intende l’attivit
 CUP|  Il servizio del _Centro Unico di Prenotazioni_ effettua prenotazioni di visite ed esami specialistici in regime di Servizio Sanitario Nazionale con l'Impegnativa del Medico, oppure in regime di libera professione.  
 FSE  | Il _Fascicolo Sanitario Elettronico_ è lo strumento attraverso il quale il cittadino può tracciare e consultare tutta la storia della propria vita sanitaria, condividendola con i professionisti sanitari per garantire un servizio più efficace ed efficiente.  
 Personale Amministrativo	| Personale dell'ospedale impiegato allo sportello del CUP per permettere la fruizione dei servizi anche ai pazienti che non utilizzano direttamente il software
-Personale Medico |    
-Ricetta  |  
+Personale Medico | Personale dell'ospedale, esperto in medicina, che si occupa della salute dei pazienti prevenendo, diagnosticando e curando le malattie. Può accedere alla loro cartella clinica personale.
+Ricetta  | La ricetta medica è un documento, redatto da un medico abilitato, che consente al paziente di prenotare visite specialistiche, esami diagnostici e di poter ritirare o acquistare farmaci che richiedono una prestazione medica.
 SSN  | Servizio Sanitario Nazionale  
 Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei cittadini alla spesa pubblica come controprestazione per l'assistenza sanitaria fornita dallo Stato. Esiste inoltre un sistema di esenzioni per reddito, fasce di età e servizi considerati "salvavita".
- |
 
 
 ## 1.5 Riferimenti
