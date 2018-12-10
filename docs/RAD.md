@@ -663,7 +663,7 @@ __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenot
 
  ---
 ##### Sequenza ScegliPrenotazione
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/ScegliPrenotazione.PNG)
+ ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/ScegliPrenotazione.png)
  [_Caso d'uso_](#scegliprenotazione)
 
  ---
