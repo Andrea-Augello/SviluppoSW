@@ -663,67 +663,67 @@ __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenot
 
  ---
 ##### Sequenza ScegliPrenotazione
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/ScegliPrenotazione.png)
+ ![ScegliPrenotazione](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/ScegliPrenotazione.png)
  [_Caso d'uso_](#scegliprenotazione)
 
  ---
 ##### Sequenza SpostaPrenotazione
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/SpostaPrenotazione.png)
+ ![SpostaPrenotazione](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/SpostaPrenotazione.png)
  [_Caso d'uso_](#spostaprenotazione)
 
  ---
 ##### Sequenza EliminaPrenotazione
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/EliminaPrenotazione.png)
+ ![EliminaPrenotazione](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/EliminaPrenotazione.png)
  [_Caso d'uso_](#eliminaprenotazione)
 
  ---
 ##### Sequenza ConfermaModifica
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/ConfermaModifica.png)
+ ![ConfermaModifica](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/ConfermaModifica.png)
  [_Caso d'uso_](#confermamodifica)
 
  ---
 ##### Sequenza VisualizzaStoricoVisite
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/VisualizzaStoricoVisite.png)
+ ![VisualizzaStoricoVisite](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/VisualizzaStoricoVisite.png)
  [_Caso d'uso_](#visualizzastoricovisite)
 
  ---
 ##### Sequenza StampaCartellaClinica
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/StampaCartellaClinica.png)
+ ![StampaCartellaClinica](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/StampaCartellaClinica.png)
  [_Caso d'uso_](#stampacartellaclinica)
 
  ---
 ##### Sequenza VisualizzaCartellaClinica
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/VisualizzaCartellaClinica.png)
+ ![VisualizzaCartellaClinica](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/VisualizzaCartellaClinica.png)
  [_Caso d'uso_](#visualizzacartellaclinica)
 
  ---
 ##### Sequenza AutenticaPersonale
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPersonale.png)
+ ![AutenticaPersonale](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPersonale.png)
  [_Caso d'uso_](#autenticapersonale)
 
  ---
 ##### Sequenza AutenticaPaziente
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPaziente.png)
+ ![AutenticaPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPaziente.png)
  [_Caso d'uso_](#autenticapaziente)
 
  ---
 ##### Sequenza RegistraPaziente
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/RegistraPaziente.png)
+ ![RegistraPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/RegistraPaziente.png)
  [_Caso d'uso_](#registrapaziente)
 
  ---
 ##### Sequenza AutorizzazionePaziente
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutorizzazionePaziente.png)
+ ![AutorizzazionePaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutorizzazionePaziente.png)
  [_Caso d'uso_](#autorizzazionepaziente)
 
  ---
 ##### Sequenza InserisciDettagliVisita
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InserisciDettagliVisita.png)
+ ![InserisciDettagliVisita](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InserisciDettagliVisita.png)
  [_Caso d'uso_](#inseriscidettaglivisita)
 
  ---
 ##### Sequenza NotificaPrenotazione
- ![](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/NotificaPrenotazione.png)
+ ![NotificaPrenotazione](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/NotificaPrenotazione.png)
  [_Caso d'uso_](#notificaprenotazione)
 
  ---
