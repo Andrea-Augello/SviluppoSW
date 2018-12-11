@@ -419,7 +419,7 @@ __Postcondizioni:__ `Paziente è in grado di alterare le prenotazioni in elenco`
 ---
 ##### SpostaPrenotazione  
 __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
-__Precondizioni:__ `L'utente è nella schermata principale`  
+__Precondizioni:__ `L'utente ha correttamente identificato la prenotazione da modificare`  
 __Flusso degli eventi:__  
 ```
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Modifica
