@@ -300,7 +300,7 @@ __Flusso degli eventi:__
 	2. Il sistema chiede all'utente di compilare un form
 	   con i dati della ricetta.
 3. L'utente inserisce il numero di ricetta, il codice di urgenza e
-   la prestazione richiesta.
+   la prestazione richiesta e conferma.
 	4. Il sistema chiede al DBMS il numero di prenotazioni
 	   con lo stesso numero di ricetta per la stessa prestazione.
 5. Il DBMS restituisce le informazioni richieste.
