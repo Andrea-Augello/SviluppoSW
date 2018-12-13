@@ -656,9 +656,11 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 #### Inserisci Dettagli Visita
 ![Use case "InserisciDettagliVisita"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/InserisciDettagliVisita.png)
 
+---
 #### Notifica Prenotazione
 ![Use case "NotificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/NotificaPrenotazione.png)
 
+---
 ### 3.4.2 Modello degli oggetti
 ### 3.4.3 Modello dinamico
 #### Diagrammi delle sequenze
@@ -681,6 +683,7 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 ##### Sequenza IndividuaPaziente
 ![IndividuaPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/IndividuaPaziente.png)
 [_Caso d'uso_](#individuapaziente)
+
 ---
 
 ##### Sequenza InserisciDettagliRicetta
