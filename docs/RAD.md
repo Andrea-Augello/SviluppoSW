@@ -16,13 +16,19 @@
 	- [3.4 Modelli del sistema](#34-modelli-del-sistema)
 		- [3.4.1 Casi d'uso](#341-casi-duso)
 			- [Casi d'uso di alto livello.](#casi-duso-di-alto-livello)
+				- [EffettuaAutenticazione](#effettuaautenticazione)
 				- [CreaPrenotazione](#creaprenotazione)
 				- [ModificaPrenotazione](#modificaprenotazione)
 				- [VisualizzaFSE](#visualizzafse)
-				- [EffettuaAutenticazione](#effettuaautenticazione)
 				- [InserisciDettagliVisita](#inseriscidettaglivisita)
 				- [NotificaPrenotazione](#notificaprenotazione)
+			- [Effettua Autenticazione](#effettua-autenticazione)
+				- [AutenticaPersonale](#autenticapersonale)
+				- [AutenticaPaziente](#autenticapaziente)
+				- [RegistraPaziente](#registrapaziente)
 			- [Crea Prenotazione](#crea-prenotazione)
+				- [IndividuaPaziente](#individuapaziente)
+				- [RegistraPaziente ¹](#registrapaziente-)
 				- [InserisciDettagliRicetta](#inseriscidettagliricetta)
 				- [ScegliRegimeVisita](#scegliregimevisita)
 				- [PrenotaVisitaSSN](#prenotavisitassn)
@@ -37,15 +43,16 @@
 				- [VisualizzaStoricoVisite](#visualizzastoricovisite)
 				- [StampaCartellaClinica](#stampacartellaclinica)
 				- [VisualizzaCartellaClinica](#visualizzacartellaclinica)
-			- [Effettua Autenticazione](#effettua-autenticazione)
-				- [AutenticaPersonale](#autenticapersonale)
-				- [AutenticaPaziente](#autenticapaziente)
-				- [RegistraPaziente](#registrapaziente)
+				- [IndividuaPaziente ²](#individuapaziente-)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 		- [3.4.3 Modello dinamico](#343-modello-dinamico)
 			- [Diagrammi delle sequenze](#diagrammi-delle-sequenze)
+				- [Sequenza AutenticaPersonale](#sequenza-autenticapersonale)
+				- [Sequenza AutenticaPaziente](#sequenza-autenticapaziente)
+				- [Sequenza RegistraPaziente](#sequenza-registrapaziente)
+				- [Sequenza IndividuaPaziente](#sequenza-individuapaziente)
 				- [Sequenza InserisciDettagliRicetta](#sequenza-inseriscidettagliricetta)
 				- [Sequenza ScegliRegimeVisita](#sequenza-scegliregimevisita)
 				- [Sequenza PrenotaVisitaSSN](#sequenza-prenotavisitassn)
@@ -54,13 +61,10 @@
 				- [Sequenza SpostaPrenotazione](#sequenza-spostaprenotazione)
 				- [Sequenza EliminaPrenotazione](#sequenza-eliminaprenotazione)
 				- [Sequenza ConfermaModifica](#sequenza-confermamodifica)
+				- [Sequenza AutorizzazionePaziente](#sequenza-autorizzazionepaziente)
 				- [Sequenza VisualizzaStoricoVisite](#sequenza-visualizzastoricovisite)
 				- [Sequenza StampaCartellaClinica](#sequenza-stampacartellaclinica)
 				- [Sequenza VisualizzaCartellaClinica](#sequenza-visualizzacartellaclinica)
-				- [Sequenza AutenticaPersonale](#sequenza-autenticapersonale)
-				- [Sequenza AutenticaPaziente](#sequenza-autenticapaziente)
-				- [Sequenza RegistraPaziente](#sequenza-registrapaziente)
-				- [Sequenza AutorizzazionePaziente](#sequenza-autorizzazionepaziente)
 				- [Sequenza InserisciDettagliVisita](#sequenza-inseriscidettaglivisita)
 				- [Sequenza NotificaPrenotazione](#sequenza-notificaprenotazione)
 		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
@@ -109,6 +113,48 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
 
 ---
+##### EffettuaAutenticazione
+__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'utente avvia il software.
+	2. Il sistema chiede di inserire un codice univoco di
+	   indentificazione
+3. Paziente inserisce il CF
+   OPPURE
+   PersonaleMedico o PersonaleAmministrativo inserisce il
+   suo codice identificativo.
+	4. Il sistema chiede al DBMS informazioni sull'utente individuato
+	   in modo univoco dal dato inserito.
+5. Il DBMS comunica al sistema che l'utente è presente nel database ed
+   eventuali informazioni connesse.
+	6. L'utente è presente nel database e il sistema richiede
+	   l'inserimento di password.
+7. L'utente inserisce la propria password.
+	8. Il sistema controlla che la password inserita corrisponda a
+	   quella nota, se non lo è chiede nuovamente di autenticarsi.
+```  
+__Flusso alternativo 1:__
+```
+5. Il DBMS comunica al sistema che Paziente non è presente nel database
+	6. Il sistema presenta un form per far registrare Paziente.
+7. L'utente compila il form.
+ 	8. Il sistema comunica al DBMS i dati del nuovo utente.
+9. Il DBMS registra il nuovo paziente.
+```
+__Flusso alternativo 2:__
+```
+5. Il DBMS comunica al sistema che l'utente non è presente nel database
+	6. PersonaleMedico o PersonaleAmministrativo non è
+	   presente nel database, il sistema avvisa dell'errato
+	   inserimento del codice e ne chiede il corretto
+	   reinserimento.
+```
+__Postcondizioni:__  `Il sistema mostra la schermata principale`  
+[_Vista dettagliata_](#effettua-autenticazione)
+
+---
 ##### CreaPrenotazione
 __Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ `L'utente si trova nella schermata principale `  
@@ -116,45 +162,36 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale seleziona
    l'opzione "Crea Prenotazione"
-	2. Il sistema chiede al DBMS i dati relativi al paziente per il
-	   quale si sta prenotando.
-3. Il DBMS comunica al sistema i dati.
-	4. Il sistema chiede all'utente di compilare un form
+	2. Il sistema chiede all'utente di compilare un form
 	   con i dati della ricetta.
-5. L'utente inserisce il numero di ricetta, il codice di urgenza e
+3. L'utente inserisce il numero di ricetta, il codice di urgenza e
    la prestazione richiesta.
-	6. Il sistema chiede se si voglia prenotare in convenzione col
- 	   SSN o in regime ALPI
-7. L'utente mette una spunta su "Servizio sanitario nazionale" o su
-   "Attività di libera professione intramoenia"
-	8. Se l'utente seleziona SSN il sistema mostra il costo del
-	    ticket.
- 	9. Il sistema chiede al DBMS, tenendo conto del codice di
- 	    urgenza, quali giorni e orari non sono disponibili.
-10. Il DBMS comunica al sistema l'elenco delle prenotazioni.
-	11. Il sistema mostra all'utente giorni e orari in cui è
+	4. Il sistema chiede con quale regime si voglia effettuare
+	   la visita
+5. L'utente seleziona "Servizio sanitario nazionale".
+ 	6. Il sistema chiede al DBMS, tenendo conto del codice di
+ 	    urgenza, quali giorni e orari sono disponibili.
+7. Il DBMS comunica al sistema le informazioni richeiste.
+	8. Il sistema mostra all'utente giorni e orari in cui è
 	    possibile effettuare la prenotazione.
-12. L'utente seleziona e conferma giorno e ora.
-	13. Il sistema comunica la nuova prenotazione al DBMS.
-	14. Il sistema manda una notifica di avvenuta prenotazione
-	    all'utente.
+9. L'utente seleziona e conferma giorno e ora.
+	10. Il sistema comunica la nuova prenotazione al DBMS e manda
+	    una notifica di avvenuta prenotazione all'utente.
 ```  
 __Flusso alternativo__:
 ```
-	7. Se l'utente seleziona ALPI il sistema mostra l'elenco dei
-	   professionisti che eseguono quel tipo di visite e il loro
-	   onorario.
-8. L'utente seleziona il medico da cui vuole farsi visitare
- 	9. Il sistema chiede al DBMS i giorni e gli orari in cui il
-	    medico non può effettuare visite.
-10. Il DBMS comunica al sistema l'elenco delle prenotazioni relative
-    al medico scelto dall'utente.
-	11. Il sistema chiede all'utente di scegliere giorno e ora tra
+5. L'utente seleziona "Intramoenia".
+	4. Il sistema mostra l'elenco dei professionisti che eseguono
+	   quel tipo di visite e il loro onorario.
+5. L'utente seleziona il medico da cui vuole farsi visitare
+ 	6. Il sistema chiede al DBMS i giorni e gli orari in cui il
+	    medico può effettuare visite.
+7. Il DBMS comunica al sistema i dati richiesti.
+	8. Il sistema chiede all'utente di scegliere giorno e ora tra
 	    quelli in cui il medico è disponibile.
-12. L'utente seleziona e conferma giorno e ora.
-	13. Il sistema comunica la nuova prenotazione al DBMS.
-	14. Il sistema manda una notifica di avvenuta prenotazione
-	    all'utente.
+9. L'utente seleziona e conferma giorno e ora.
+	10. Il sistema comunica la nuova prenotazione al DBMS e manda
+	    una notifica di avvenuta prenotazione all'utente.
 ```
 __Postcondizioni:__  `L'utente è nuovamente nella schermata principale`  
 [_Vista dettagliata_](#crea-prenotazione)
@@ -166,25 +203,21 @@ __Precondizioni:__ `Il sistema è nella schermata iniziale`
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando Paziente o PersonaleAmministrativo
-   seleziona l'opzione "Modifica Prenotazione" dalla schermata principale
-	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
+   seleziona l'opzione "Modifica Prenotazione" dalla schermata principale.
+   	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
 	   relative al paziente con data successiva a quella corrente
-	   +24 ore e le relative informazioni.
+	   le relative informazioni.
 3. Il DBMS comunica al sistema le prenotazioni richieste.
-	4. Il sistema mostra all'utente la lista di prenotazioni
-	   ottenuta.
-5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
-   che desidera modificare.
-	6. Il sistema mostra i dati relativi alla Prenotazione selezionata
-7. L'attore principale modifica la data e l'ora scegliendo tra
-   le opzioni proposte OPPURE elimina la Prenotazione e conferma.
+  	4. Il sistema fa scegliere all'utente la prenotazione da modificare.
+5. L'utente individua la prenotazione che desidera modificare.
+	6. Il sistema mostra i dati relativi alla Prenotazione selezionata.
+7. L'utente modifica la data e l'ora scegliendo tra le opzioni proposte
+   e conferma OPPURE elimina la Prenotazione.
 	8. Il sistema richiede un ulteriore conferma riassumendo i
-	   cambiamenti fatti
-9. L'attore principale conferma o annulla le modifiche.
+	   cambiamenti fatti.
+9. L'utente conferma o annulla le modifiche.
 	10. Se l'utente conferma le modifiche il sistema le comunica
-	   al DBMS e invia al Paziente a cui è collegata la
-	   prenotazione una notifica, altrimenti mostra il messaggio
-	   "Modifiche annullate"
+	   al DBMS e invia al Paziente opportuno una notifica
 ```  
 __Postcondizioni:__  `Il sistema mostra nuovamente la schermata principale`  
 [_Vista dettagliata_](#modifica-prenotazione)
@@ -192,55 +225,19 @@ __Postcondizioni:__  `Il sistema mostra nuovamente la schermata principale`
 ---
 ##### VisualizzaFSE
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `Il sistema è nella schermata iniziale`  
+__Precondizioni:__ `Il sistema è nella schermata principale`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale  seleziona l'opzione
    "Visualizza Storico Visite" relativamente ad un paziente.
-	2. IL sistema chiede al DBMS i dati relativi a tutte le visite
+	2. Il sistema chiede al DBMS i dati relativi a tutte le visite
 	   precedentemente effettuate dal paziente.
 3. Il DBMS comunica al sistema i dati.
-	4. Il sistema restituisce un documento con le informazioni richieste.
-5. Se l'attore "PersonaleAmministrativo" seleziona l'opzione "Stampa FSE"
-	5.1 Il sistema restituisce un file da stampare.
+	4. Il sistema restituisce un documento o una schermata con
+	   delle informazioni sulle visite.
 ```  
-__Postcondizioni:__  `L'utente è nuovamente nella schermata iniziale.`  
-[_Vista dettagliata_](#visualizza-fse))
-
----
-##### EffettuaAutenticazione
-__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando un utente non autenticato cerca di
-   eseguire una operazione.
-	2. Il sistema chiede di inserire un codice univoco di
-	   indentificazione
-3. Il Paziente o PersonaleAmministrativo inserisce il CF
-   OPPURE
-   PersonaleMedico inserisce il suo codice identificativo.
-	4. Il sistema chiede al DBMS informazioni sull'utente individuato
-	   in modo univoco dai dati inseriti.
-5. Il DBMS comunica al sistema se l'utente è presente nel database ed
-   eventuali informazioni connesse.
-	6. Se l'utente è presente nel database il sistema richiede
-	   l'inserimento di password.
-           ALTRIMENTI
-	   Se l'utente è Paziente o PersonaleAmministrativo il Sistema
-	   richiede le ulteriori informazioni necessarie ad inserire nel
-	   database il Paziente.
-7. L'utente inserisce in un form i dati richiesti dal sistema.
-	8. Il sistema controlla che la password inserita corrisponda a
-	   quella nota, se non lo è chiede nuovamente di autenticarsi.
-```  
-__Flusso alternativo:__
-```
-  8. Il sistema comunica al DBMS i dati dell'utente.
-9. Il DBMS registra il nuovo utente
-```
-__Postcondizioni:__  `L'utente prosegue l'operazione iniziata precedetemente `  
-[_Vista dettagliata_](#effettua-autenticazione)
+__Postcondizioni:__  `Il sistema torna nella schermata principale`  
+[_Vista dettagliata_](#visualizza-fse)
 
 ---
 ##### InserisciDettagliVisita
@@ -285,11 +282,99 @@ __Postcondizioni:__  `Tutti i pazienti con visite in programma dopo due giorni h
 [_Vista dettagliata_](#notifica-prenotazione)
 
 ---
+#### Effettua Autenticazione
+![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Effettua%20Autenticazione.png)
+[_Vista di alto livello_](#effettuaautenticazione)
+
+---
+##### AutenticaPersonale
+__Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando un utente non autenticato cerca di
+   interagire con il sistema.
+	2. Il sistema chiede all'utente di inserire il suo codice
+	   identificativo.
+3. L'utente inserisce il proprio numero di matricola e conferma.
+	4. Il sistema chiede al DBMS informazioni sull'utente individuato
+	   univocamente attraverso il codice.
+5. Il DBMS comunica al sistema se l'utente è presente nel database ed
+   eventuali informazioni connesse.
+	6. Se l'utente non è presente nel database il sistema informa che
+      il codice inserito è errato e chiede di reinserirlo.
+	  ALTRIMENTI
+	  Il sistema chiede all'utente di inserire la password.
+7. L'utente inserisce e conferma la password.
+	8. Il sistema controlla che la password inserita corrisponda a
+	   quella nota, se non lo è chiede nuovamente di autenticarsi.
+```  
+__Postcondizioni:__  `L'utente può operare`  
+[_Diagramma delle sequenze_](#sequenza-AutenticaPersonale)
+
+---
+##### AutenticaPaziente
+__Attori:__  _Paziente_, DBMS  
+__Precondizioni:__ `Paziente non si è ancora autenticato in questa sessione`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando Paziente non autenticato cerca di
+   interagire con il sistema.
+	2. Il sistema chiede a Paziente di inserire il suo codice
+	   fiscale.
+3. Paziente inserisce il proprio CF e conferma.
+	4. Il sistema chiede al DBMS informazioni sul Paziente individuato
+	   univocamente attraverso il codice.
+5. Il DBMS comunica al sistema se il Paziente è presente nel database ed
+   eventuali informazioni connesse.
+	6. Se l'utente è presente nel database il sistema chiede
+	   all'utente di inserire la password.
+7. L'utente inserisce e conferma la password.
+	8. Il sistema controlla che la password inserita corrisponda a
+	   quella nota, se non lo è chiede nuovamente di autenticarsi.
+```  
+__Postcondizioni:__  `L'utente può operare`  
+[_Diagramma delle sequenze_](#sequenza-autenticapaziente)
+
+---
+##### RegistraPaziente
+__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
+__Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando durante un'autenticazione Paziente o
+   PersonaleAmministrativo inserisce un CF che non corrisponde a nessun
+   paziente nel database.
+	2. Il sistema mostra un form per inserire i dati necessari
+	   all'inserimento nel sistema
+3. L'utente compila il modulo, eventualmente non riempiendo i campi
+   facoltativi e invia i dati.
+	4. Il sistema comunica i dati del nuovo paziente al DBMS.
+```
+__Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
+[_Diagramma delle sequenze_](#sequenza-registrapaziente)
+
+---
 
 #### Crea Prenotazione
 ![Use case "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/CreaPrenotazione.png)  
 [_Vista di alto livello_](#creaprenotazione)
 
+---
+##### IndividuaPaziente
+__Attori:__ _PersonaleAmministrativo_, DBMS
+__Precondizioni:__ ` `
+__Flusso degli eventi:__
+```
+
+```
+__Postcondizioni:__ ` `
+[_Diagramma delle sequenze_](#sequenza-IndividuaPaziente)
+
+---
+##### RegistraPaziente ¹  
+[_¹Descrizione già presente qui_](#registrapaziente)  
+[_Diagramma delle sequenze_](#sequenza-registrapaziente)  
 ---
 ##### InserisciDettagliRicetta
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
@@ -562,78 +647,9 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 [_Diagramma delle sequenze_](#sequenza-visualizzacartellaclinica)
 
 ---
-#### Effettua Autenticazione
-![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Effettua%20Autenticazione.png)
-[_Vista di alto livello_](#effettuaautenticazione)
-
----
-##### AutenticaPersonale
-__Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando un utente non autenticato cerca di
-   interagire con il sistema.
-	2. Il sistema chiede all'utente di inserire il suo codice
-	   identificativo.
-3. L'utente inserisce il proprio numero di matricola e conferma.
-	4. Il sistema chiede al DBMS informazioni sull'utente individuato
-	   univocamente attraverso il codice.
-5. Il DBMS comunica al sistema se l'utente è presente nel database ed
-   eventuali informazioni connesse.
-	6. Se l'utente non è presente nel database il sistema informa che
-      il codice inserito è errato e chiede di reinserirlo.
-	  ALTRIMENTI
-	  Il sistema chiede all'utente di inserire la password.
-7. L'utente inserisce e conferma la password.
-	8. Il sistema controlla che la password inserita corrisponda a
-	   quella nota, se non lo è chiede nuovamente di autenticarsi.
-```  
-__Postcondizioni:__  `L'utente può operare`  
-[_Diagramma delle sequenze_](#sequenza-AutenticaPersonale)
-
----
-##### AutenticaPaziente
-__Attori:__  _Paziente_, DBMS  
-__Precondizioni:__ `Paziente non si è ancora autenticato in questa sessione`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando Paziente non autenticato cerca di
-   interagire con il sistema.
-	2. Il sistema chiede a Paziente di inserire il suo codice
-	   fiscale.
-3. Paziente inserisce il proprio CF e conferma.
-	4. Il sistema chiede al DBMS informazioni sul Paziente individuato
-	   univocamente attraverso il codice.
-5. Il DBMS comunica al sistema se il Paziente è presente nel database ed
-   eventuali informazioni connesse.
-	6. Se l'utente è presente nel database il sistema chiede
-	   all'utente di inserire la password.
-7. L'utente inserisce e conferma la password.
-	8. Il sistema controlla che la password inserita corrisponda a
-	   quella nota, se non lo è chiede nuovamente di autenticarsi.
-```  
-__Postcondizioni:__  `L'utente può operare`  
-[_Diagramma delle sequenze_](#sequenza-autenticapaziente)
-
----
-##### RegistraPaziente
-__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
-__Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando durante un'autenticazione Paziente o
-   PersonaleAmministrativo inserisce un CF che non corrisponde a nessun
-   paziente nel database.
-	2. Il sistema mostra un form per inserire i dati necessari
-	   all'inserimento nel sistema
-3. L'utente compila il modulo, eventualmente non riempiendo i campi
-   facoltativi e invia i dati.
-	4. Il sistema comunica i dati del nuovo paziente al DBMS.
-```
-__Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
-[_Diagramma delle sequenze_](#sequenza-registrapaziente)
-
+##### IndividuaPaziente ²  
+[_²Descrizione già presente qui_](#individuapaziente)  
+[_Diagramma delle sequenze_](#sequenza-individuapaziente)  
 ---
 
 #### Inserisci Dettagli Visita
@@ -646,6 +662,26 @@ __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`
 ### 3.4.3 Modello dinamico
 #### Diagrammi delle sequenze
 ---
+##### Sequenza AutenticaPersonale
+ ![AutenticaPersonale](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPersonale.png)
+ [_Caso d'uso_](#autenticapersonale)
+
+ ---
+##### Sequenza AutenticaPaziente
+ ![AutenticaPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPaziente.png)
+ [_Caso d'uso_](#autenticapaziente)
+
+ ---
+##### Sequenza RegistraPaziente
+ ![RegistraPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/RegistraPaziente.png)
+ [_Caso d'uso_](#registrapaziente)
+
+---
+##### Sequenza IndividuaPaziente
+![IndividuaPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/IndividuaPaziente.png)
+[_Caso d'uso_](#individuapaziente)
+---
+
 ##### Sequenza InserisciDettagliRicetta
 ![InserisciDettagliRicetta](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InserisciDettagliRicetta.png)  
 [_Caso d'uso_](#inseriscidettagliricetta)
@@ -686,6 +722,11 @@ __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`
  [_Caso d'uso_](#confermamodifica)
 
  ---
+##### Sequenza AutorizzazionePaziente
+ ![AutorizzazionePaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutorizzazionePaziente.png)
+ [_Caso d'uso_](#autorizzazionepaziente)
+
+ ---
 ##### Sequenza VisualizzaStoricoVisite
  ![VisualizzaStoricoVisite](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/VisualizzaStoricoVisite.png)
  [_Caso d'uso_](#visualizzastoricovisite)
@@ -700,27 +741,7 @@ __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`
  ![VisualizzaCartellaClinica](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/VisualizzaCartellaClinica.png)
  [_Caso d'uso_](#visualizzacartellaclinica)
 
- ---
-##### Sequenza AutenticaPersonale
- ![AutenticaPersonale](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPersonale.png)
- [_Caso d'uso_](#autenticapersonale)
-
- ---
-##### Sequenza AutenticaPaziente
- ![AutenticaPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPaziente.png)
- [_Caso d'uso_](#autenticapaziente)
-
- ---
-##### Sequenza RegistraPaziente
- ![RegistraPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/RegistraPaziente.png)
- [_Caso d'uso_](#registrapaziente)
-
- ---
-##### Sequenza AutorizzazionePaziente
- ![AutorizzazionePaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutorizzazionePaziente.png)
- [_Caso d'uso_](#autorizzazionepaziente)
-
- ---
+  ---
 ##### Sequenza InserisciDettagliVisita
  ![InserisciDettagliVisita](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InserisciDettagliVisita.png)
  [_Caso d'uso_](#inseriscidettaglivisita)
