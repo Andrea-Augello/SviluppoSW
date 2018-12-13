@@ -162,7 +162,7 @@ __Postcondizioni:__  `L'utente è nuovamente nella schermata principale`
 ---
 ##### ModificaPrenotazione
 __Attori:__ _Paziente, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `Il sistema è nella schermata iniziale e Paziente o PersonaleAmministrativo ha effettuato l'autenticazione`  
+__Precondizioni:__ `Il sistema è nella schermata iniziale`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando Paziente o PersonaleAmministrativo
