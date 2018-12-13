@@ -234,7 +234,7 @@ __Flusso alternativo 1:__
 ```
 	6. Paziente non è presente nel database, il sistema presenta
 	   un form per farlo registrare.
-7. L'utente compila il formato.
+7. L'utente compila il form.
  	8. Il sistema comunica al DBMS i dati del nuovo utente.
 9. Il DBMS registra il nuovo utente.
 ```
