@@ -202,20 +202,18 @@ __Flusso degli eventi:__
    seleziona l'opzione "Modifica Prenotazione" dalla schermata principale.
    	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
 	   relative al paziente con data successiva a quella corrente
-	   +24 ore e le relative informazioni.
+	   le relative informazioni.
 3. Il DBMS comunica al sistema le prenotazioni richieste.
-  	4. Il sistema mostra all'utente la lista di prenotazioni.
-5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
-   che desidera modificare.
+  	4. Il sistema fa scegliere all'utente la prenotazione da modificare.
+5. L'utente individua la prenotazione che desidera modificare.
 	6. Il sistema mostra i dati relativi alla Prenotazione selezionata.
-7. L'attore principale modifica la data e l'ora scegliendo tra
-   le opzioni proposte OPPURE elimina la Prenotazione e conferma.
+7. L'utente modifica la data e l'ora scegliendo tra le opzioni proposte
+   e conferma OPPURE elimina la Prenotazione.
 	8. Il sistema richiede un ulteriore conferma riassumendo i
 	   cambiamenti fatti.
-9. L'attore principale conferma o annulla le modifiche.
-	10. Se l'utente conferma le modifiche il sistema le comunica 
-	   al DBMS e invia al Paziente opportuno una notifica, altrimenti mostra il messaggio
-	   "Modifiche annullate".
+9. L'utente conferma o annulla le modifiche.
+	10. Se l'utente conferma le modifiche il sistema le comunica
+	   al DBMS e invia al Paziente opportuno una notifica
 ```  
 __Postcondizioni:__  `Il sistema mostra nuovamente la schermata principale`  
 [_Vista dettagliata_](#modifica-prenotazione)
