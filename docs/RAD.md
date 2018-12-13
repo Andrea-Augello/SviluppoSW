@@ -200,18 +200,21 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando Paziente o PersonaleAmministrativo
    seleziona l'opzione "Modifica Prenotazione" dalla schermata principale.
-	2. Il sistema mostra all'utente la lista di prenotazioni relativa al
-	   paziente con data successiva a quella corrente +24 ore.
-3. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
+   	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
+	   relative al paziente con data successiva a quella corrente
+	   +24 ore e le relative informazioni.
+3. Il DBMS comunica al sistema le prenotazioni richieste.
+  	4. Il sistema mostra all'utente la lista di prenotazioni.
+5. L'attore che ha iniziato il caso d'uso seleziona la prenotazione
    che desidera modificare.
-	4. Il sistema mostra i dati relativi alla Prenotazione selezionata.
-5. L'attore principale modifica la data e l'ora scegliendo tra
+	6. Il sistema mostra i dati relativi alla Prenotazione selezionata.
+7. L'attore principale modifica la data e l'ora scegliendo tra
    le opzioni proposte OPPURE elimina la Prenotazione e conferma.
-	6. Il sistema richiede un ulteriore conferma riassumendo i
+	8. Il sistema richiede un ulteriore conferma riassumendo i
 	   cambiamenti fatti.
-7. L'attore principale conferma o annulla le modifiche.
-	18. Se l'utente conferma le modifiche il sistema invia al Paziente
-	    una notifica, altrimenti mostra il messaggio
+9. L'attore principale conferma o annulla le modifiche.
+	10. Se l'utente conferma le modifiche il sistema le comunica 
+	   al DBMS e invia al Paziente opportuno una notifica, altrimenti mostra il messaggio
 	   "Modifiche annullate".
 ```  
 __Postcondizioni:__  `Il sistema mostra nuovamente la schermata principale`  
@@ -237,7 +240,7 @@ __Postcondizioni:__  `Il sistema torna nella schermata principale`
 ---
 ##### InserisciDettagliVisita
 __Attori:__  _PersonaleMedico_, DBMS  
-__Precondizioni:__ `Il sistema è nella schermata principale`  
+__Precondizioni:__ `Il sistema mostra la schermata principale`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
@@ -246,13 +249,16 @@ __Flusso degli eventi:__
 	   selezionata.
 3. PersonaleMedico insersce ulteriori dati o modifica quelli presenti.
    Eventualmente conferma i cambiamenti.
-	4. Il sistema comunica al DBMS le informazioni aggiornate
-	   sulla visita.
-5. Il DBMS aggiorna i dati immagazzinati riguardanti la visita.
- 	6. Il sistema mostra un messaggio relativo all'esito della
+	 4. Il sistema mostra a PersonaleMedico una schermata
+	    riassuntiva delle modifiche effettuate.
+5. PersonaleMedico conferma o annulla le modifiche effettuate.
+	6. Se PersonaleMedico ha confermato il sistema comunica al
+	   DBMS le informazioni aggiornate sulla visita.
+7. Il DBMS aggiorna i dati riguardanti la visita immagazzinati.
+ 	8. Il sistema mostra un messaggio relativo all'esito della
 	   operazione.
 ```  
-__Postcondizioni:__  `Il sistema torna nella schermata principale`  
+__Postcondizioni:__  `Il sistema torna alla schermata principale`  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
 
 ---
