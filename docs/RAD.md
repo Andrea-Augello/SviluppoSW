@@ -213,33 +213,39 @@ __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS
 __Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando un utente non autenticato cerca di
-   eseguire una operazione.
+1. Il caso d'uso inizia quando l'utente avvia il software.
 	2. Il sistema chiede di inserire un codice univoco di
 	   indentificazione
-3. Il Paziente o PersonaleAmministrativo inserisce il CF
+3. Paziente inserisce il CF
    OPPURE
-   PersonaleMedico inserisce il suo codice identificativo.
+   PersonaleMedico o PersonaleAmministrativo inserisce il
+   suo codice identificativo.
 	4. Il sistema chiede al DBMS informazioni sull'utente individuato
-	   in modo univoco dai dati inseriti.
+	   in modo univoco dal dato inserito.
 5. Il DBMS comunica al sistema se l'utente è presente nel database ed
    eventuali informazioni connesse.
-	6. Se l'utente è presente nel database il sistema richiede
+	6. L'utente è presente nel database e il sistema richiede
 	   l'inserimento di password.
-           ALTRIMENTI
-	   Se l'utente è Paziente o PersonaleAmministrativo il Sistema
-	   richiede le ulteriori informazioni necessarie ad inserire nel
-	   database il Paziente.
-7. L'utente inserisce in un form i dati richiesti dal sistema.
+7. L'utente inserisce la propria password.
 	8. Il sistema controlla che la password inserita corrisponda a
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
-__Flusso alternativo:__
+__Flusso alternativo 1:__
 ```
-  8. Il sistema comunica al DBMS i dati dell'utente.
-9. Il DBMS registra il nuovo utente
+	6. Paziente non è presente nel database, il sistema presenta
+	   un form per farlo registrare.
+7. L'utente compila il formato.
+ 	8. Il sistema comunica al DBMS i dati del nuovo utente.
+9. Il DBMS registra il nuovo utente.
 ```
-__Postcondizioni:__  `L'utente prosegue l'operazione iniziata precedetemente `  
+__Flusso alternativo 2:__
+```
+	6. PersonaleMedico o PersonaleAmministrativo non è
+	   presente nel database, il sistema avvisa dell'errato
+	   inserimento del codice e ne chiede il corretto
+	   reinserimento.
+```
+__Postcondizioni:__  `Il sistema mostra la schermata principale`  
 [_Vista dettagliata_](#effettua-autenticazione)
 
 ---
