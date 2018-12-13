@@ -123,7 +123,7 @@ __Flusso degli eventi:__
    suo codice identificativo.
 	4. Il sistema chiede al DBMS informazioni sull'utente individuato
 	   in modo univoco dal dato inserito.
-5. Il DBMS comunica al sistema se l'utente è presente nel database ed
+5. Il DBMS comunica al sistema che l'utente è presente nel database ed
    eventuali informazioni connesse.
 	6. L'utente è presente nel database e il sistema richiede
 	   l'inserimento di password.
@@ -133,14 +133,15 @@ __Flusso degli eventi:__
 ```  
 __Flusso alternativo 1:__
 ```
-	6. Paziente non è presente nel database, il sistema presenta
-	   un form per farlo registrare.
+5. Il DBMS comunica al sistema che Paziente non è presente nel database
+	6. Il sistema presenta un form per far registrare Paziente.
 7. L'utente compila il form.
  	8. Il sistema comunica al DBMS i dati del nuovo utente.
-9. Il DBMS registra il nuovo utente.
+9. Il DBMS registra il nuovo paziente.
 ```
 __Flusso alternativo 2:__
 ```
+5. Il DBMS comunica al sistema che l'utente non è presente nel database
 	6. PersonaleMedico o PersonaleAmministrativo non è
 	   presente nel database, il sistema avvisa dell'errato
 	   inserimento del codice e ne chiede il corretto
