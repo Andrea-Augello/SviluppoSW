@@ -372,9 +372,9 @@ __Postcondizioni:__ ` `
 [_Diagramma delle sequenze_](#sequenza-IndividuaPaziente)
 
 ---
-##### RegistraPaziente ¹
-[_¹Descrizione già presente qui_](#registrapaziente)
-[_Diagramma delle sequenze_](#sequenza-registrapaziente)
+##### RegistraPaziente ¹  
+[_¹Descrizione già presente qui_](#registrapaziente)  
+[_Diagramma delle sequenze_](#sequenza-registrapaziente)  
 ---
 ##### InserisciDettagliRicetta
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
@@ -647,9 +647,9 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 [_Diagramma delle sequenze_](#sequenza-visualizzacartellaclinica)
 
 ---
-##### IndividuaPaziente ²
-[_²Descrizione già presente qui_](#individuapaziente)
-[_Diagramma delle sequenze_](#sequenza-individuapaziente)
+##### IndividuaPaziente ²  
+[_²Descrizione già presente qui_](#individuapaziente)  
+[_Diagramma delle sequenze_](#sequenza-individuapaziente)  
 ---
 
 #### Inserisci Dettagli Visita
