@@ -318,8 +318,7 @@ __Attori:__  _Paziente_, DBMS
 __Precondizioni:__ `Paziente non si è ancora autenticato in questa sessione`  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando Paziente non autenticato cerca di
-   interagire con il sistema.
+1. Il caso d'uso inizia quando Paziente avvia il software.
 	2. Il sistema chiede a Paziente di inserire il suo codice
 	   fiscale.
 3. Paziente inserisce il proprio CF e conferma.
@@ -333,7 +332,7 @@ __Flusso degli eventi:__
 	8. Il sistema controlla che la password inserita corrisponda a
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
-__Postcondizioni:__  `L'utente può operare`  
+__Postcondizioni:__  `Il sistema è nella schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-autenticapaziente)
 
 ---
