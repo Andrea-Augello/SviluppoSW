@@ -16,12 +16,16 @@
 	- [3.4 Modelli del sistema](#34-modelli-del-sistema)
 		- [3.4.1 Casi d'uso](#341-casi-duso)
 			- [Casi d'uso di alto livello.](#casi-duso-di-alto-livello)
+				- [EffettuaAutenticazione](#effettuaautenticazione)
 				- [CreaPrenotazione](#creaprenotazione)
 				- [ModificaPrenotazione](#modificaprenotazione)
 				- [VisualizzaFSE](#visualizzafse)
-				- [EffettuaAutenticazione](#effettuaautenticazione)
 				- [InserisciDettagliVisita](#inseriscidettaglivisita)
 				- [NotificaPrenotazione](#notificaprenotazione)
+			- [Effettua Autenticazione](#effettua-autenticazione)
+				- [AutenticaPersonale](#autenticapersonale)
+				- [AutenticaPaziente](#autenticapaziente)
+				- [RegistraPaziente](#registrapaziente)
 			- [Crea Prenotazione](#crea-prenotazione)
 				- [InserisciDettagliRicetta](#inseriscidettagliricetta)
 				- [ScegliRegimeVisita](#scegliregimevisita)
@@ -37,15 +41,14 @@
 				- [VisualizzaStoricoVisite](#visualizzastoricovisite)
 				- [StampaCartellaClinica](#stampacartellaclinica)
 				- [VisualizzaCartellaClinica](#visualizzacartellaclinica)
-			- [Effettua Autenticazione](#effettua-autenticazione)
-				- [AutenticaPersonale](#autenticapersonale)
-				- [AutenticaPaziente](#autenticapaziente)
-				- [RegistraPaziente](#registrapaziente)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 		- [3.4.3 Modello dinamico](#343-modello-dinamico)
 			- [Diagrammi delle sequenze](#diagrammi-delle-sequenze)
+				- [Sequenza AutenticaPersonale](#sequenza-autenticapersonale)
+				- [Sequenza AutenticaPaziente](#sequenza-autenticapaziente)
+				- [Sequenza RegistraPaziente](#sequenza-registrapaziente)
 				- [Sequenza InserisciDettagliRicetta](#sequenza-inseriscidettagliricetta)
 				- [Sequenza ScegliRegimeVisita](#sequenza-scegliregimevisita)
 				- [Sequenza PrenotaVisitaSSN](#sequenza-prenotavisitassn)
@@ -54,13 +57,10 @@
 				- [Sequenza SpostaPrenotazione](#sequenza-spostaprenotazione)
 				- [Sequenza EliminaPrenotazione](#sequenza-eliminaprenotazione)
 				- [Sequenza ConfermaModifica](#sequenza-confermamodifica)
+				- [Sequenza AutorizzazionePaziente](#sequenza-autorizzazionepaziente)
 				- [Sequenza VisualizzaStoricoVisite](#sequenza-visualizzastoricovisite)
 				- [Sequenza StampaCartellaClinica](#sequenza-stampacartellaclinica)
 				- [Sequenza VisualizzaCartellaClinica](#sequenza-visualizzacartellaclinica)
-				- [Sequenza AutenticaPersonale](#sequenza-autenticapersonale)
-				- [Sequenza AutenticaPaziente](#sequenza-autenticapaziente)
-				- [Sequenza RegistraPaziente](#sequenza-registrapaziente)
-				- [Sequenza AutorizzazionePaziente](#sequenza-autorizzazionepaziente)
 				- [Sequenza InserisciDettagliVisita](#sequenza-inseriscidettaglivisita)
 				- [Sequenza NotificaPrenotazione](#sequenza-notificaprenotazione)
 		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
@@ -107,6 +107,47 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 ### 3.4.1 Casi d'uso
 #### Casi d'uso di alto livello.
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
+
+---
+##### EffettuaAutenticazione
+__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'utente avvia il software.
+	2. Il sistema chiede di inserire un codice univoco di
+	   indentificazione
+3. Paziente inserisce il CF
+   OPPURE
+   PersonaleMedico o PersonaleAmministrativo inserisce il
+   suo codice identificativo.
+	4. Il sistema chiede al DBMS informazioni sull'utente individuato
+	   in modo univoco dal dato inserito.
+5. Il DBMS comunica al sistema se l'utente è presente nel database ed
+   eventuali informazioni connesse.
+	6. L'utente è presente nel database e il sistema richiede
+	   l'inserimento di password.
+7. L'utente inserisce la propria password.
+	8. Il sistema controlla che la password inserita corrisponda a
+	   quella nota, se non lo è chiede nuovamente di autenticarsi.
+```  
+__Flusso alternativo 1:__
+```
+	6. Paziente non è presente nel database, il sistema presenta
+	   un form per farlo registrare.
+7. L'utente compila il form.
+ 	8. Il sistema comunica al DBMS i dati del nuovo utente.
+9. Il DBMS registra il nuovo utente.
+```
+__Flusso alternativo 2:__
+```
+	6. PersonaleMedico o PersonaleAmministrativo non è
+	   presente nel database, il sistema avvisa dell'errato
+	   inserimento del codice e ne chiede il corretto
+	   reinserimento.
+```
+__Postcondizioni:__  `Il sistema mostra la schermata principale`  
+[_Vista dettagliata_](#effettua-autenticazione)
 
 ---
 ##### CreaPrenotazione
@@ -208,47 +249,6 @@ __Postcondizioni:__  `L'utente è nuovamente nella schermata iniziale.`
 [_Vista dettagliata_](#visualizza-fse))
 
 ---
-##### EffettuaAutenticazione
-__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando l'utente avvia il software.
-	2. Il sistema chiede di inserire un codice univoco di
-	   indentificazione
-3. Paziente inserisce il CF
-   OPPURE
-   PersonaleMedico o PersonaleAmministrativo inserisce il
-   suo codice identificativo.
-	4. Il sistema chiede al DBMS informazioni sull'utente individuato
-	   in modo univoco dal dato inserito.
-5. Il DBMS comunica al sistema se l'utente è presente nel database ed
-   eventuali informazioni connesse.
-	6. L'utente è presente nel database e il sistema richiede
-	   l'inserimento di password.
-7. L'utente inserisce la propria password.
-	8. Il sistema controlla che la password inserita corrisponda a
-	   quella nota, se non lo è chiede nuovamente di autenticarsi.
-```  
-__Flusso alternativo 1:__
-```
-	6. Paziente non è presente nel database, il sistema presenta
-	   un form per farlo registrare.
-7. L'utente compila il form.
- 	8. Il sistema comunica al DBMS i dati del nuovo utente.
-9. Il DBMS registra il nuovo utente.
-```
-__Flusso alternativo 2:__
-```
-	6. PersonaleMedico o PersonaleAmministrativo non è
-	   presente nel database, il sistema avvisa dell'errato
-	   inserimento del codice e ne chiede il corretto
-	   reinserimento.
-```
-__Postcondizioni:__  `Il sistema mostra la schermata principale`  
-[_Vista dettagliata_](#effettua-autenticazione)
-
----
 ##### InserisciDettagliVisita
 __Attori:__  _PersonaleMedico_, DBMS  
 __Precondizioni:__ `Il sistema mostra la schermata principale`  
@@ -289,6 +289,79 @@ __Flusso degli eventi:__
 ```  
 __Postcondizioni:__  `Tutti i pazienti con visite in programma dopo due giorni hanno ricevuto un promemoria`  
 [_Vista dettagliata_](#notifica-prenotazione)
+
+---
+#### Effettua Autenticazione
+![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Effettua%20Autenticazione.png)
+[_Vista di alto livello_](#effettuaautenticazione)
+
+---
+##### AutenticaPersonale
+__Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando un utente non autenticato cerca di
+   interagire con il sistema.
+	2. Il sistema chiede all'utente di inserire il suo codice
+	   identificativo.
+3. L'utente inserisce il proprio numero di matricola e conferma.
+	4. Il sistema chiede al DBMS informazioni sull'utente individuato
+	   univocamente attraverso il codice.
+5. Il DBMS comunica al sistema se l'utente è presente nel database ed
+   eventuali informazioni connesse.
+	6. Se l'utente non è presente nel database il sistema informa che
+      il codice inserito è errato e chiede di reinserirlo.
+	  ALTRIMENTI
+	  Il sistema chiede all'utente di inserire la password.
+7. L'utente inserisce e conferma la password.
+	8. Il sistema controlla che la password inserita corrisponda a
+	   quella nota, se non lo è chiede nuovamente di autenticarsi.
+```  
+__Postcondizioni:__  `L'utente può operare`  
+[_Diagramma delle sequenze_](#sequenza-AutenticaPersonale)
+
+---
+##### AutenticaPaziente
+__Attori:__  _Paziente_, DBMS  
+__Precondizioni:__ `Paziente non si è ancora autenticato in questa sessione`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando Paziente non autenticato cerca di
+   interagire con il sistema.
+	2. Il sistema chiede a Paziente di inserire il suo codice
+	   fiscale.
+3. Paziente inserisce il proprio CF e conferma.
+	4. Il sistema chiede al DBMS informazioni sul Paziente individuato
+	   univocamente attraverso il codice.
+5. Il DBMS comunica al sistema se il Paziente è presente nel database ed
+   eventuali informazioni connesse.
+	6. Se l'utente è presente nel database il sistema chiede
+	   all'utente di inserire la password.
+7. L'utente inserisce e conferma la password.
+	8. Il sistema controlla che la password inserita corrisponda a
+	   quella nota, se non lo è chiede nuovamente di autenticarsi.
+```  
+__Postcondizioni:__  `L'utente può operare`  
+[_Diagramma delle sequenze_](#sequenza-autenticapaziente)
+
+---
+##### RegistraPaziente
+__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
+__Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando durante un'autenticazione Paziente o
+   PersonaleAmministrativo inserisce un CF che non corrisponde a nessun
+   paziente nel database.
+	2. Il sistema mostra un form per inserire i dati necessari
+	   all'inserimento nel sistema
+3. L'utente compila il modulo, eventualmente non riempiendo i campi
+   facoltativi e invia i dati.
+	4. Il sistema comunica i dati del nuovo paziente al DBMS.
+```
+__Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
+[_Diagramma delle sequenze_](#sequenza-registrapaziente)
 
 ---
 
@@ -568,79 +641,6 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 [_Diagramma delle sequenze_](#sequenza-visualizzacartellaclinica)
 
 ---
-#### Effettua Autenticazione
-![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Effettua%20Autenticazione.png)
-[_Vista di alto livello_](#effettuaautenticazione)
-
----
-##### AutenticaPersonale
-__Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando un utente non autenticato cerca di
-   interagire con il sistema.
-	2. Il sistema chiede all'utente di inserire il suo codice
-	   identificativo.
-3. L'utente inserisce il proprio numero di matricola e conferma.
-	4. Il sistema chiede al DBMS informazioni sull'utente individuato
-	   univocamente attraverso il codice.
-5. Il DBMS comunica al sistema se l'utente è presente nel database ed
-   eventuali informazioni connesse.
-	6. Se l'utente non è presente nel database il sistema informa che
-      il codice inserito è errato e chiede di reinserirlo.
-	  ALTRIMENTI
-	  Il sistema chiede all'utente di inserire la password.
-7. L'utente inserisce e conferma la password.
-	8. Il sistema controlla che la password inserita corrisponda a
-	   quella nota, se non lo è chiede nuovamente di autenticarsi.
-```  
-__Postcondizioni:__  `L'utente può operare`  
-[_Diagramma delle sequenze_](#sequenza-AutenticaPersonale)
-
----
-##### AutenticaPaziente
-__Attori:__  _Paziente_, DBMS  
-__Precondizioni:__ `Paziente non si è ancora autenticato in questa sessione`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando Paziente non autenticato cerca di
-   interagire con il sistema.
-	2. Il sistema chiede a Paziente di inserire il suo codice
-	   fiscale.
-3. Paziente inserisce il proprio CF e conferma.
-	4. Il sistema chiede al DBMS informazioni sul Paziente individuato
-	   univocamente attraverso il codice.
-5. Il DBMS comunica al sistema se il Paziente è presente nel database ed
-   eventuali informazioni connesse.
-	6. Se l'utente è presente nel database il sistema chiede
-	   all'utente di inserire la password.
-7. L'utente inserisce e conferma la password.
-	8. Il sistema controlla che la password inserita corrisponda a
-	   quella nota, se non lo è chiede nuovamente di autenticarsi.
-```  
-__Postcondizioni:__  `L'utente può operare`  
-[_Diagramma delle sequenze_](#sequenza-autenticapaziente)
-
----
-##### RegistraPaziente
-__Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
-__Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando durante un'autenticazione Paziente o
-   PersonaleAmministrativo inserisce un CF che non corrisponde a nessun
-   paziente nel database.
-	2. Il sistema mostra un form per inserire i dati necessari
-	   all'inserimento nel sistema
-3. L'utente compila il modulo, eventualmente non riempiendo i campi
-   facoltativi e invia i dati.
-	4. Il sistema comunica i dati del nuovo paziente al DBMS.
-```
-__Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
-[_Diagramma delle sequenze_](#sequenza-registrapaziente)
-
----
 
 #### Inserisci Dettagli Visita
 ![Use case "InserisciDettagliVisita"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/InserisciDettagliVisita.png)
@@ -651,6 +651,21 @@ __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`
 ### 3.4.2 Modello degli oggetti
 ### 3.4.3 Modello dinamico
 #### Diagrammi delle sequenze
+---
+##### Sequenza AutenticaPersonale
+ ![AutenticaPersonale](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPersonale.png)
+ [_Caso d'uso_](#autenticapersonale)
+
+ ---
+##### Sequenza AutenticaPaziente
+ ![AutenticaPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPaziente.png)
+ [_Caso d'uso_](#autenticapaziente)
+
+ ---
+##### Sequenza RegistraPaziente
+ ![RegistraPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/RegistraPaziente.png)
+ [_Caso d'uso_](#registrapaziente)
+
 ---
 ##### Sequenza InserisciDettagliRicetta
 ![InserisciDettagliRicetta](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InserisciDettagliRicetta.png)  
@@ -692,6 +707,11 @@ __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`
  [_Caso d'uso_](#confermamodifica)
 
  ---
+##### Sequenza AutorizzazionePaziente
+ ![AutorizzazionePaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutorizzazionePaziente.png)
+ [_Caso d'uso_](#autorizzazionepaziente)
+
+ ---
 ##### Sequenza VisualizzaStoricoVisite
  ![VisualizzaStoricoVisite](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/VisualizzaStoricoVisite.png)
  [_Caso d'uso_](#visualizzastoricovisite)
@@ -706,27 +726,7 @@ __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`
  ![VisualizzaCartellaClinica](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/VisualizzaCartellaClinica.png)
  [_Caso d'uso_](#visualizzacartellaclinica)
 
- ---
-##### Sequenza AutenticaPersonale
- ![AutenticaPersonale](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPersonale.png)
- [_Caso d'uso_](#autenticapersonale)
-
- ---
-##### Sequenza AutenticaPaziente
- ![AutenticaPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutenticaPaziente.png)
- [_Caso d'uso_](#autenticapaziente)
-
- ---
-##### Sequenza RegistraPaziente
- ![RegistraPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/RegistraPaziente.png)
- [_Caso d'uso_](#registrapaziente)
-
- ---
-##### Sequenza AutorizzazionePaziente
- ![AutorizzazionePaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutorizzazionePaziente.png)
- [_Caso d'uso_](#autorizzazionepaziente)
-
- ---
+  ---
 ##### Sequenza InserisciDettagliVisita
  ![InserisciDettagliVisita](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InserisciDettagliVisita.png)
  [_Caso d'uso_](#inseriscidettaglivisita)
