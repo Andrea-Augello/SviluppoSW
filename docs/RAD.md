@@ -405,7 +405,8 @@ __Attori:__ _Paziente, PersonaleAmministrativo_
 __Precondizioni:__ `Il sistema ha immagazzinato i dettagli della ricetta `  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando l'utente conferma i dati della ricetta .
+1. Il caso d'uso inizia quando l'utente conferma i dati della ricetta
+   senza errori.
 	2. Il sistema chiede se si voglia prenotare in convenzione col
  	   SSN o in regime ALPI
 3. L'utente seleziona su "Servizio sanitario nazionale" o
