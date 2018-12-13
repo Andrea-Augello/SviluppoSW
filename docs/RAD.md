@@ -42,6 +42,7 @@
 				- [VisualizzaStoricoVisite](#visualizzastoricovisite)
 				- [StampaCartellaClinica](#stampacartellaclinica)
 				- [VisualizzaCartellaClinica](#visualizzacartellaclinica)
+				- [IndividuaPaziente ¹](#individuapaziente-)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
@@ -640,6 +641,10 @@ __Flusso degli eventi:__
 __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite passate del paziente`  
 [_Diagramma delle sequenze_](#sequenza-visualizzacartellaclinica)
 
+---
+##### IndividuaPaziente ¹
+[_¹Descrizione già presente qui_](#individuapaziente)
+[_Diagramma delle sequenze_](#sequenza-individuapaziente)
 ---
 
 #### Inserisci Dettagli Visita
