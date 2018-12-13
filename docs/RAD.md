@@ -27,6 +27,7 @@
 				- [AutenticaPaziente](#autenticapaziente)
 				- [RegistraPaziente](#registrapaziente)
 			- [Crea Prenotazione](#crea-prenotazione)
+				- [IndividuaPaziente](#individuapaziente)
 				- [InserisciDettagliRicetta](#inseriscidettagliricetta)
 				- [ScegliRegimeVisita](#scegliregimevisita)
 				- [PrenotaVisitaSSN](#prenotavisitassn)
@@ -49,6 +50,7 @@
 				- [Sequenza AutenticaPersonale](#sequenza-autenticapersonale)
 				- [Sequenza AutenticaPaziente](#sequenza-autenticapaziente)
 				- [Sequenza RegistraPaziente](#sequenza-registrapaziente)
+				- [Sequenza IndividuaPaziente](#sequenza-individuapaziente)
 				- [Sequenza InserisciDettagliRicetta](#sequenza-inseriscidettagliricetta)
 				- [Sequenza ScegliRegimeVisita](#sequenza-scegliregimevisita)
 				- [Sequenza PrenotaVisitaSSN](#sequenza-prenotavisitassn)
@@ -357,6 +359,17 @@ __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`
 [_Vista di alto livello_](#creaprenotazione)
 
 ---
+##### IndividuaPaziente
+__Attori:__ _PersonaleAmministrativo_, DBMS
+__Precondizioni:__ ` `
+__Flusso degli eventi:__
+```
+
+```
+__Postcondizioni:__ ` `
+[_Diagramma delle sequenze_](#sequenza-IndividuaPaziente)
+
+---
 ##### InserisciDettagliRicetta
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ `L'utente si trova nella schermata principale `  
@@ -654,6 +667,11 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
  [_Caso d'uso_](#registrapaziente)
 
 ---
+##### Sequenza IndividuaPaziente
+![IndividuaPaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/IndividuaPaziente.png)
+[_Caso d'uso_](#individuapaziente)
+---
+
 ##### Sequenza InserisciDettagliRicetta
 ![InserisciDettagliRicetta](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InserisciDettagliRicetta.png)  
 [_Caso d'uso_](#inseriscidettagliricetta)
