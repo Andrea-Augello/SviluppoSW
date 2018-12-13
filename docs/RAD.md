@@ -225,19 +225,18 @@ __Postcondizioni:__  `Il sistema mostra nuovamente la schermata principale`
 ---
 ##### VisualizzaFSE
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `Il sistema è nella schermata iniziale`  
+__Precondizioni:__ `Il sistema è nella schermata principale`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'attore principale  seleziona l'opzione
    "Visualizza Storico Visite" relativamente ad un paziente.
-	2. IL sistema chiede al DBMS i dati relativi a tutte le visite
+	2. Il sistema chiede al DBMS i dati relativi a tutte le visite
 	   precedentemente effettuate dal paziente.
 3. Il DBMS comunica al sistema i dati.
-	4. Il sistema restituisce un documento con le informazioni richieste.
-5. Se l'attore "PersonaleAmministrativo" seleziona l'opzione "Stampa FSE"
-	5.1 Il sistema restituisce un file da stampare.
+	4. Il sistema restituisce un documento o una schermata con
+	   delle informazioni sulle visite.
 ```  
-__Postcondizioni:__  `L'utente è nuovamente nella schermata iniziale.`  
+__Postcondizioni:__  `Il sistema torna nella schermata principale`  
 [_Vista dettagliata_](#visualizza-fse))
 
 ---
