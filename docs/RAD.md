@@ -288,6 +288,7 @@ __Postcondizioni:__  `Tutti i pazienti con visite in programma dopo due giorni h
 
 #### Crea Prenotazione
 ![Use case "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/CreaPrenotazione.png)  
+[_Vista di alto livello_](#creaprenotazione)
 
 ---
 ##### InserisciDettagliRicetta
@@ -393,6 +394,7 @@ __Postcondizioni:__  `Nel sistema risulta registrata la visita`
 
 #### Modifica Prenotazione
 ![Use case "ModificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/ModificaPrenotazione.png)
+[_Vista di alto livello_](#modificaprenotazione)
 
 ---
 ##### ScegliPrenotazione
@@ -477,6 +479,7 @@ __Postcondizioni:__ `L'utente è nuovamente nella schermata principale`
 
 #### Visualizza FSE
 ![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)  
+[_Vista di alto livello_](#visualizzafse)
 
 ---
 ##### VisualizzaStoricoVisite
@@ -533,6 +536,7 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 ---
 #### Effettua Autenticazione
 ![Use case "EffettuaAutenticazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Effettua%20Autenticazione.png)
+[_Vista di alto livello_](#effettuaautenticazione)
 
 ---
 ##### AutenticaPersonale
