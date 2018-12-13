@@ -32,6 +32,7 @@
 				- [SpostaPrenotazione](#spostaprenotazione)
 				- [EliminaPrenotazione](#eliminaprenotazione)
 				- [ConfermaModifica](#confermamodifica)
+				- [AutorizzazionePaziente](#autorizzazionepaziente)
 			- [Visualizza FSE](#visualizza-fse)
 				- [VisualizzaStoricoVisite](#visualizzastoricovisite)
 				- [StampaCartellaClinica](#stampacartellaclinica)
@@ -40,7 +41,6 @@
 				- [AutenticaPersonale](#autenticapersonale)
 				- [AutenticaPaziente](#autenticapaziente)
 				- [RegistraPaziente](#registrapaziente)
-				- [AutorizzazionePaziente](#autorizzazionepaziente)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
@@ -477,6 +477,34 @@ __Postcondizioni:__ `L'utente è nuovamente nella schermata principale`
 
 ---
 
+##### AutorizzazionePaziente
+__Attori:__ _PersonaleAmministrativo,_ DBMS  
+__Precondizioni:__ `PersonaleAmministrativo cerca di modificare una prenotazione per un paziente`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando PersonaleAmministrativo seleziona "Modifica
+   Prenotazione".
+	2. Il sistema chiede di inserire il CF del paziente la cui
+	   prenotazione va modificata.
+3. PersonaleAmministrativo inserisce il CF.
+	4. Il sistema chiede al DBMS tutte le prenotazioni relative
+	   al paziente.
+5. Il DBMS restituisce tutte le prenotazioni relative al paziente.
+	6. Se non ve ne sono il sistema comunica che non sono presenti
+	   prenotazioni a nome del Paziente
+	   ALTRIMENTI
+	   Il sistema chiede di inserire il codice identificativo della
+	   prenotazione
+7. PersonaleAmministrativo inserisce il codice
+	8. Se non c'è nessuna prenotazione corrispondente a quel codice
+	   il sistema comunica un messaggio di errore
+	   ALTRIMENTI
+	   Il sistema autorizza l'operazione
+```
+__Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenotazione selezionata`  
+[_Diagramma delle sequenze_](#sequenza-autorizzazionepaziente)
+
+---
 #### Visualizza FSE
 ![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)  
 [_Vista di alto livello_](#visualizzafse)
@@ -605,34 +633,6 @@ __Flusso degli eventi:__
 ```
 __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
 [_Diagramma delle sequenze_](#sequenza-registrapaziente)
-
----
-##### AutorizzazionePaziente
-__Attori:__ _PersonaleAmministrativo,_ DBMS  
-__Precondizioni:__ `PersonaleAmministrativo cerca di modificare una prenotazione per un paziente`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando PersonaleAmministrativo seleziona "Modifica
-   Prenotazione".
-	2. Il sistema chiede di inserire il CF del paziente la cui
-	   prenotazione va modificata.
-3. PersonaleAmministrativo inserisce il CF.
-	4. Il sistema chiede al DBMS tutte le prenotazioni relative
-	   al paziente.
-5. Il DBMS restituisce tutte le prenotazioni relative al paziente.
-	6. Se non ve ne sono il sistema comunica che non sono presenti
-	   prenotazioni a nome del Paziente
-	   ALTRIMENTI
-	   Il sistema chiede di inserire il codice identificativo della
-	   prenotazione
-7. PersonaleAmministrativo inserisce il codice
-	8. Se non c'è nessuna prenotazione corrispondente a quel codice
-	   il sistema comunica un messaggio di errore
-	   ALTRIMENTI
-	   Il sistema autorizza l'operazione
-```
-__Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenotazione selezionata`  
-[_Diagramma delle sequenze_](#sequenza-autorizzazionepaziente)
 
 ---
 
