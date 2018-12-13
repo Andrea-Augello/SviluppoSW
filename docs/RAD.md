@@ -28,6 +28,7 @@
 				- [RegistraPaziente](#registrapaziente)
 			- [Crea Prenotazione](#crea-prenotazione)
 				- [IndividuaPaziente](#individuapaziente)
+				- [RegistraPaziente ¹](#registrapaziente-)
 				- [InserisciDettagliRicetta](#inseriscidettagliricetta)
 				- [ScegliRegimeVisita](#scegliregimevisita)
 				- [PrenotaVisitaSSN](#prenotavisitassn)
@@ -42,7 +43,7 @@
 				- [VisualizzaStoricoVisite](#visualizzastoricovisite)
 				- [StampaCartellaClinica](#stampacartellaclinica)
 				- [VisualizzaCartellaClinica](#visualizzacartellaclinica)
-				- [IndividuaPaziente ¹](#individuapaziente-)
+				- [IndividuaPaziente ²](#individuapaziente-)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
@@ -371,6 +372,10 @@ __Postcondizioni:__ ` `
 [_Diagramma delle sequenze_](#sequenza-IndividuaPaziente)
 
 ---
+##### RegistraPaziente ¹
+[_¹Descrizione già presente qui_](#registrapaziente)
+[_Diagramma delle sequenze_](#sequenza-registrapaziente)
+---
 ##### InserisciDettagliRicetta
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ `L'utente si trova nella schermata principale `  
@@ -642,8 +647,8 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 [_Diagramma delle sequenze_](#sequenza-visualizzacartellaclinica)
 
 ---
-##### IndividuaPaziente ¹
-[_¹Descrizione già presente qui_](#individuapaziente)
+##### IndividuaPaziente ²
+[_²Descrizione già presente qui_](#individuapaziente)
 [_Diagramma delle sequenze_](#sequenza-individuapaziente)
 ---
 
