@@ -293,11 +293,10 @@ __Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS
 __Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando un utente non autenticato cerca di
-   interagire con il sistema.
+1. Il caso d'uso inizia quando un utente avvia il software.
 	2. Il sistema chiede all'utente di inserire il suo codice
 	   identificativo.
-3. L'utente inserisce il proprio numero di matricola e conferma.
+3. L'utente inserisce il proprio codice identificativo e conferma.
 	4. Il sistema chiede al DBMS informazioni sull'utente individuato
 	   univocamente attraverso il codice.
 5. Il DBMS comunica al sistema se l'utente è presente nel database ed
@@ -310,7 +309,7 @@ __Flusso degli eventi:__
 	8. Il sistema controlla che la password inserita corrisponda a
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
 ```  
-__Postcondizioni:__  `L'utente può operare`  
+__Postcondizioni:__  `Il sistema è nella schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-AutenticaPersonale)
 
 ---
