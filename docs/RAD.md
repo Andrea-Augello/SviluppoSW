@@ -236,7 +236,7 @@ __Flusso degli eventi:__
 	   delle informazioni sulle visite.
 ```  
 __Postcondizioni:__  `Il sistema torna nella schermata principale`  
-[_Vista dettagliata_](#visualizza-fse))
+[_Vista dettagliata_](#visualizza-fse)
 
 ---
 ##### InserisciDettagliVisita
