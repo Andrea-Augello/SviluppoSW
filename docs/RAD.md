@@ -208,9 +208,10 @@ __Flusso degli eventi:__
 	   relative al paziente con data successiva a quella corrente
 	   le relative informazioni.
 3. Il DBMS comunica al sistema le prenotazioni richieste.
-  	4. Il sistema fa scegliere all'utente la prenotazione da modificare.
+  	4. Il sistema fa scegliere all'utente la prenotazione da
+	   modificare.
 5. L'utente individua la prenotazione che desidera modificare.
-	6. Il sistema mostra i dati relativi alla Prenotazione selezionata.
+	6. Il sistema mostra i dati relativi alla Prenotazione selezionata
 7. L'utente modifica la data e l'ora scegliendo tra le opzioni proposte
    e conferma OPPURE elimina la Prenotazione.
 	8. Il sistema richiede un ulteriore conferma riassumendo i
@@ -621,9 +622,9 @@ __Flusso degli eventi:__
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Stampa FSE".
 	2. Il sistema produce un file in formato PDF riportante i dati
 	   anagrafici del paziente e l'elenco in ordine cronologico di
-	   tutte le visite effettuate, specificando per ognuna data, costo,
-	   tipo di visita, nome del medico che se ne è occupato e le
-	   sue annotazioni.
+	   tutte le visite effettuate, specificando per ognuna data,
+	   costo, tipo di visita, nome del medico che se ne è occupato
+	   e le sue annotazioni.
 ```  
 __Postcondizioni:__  `L'utente è in grado di stampare correttamente il documento FSE`  
 [_Diagramma delle sequenze_](#sequenza-stampacartellaclinica)
@@ -635,8 +636,9 @@ __Precondizioni:__ `PersonaleMedico ha selezionato un paziente dalla schermata p
 __Flusso degli eventi:__
 ```
 1. PersonaleMedico seleziona l'opzione "Visualizza Cartella Clinica"
-	2. Il sistema chiede al DBMS le visite, comprese di tutte le informazioni allegate, già effettuate dal
-	   paziente per cui si sta operando.
+	2. Il sistema chiede al DBMS le visite, comprese di tutte le
+	   informazioni allegate, già effettuate dal paziente per cui
+	   si sta operando.
 3. Il DBMS restituisce i dati richiesti.
 	4. Il sistema mostra una schermata riportante i dati anagrafici
 	   del paziente e l'elenco in ordine cronologico di tutte le
