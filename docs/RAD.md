@@ -515,8 +515,7 @@ __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS
 __Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`  
 __Flusso degli eventi:__  
 ```
-1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Modifica
-   prenotazione".
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Sposta prenotazione".
 	2. Il sistema chiede al DBMS le informazioni necessarie per
        fornire all'utente i giorni disponibili in cui spostare la
 	   prenotazione.
@@ -535,7 +534,7 @@ __Attori:__ _Paziente, PersonaleAmministrativo_
 __Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`  
 __Flusso degli eventi:__  
 ```
-1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Cancella
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Elimina
 prenotazione"
 	2. Il sistema predispone la cancellazione della prenotazione e
 	   da inizio al caso d'uso ConfermaModifica.
