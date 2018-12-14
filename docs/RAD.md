@@ -551,7 +551,8 @@ __Flusso degli eventi:__
 2. L'utente conferma l'operazione.
 	3. Il sistema comunica al DBMS la modifica.
 4.Il DBMS attua le modifiche richieste.
-	5. Il sistema comunica all'utente l'avvenuta modifica.	   
+	5. Il sistema manda all'utente una notifica per segnalare
+	   l'avvenuta modifica.	   
 
 ```
 __Flusso alternativo:__  
