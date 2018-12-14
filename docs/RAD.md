@@ -674,33 +674,32 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 Classe | Descrizione
 -|-|
 ConfermaDialog | Nelle operazioni di modifica di una prenotazione già effettuata questa schermata riassume le modifiche e consente di confermarle o annullarle.
+ConfermaModificaControl |
+EffettuaPrenotazioneControl |
 ErroreDialog | Mostra a video all'utente che l'operazione da lui intrapresa non è andata a buon fine.
 FormRicetta | Permette l'inserimento dei dati relativi alla ricetta.
+FSEControl |
 FSEDialog |
+GeneraRicettaControl |
+IndividuaPrenotazioneControl |
 IndividuaPrenotazioneDialog | Questa schermata permette all'utente di visualizzare le prenotazioni modificabili e scegliere su quale agire.
+InviaNotificaControl |
+LoginControl |
 MainScreen | La schermata principale, da questa si possono avviare le varie procedure.
+ModificaPrenotazioneControl |
 ModificaPrenotazioneDialog |
 PasswordForm | Questa schermata presenta un box di testo in cui gli utenti possono inserire la propria password.
+PazienteEntity | All'interno del sistema i dati dei pazienti sono racchiusi in questa classe.
 PazienteLoginForm | Il form attraverso cui Paziente può inserire il proprio codice fiscale e proseguire le procedure di autenticazione.
 PersonaleLoginForm | Il form attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.
+Prenotazione | Questa classe contiene i dati rilevanti della prenotazione mentre viene elaborata dal sistema.
 RegistrazioneForm | Il form che permette  di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.
-ScegliOrarioDialog |
+RegistrazioneControl |
+Ricetta |
+ScegliOrarioDialog | Durante le operazioni di prenotazione attraverso questa schermata l'utente può selezionare data e ora della visita tra quelli proposti dal sistema.
 ScegliPrenotazioneDialog | Questa schermata presenta l'elenco delle prenotazioni per visite ancora non effettuate dal paziente, da qui è possibile selezionarne una per modificarla.
 ScegliRegimeDialog | Nelle operazioni di  prenotazione questa schermata consente di scegliere tra regime ALPI e regime SSN.
 SceltaMedicoDialog | Nelle operazioni di prenotazione se si sceglie il regime ALPI questa schermata permette di scegliere il medico dal quale farsi visitare.
-ConfermaModificaControl |
-EffettuaPrenotazioneControl |
-GeneraRicettaControl |
-FSEControl |
-IndividuaPrenotazioneControl |
-InviaNotificaControl |
-LoginControl |
-ModificaPrenotazioneControl |
-RegistrazioneControl |
-ElencoPrenotazioni |
-PazienteEntity | All'interno del sistema i dati dei pazienti sono racchiusi in questa classe.
-Prenotazione |
-Ricetta |
 
 
 #### Diagramma delle entity
