@@ -677,11 +677,11 @@ IndividuaPrenotazioneDialog | Questa schermata permette all'utente di visualizza
 MainScreen | La schermata principale, da questa si possono avviare le varie procedure.
 ModificaPrenotazioneDialog |
 PasswordForm |
-PazienteLoginForm | Il from attraverso cui Paziente può inserire il proprio codice fiscale e proseguire le procedure di autenticazione.
-PersonaleLoginForm | Il from attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.
+PazienteLoginForm | Il form attraverso cui Paziente può inserire il proprio codice fiscale e proseguire le procedure di autenticazione.
+PersonaleLoginForm | Il form attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.
 RegistrazioneForm | Il form che permette  di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.
 ScegliOrarioDialog |
-ScegliPrenotazioneDialog |
+ScegliPrenotazioneDialog | 
 ScegliRegimeDialog | Nelle operazioni di  prenotazione questa schermata consente di scegliere tra regime ALPI e regime SSN.
 SceltaMedicoDialog | Nelle operazioni di prenotazione se si sceglie il regime ALPI questa schermata permette di scegliere il medico dal quale farsi visitare.
 ConfermaModificaControl |
