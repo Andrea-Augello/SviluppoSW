@@ -39,6 +39,8 @@
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 		- [3.4.3 Modello dinamico](#343-modello-dinamico)
 		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
+			- [Login](#login)
+			- [Schermata principale](#schermata-principale)
 	- [4. Glossario](#4-glossario)
 
 <!-- /TOC -->
@@ -483,4 +485,40 @@ __Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenot
 ### 3.4.2 Modello degli oggetti
 ### 3.4.3 Modello dinamico
 ### 3.4.4 Interfaccia utente: navigazione e mock-up
+#### Login
+---
+Schermata di login per PersonaleMedico e PersonaleAmministrativo  
+![Schermata di login per PersonaleMedico e PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Personale.png)
+
+---
+Schermata di login per Paziente  
+![Schermata di login per Paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Paziente.png)
+
+---
+Schermata di errore nel login per PersonaleMedico e PersonaleAmministrativo  
+![Schermata di errore nel login per PersonaleMedico e PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Errore%20(personale).png)
+
+---
+Schermata di inserimento password
+![Schermata di inserimento password](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Password.png)
+
+---
+Schermata di registrazione paziente
+![Schermata di registrazione paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Registrazione%20paziente.png)
+
+---
+#### Schermata principale
+---
+Schermata principale Paziente
+![Schermata principale Paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Mainscreen/Schermata%20Iniziale%20-%20Paziente.png)
+
+---
+Schermata principale PersonaleAmministrativo
+![Schermata principale Paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Mainscreen/Schermata%20Iniziale%20-%20Personale%20Amministrativo.png)
+
+---
+Schermata principale PersonaleMedico
+![Schermata principale Paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Mainscreen/Schermata%20Iniziale%20-%20Personale%20Medico.png)
+
+---
 ## 4. Glossario
