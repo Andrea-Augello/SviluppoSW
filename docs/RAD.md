@@ -48,6 +48,8 @@
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 			- [Lista delle classi](#lista-delle-classi)
+			- [Diagramma delle entity](#diagramma-delle-entity)
+			- [Diagramma delle classi](#diagramma-delle-classi)
 		- [3.4.3 Modello dinamico](#343-modello-dinamico)
 			- [Diagrammi delle sequenze](#diagrammi-delle-sequenze)
 				- [Sequenza AutenticaPersonale](#sequenza-autenticapersonale)
@@ -695,6 +697,9 @@ PazienteEntity |
 Prenotazione |
 Ricetta |
 
+#### Diagramma delle entity
+#### Diagramma delle classi
+![Classi](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20classi/Tutte%20le%20classi.png)
 ### 3.4.3 Modello dinamico
 #### Diagrammi delle sequenze
 ---
