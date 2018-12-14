@@ -47,6 +47,7 @@
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
+			- [Lista delle classi](#lista-delle-classi)
 		- [3.4.3 Modello dinamico](#343-modello-dinamico)
 			- [Diagrammi delle sequenze](#diagrammi-delle-sequenze)
 				- [Sequenza AutenticaPersonale](#sequenza-autenticapersonale)
@@ -662,6 +663,38 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 
 ---
 ### 3.4.2 Modello degli oggetti
+#### Lista delle classi
+Classe | Descrizione|
+-------|------------|
+ConfermaDialog |
+ErroreDialog |
+FormRicetta |
+FSEDialog |
+IndividuaPrenotazioneDialog |
+MainScreen |
+ModificaPrenotazioneDialog |
+PasswordForm |
+PazienteLoginForm |
+PersonaleLoginForm |
+RegistrazioneForm |
+ScegliOrarioDialog |
+ScegliPrenotazioneDialog |
+ScegliRegimeDialog |
+SceltaMedicoDialog |
+ConfermaModificaControl |
+EffettuaPrenotazioneControl |
+GeneraRicettaControl |
+FSEControl |
+IndividuaPrenotazioneControl |
+InviaNotificaControl |
+LoginControl |
+ModificaPrenotazioneControl |
+RegistrazioneControl |
+ElencoPrenotazioni |
+PazienteEntity |
+Prenotazione |
+Ricetta |
+
 ### 3.4.3 Modello dinamico
 #### Diagrammi delle sequenze
 ---
