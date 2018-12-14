@@ -698,6 +698,7 @@ Prenotazione |
 Ricetta |
 
 #### Diagramma delle entity
+![Entity](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20classi/Entity.png)
 #### Diagramma delle classi
 ![Classi](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20classi/Tutte%20le%20classi.png)
 ### 3.4.3 Modello dinamico
