@@ -503,17 +503,17 @@ __Flusso degli eventi:__
    che desidera modificare.
 	6. Il sistema mostra i dati relativi alla Prenotazione selezionata
 ```
-__Postcondizioni:__ `Paziente è in grado di alterare le prenotazioni in elenco`  
+__Postcondizioni:__ `Paziente si trova nella schermata di modifica prenotazione`  
 [_Diagramma delle sequenze_](#sequenza-scegliprenotazione)
 
 ---
 ##### SpostaPrenotazione  
 __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
-__Precondizioni:__ `L'utente ha correttamente identificato la prenotazione da modificare`  
+__Precondizioni:__ `L'utente è nella schermata di modifica prenotazione`  
 __Flusso degli eventi:__  
 ```
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Modifica
-   prenotazione"
+   prenotazione".
 	2. Il sistema chiede al DBMS le informazioni necessarie per
        fornire all'utente i giorni disponibili in cui spostare la
 	   prenotazione.
@@ -537,7 +537,7 @@ prenotazione"
 	2. Il sistema predispone la cancellazione della prenotazione e
 	   da inizio al caso d'uso ConfermaModifica.
 ```
-__Postcondizioni:__ `La prenotazione è scomparsa dal sistema`  
+__Postcondizioni:__ `L'utente torna alla schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-eliminaprenotazione)
 
 ---
@@ -567,7 +567,7 @@ __Postcondizioni:__ `L'utente è nuovamente nella schermata principale`
 
 ##### AutorizzazionePaziente
 __Attori:__ _PersonaleAmministrativo,_ DBMS  
-__Precondizioni:__ `PersonaleAmministrativo cerca di modificare una prenotazione per un paziente`  
+__Precondizioni:__ `PersonaleAmministrativo si trova nella schermata principale`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleAmministrativo seleziona "Modifica
@@ -589,7 +589,7 @@ __Flusso degli eventi:__
 	   ALTRIMENTI
 	   Il sistema autorizza l'operazione
 ```
-__Postcondizioni:__ `Il sistema mostra la schermata per la modifica della prenotazione selezionata`  
+__Postcondizioni:__ `PersonaleAmministrativo si trova nella schermata di modifica prenotazione`  
 [_Diagramma delle sequenze_](#sequenza-autorizzazionepaziente)
 
 ---
@@ -668,11 +668,11 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 #### Lista delle classi
 Classe | Descrizione
 -|-
-ConfermaDialog |
+ConfermaDialog | Nelle operazioni di modifica di una prenotazione già effettuata questa schermata riassume le modifiche e consente di confermarle o annullarle.
 ErroreDialog | Mostra a video all'utente che l'operazione da lui intrapresa non è andata a buon fine.
 FormRicetta | Permette l'inserimento dei dati relativi alla ricetta.
 FSEDialog |
-IndividuaPrenotazioneDialog |
+IndividuaPrenotazioneDialog | Questa schermata permette all'utente di visualizzare le prenotazioni modificabili e scegliere su quale agire.
 MainScreen | La schermata principale, da questa si possono avviare le varie procedure.
 ModificaPrenotazioneDialog |
 PasswordForm |
