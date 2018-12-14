@@ -389,14 +389,17 @@ __Flusso degli eventi:__
 	   con i dati della ricetta.
 3. L'utente inserisce il numero di ricetta, il codice di urgenza e
    la prestazione richiesta e conferma.
-	4. Il sistema chiede al DBMS il numero di prenotazioni
-	   con lo stesso numero di ricetta per la stessa prestazione.
+	4. Il sistema controlla la correttezza sintattica dei dati
+	   inseriti.
+	   Se non sono corretti lo notifica all'utente e chiede di
+	   immettere dati corretti.
+	   ALTRIMENTI
+	   Chiede al DBMS il numero di prenotazioni con lo stesso
+	   numero di ricetta per la stessa prestazione.
 5. Il DBMS restituisce le informazioni richieste.
 	6. Se esiste almeno una ricetta che soddisfa i parametri
 	   il sistema notifica che quella prenotazione è già stata
-	   effettuata e richiede di inserire i dati corretti,
-	   ALTRIMENTI
-	   Il sistema chiede di confermare i dettagli inseriti.
+	   effettuata e richiede di inserire i dati corretti.
 ```  
 __Postcondizioni:__  `Il sistema ha immagazzinato le informazioni sulla prenotazione `  
 [_Diagramma delle sequenze_](#sequenza-inseriscidettagliricetta)  
@@ -681,7 +684,7 @@ PazienteLoginForm | Il form attraverso cui Paziente può inserire il proprio cod
 PersonaleLoginForm | Il form attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.
 RegistrazioneForm | Il form che permette  di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.
 ScegliOrarioDialog |
-ScegliPrenotazioneDialog | 
+ScegliPrenotazioneDialog |
 ScegliRegimeDialog | Nelle operazioni di  prenotazione questa schermata consente di scegliere tra regime ALPI e regime SSN.
 SceltaMedicoDialog | Nelle operazioni di prenotazione se si sceglie il regime ALPI questa schermata permette di scegliere il medico dal quale farsi visitare.
 ConfermaModificaControl |
