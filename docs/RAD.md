@@ -666,23 +666,23 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 ---
 ### 3.4.2 Modello degli oggetti
 #### Lista delle classi
-Classe | Descrizione|
--------|------------|
+Classe | Descrizione
+-|-
 ConfermaDialog |
-ErroreDialog |
-FormRicetta |
+ErroreDialog | Mostra a video all'utente che l'operazione da lui intrapresa non è andata a buon fine.
+FormRicetta | Permette l'inserimento dei dati relativi alla ricetta.
 FSEDialog |
 IndividuaPrenotazioneDialog |
-MainScreen |
+MainScreen | La schermata principale, da questa si possono avviare le varie procedure.
 ModificaPrenotazioneDialog |
 PasswordForm |
-PazienteLoginForm |
-PersonaleLoginForm |
-RegistrazioneForm |
+PazienteLoginForm | Il from attraverso cui Paziente può inserire il proprio codice fiscale e proseguire le procedure di autenticazione.
+PersonaleLoginForm | Il from attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.
+RegistrazioneForm | Il form che permette  di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.
 ScegliOrarioDialog |
 ScegliPrenotazioneDialog |
-ScegliRegimeDialog |
-SceltaMedicoDialog |
+ScegliRegimeDialog | Nelle operazioni di  prenotazione questa schermata consente di scegliere tra regime ALPI e regime SSN.
+SceltaMedicoDialog | Nelle operazioni di prenotazione se si sceglie il regime ALPI questa schermata permette di scegliere il medico dal quale farsi visitare.
 ConfermaModificaControl |
 EffettuaPrenotazioneControl |
 GeneraRicettaControl |
@@ -693,9 +693,10 @@ LoginControl |
 ModificaPrenotazioneControl |
 RegistrazioneControl |
 ElencoPrenotazioni |
-PazienteEntity |
+PazienteEntity | All'interno del sistema i dati dei pazienti sono racchiusi in questa classe.
 Prenotazione |
 Ricetta |
+
 
 #### Diagramma delle entity
 ![Entity](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20classi/Entity.png)
