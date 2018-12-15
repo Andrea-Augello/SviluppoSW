@@ -252,7 +252,8 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
    della giornata.
-	2. Il sistema mostra all'utente le eventuali informazioni riguardanti la visita selezionata.
+	2. Il sistema mostra all'utente le eventuali informazioni
+	   riguardanti la visita selezionata.
 3. PersonaleMedico inserisce/modifica i dettagli della visita.
 	4. Il sistema comunica eventualmente al DBMS le informazioni
 	   aggiornate sulla visita.
@@ -666,11 +667,13 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 ##### IndividuaPaziente ²  
 [_²Descrizione già presente qui_](#individuapaziente)  
 [_Diagramma delle sequenze_](#sequenza-individuapaziente)  
+
 ---
 
 #### Inserisci Dettagli Visita
 ![Use case "InserisciDettagliVisita"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/InserisciDettagliVisita.png)
 [_Vista di alto livello_](#inseriscidettaglivisita)
+
 ---
 ##### InserisciDettagli
 __Attori:__ _PersonaleMedico_, DBMS
@@ -678,7 +681,7 @@ __Precondizioni:__ `Il sistema mostra la schermata principale `
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente seleziona un paziente dalla
-   schermata principale.
+   schermata principale e clicca "Inserisci Dettagli Visita".
 	2. Il sistema richiede al DBMS le eventuali informazioni relative
 	   alla visita connessa al paziente precedentemente selezionato.
 3. Il DBMS restituisce le informazioni richieste
