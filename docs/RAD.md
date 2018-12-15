@@ -677,16 +677,17 @@ __Attori:__ _PersonaleMedico_, DBMS
 __Precondizioni:__ `Il sistema mostra la schermata principale `
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando l'utente seleziona un paziente dalla schermata principale.
-	2. Il sistema richiede al DBMS le eventuali informazioni relative alla visita
-	   connessa al paziente precedentemente selezionato.
+1. Il caso d'uso inizia quando l'utente seleziona un paziente dalla
+   schermata principale.
+	2. Il sistema richiede al DBMS le eventuali informazioni relative
+	   alla visita connessa al paziente precedentemente selezionato.
 3. Il DBMS restituisce le informazioni richieste
-  4. Il sistema mostra una schermata con box di testo modificabili contenenti
-     le eventuali informazioni già presenti.
+  4. Il sistema mostra una schermata con box di testo modificabili
+     contenenti le eventuali informazioni già presenti.
 5. PersonaleMedico modifica/aggiunge informazioni e conferma le modifiche.
   6. Il sistema comunica al DBMS le informazioni aggiornate sulla visita.	  
 ```
-__Postcondizioni:__ `Il sistema ritorna alla schermata principale`
+__Postcondizioni:__ `Il sistema ritorna alla schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-inseriscidettaglivisita)
 
 ---
