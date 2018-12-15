@@ -45,6 +45,7 @@
 				- [VisualizzaCartellaClinica](#visualizzacartellaclinica)
 				- [IndividuaPaziente ²](#individuapaziente-)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
+				- [InserisciDettagli](#inseriscidettagli)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 			- [Lista delle classi](#lista-delle-classi)
@@ -253,12 +254,8 @@ __Flusso degli eventi:__
    della giornata.
 	2. Il sistema mostra all'utente le eventuali informazioni riguardanti la visita selezionata.
 3. PersonaleMedico inserisce/modifica i dettagli della visita.
-	 4. Il sistema chiede conferma delle avvenute modifiche.
-5. PersonaleMedico conferma o annulla le modifiche effettuate.
-	6. Il sistema comunica eventualmente al DBMS le informazioni
+	4. Il sistema comunica eventualmente al DBMS le informazioni
 	   aggiornate sulla visita.
-7. Il DBMS aggiorna eventualmente i dati immagazzinati della visita.
- 	
 ```  
 __Postcondizioni:__  `Il sistema torna alla schermata principale`  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
@@ -630,7 +627,7 @@ __Postcondizioni:__  `L'utente è in grado di accedere correttamente al suo stor
 [_Diagramma delle sequenze_](#sequenza-visualizzastoricovisite)
 
 ---
-##### StampaCartellaClinica 
+##### StampaCartellaClinica
 __Attori:__  _PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ `L'utente ha visualizzato correttamente lo storico visite`  
 __Flusso degli eventi:__
@@ -673,7 +670,7 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 
 #### Inserisci Dettagli Visita
 ![Use case "InserisciDettagliVisita"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/InserisciDettagliVisita.png)
-
+[_Vista di alto livello_](#inseriscidettaglivisita)
 ---
 ##### InserisciDettagli
 __Attori:__ _PersonaleMedico_, DBMS
@@ -681,11 +678,11 @@ __Precondizioni:__ `Il sistema mostra la schermata principale `
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente seleziona un paziente dalla schermata principale.
-	2. Il sistema richiede al DBMS le eventuali informazioni relative alla visita 
+	2. Il sistema richiede al DBMS le eventuali informazioni relative alla visita
 	   connessa al paziente precedentemente selezionato.
 3. Il DBMS restituisce le informazioni richieste
   4. Il sistema mostra una schermata con box di testo modificabili contenenti
-     le eventuali informazioni già presenti. 
+     le eventuali informazioni già presenti.
 5. PersonaleMedico modifica/aggiunge informazioni e conferma le modifiche.
   6. Il sistema comunica al DBMS le informazioni aggiornate sulla visita.	  
 ```
