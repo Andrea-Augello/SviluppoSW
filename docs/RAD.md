@@ -338,7 +338,7 @@ __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS
 __Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando durante un'autenticazione Paziente o
+1. Il caso d'uso inizia quando ,durante un'autenticazione, Paziente o
    PersonaleAmministrativo inserisce un CF che non corrisponde a nessun
    paziente nel database.
 	2. Il sistema mostra un form per inserire i dati necessari
