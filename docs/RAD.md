@@ -634,7 +634,7 @@ __Postcondizioni:__  `L'utente è in grado di accedere correttamente al suo stor
 [_Diagramma delle sequenze_](#sequenza-visualizzastoricovisite)
 
 ---
-##### StampaCartellaClinica
+##### StampaCartellaClinica 
 __Attori:__  _PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ `L'utente ha visualizzato correttamente lo storico visite`  
 __Flusso degli eventi:__
