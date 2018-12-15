@@ -571,6 +571,10 @@ Schermata di scelta per data e ora della visita
 ![Scelta data](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20SpostaPrenotazione%20(NuovoOrarioDialog).png)
 
 ---
+Schermata per annullare la prenotazione selezionata
+![Scelta data](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20EliminaPrenotazione%20(ConfermaDialog).png)
+
+---
 Schermata di conferma modifiche
 ![Conferma modifiche](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20SpostaPrenotazione%20(ConfermaDialog).png)
 
