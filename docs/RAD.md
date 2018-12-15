@@ -478,8 +478,8 @@ __Flusso degli eventi:__
 	11. Il sistema chiede al DBMS i documenti richiesti per la visita.
 12. Il DBMS comunica le informazioni richieste.
 	13. Il sistema invia una notifica di avvenuta prenotazione
-	   all'utente, riportando i documenti
-	   da portare.
+	    all'utente, riportando i documenti
+	    da portare.
 
 ```  
 __Flusso alternativo:__
