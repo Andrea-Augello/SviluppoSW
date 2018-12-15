@@ -251,18 +251,14 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
    della giornata.
-	2. Il sistema mostra i dettagli già presenti sulla visita
-	   selezionata.
-3. PersonaleMedico insersce ulteriori dati o modifica quelli presenti.
-   Eventualmente conferma i cambiamenti.
-	 4. Il sistema mostra a PersonaleMedico una schermata
-	    riassuntiva delle modifiche effettuate.
+	2. Il sistema mostra all'utente le eventuali informazioni riguardanti la visita selezionata.
+3. PersonaleMedico inserisce/modifica i dettagli della visita.
+	 4. Il sistema chiede conferma delle avvenute modifiche.
 5. PersonaleMedico conferma o annulla le modifiche effettuate.
-	6. Se PersonaleMedico ha confermato il sistema comunica al
-	   DBMS le informazioni aggiornate sulla visita.
-7. Il DBMS aggiorna i dati riguardanti la visita immagazzinati.
- 	8. Il sistema mostra un messaggio relativo all'esito della
-	   operazione.
+	6. Il sistema comunica eventualmente al DBMS le informazioni
+	   aggiornate sulla visita.
+7. Il DBMS aggiorna eventualmente i dati immagazzinati della visita.
+ 	
 ```  
 __Postcondizioni:__  `Il sistema torna alla schermata principale`  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
@@ -679,6 +675,25 @@ __Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite 
 ![Use case "InserisciDettagliVisita"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/InserisciDettagliVisita.png)
 
 ---
+##### InserisciDettagli
+__Attori:__ _PersonaleMedico_, DBMS
+__Precondizioni:__ `Il sistema mostra la schermata principale `
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando l'utente seleziona un paziente dalla schermata principale.
+	2. Il sistema richiede al DBMS le eventuali informazioni relative alla visita 
+	   connessa al paziente precedentemente selezionato.
+3. Il DBMS restituisce le informazioni richieste
+  4. Il sistema mostra una schermata con box di testo modificabili contenenti
+     le eventuali informazioni già presenti. 
+5. PersonaleMedico modifica/aggiunge informazioni e conferma le modifiche.
+  6. Il sistema comunica al DBMS le informazioni aggiornate sulla visita.	  
+```
+__Postcondizioni:__ `Il sistema ritorna alla schermata principale`
+[_Diagramma delle sequenze_](#sequenza-inseriscidettagli)
+
+---
+
 #### Notifica Prenotazione
 ![Use case "NotificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/NotificaPrenotazione.png)
 
