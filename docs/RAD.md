@@ -687,7 +687,7 @@ __Flusso degli eventi:__
   6. Il sistema comunica al DBMS le informazioni aggiornate sulla visita.	  
 ```
 __Postcondizioni:__ `Il sistema ritorna alla schermata principale`
-[_Diagramma delle sequenze_](#sequenza-inseriscidettagli)
+[_Diagramma delle sequenze_](#sequenza-inseriscidettaglivisita)
 
 ---
 
@@ -819,7 +819,7 @@ SceltaMedicoDialog | Nelle operazioni di prenotazione se si sceglie il regime AL
   ---
 ##### Sequenza InserisciDettagliVisita
  ![InserisciDettagliVisita](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InserisciDettagliVisita.png)
- [_Caso d'uso_](#inseriscidettaglivisita)
+ [_Caso d'uso_](#inseriscidettagli)
 
  ---
 ##### Sequenza NotificaPrenotazione
