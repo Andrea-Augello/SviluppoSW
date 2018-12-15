@@ -505,6 +505,10 @@ Schermata di inserimento password
 ![Schermata di inserimento password](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Password.png)
 
 ---
+Schermata di errore nell'inserimento della password
+![Schermata errore inserimento password](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Password%20(Errore).png)
+
+---
 Schermata di registrazione paziente
 ![Schermata di registrazione paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Registrazione%20paziente.png)
 
@@ -541,6 +545,10 @@ Schermata per la scelta del medico per una visita intramoenia
 ![Scelta medico](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20CreaPrenotazione/Schermata%20Crea%20Prenotazione%20-%20PrenotaVisitaALPI%20(scelta%20medico).png)
 
 ---
+Schermata di errore per impossibilità di evadere la prenotazione nei tempi previsti dalla legge per il codice di urgenza.
+![Errore mancanza orario](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20CreaPrenotazione/Schermata%20Crea%20Prenotazione%20-%20PrenotazioneVisitaALPI%20(Errore).png)
+
+---
 Schermata di scelta per data e ora della visita
 ![Scelta data](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20CreaPrenotazione/Schermata%20Crea%20Prenotazione%20-%20PrenotaVisitaSSN:ALPI%20(Data).png)
 
@@ -563,6 +571,11 @@ Schermata di scelta per data e ora della visita
 ![Scelta data](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20SpostaPrenotazione%20(NuovoOrarioDialog).png)
 
 ---
+Schermata di conferma modifiche
+![Conferma modifiche](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20SpostaPrenotazione%20(ConfermaDialog).png)
+
+---
+
 
 
 ## 4. Glossario
