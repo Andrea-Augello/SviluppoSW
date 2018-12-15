@@ -656,7 +656,7 @@ __Flusso degli eventi:__
 3. Il DBMS restituisce i dati richiesti.
 	4. Il sistema mostra una schermata riportante i dati anagrafici
 	   del paziente e l'elenco in ordine cronologico di tutte le
-	   visite effettuate, specificando per ognuna data, costo
+	   visite effettuate, specificando per ognuna data, costo,
 	   tipo di visita,nome del medico che se ne è occupato e le
 	   sue annotazioni.
 ```  
