@@ -299,9 +299,9 @@ __Flusso degli eventi:__
 5. Il DBMS comunica al sistema se l'utente è presente nel database ed
    eventuali informazioni connesse.
 	6. Se l'utente non è presente nel database il sistema informa che
-      il codice inserito è errato e chiede di reinserirlo.
-	  ALTRIMENTI
-	  Il sistema chiede all'utente di inserire la password.
+           il codice inserito è errato e chiede di reinserirlo.
+	   ALTRIMENTI
+ 	   Il sistema chiede all'utente di inserire la password.
 7. L'utente inserisce e conferma la password.
 	8. Il sistema controlla che la password inserita corrisponda a
 	   quella nota, se non lo è chiede nuovamente di autenticarsi.
