@@ -714,6 +714,8 @@ FSEDialog |
 GeneraRicettaControl |
 IndividuaPrenotazioneControl |
 IndividuaPrenotazioneDialog | Questa schermata permette all'utente di visualizzare le prenotazioni modificabili e scegliere su quale agire.
+InserisciDettagliVisitaControl |
+InserisciDettagliVisitaDialog | 
 InviaNotificaControl |
 LoginControl |
 MainScreen | La schermata principale, da questa si possono avviare le varie procedure.
