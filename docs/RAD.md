@@ -547,7 +547,7 @@ __Flusso degli eventi:__
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Elimina
 prenotazione"
 	2. Il sistema predispone la cancellazione della prenotazione e
-	   da inizio al caso d'uso ConfermaModifica.
+	   dà inizio al caso d'uso ConfermaModifica.
 ```
 __Postcondizioni:__ `L'utente torna alla schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-eliminaprenotazione)
