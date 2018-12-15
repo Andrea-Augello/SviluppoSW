@@ -472,7 +472,7 @@ __Flusso degli eventi:__
 7. Il DBMS comunica al sistema l'elenco delle prenotazioni relative
    al medico scelto dall'utente.	 
 	8. Il sistema chiede all'utente di scegliere giorno e ora tra
-       quelli in cui il medico è disponibile.
+           quelli in cui il medico è disponibile.
 9. L'utente seleziona e conferma giorno e ora.	   
 	10. Il sistema comunica la nuova prenotazione al DBMS.
 	11. Il sistema chiede al DBMS i documenti richiesti per la visita.
