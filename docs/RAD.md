@@ -41,6 +41,8 @@
 		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
 			- [Login](#login)
 			- [Schermata principale](#schermata-principale)
+			- [Creazione di una prenotazione](#creazione-di-una-prenotazione)
+			- [Modifica di una prenotazione](#modifica-di-una-prenotazione)
 	- [4. Glossario](#4-glossario)
 
 <!-- /TOC -->
