@@ -527,7 +527,7 @@ __Flusso degli eventi:__
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Sposta
 prenotazione".
 	2. Il sistema chiede al DBMS le informazioni necessarie per
-       fornire all'utente i giorni disponibili in cui spostare la
+           fornire all'utente i giorni disponibili in cui spostare la
 	   prenotazione.
 3. Il DBMS restituisce le informazioni richieste.
 	4. Il sistema mostra all'utente le opzioni disponibili per la
