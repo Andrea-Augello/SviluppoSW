@@ -429,23 +429,33 @@ __Flusso degli eventi:__
 1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
    prenotare una visita in convenzione con il sistema sanitario nazionale.
 	2. Il sistema, tenendo conto del codice di urgenza, chiede al DBMS
-	   quali giorni e orari non sono disponibili per la nuova
-	   prenotazione.  
-3. Il DBMS comunica al sistema l'elenco delle prenotazioni.
+	   quali giorni e orari sono disponibili per la nuova prenotazione.  
+3. Il DBMS comunica al sistema l'elenco degli orari disponibili.
 	4. Il sistema propone al paziente le date disponibili per
 	   effettuare la visita.
 5. Il paziente sceglie tra le opzioni proposte e conferma la scelta.
-	6. Il sistema comunica la nuova prenotazione al DBMS,
-	   eventualmente spostando prenotazioni meno urgenti per
-	   permettere l'evasione della richiesta.
-	7. Il sistema chiede al DBMS il costo della prestazione e i
-	   documenti richiesti.
-8. Il DBMS comunica le informazioni richieste.
-	9. Il sistema invia una notifica di avvenuta prenotazione
+	6. Il sistema comunica la nuova prenotazione al DBMS, e chiede
+	   al DBMS il costo della prestazione e i documenti richiesti.
+7. Il DBMS comunica le informazioni richieste.
+	8. Il sistema invia una notifica di avvenuta prenotazione
 	   all'utente, riportando il costo del ticket e i documenti
 	   da portare.
 ```  
-__Postcondizioni:__  `Nel sistema risulta registrata la visita`  
+__Flusso alternativo:__
+```
+3. Il DBSM comunica che non ci sono orari disponibili
+   4. Il sistema cerca un orario in cui è possibile effettuare
+      la vista spostandone una meno urgente e lo propone al paziente.
+5. Il paziente accetta la proposta del sistema
+	6. Il sistema comunica la nuova prenotazione al DBMS e lo spostamento
+	   della prenotazioni meno urgente, e chiede al DBMS il costo
+	   della prestazione e i documenti richiesti.
+7. Il DBMS comunica le informazioni richieste.
+	8. Il sistema invia una notifica di avvenuta prenotazione
+	   all'utente, riportando il costo del ticket e i documenti
+	   da portare.
+```
+__Postcondizioni:__  `Il sistema torna alla schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-prenotavisitassn)  
 
 ---
@@ -478,7 +488,12 @@ __Flusso degli eventi:__
 	   da portare.
 
 ```  
-__Postcondizioni:__  `Nel sistema risulta registrata la visita`  
+__Flusso alternativo:__
+```
+7. Il DBMS comunica che non ci sono orari disponibili
+	8. Il sistema avvisa che non è possibile evadere la richiesta.
+```
+__Postcondizioni:__  `Il sistema torna alla schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-prenotavisitaalpi)
 
 ---
