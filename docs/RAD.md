@@ -175,7 +175,7 @@ __Flusso degli eventi:__
 5. L'utente seleziona "Servizio sanitario nazionale".
  	6. Il sistema chiede al DBMS, tenendo conto del codice di
  	    urgenza, quali giorni e orari sono disponibili.
-7. Il DBMS comunica al sistema le informazioni richeiste.
+7. Il DBMS comunica al sistema le informazioni richieste.
 	8. Il sistema mostra all'utente giorni e orari in cui è
 	    possibile effettuare la prenotazione.
 9. L'utente seleziona e conferma giorno e ora.
