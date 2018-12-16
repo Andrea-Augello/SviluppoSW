@@ -593,22 +593,16 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando PersonaleAmministrativo seleziona "Modifica
    Prenotazione".
-	2. Il sistema chiede di inserire il CF del paziente la cui
-	   prenotazione va modificata.
-3. PersonaleAmministrativo inserisce il CF.
-	4. Il sistema chiede al DBMS tutte le prenotazioni relative
-	   al paziente.
-5. Il DBMS restituisce tutte le prenotazioni relative al paziente.
-	6. Se non ve ne sono il sistema comunica che non sono presenti
-	   prenotazioni a nome del Paziente
+	2. Il sistema chiede di inserire il CF del paziente e il
+	   codice dellaprenotazione va modificata.
+3. PersonaleAmministrativo inserisce i dati richiesti.
+	4. Il sistema chiede al DBMS la prenotazione relativa al
+	   paziente avente codice corrispondente a quello inserito.
+5. Il DBMS restituisce le informazioni richieste dal sistema.
+	6. Se non c'è nessuna prenotazione corrispondente a quel codice
+	   per quel paziente il sistema comunica un messaggio di errore
 	   ALTRIMENTI
-	   Il sistema chiede di inserire il codice identificativo della
-	   prenotazione
-7. PersonaleAmministrativo inserisce il codice
-	8. Se non c'è nessuna prenotazione corrispondente a quel codice
-	   il sistema comunica un messaggio di errore
-	   ALTRIMENTI
-	   Il sistema autorizza l'operazione
+	   Il sistema permette di modificare la prenotazione.
 ```
 __Postcondizioni:__ `PersonaleAmministrativo si trova nella schermata di modifica prenotazione`  
 [_Diagramma delle sequenze_](#sequenza-autorizzazionepaziente)
@@ -723,7 +717,7 @@ GeneraRicettaControl |
 IndividuaPrenotazioneControl |
 IndividuaPrenotazioneDialog | Questa schermata permette all'utente di visualizzare le prenotazioni modificabili e scegliere su quale agire.
 InserisciDettagliVisitaControl |
-InserisciDettagliVisitaDialog | 
+InserisciDettagliVisitaDialog |
 InviaNotificaControl |
 LoginControl |
 MainScreen | La schermata principale, da questa si possono avviare le varie procedure.
