@@ -619,7 +619,7 @@ __Precondizioni:__ `L'utente si trova nella schermata principale`
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Visualizza
-   storico visite"
+   fascicolo sanitario"
 	2. Il sistema chiede al DBMS tutte le visite già effettuate dal
 	   paziente per cui si sta operando.
 3. Il DBMS restituisce i dati richiesti.
