@@ -118,8 +118,6 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 ## 3.3 Requisiti non funzionali
 - Per effettuare una prenotazione è necessario essere provvisti di ricetta
 - Con la stessa ricetta non sarà consentito effettuare più prenotazioni per la medesima prestazione
--
--
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
 #### Casi d'uso di alto livello.
