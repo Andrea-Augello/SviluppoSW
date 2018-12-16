@@ -594,7 +594,7 @@ __Flusso degli eventi:__
 1. Il caso d'uso inizia quando PersonaleAmministrativo seleziona "Modifica
    Prenotazione".
 	2. Il sistema chiede di inserire il CF del paziente e il
-	   codice dellaprenotazione va modificata.
+	   codice della prenotazione va modificata.
 3. PersonaleAmministrativo inserisce i dati richiesti.
 	4. Il sistema chiede al DBMS la prenotazione relativa al
 	   paziente avente codice corrispondente a quello inserito.
