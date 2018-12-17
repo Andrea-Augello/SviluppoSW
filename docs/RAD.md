@@ -72,6 +72,10 @@
 				- [Sequenza InserisciDettagliVisita](#sequenza-inseriscidettaglivisita)
 				- [Sequenza NotificaPrenotazione](#sequenza-notificaprenotazione)
 		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
+			- [Login](#login)
+			- [Schermata principale](#schermata-principale)
+			- [Creazione di una prenotazione](#creazione-di-una-prenotazione)
+			- [Modifica di una prenotazione](#modifica-di-una-prenotazione)
 	- [4. Glossario](#4-glossario)
 
 <!-- /TOC -->
@@ -850,4 +854,125 @@ SceltaMedicoDialog | Nelle operazioni di prenotazione se si sceglie il regime AL
 
  ---
 ### 3.4.4 Interfaccia utente: navigazione e mock-up
+#### Login
+---
+Schermata di login per PersonaleMedico e PersonaleAmministrativo  
+![Schermata di login per PersonaleMedico e PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Personale.png)
+
+---
+Schermata di login per Paziente  
+![Schermata di login per Paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Paziente.png)
+
+---
+Schermata di errore nel login per PersonaleMedico e PersonaleAmministrativo  
+![Schermata di errore nel login per PersonaleMedico e PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Errore%20(personale).png)
+
+---
+Schermata di inserimento password
+![Schermata di inserimento password](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Password.png)
+
+---
+Schermata di errore nell'inserimento della password
+![Schermata errore inserimento password](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Password%20(Errore).png)
+
+---
+Schermata di registrazione paziente
+![Schermata di registrazione paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Registrazione%20paziente.png)
+
+---
+#### Schermata principale
+---
+Schermata principale Paziente
+![Schermata principale Paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Mainscreen/Schermata%20Iniziale%20-%20Paziente.png)
+
+---
+Schermata principale PersonaleAmministrativo
+![Schermata principale PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Mainscreen/Schermata%20Iniziale%20-%20Personale%20Amministrativo.png)
+
+---
+Schermata principale PersonaleMedico
+![Schermata principale PersonaleMedico](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Mainscreen/Schermata%20Iniziale%20-%20Personale%20Medico.png)
+
+---
+#### Creazione di una prenotazione
+---
+Schermata per l'inserimento dei dettagli della ricetta
+![Inserimento dettagli ricetta](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20CreaPrenotazione/Schermata%20Crea%20Prenotazione%20-%20Inserisci%20dettagli%20ricetta.png)
+
+---
+Errore nell'inserimento dei dettagli della ricetta
+![Errore inserimento dettagli ricetta](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20CreaPrenotazione/Schermata%20Crea%20Prenotazione%20-%20Inserisci%20dettagli%20ricetta%20(errore).png)
+
+---
+Schermata di scelta del regime della prenotazione
+![Scelta SSN o ALPI](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20CreaPrenotazione/Schermata%20Crea%20Prenotazione%20-%20Scegli%20Regime%20Visita.png)
+
+---
+Schermata per la scelta del medico per una visita intramoenia
+![Scelta medico](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20CreaPrenotazione/Schermata%20Crea%20Prenotazione%20-%20PrenotaVisitaALPI%20(scelta%20medico).png)
+
+---
+Schermata di errore per impossibilità di evadere la prenotazione nei tempi previsti dalla legge per il codice di urgenza.
+![Errore mancanza orario](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20CreaPrenotazione/Schermata%20Crea%20Prenotazione%20-%20PrenotazioneVisitaALPI%20(Errore).png)
+
+---
+Schermata di scelta per data e ora della visita
+![Scelta data](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20CreaPrenotazione/Schermata%20Crea%20Prenotazione%20-%20PrenotaVisitaSSN:ALPI%20(Data).png)
+
+---
+#### Modifica di una prenotazione
+---
+Schermata per la scelta della prenotazione da modificare (Paziente)
+![Scelta prenotazione](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20Scegli%20prenotazione.png)
+
+---
+Schermata di errore se non sono presenti prenotazioni modificabili
+![Errore nessuna prenotazione modificabile](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20Errore%20(lista%20vuota).png)
+
+---
+Schermata per la scelta della prenotazione da modificare (Personale Amministrativo)
+![Scelta prenotazione](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20AutorizzazionePaziente.png)
+
+---
+Schermata di errore nella scelta della prenotazione da modificare (Personale Amministrativo)
+![Scelta prenotazione](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20AutorizzazionePaziente%20(errore).png)
+
+---
+Schermata riassuntiva dei dettagli della prenotazione da modificare
+![Scelta data](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20Modifica.png)
+
+---
+Schermata di scelta per data e ora della visita
+![Scelta data](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20SpostaPrenotazione%20(NuovoOrarioDialog).png)
+
+---
+Schermata per annullare la prenotazione selezionata
+![Scelta data](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20EliminaPrenotazione%20(ConfermaDialog).png)
+
+---
+Schermata di conferma modifiche
+![Conferma modifiche](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20SpostaPrenotazione%20(ConfermaDialog).png)
+
+---
+
+#### Visualizzazione del fascicolo sanitario elettronico
+
+---
+Visualizzazione fasciolo sanitario (Medico)
+![VisualizzaFSE](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaCartellaClinica.png)
+
+---
+Visualizzazione fasciolo sanitario (Amministrazione)
+![VisualizzaFSE](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaStoricoVisite%20(Amministrazione).png)
+
+---
+Visualizzazione fasciolo sanitario (Paziente)
+![VisualizzaFSE](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaStoricoVisite%20(paziente).png)
+
+---
+
+#### Inserimento dati sulla visitare
+
+![Inserisci dettagli visita](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20InserisciDettagliVisita/Schermata%20Inserisci%20Dettagli%20Visita%20-%2oInserisciDettagli)
+
 ## 4. Glossario
