@@ -114,11 +114,11 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 - Il personale amministrativo, il personale medico ed il paziente dovranno poter visionare il Fascicolo Sanitario Elettronico
 - Il paziente potrà visualizzare lo Storico delle sue visite ogni qual volta lo richiederà
 - Il personale medico dovrà poter inserire i dettagli della visita effettuata
-- Il sistema devrà offrire funzionalità reminder agli utenti che dovranno effettuare una o più visite
+- Il sistema dovrà offrire funzionalità di reminder agli utenti che dovranno effettuare una o più visite
 - Il sistema dovrà gestire prestazioni sanitarie in dipendenza della politica dei differenti reparti
 - Il sistema dovrà saper gestire differentemente le prenotazioni in base all'urgenza riportata nella relative ricette
 - Il sistema dovrà tenere informato il paziente sulla documentazione da portare all'eventuale visita
-- Il sistema dovrà saper gestire le prenotazioni in base alle scelte del personale medico, del paziente o del personale amministrativo,   modificandole se necessario, per una eventuale soluzione più efficente
+- Il sistema dovrà saper gestire le prenotazioni in base alle scelte del personale medico, del paziente o del personale amministrativo,   modificandole se necessario, per una eventuale soluzione più efficiente
 - Il paziente e il personale amministrativo potranno modificare le prenotazioni ed eventualmente cancellarle
 - Il personale medico potrà prenotare eventuali ricoveri
 - Il sistema dovrà saper fare distinzione tra paziente, personale medico e personale amministrativo
