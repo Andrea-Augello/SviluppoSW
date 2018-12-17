@@ -116,7 +116,7 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 - Il personale medico dovrà poter inserire i dettagli della visita effettuata
 - Il sistema devrà offrire funzionalità reminder agli utenti che dovranno effettuare una o più visite
 - Il sistema dovrà gestire prestazioni sanitarie in dipendenza della politica dei differenti reparti
-- Il sistema dovrà saper gestire differentemente le prenotazioni in base all'urgenza riportata nella relativa ricetta
+- Il sistema dovrà saper gestire differentemente le prenotazioni in base all'urgenza riportata nella relative ricette
 - Il sistema dovrà tenere informato il paziente sulla documentazione da portare all'eventuale visita
 - Il sistema dovrà saper gestire le prenotazioni in base alle scelte del personale medico, del paziente o del personale amministrativo,   modificandole se necessario, per una eventuale soluzione più efficente
 - Il paziente e il personale amministrativo potranno modificare le prenotazioni ed eventualmente cancellarle
