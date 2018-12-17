@@ -644,7 +644,7 @@ __Postcondizioni:__  `L'utente è in grado di accedere correttamente al suo stor
 
 ---
 ##### StampaCartellaClinica
-__Attori:__  _PersonaleAmministrativo_, DBMS  
+__Attori:__  _PersonaleAmministrativo, PersonaleMedico_, DBMS  
 __Precondizioni:__ `L'utente ha visualizzato correttamente lo storico visite`  
 __Flusso degli eventi:__
 ```
