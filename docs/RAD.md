@@ -128,7 +128,7 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 - Per effettuare una prenotazione sarà necessario essere provvisti di ricetta
 - Con la stessa ricetta non sarà consentito effettuare più prenotazioni per la medesima prestazione
 - Il Fascicolo Sanitario Elettronico potrà essere visionato dal paziente solo tramite pagamento di una somma di denaro
-- La prenotazione di urgenza deve essere erogata entro e non oltre un giorno prima della prenotazione da effettuare
+- La prenotazione di urgenza dovrà essere erogata entro e non oltre un giorno prima della prenotazione da effettuare
 - La notifica al paziente dovrà essere effettuata a meno di 48 ore prima della prima visita prenotata ad inizio giornata
 - Il paziente avrà la possibilità di rinunciare alla visita tramite risposta alla notifica inviata dal sistema entro e non oltre 24 ore   prima della relativa prenotazione 
 
