@@ -563,6 +563,14 @@ Schermata di errore se non sono presenti prenotazioni modificabili
 ![Errore nessuna prenotazione modificabile](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20Errore%20(lista%20vuota).png)
 
 ---
+Schermata per la scelta della prenotazione da modificare (Personale Amministrativo)
+![Scelta prenotazione](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20AutorizzazionePaziente.png)
+
+---
+Schermata di errore nella scelta della prenotazione da modificare (Personale Amministrativo)
+![Scelta prenotazione](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20AutorizzazionePaziente%20(errore).png)
+
+---
 Schermata riassuntiva dei dettagli della prenotazione da modificare
 ![Scelta data](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20Modifica.png)
 
