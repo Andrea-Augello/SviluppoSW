@@ -76,6 +76,8 @@
 			- [Schermata principale](#schermata-principale)
 			- [Creazione di una prenotazione](#creazione-di-una-prenotazione)
 			- [Modifica di una prenotazione](#modifica-di-una-prenotazione)
+			- [Visualizzazione del fascicolo sanitario elettronico](#visualizzazione-del-fascicolo-sanitario-elettronico)
+			- [Inserimento dati sulla visita](#inserimento-dati-sulla-visita)
 	- [4. Glossario](#4-glossario)
 
 <!-- /TOC -->
@@ -134,7 +136,7 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 - Il Fascicolo Sanitario Elettronico potrà essere visionato dal paziente solo tramite pagamento di una somma di denaro
 - La prenotazione di urgenza dovrà essere erogata entro e non oltre un giorno prima della prenotazione da effettuare
 - La notifica al paziente dovrà essere effettuata a meno di 48 ore prima della prima visita prenotata ad inizio giornata
-- Il paziente avrà la possibilità di rinunciare alla visita tramite risposta alla notifica inviata dal sistema entro e non oltre 24 ore   prima della relativa prenotazione 
+- Il paziente avrà la possibilità di rinunciare alla visita tramite risposta alla notifica inviata dal sistema entro e non oltre 24 ore   prima della relativa prenotazione
 
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
@@ -729,7 +731,7 @@ EffettuaPrenotazioneControl | Gestisce le operazioni riguardanti la prenotazione
 ErroreDialog | Mostra a video all'utente che l'operazione da lui intrapresa non è andata a buon fine.
 FormRicetta | Permette l'inserimento dei dati relativi alla ricetta.
 FSEControl | Gestisce le operazioni per l'ottenimento del Fascicolo Sanitario Elettronico da parte dell'utente.
-FSEDialog | Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal       personale 
+FSEDialog | Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal       personale
 GeneraRicettaControl | Gestisce le operazioni per la memorizzazione delle informazioni relative ad una ricetta.
 IndividuaPrenotazioneDialog | Questa schermata permette all'utente di visualizzare le prenotazioni modificabili e scegliere su quale agire.
 InserisciDettagliVisitaControl | Gestisce le operazioni per il corretto inserimento della diagnosi da parte del medico.
@@ -971,7 +973,7 @@ Visualizzazione fasciolo sanitario (Paziente)
 
 ---
 
-#### Inserimento dati sulla visitare
+#### Inserimento dati sulla visita
 
 ![Inserisci dettagli visita](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20InserisciDettagliVisita/Schermata%20Inserisci%20Dettagli%20Visita%20-%20InserisciDettagli.png)
 
