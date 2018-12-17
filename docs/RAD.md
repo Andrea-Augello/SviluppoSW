@@ -113,24 +113,24 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 - Il personale amministrativo, il personale medico e il paziente dovranno essere in grado di creare una prenotazione
 - Il personale amministrativo, il personale medico ed il paziente dovranno poter visionare il Fascicolo Sanitario Elettronico
 - Il paziente potrà visualizzare lo Storico delle sue visite ogni volta che lo richiede
-- Il personale medico dovrà poter inserire i dettagli della visita
-- Il sistema devrà offrire funzionalità di notifica agli utenti
+- Il personale medico dovrà poter inserire i dettagli della visita effettuata
+- Il sistema devrà offrire funzionalità reminder agli utenti che dovranno effettuare una o più visite
 - Il sistema dovrà gestire prestazioni sanitarie in dipendenza della politica dei differenti reparti
-- Il sistema dovrà saper tenere gestire differentemente le prenotazioni in base all'urgenza riportata in ricetta
+- Il sistema dovrà saper gestire differentemente le prenotazioni in base all'urgenza riportata nella relativa ricetta
 - Il sistema dovrà tenere informato il paziente sulla documentazione da portare all'eventuale visita
-- Il sistema dovrà saper gestire le prenotazioni in base alle scelte del personale medico o del paziente, modificandole se necessario,     per una eventuale soluzione più efficente
+- Il sistema dovrà saper gestire le prenotazioni in base alle scelte del personale medico, del paziente o del personale amministrativo,   modificandole se necessario, per una eventuale soluzione più efficente
 - Il paziente e il personale amministrativo potranno modificare le prenotazioni ed eventualmente cancellarle
 - Il personale medico potrà prenotare eventuali ricoveri
-- Il sistema dovrà saper distinguere tra paziente, personale medico e personale amministrativo
+- Il sistema dovrà saper fare distinzione tra paziente, personale medico e personale amministrativo
 - Il sistema dovrà saper gestire differentemente visite intramoenia e visite con SSN
-- 
+
 ## 3.3 Requisiti non funzionali
-- Per effettuare una prenotazione è necessario essere provvisti di ricetta
+- Per effettuare una prenotazione sarà necessario essere provvisti di ricetta
 - Con la stessa ricetta non sarà consentito effettuare più prenotazioni per la medesima prestazione
 - Il Fascicolo Sanitario Elettronico potrà essere visionato dal paziente solo tramite pagamento di una somma di denaro
 - La prenotazione di urgenza deve essere erogata entro e non oltre un giorno prima della prenotazione da effettuare
 - La notifica al paziente dovrà essere effettuata a meno di 48 ore prima della prima visita prenotata ad inizio giornata
-- Il paziente avrà la possibilità di rinunciare alla visita tramite risposta alla notifica inviata dal sistema
+- Il paziente avrà la possibilità di rinunciare alla visita tramite risposta alla notifica inviata dal sistema entro e non oltre 24 ore   prima della relativa prenotazione 
 
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
