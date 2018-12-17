@@ -112,7 +112,7 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 ## 3.2 Requisiti funzionali
 - Il personale amministrativo, il personale medico e il paziente dovranno essere in grado di creare una prenotazione
 - Il personale amministrativo, il personale medico ed il paziente dovranno poter visionare il Fascicolo Sanitario Elettronico
-- Il paziente potrà visualizzare lo Storico delle sue visite ogni volta che lo richiede
+- Il paziente potrà visualizzare lo Storico delle sue visite ogni qual volta lo richiederà
 - Il personale medico dovrà poter inserire i dettagli della visita effettuata
 - Il sistema devrà offrire funzionalità reminder agli utenti che dovranno effettuare una o più visite
 - Il sistema dovrà gestire prestazioni sanitarie in dipendenza della politica dei differenti reparti
