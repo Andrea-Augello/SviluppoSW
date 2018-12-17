@@ -130,7 +130,7 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 - Il Fascicolo Sanitario Elettronico potrà essere visionato dal paziente solo tramite pagamento di una somma di denaro
 - La prenotazione di urgenza dovrà essere erogata entro e non oltre un giorno prima della prenotazione da effettuare
 - La notifica al paziente dovrà essere effettuata a meno di 48 ore prima della prima visita prenotata ad inizio giornata
-- Il paziente avrà la possibilità di rinunciare alla visita tramite risposta alla notifica inviata dal sistema entro e non oltre 24 ore   prima della relativa prenotazione
+- Il paziente avrà la possibilità di rinunciare alla visita tramite risposta alla notifica inviata dal sistema entro e non oltre 24 ore   prima della relativa prenotazione 
 
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
@@ -644,7 +644,7 @@ __Postcondizioni:__  `L'utente è in grado di accedere correttamente al suo stor
 
 ---
 ##### StampaCartellaClinica
-__Attori:__  _PersonaleAmministrativo, PersonaleMedico_, DBMS  
+__Attori:__  _PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ `L'utente ha visualizzato correttamente lo storico visite`  
 __Flusso degli eventi:__
 ```
@@ -720,34 +720,35 @@ __Postcondizioni:__ `Il sistema ritorna alla schermata principale`
 Classe | Descrizione
 -|-|
 ConfermaDialog | Nelle operazioni di modifica di una prenotazione già effettuata questa schermata riassume le modifiche e consente di confermarle o annullarle.
-ConfermaModificaControl |
-EffettuaPrenotazioneControl |
+ConfermaModificaControl | Gestisce le operazioni riguardanti la conferma di una modifica da effettuare.
+EffettuaPrenotazioneControl | Gestisce le operazioni riguardanti la prenotazione di una nuova visita da effettuare.
 ErroreDialog | Mostra a video all'utente che l'operazione da lui intrapresa non è andata a buon fine.
 FormRicetta | Permette l'inserimento dei dati relativi alla ricetta.
-FSEControl |
-FSEDialog |
-GeneraRicettaControl |
+FSEControl | Gestisce le operazioni per l'ottenimento del Fascicolo Sanitario Elettronico da parte dell'utente.
+FSEDialog | Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal       personale 
+GeneraRicettaControl | Gestisce le operazioni per la memorizzazione delle informazioni relative ad una ricetta.
+IndividuaPrenotazioneControl |
 IndividuaPrenotazioneDialog | Questa schermata permette all'utente di visualizzare le prenotazioni modificabili e scegliere su quale agire.
-InserisciDettagliVisitaControl |
-InserisciDettagliVisitaDialog |
-InviaNotificaControl |
-LoginControl |
-MainScreen | La schermata principale, da questa si possono avviare le varie procedure.
-ModificaPrenotazioneControl |
-ModificaPrenotazioneDialog |
+InserisciDettagliVisitaControl | Gestisce le operazioni per il corretto inserimento della diagnosi da parte del medico.
+InserisciDettagliVisitaDialog | Interfaccia per l'inserimento e l'eventuale conferma della diagnosi della visita precedentemente effettuata.
+InviaNotificaControl | Permette la gestione di eventuali notifiche scaturite da operazioni effettuate nel sistema.
+LoginControl | Gestisce le operazioni di verifica della corretteza di un eventuale login da parte di un utente.
+MainScreen | Schermata principale per l'avvio di varie procedure.
+ModificaPrenotazioneControl | Gestisce le operazioni necessarie per la modifica di una prenotazione.
+ModificaPrenotazioneDialog | Interfaccia che permette all'utente di modificare la Prenotazione selezionata.
 PasswordForm | Questa schermata presenta un box di testo in cui gli utenti possono inserire la propria password.
 PazienteEntity | All'interno del sistema i dati dei pazienti sono racchiusi in questa classe.
 PazienteLoginForm | Il form attraverso cui Paziente può inserire il proprio codice fiscale e proseguire le procedure di autenticazione.
 PersonaleLoginForm | Il form attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.
 Prenotazione | Questa classe contiene i dati rilevanti della prenotazione mentre viene elaborata dal sistema.
 RegistrazioneForm | Il form che permette  di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.
-RegistrazioneControl |
-Ricetta |
+RegistrazioneControl | Gestisce le operazioni necessarie per la registrazione di un nuovo paziente.
+Ricetta | Questa classe contiene i dati relativi alle ricetta mentre viene inserita nel DBMS.
 ScegliOrarioDialog | Durante le operazioni di prenotazione attraverso questa schermata l'utente può selezionare data e ora della visita tra quelli proposti dal sistema.
-ScegliPrenotazioneControl |
 ScegliPrenotazioneDialog | Questa schermata presenta l'elenco delle prenotazioni per visite ancora non effettuate dal paziente, da qui è possibile selezionarne una per modificarla.
-ScegliRegimeDialog | Nelle operazioni di  prenotazione questa schermata consente di scegliere tra regime ALPI e regime SSN.
+ScegliRegimeDialog | Nelle operazioni di prenotazione questa schermata consente di scegliere tra regime ALPI e regime SSN.
 SceltaMedicoDialog | Nelle operazioni di prenotazione se si sceglie il regime ALPI questa schermata permette di scegliere il medico dal quale farsi visitare.
+
 
 
 #### Diagramma delle entity
