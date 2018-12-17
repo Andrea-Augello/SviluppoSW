@@ -2,7 +2,7 @@ title: "SPRINT"
 description: "Sistema PRenotazioni INTelligenti"
 theme: jekyll-theme-slate
 permalink: /404.md
-show_downloads: true
+show_downloads: false
 
 github:
   is_project_page: false
