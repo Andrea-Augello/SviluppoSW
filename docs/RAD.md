@@ -592,17 +592,20 @@ Schermata di conferma modifiche
 
 ---
 Visualizzazione fasciolo sanitario (Medico)
-![Conferma modifiche](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaCartellaClinica.png)
+![VisualizzaFSE](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaCartellaClinica.png)
 
 ---
 Visualizzazione fasciolo sanitario (Amministrazione)
-![Conferma modifiche](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaStoricoVisite%20(Amministrazione).png)
+![VisualizzaFSE](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaStoricoVisite%20(Amministrazione).png)
 
 ---
 Visualizzazione fasciolo sanitario (Paziente)
-![Conferma modifiche](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaStoricoVisite%20(paziente).png)
+![VisualizzaFSE](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaStoricoVisite%20(paziente).png)
 
 ---
 
+#### Inserimento dati sulla visitare
+
+![Inserisci dettagli visita](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20InserisciDettagliVisita/Schermata%20Inserisci%20Dettagli%20Visita%20-%2oInserisciDettagli)
 
 ## 4. Glossario
