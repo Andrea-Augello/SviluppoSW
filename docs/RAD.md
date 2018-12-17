@@ -588,6 +588,21 @@ Schermata di conferma modifiche
 
 ---
 
+#### Visualizzazione del fascicolo sanitario elettronico
+
+---
+Visualizzazione fasciolo sanitario (Medico)
+![Conferma modifiche](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaCartellaClinica.png)
+
+---
+Visualizzazione fasciolo sanitario (Amministrazione)
+![Conferma modifiche](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaStoricoVisite%20(Amministrazione).png)
+
+---
+Visualizzazione fasciolo sanitario (Paziente)
+![Conferma modifiche](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20VisualizzaFSE/Schermata%20Visualizza%20FSE%20-%20VisualizzaStoricoVisite%20(paziente).png)
+
+---
 
 
 ## 4. Glossario
