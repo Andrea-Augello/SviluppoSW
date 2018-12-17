@@ -386,10 +386,14 @@ __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`
 ---
 ##### IndividuaPaziente
 __Attori:__ _PersonaleAmministrativo_, DBMS
-__Precondizioni:__ ` `
+__Precondizioni:__ `PersonaleAmministrativo si trova nella schermata principale `
 __Flusso degli eventi:__
 ```
-
+1.
+	2. Il sistema chiede a PersonaleAmministrativo di inserire il CF del paziente.
+3. Il sistema chiede al DBMS informazioni sul Paziente individuato univocamente attraverso il codice.
+	4. Il DBMS comunica al sistema i dati del Paziente 
+5.
 ```
 __Postcondizioni:__ ` `
 [_Diagramma delle sequenze_](#sequenza-IndividuaPaziente)
