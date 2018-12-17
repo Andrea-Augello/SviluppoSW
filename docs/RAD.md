@@ -727,7 +727,6 @@ FormRicetta | Permette l'inserimento dei dati relativi alla ricetta.
 FSEControl | Gestisce le operazioni per l'ottenimento del Fascicolo Sanitario Elettronico da parte dell'utente.
 FSEDialog | Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal       personale 
 GeneraRicettaControl | Gestisce le operazioni per la memorizzazione delle informazioni relative ad una ricetta.
-IndividuaPrenotazioneControl |
 IndividuaPrenotazioneDialog | Questa schermata permette all'utente di visualizzare le prenotazioni modificabili e scegliere su quale agire.
 InserisciDettagliVisitaControl | Gestisce le operazioni per il corretto inserimento della diagnosi da parte del medico.
 InserisciDettagliVisitaDialog | Interfaccia per l'inserimento e l'eventuale conferma della diagnosi della visita precedentemente effettuata.
@@ -745,6 +744,7 @@ RegistrazioneForm | Il form che permette  di immettere i dati personali di un pa
 RegistrazioneControl | Gestisce le operazioni necessarie per la registrazione di un nuovo paziente.
 Ricetta | Questa classe contiene i dati relativi alle ricetta mentre viene inserita nel DBMS.
 ScegliOrarioDialog | Durante le operazioni di prenotazione attraverso questa schermata l'utente può selezionare data e ora della visita tra quelli proposti dal sistema.
+ScegliPrenotazioneControl | Gestisce le operazioni per la corretta realizzazione della scelta della visita da modificare da parte dell'utente.
 ScegliPrenotazioneDialog | Questa schermata presenta l'elenco delle prenotazioni per visite ancora non effettuate dal paziente, da qui è possibile selezionarne una per modificarla.
 ScegliRegimeDialog | Nelle operazioni di prenotazione questa schermata consente di scegliere tra regime ALPI e regime SSN.
 SceltaMedicoDialog | Nelle operazioni di prenotazione se si sceglie il regime ALPI questa schermata permette di scegliere il medico dal quale farsi visitare.
