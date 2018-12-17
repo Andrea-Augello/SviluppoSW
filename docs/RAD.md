@@ -973,6 +973,6 @@ Visualizzazione fasciolo sanitario (Paziente)
 
 #### Inserimento dati sulla visitare
 
-![Inserisci dettagli visita](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20InserisciDettagliVisita/Schermata%20Inserisci%20Dettagli%20Visita%20-%2oInserisciDettagli)
+![Inserisci dettagli visita](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20InserisciDettagliVisita/Schermata%20Inserisci%20Dettagli%20Visita%20-%20InserisciDettagli.png)
 
 ## 4. Glossario
