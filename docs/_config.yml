@@ -3,3 +3,6 @@ description: "Sistema PRenotazioni INTelligenti"
 theme: jekyll-theme-slate
 permalink: /404.md
 show_downloads: true
+
+github:
+  is_project_page: false
