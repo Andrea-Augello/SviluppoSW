@@ -112,7 +112,8 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 - [Tarifari nazionale delle prestazioni del SSN](http://www.salute.gov.it/portale/temi/p2_6.jsp?id=3662&area=programmazioneSanitariaLea&menu=vuoto)  
 
 # 2. Sistema corrente
-
+Ad oggi il sistema di gestione prenotazioni ospedaliere è soltanto parzialmente supportato dall'utilizzo di tecnologia informatica. Molte operazioni come la prenotazione di prestazioni urgenti e, quindi, l'eventuale spostamento di altre prenotazioni tenendo conto della loro urgenza, avvengono manualmente con successivi disagi. I pazienti sono costretti a raggiungere l'ospedale per subirne le lunghe attese, con la consapevolezza che spesso i propri obiettivi non verranno raggiunti. La mancanza di un supporto informatico valido e in gran parte autonomo comporta spreco di risorse, denaro e personale. Il paziente risulta essere vincolato da una gestione prettamente amministrativa, ritrovandosi spesso a subire complicazioni e ristrettezze. Qualsiasi operazione dovrà necessariamente essere affrontata a diretto contatto col personale amministrativo che si ritroverà a gestire scomodamente una quantità non poco rilevante di materiale. 
+Fino ad ora il sistema informatico è utilizzato esclusivamente per la memorizzazione delle varie informazioni e per l'invio notifiche al paziente, senza possibilità di risposta. 
 # 3. Sistema proposto
 ## 3.1 Panoramica
 ## 3.2 Requisiti funzionali
