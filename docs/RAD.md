@@ -397,16 +397,6 @@ __Flusso degli eventi:__
 5.Il sistema comunica a PersonaleAmministrativo i dati del Paziente
 
 ```
-__Flusso alternativo:__
-
-```
-	4. Il DBMS comunica al sistema che Paziente non è presente nel database
-5. Il sistema presenta un form per registrare Paziente.
-	6. PersonaleAmministrativo compila il form.
-7. Il sistema comunica al DBMS i dati del nuovo Paziente.
-	8. Il DBMS registra il nuovo Paziente.
-
-```
 __Postcondizioni:__ `PersonaleAmministrativo si trova nella schermata principale e può selezionare le altre opzioni `
 [_Diagramma delle sequenze_](#sequenza-IndividuaPaziente)
 
