@@ -390,13 +390,13 @@ __Attori:__ _PersonaleAmministrativo_, DBMS
 __Precondizioni:__ `PersonaleAmministrativo si trova nella schermata principale `
 __Flusso degli eventi:__
 ```
-1.
-	2. Il sistema chiede a PersonaleAmministrativo di inserire il CF del paziente.
+1.PersonaleAmministrativo sceglie l'opzione seleziona il Paziente
+	2. Il sistema chiede a PersonaleAmministrativo di inserire il CF del Paziente.
 3. Il sistema chiede al DBMS informazioni sul Paziente individuato univocamente attraverso il codice.
 	4. Il DBMS comunica al sistema i dati del Paziente 
-5.
+5.Il sistema comunica a PersonaleAmministrativo i dati del Paziente
 ```
-__Postcondizioni:__ ` `
+__Postcondizioni:__ `PersonaleAmministrativo si trova nella schermata principale e può selezionare le altre opzioni `
 [_Diagramma delle sequenze_](#sequenza-IndividuaPaziente)
 
 ---
