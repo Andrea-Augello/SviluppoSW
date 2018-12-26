@@ -24,7 +24,7 @@
 ### 1.2 Obbiettivi di progettazione
 ## 2. Architettura software corrispondente
 ## 3. Architettura software proposta
-### 3.1
+### 3.1 Overview
 ### 3.2 Scomposizione in sottosistemi
 ### 3.3 Mappatura hardware/software
 ### 3.4 Gestione dati persistenti
