@@ -28,6 +28,9 @@
 ### 3.2 Scomposizione in sottosistemi
 ### 3.3 Mappatura hardware/software
 ### 3.4 Gestione dati persistenti
+#### Progetto concettuale
+![ERD](https://andrea-augello.github.io/SviluppoSW/media/Database/erd.png)  
+#### Progetto logico
 ### 3.5 Sicurezza e controllo degli accessi
 ### 3.6 Controllo globale del software
 ### 3.7 Condizioni di boundary
