@@ -8,7 +8,7 @@
 		- [1.2 Obbiettivi di progettazione](#12-obbiettivi-di-progettazione)
 	- [2. Architettura software corrispondente](#2-architettura-software-corrispondente)
 	- [3. Architettura software proposta](#3-architettura-software-proposta)
-		- [3.1](#31)
+		- [3.1 Overview](#31-overview)
 		- [3.2 Scomposizione in sottosistemi](#32-scomposizione-in-sottosistemi)
 		- [3.3 Mappatura hardware/software](#33-mappatura-hardwaresoftware)
 		- [3.4 Gestione dati persistenti](#34-gestione-dati-persistenti)
