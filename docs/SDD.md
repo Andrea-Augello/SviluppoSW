@@ -26,6 +26,7 @@
 ## 3. Architettura software proposta
 ### 3.1 Overview
 ### 3.2 Scomposizione in sottosistemi
+![?](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/Architettura%20di%20sistema.png)  
 ### 3.3 Mappatura hardware/software
 ### 3.4 Gestione dati persistenti
 #### Progetto concettuale
