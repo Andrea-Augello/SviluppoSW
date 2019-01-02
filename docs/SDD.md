@@ -4,8 +4,7 @@
 
 - [System Design Document](#system-design-document)
 	- [1. Introduzione](#1-introduzione)
-		- [1.1 Scopo del Sistema](#11-scopo-del-sistema)
-		- [1.2 Obbiettivi di progettazione](#12-obbiettivi-di-progettazione)
+		- [1.1 Obbiettivi di progettazione](#12-obbiettivi-di-progettazione)
 	- [2. Architettura software corrispondente](#2-architettura-software-corrispondente)
 	- [3. Architettura software proposta](#3-architettura-software-proposta)
 		- [3.1 Overview](#31-overview)
@@ -20,8 +19,7 @@
 <!-- /TOC -->
 
 ## 1. Introduzione
-### 1.1 Scopo del Sistema
-### 1.2 Obbiettivi di progettazione
+### 1.1 Obbiettivi di progettazione
 ## 2. Architettura software corrispondente
 Il sistema proposto 
 
