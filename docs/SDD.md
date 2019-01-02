@@ -20,6 +20,7 @@
 
 ## 1. Introduzione
 ### 1.1 Obbiettivi di progettazione
+-Ricetta: 
 ## 2. Architettura software corrispondente
 Il sistema proposto [...]
 
