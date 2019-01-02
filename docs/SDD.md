@@ -23,6 +23,8 @@
 ### 1.1 Scopo del Sistema
 ### 1.2 Obbiettivi di progettazione
 ## 2. Architettura software corrispondente
+Il sistema proposto 
+
 ## 3. Architettura software proposta
 ### 3.1 Overview
 ### 3.2 Scomposizione in sottosistemi
