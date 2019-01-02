@@ -21,7 +21,7 @@
 ## 1. Introduzione
 ### 1.1 Obbiettivi di progettazione
 ## 2. Architettura software corrispondente
-Il sistema proposto 
+Il sistema proposto [...]
 
 ## 3. Architettura software proposta
 ### 3.1 Overview
