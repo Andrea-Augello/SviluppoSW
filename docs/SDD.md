@@ -23,7 +23,7 @@
 - Facilità di utilizzo;
 - Affidabilità;
 - Robustezza;
-
+- Documentazione di qualità;
 
 ## 2. Architettura software corrispondente
 Il sistema proposto [...]
