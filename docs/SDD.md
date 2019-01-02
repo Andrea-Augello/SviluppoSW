@@ -20,7 +20,11 @@
 
 ## 1. Introduzione
 ### 1.1 Obbiettivi di progettazione
--Ricetta: 
+-Facilità di utilizzo;
+-Affidabilità;
+-Robustezza;
+
+
 ## 2. Architettura software corrispondente
 Il sistema proposto [...]
 
