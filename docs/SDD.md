@@ -20,9 +20,9 @@
 
 ## 1. Introduzione
 ### 1.1 Obbiettivi di progettazione
--Facilità di utilizzo;
--Affidabilità;
--Robustezza;
+- Facilità di utilizzo;
+- Affidabilità;
+- Robustezza;
 
 
 ## 2. Architettura software corrispondente
