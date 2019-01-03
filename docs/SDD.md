@@ -41,6 +41,7 @@ Inoltre dopo un'analisi costi-benefici è risultato che l'adozione di standard p
 ### 3.4 Gestione dati persistenti
 #### Progetto concettuale
 ![ERD](https://andrea-augello.github.io/SviluppoSW/media/Database/erd.png)  
+![EERD](https://andrea-augello.github.io/SviluppoSW/media/Database/eerd.png)  
 #### Progetto logico
 ### 3.5 Sicurezza e controllo degli accessi
 ### 3.6 Controllo globale del software
