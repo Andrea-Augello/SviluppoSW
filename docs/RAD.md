@@ -38,7 +38,6 @@
 				- [SpostaPrenotazione](#spostaprenotazione)
 				- [EliminaPrenotazione](#eliminaprenotazione)
 				- [ConfermaModifica](#confermamodifica)
-				- [AutorizzazionePaziente](#autorizzazionepaziente)
 			- [Visualizza FSE](#visualizza-fse)
 				- [VisualizzaStoricoVisite](#visualizzastoricovisite)
 				- [StampaCartellaClinica](#stampacartellaclinica)
@@ -65,7 +64,6 @@
 				- [Sequenza SpostaPrenotazione](#sequenza-spostaprenotazione)
 				- [Sequenza EliminaPrenotazione](#sequenza-eliminaprenotazione)
 				- [Sequenza ConfermaModifica](#sequenza-confermamodifica)
-				- [Sequenza AutorizzazionePaziente](#sequenza-autorizzazionepaziente)
 				- [Sequenza VisualizzaStoricoVisite](#sequenza-visualizzastoricovisite)
 				- [Sequenza StampaCartellaClinica](#sequenza-stampacartellaclinica)
 				- [Sequenza VisualizzaCartellaClinica](#sequenza-visualizzacartellaclinica)
@@ -390,7 +388,7 @@ __Attori:__ _PersonaleAmministrativo_, DBMS
 __Precondizioni:__ `PersonaleAmministrativo si trova nella schermata principale `  
 __Flusso degli eventi:__  
 ```
-1.PersonaleAmministrativo sceglie l'opzione seleziona il Paziente
+1.PersonaleAmministrativo sceglie l'opzione "Seleziona il paziente"
 	2. Il sistema chiede a PersonaleAmministrativo di inserire il CF
 	   del Paziente.
 3. Il sistema chiede al DBMS informazioni sul Paziente individuato
@@ -533,11 +531,11 @@ __Postcondizioni:__  `Il sistema torna alla schermata principale`
 
 ---
 ##### ScegliPrenotazione
-__Attori:__  _Paziente_, DBMS  
-__Precondizioni:__  `Paziente si trova nella schermata prinicpale`  
+__Attori:__  _Paziente, PersonaleAmministrativo_, DBMS  
+__Precondizioni:__  `L'utente si trova nella schermata prinicpale`  
 __Flusso degli eventi:__  
 ```
-1. Il caso d'uso inizia quando Paziente seleziona l'opzione "Modifica
+1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Modifica
    Prenotazione" dalla schermata principale
 	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
 	   relative al paziente con data successiva a quella corrente
@@ -613,28 +611,6 @@ __Postcondizioni:__ `L'utente è nuovamente nella schermata principale`
 
 ---
 
-##### AutorizzazionePaziente
-__Attori:__ _PersonaleAmministrativo,_ DBMS  
-__Precondizioni:__ `PersonaleAmministrativo si trova nella schermata principale`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando PersonaleAmministrativo seleziona "Modifica
-   Prenotazione".
-	2. Il sistema chiede di inserire il CF del paziente e il
-	   codice della prenotazione va modificata.
-3. PersonaleAmministrativo inserisce i dati richiesti.
-	4. Il sistema chiede al DBMS la prenotazione relativa al
-	   paziente avente codice corrispondente a quello inserito.
-5. Il DBMS restituisce le informazioni richieste dal sistema.
-	6. Se non c'è nessuna prenotazione corrispondente a quel codice
-	   per quel paziente il sistema comunica un messaggio di errore
-	   ALTRIMENTI
-	   Il sistema permette di modificare la prenotazione.
-```
-__Postcondizioni:__ `PersonaleAmministrativo si trova nella schermata di modifica prenotazione`  
-[_Diagramma delle sequenze_](#sequenza-autorizzazionepaziente)
-
----
 #### Visualizza FSE
 ![Use case "VisualizzaFSE"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/VisualizzaFSE.png)  
 [_Vista di alto livello_](#visualizzafse)
@@ -741,7 +717,6 @@ FormRicetta | Permette l'inserimento dei dati relativi alla ricetta.
 FSEControl | Gestisce le operazioni per l'ottenimento del Fascicolo Sanitario Elettronico da parte dell'utente.
 FSEDialog | Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal       personale
 GeneraRicettaControl | Gestisce le operazioni per la memorizzazione delle informazioni relative ad una ricetta.
-IndividuaPrenotazioneDialog | Questa schermata permette all'utente di visualizzare le prenotazioni modificabili e scegliere su quale agire.
 InserisciDettagliVisitaControl | Gestisce le operazioni per il corretto inserimento della diagnosi da parte del medico.
 InserisciDettagliVisitaDialog | Interfaccia per l'inserimento e l'eventuale conferma della diagnosi della visita precedentemente effettuata.
 InviaNotificaControl | Permette la gestione di eventuali notifiche scaturite da operazioni effettuate nel sistema.
@@ -831,11 +806,6 @@ SceltaMedicoDialog | Nelle operazioni di prenotazione se si sceglie il regime AL
 ##### Sequenza ConfermaModifica
  ![ConfermaModifica](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/ConfermaModifica.png)
  [_Caso d'uso_](#confermamodifica)
-
- ---
-##### Sequenza AutorizzazionePaziente
- ![AutorizzazionePaziente](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/AutorizzazionePaziente.png)
- [_Caso d'uso_](#autorizzazionepaziente)
 
  ---
 ##### Sequenza VisualizzaStoricoVisite
@@ -932,20 +902,12 @@ Schermata di scelta per data e ora della visita
 ---
 #### Modifica di una prenotazione
 ---
-Schermata per la scelta della prenotazione da modificare (Paziente)
+Schermata per la scelta della prenotazione da modificare 
 ![Scelta prenotazione](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20Scegli%20prenotazione.png)
 
 ---
 Schermata di errore se non sono presenti prenotazioni modificabili
 ![Errore nessuna prenotazione modificabile](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20Errore%20(lista%20vuota).png)
-
----
-Schermata per la scelta della prenotazione da modificare (Personale Amministrativo)
-![Scelta prenotazione](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20AutorizzazionePaziente.png)
-
----
-Schermata di errore nella scelta della prenotazione da modificare (Personale Amministrativo)
-![Scelta prenotazione](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20AutorizzazionePaziente%20(errore).png)
 
 ---
 Schermata riassuntiva dei dettagli della prenotazione da modificare
