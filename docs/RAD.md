@@ -339,17 +339,15 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando Paziente avvia il software.
 	2. Il sistema chiede a Paziente di inserire il suo codice
-	   fiscale.
-3. Paziente inserisce il proprio CF e conferma.
+	   fiscale e la sua password.
+3. Paziente inserisce i propri CF e password, e conferma.
 	4. Il sistema chiede al DBMS informazioni sul Paziente individuato
-	   univocamente attraverso il codice.
+	   univocamente attraverso il codice con password corrispondente a
+	   quella inserita.
 5. Il DBMS comunica al sistema se il Paziente è presente nel database ed
    eventuali informazioni connesse.
-	6. Se l'utente è presente nel database il sistema chiede
-	   all'utente di inserire la password.
-7. L'utente inserisce e conferma la password.
-	8. Il sistema controlla che la password inserita corrisponda a
-	   quella nota, se non lo è chiede nuovamente di autenticarsi.
+	6. Se non viene identificato nessun paziente il sistema chiede
+	   nuovamente di autenticarsi.
 ```  
 __Postcondizioni:__  `Il sistema è nella schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-autenticapaziente)
