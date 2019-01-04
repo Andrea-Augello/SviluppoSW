@@ -25,10 +25,9 @@
 			- [Effettua Autenticazione](#effettua-autenticazione)
 				- [AutenticaPersonale](#autenticapersonale)
 				- [AutenticaPaziente](#autenticapaziente)
+				- [IndividuaPaziente](#individuapaziente)
 				- [RegistraPaziente](#registrapaziente)
 			- [Crea Prenotazione](#crea-prenotazione)
-				- [IndividuaPaziente](#individuapaziente)
-				- [RegistraPaziente ¹](#registrapaziente-)
 				- [InserisciDettagliRicetta](#inseriscidettagliricetta)
 				- [ScegliRegimeVisita](#scegliregimevisita)
 				- [PrenotaVisitaSSN](#prenotavisitassn)
@@ -318,19 +317,16 @@ __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando un utente avvia il software.
 	2. Il sistema chiede all'utente di inserire il suo codice
-	   identificativo.
-3. L'utente inserisce il proprio codice identificativo e conferma.
+	   identificativo e password.
+3. L'utente inserisce il proprio codice identificativo e la sua password
+   e conferma.
 	4. Il sistema chiede al DBMS informazioni sull'utente individuato
-	   univocamente attraverso il codice.
+	   univocamente attraverso il codice che abbia password corrispondente
+	   a quella inserita.
 5. Il DBMS comunica al sistema se l'utente è presente nel database ed
    eventuali informazioni connesse.
 	6. Se l'utente non è presente nel database il sistema informa che
-           il codice inserito è errato e chiede di reinserirlo.
-	   ALTRIMENTI
- 	   Il sistema chiede all'utente di inserire la password.
-7. L'utente inserisce e conferma la password.
-	8. Il sistema controlla che la password inserita corrisponda a
-	   quella nota, se non lo è chiede nuovamente di autenticarsi.
+       il codice inserito o la password sono errati e chiede di reinserirli.
 ```  
 __Postcondizioni:__  `Il sistema è nella schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-AutenticaPersonale)
@@ -359,6 +355,24 @@ __Postcondizioni:__  `Il sistema è nella schermata principale`
 [_Diagramma delle sequenze_](#sequenza-autenticapaziente)
 
 ---
+##### IndividuaPaziente
+__Attori:__ _PersonaleAmministrativo_, DBMS  
+__Precondizioni:__ `PersonaleAmministrativo si trova nella schermata principale `  
+__Flusso degli eventi:__  
+```
+1.PersonaleAmministrativo sceglie l'opzione "Seleziona il paziente"
+	2. Il sistema chiede a PersonaleAmministrativo di inserire il CF
+	   del Paziente.
+3. Il sistema chiede al DBMS informazioni sul Paziente individuato
+   univocamente attraverso il codice.
+	4. Il DBMS comunica al sistema i dati del Paziente
+5.Il sistema comunica a PersonaleAmministrativo i dati del Paziente
+
+```
+__Postcondizioni:__ `PersonaleAmministrativo si trova nella schermata principale e può selezionare le altre opzioni `  
+[_Diagramma delle sequenze_](#sequenza-IndividuaPaziente)
+
+---
 ##### RegistraPaziente
 __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
 __Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`  
@@ -382,28 +396,6 @@ __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`
 ![Use case "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/CreaPrenotazione.png)  
 [_Vista di alto livello_](#creaprenotazione)
 
----
-##### IndividuaPaziente
-__Attori:__ _PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `PersonaleAmministrativo si trova nella schermata principale `  
-__Flusso degli eventi:__  
-```
-1.PersonaleAmministrativo sceglie l'opzione "Seleziona il paziente"
-	2. Il sistema chiede a PersonaleAmministrativo di inserire il CF
-	   del Paziente.
-3. Il sistema chiede al DBMS informazioni sul Paziente individuato
-   univocamente attraverso il codice.
-	4. Il DBMS comunica al sistema i dati del Paziente
-5.Il sistema comunica a PersonaleAmministrativo i dati del Paziente
-
-```
-__Postcondizioni:__ `PersonaleAmministrativo si trova nella schermata principale e può selezionare le altre opzioni `  
-[_Diagramma delle sequenze_](#sequenza-IndividuaPaziente)
-
----
-##### RegistraPaziente ¹  
-[_¹Descrizione già presente qui_](#registrapaziente)  
-[_Diagramma delle sequenze_](#sequenza-registrapaziente)  
 ---
 ##### InserisciDettagliRicetta
 __Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
@@ -902,7 +894,7 @@ Schermata di scelta per data e ora della visita
 ---
 #### Modifica di una prenotazione
 ---
-Schermata per la scelta della prenotazione da modificare 
+Schermata per la scelta della prenotazione da modificare
 ![Scelta prenotazione](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20ModificaPrenotazione/Schermata%20Modifica%20Prenotazione%20-%20Scegli%20prenotazione.png)
 
 ---
