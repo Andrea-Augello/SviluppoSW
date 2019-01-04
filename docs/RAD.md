@@ -373,17 +373,24 @@ __Postcondizioni:__ `PersonaleAmministrativo si trova nella schermata principale
 ---
 ##### RegistraPaziente
 __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
-__Precondizioni:__ `Nel sistema non è registrato nessun Paziente con il CF uguale a quello del paziente per cui si sta operando`  
+__Precondizioni:__ ` `  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando ,durante un'autenticazione, Paziente o
-   PersonaleAmministrativo inserisce un CF che non corrisponde a nessun
-   paziente nel database.
+1. Il caso d'uso inizia quando ,durante un'operazione di autenticazione
+   di un paziente, Paziente o PersonaleAmministrativo selezionano l'opzione
+   "Registra paziente"
 	2. Il sistema mostra un form per inserire i dati necessari
 	   all'inserimento nel sistema
 3. L'utente compila il modulo, eventualmente non riempiendo i campi
    facoltativi e invia i dati.
-	4. Il sistema comunica i dati del nuovo paziente al DBMS.
+	4. Il sistema chiede al DBMS se sono già presenti pazienti con
+	   dati coincidenti.
+5. Il DBMS restituisce i dati richiesti.
+	6. Se il Paziente è già presente nel database viene mostrato un
+	   messaggio di errore e viene chiesto di inserire dei dati
+	   corretti
+	   ALTRIMENTI
+	   Viene comunicato al DBSM di aggiungere il nuovo paziente. 
 ```
 __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
 [_Diagramma delle sequenze_](#sequenza-registrapaziente)
