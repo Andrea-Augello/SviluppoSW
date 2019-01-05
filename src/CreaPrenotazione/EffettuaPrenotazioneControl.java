@@ -4,8 +4,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class EffettuaPrenotazioneControl {
-
 	private List<LocalDateTime> ListaOrariDisponibili;
+
+	public EffettuaPrenotazioneControl(int regime) {
+	}
 
 	public void prenotaMedico() {
 

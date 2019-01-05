@@ -1,18 +1,20 @@
 package Oggetti;
 
 import Autenticazione.RegistrazioneForm;
+import CreaPrenotazione.GeneraRicettaControl;
+import ModificaPrenotazione.ScegliPrenotazioneControl;
+import VisualizzaFSE.FSEControl;
 
 import javax.swing.*;
 
-public class MainScreen {
+public abstract class MainScreen {
 
-	public static void main(String [] args){
-		new RegistrazioneForm();
-	}
 	public void creaPrenotazioni() {
+		new GeneraRicettaControl();
 	}
 
 	public void modificaPrenotazione() {
+		new ScegliPrenotazioneControl();
 
 	}
 
@@ -21,7 +23,7 @@ public class MainScreen {
 	}
 
 	public void visualizzaStoricoVisite() {
-
+		new FSEControl();
 	}
 
 	public void visualizzaCartellaClinica() {
@@ -33,6 +35,10 @@ public class MainScreen {
 	}
 
 	public void updateInformazioniPaziente() {
+
+	}
+
+	public void individuaPaziente(){
 
 	}
 

@@ -1,11 +1,14 @@
 package Autenticazione;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RegistrazioneForm {
+
+    private RegistrazioneControl control;
 
     private JPasswordField passwordField1;
     private JPasswordField passwordField2;
@@ -21,10 +24,13 @@ public class RegistrazioneForm {
     private JPanel registrazione;
 
 
-    public RegistrazioneForm() {
+    public RegistrazioneForm(RegistrazioneControl control) {
+        this.control = control;
+
         JFrame frame = new JFrame("Registrazione");
         frame.setContentPane(registrazione);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
         frame.pack();
         frame.setVisible(true);
         confermaButton.addActionListener(new ActionListener() {
@@ -36,11 +42,11 @@ public class RegistrazioneForm {
     }
 
     public void conferma() {
-        JOptionPane.showMessageDialog(null, "Funzionalità non ancora implementata");
+        control.registraPaziente();
     }
 
     public void reset() {
-        JOptionPane.showMessageDialog(null, "Funzionalità non ancora implementata");
+
     }
 
     {

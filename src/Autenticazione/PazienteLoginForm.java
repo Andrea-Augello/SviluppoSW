@@ -5,7 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PazienteLoginForm {
+public class PazienteLoginForm extends LoginForm {
+
 
     private JTextField textField1;
     private JPasswordField passwordField1;
@@ -13,10 +14,13 @@ public class PazienteLoginForm {
 	private JButton loginButton;
 	private JPanel panel;
 
-	public PazienteLoginForm() {
-		JFrame frame = new JFrame("Login");
+	public PazienteLoginForm(LoginControl control) {
+		super(control);
+
+		frame = new JFrame("Login");
 		frame.setContentPane(panel);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		frame.pack();
 		frame.setVisible(true);
         registratiButton.addActionListener(new ActionListener() {
@@ -28,25 +32,29 @@ public class PazienteLoginForm {
 		loginButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			    conferma();
+				conferma();
 			}
 		});
 	}
 
-	public static void main(String[] args) {
-	    PazienteLoginForm login = new PazienteLoginForm();
-	}
 
 	public void conferma() {
-		JOptionPane.showMessageDialog(null, "Funzionalità non ancora implementata");
+		control.controllaDati();
 	}
 
+	@Override
 	public void reset() {
-		JOptionPane.showMessageDialog(null, "Funzionalità non ancora implementata");
+		textField1.setText("");
+		passwordField1.setText("");
+	}
+
+	@Override
+	public void dispose() {
+		frame.dispose();
 	}
 
 	public void registraPaziente() {
-		RegistrazioneForm registrazione = new RegistrazioneForm();
+		RegistrazioneControl registrazione = new RegistrazioneControl();
 	}
 
 	{
@@ -98,4 +106,5 @@ public class PazienteLoginForm {
 	public JComponent $$$getRootComponent$$$() {
 		return panel;
 	}
+
 }

@@ -2,23 +2,43 @@ package Oggetti;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ErroreDialog {
 
 
 	private JLabel descrizioneDellErroreLabel;
-	private String errore = "Errore non identificato";
+	private JPanel panel;
+	private JButton okButton;
+	private String errore;
+
+	public ErroreDialog(String errore) {
+		this.errore = "<html>" + errore + "</html>";
+		JFrame frame = new JFrame("Errore");
+		$$$setupUI$$$();
+		frame.setContentPane(panel);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+		frame.pack();
+		frame.setVisible(true);
+		okButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
+	}
 
 	public ErroreDialog() {
+		this("Errore non previsto");
 	}
 
 	public ErroreDialog(Exception e) {
-		$$$setupUI$$$();
-		errore = e.toString();
+		this(e.toString());
 	}
 
 	private void createUIComponents() {
-		// TODO: place custom component creation code here
 		descrizioneDellErroreLabel = new JLabel(errore);
 	}
 
@@ -31,11 +51,19 @@ public class ErroreDialog {
 	 */
 	private void $$$setupUI$$$() {
 		createUIComponents();
-		final JPanel panel1 = new JPanel();
-		panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
-		final JLabel label1 = new JLabel();
-		label1.setText("Errore");
-		panel1.add(label1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, 1, null, new Dimension(43, 116), null, 0, false));
-		panel1.add(descrizioneDellErroreLabel, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+		panel = new JPanel();
+		panel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
+		panel.add(descrizioneDellErroreLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+		okButton = new JButton();
+		okButton.setText("Ok");
+		panel.add(okButton, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 	}
+
+	/**
+	 * @noinspection ALL
+	 */
+	public JComponent $$$getRootComponent$$$() {
+		return panel;
+	}
+
 }
