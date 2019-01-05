@@ -390,7 +390,7 @@ __Flusso degli eventi:__
 	   messaggio di errore e viene chiesto di inserire dei dati
 	   corretti
 	   ALTRIMENTI
-	   Viene comunicato al DBSM di aggiungere il nuovo paziente. 
+	   Viene comunicato al DBSM di aggiungere il nuovo paziente.
 ```
 __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
 [_Diagramma delle sequenze_](#sequenza-registrapaziente)
