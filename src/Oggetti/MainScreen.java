@@ -2,6 +2,9 @@ package Oggetti;
 
 public class MainScreen {
 
+	public static void main(String args[]){
+
+	}
 	public void creaPrenotazioni() {
 
 	}

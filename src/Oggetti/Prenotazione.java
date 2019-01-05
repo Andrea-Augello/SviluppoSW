@@ -1,8 +1,10 @@
 package Oggetti;
 
+import java.time.LocalDateTime;
+
 public class Prenotazione {
 
-	private Date data;
+	private LocalDateTime data;
 
 	private String informazioni;
 

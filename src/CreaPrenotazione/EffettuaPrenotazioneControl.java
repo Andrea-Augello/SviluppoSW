@@ -1,8 +1,11 @@
 package CreaPrenotazione;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 public class EffettuaPrenotazioneControl {
 
-	private Date Lista orari disponibili;
+	private List<LocalDateTime> ListaOrariDisponibili;
 
 	public void prenotaMedico() {
 
