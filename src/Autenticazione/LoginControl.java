@@ -1,6 +1,8 @@
 package Autenticazione;
 
 import Oggetti.ErroreDialog;
+import Oggetti.MainScreenAmministrativo;
+import Oggetti.MainScreenMedico;
 import Oggetti.MainScreenPaziente;
 
 public class LoginControl {
@@ -18,9 +20,6 @@ public class LoginControl {
 
 	public void controllaDati() {
 		switch (userType){
-			case 0:
-				new ErroreDialog("Funzionalità non implementata per Paziente");
-				break;
 			case 1:
 			    controllaLoginPaziente();
 				break;
@@ -35,17 +34,12 @@ public class LoginControl {
         }
 	}
 
-	public static void main(String[] args) {
-	    new LoginControl(1);
-    }
-
     private PazienteLoginForm setupPaziente(){
 		return new PazienteLoginForm(this);
 	}
 
 	private PersonaleLoginForm setupPersonale(){
 		return new PersonaleLoginForm(this);
-
 	}
 
 	private void controllaLoginPaziente(){
@@ -61,8 +55,21 @@ public class LoginControl {
 
 	private void controllaLoginAmministrativo(){
 		new ErroreDialog("Funzionalità non implementata per PersonaleAmministrativo");
+
+		//Solo per motivi di test, questa cosa è l'orrore!
+		if(true) {
+			new MainScreenAmministrativo();
+			form.dispose();
+		}
     }
+
     private void controllaLoginMedico(){
 		new ErroreDialog("Funzionalità non implementata per PersonaleMedico");
+
+			//Solo per motivi di test, questa cosa è l'orrore!
+			if(true) {
+				new MainScreenMedico();
+				form.dispose();
+			}
 	}
 }

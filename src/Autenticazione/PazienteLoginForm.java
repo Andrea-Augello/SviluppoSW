@@ -54,7 +54,7 @@ public class PazienteLoginForm extends LoginForm {
 	}
 
 	public void registraPaziente() {
-		RegistrazioneControl registrazione = new RegistrazioneControl();
+		new RegistrazioneControl();
 	}
 
 	{
