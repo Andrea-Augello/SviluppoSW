@@ -5,6 +5,10 @@ import Oggetti.Prenotazione;
 import Oggetti.PersonaleEntity;
 import Oggetti.Ricetta;
 
+import java.sql.ResultSet;
+import java.time.LocalDateTime;
+import java.util.List;
+
 public class DatabaseInterface {
 
 	public void aggiornaDettagliVisita(String Diagnosi, String Referti, String Osservazioni) {
