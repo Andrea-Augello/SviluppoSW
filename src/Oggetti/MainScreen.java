@@ -1,12 +1,15 @@
 package Oggetti;
 
+import Autenticazione.RegistrazioneForm;
+
+import javax.swing.*;
+
 public class MainScreen {
 
-	public static void main(String args[]){
-
+	public static void main(String [] args){
+		new RegistrazioneForm();
 	}
 	public void creaPrenotazioni() {
-
 	}
 
 	public void modificaPrenotazione() {
