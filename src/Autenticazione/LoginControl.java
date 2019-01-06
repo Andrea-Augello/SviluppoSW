@@ -1,9 +1,7 @@
 package Autenticazione;
 
-import Oggetti.ErroreDialog;
-import Oggetti.MainScreenAmministrativo;
-import Oggetti.MainScreenMedico;
-import Oggetti.MainScreenPaziente;
+import DatabaseInterface.DatabaseInterface;
+import Oggetti.*;
 
 public class LoginControl {
     int userType;
@@ -43,12 +41,14 @@ public class LoginControl {
 	}
 
 	private void controllaLoginPaziente(){
-		new ErroreDialog("Funzionalità non implementata per Paziente");
 
-		//Solo per motivi di test, questa cosa è l'orrore!
-		if(true){
+		PazienteEntity.setPaziente(DatabaseInterface.getInstance().ottieniPaziente(form.getUsername(), form.getPassword()));
+		if(PazienteEntity.getPaziente() != null){
 			new MainScreenPaziente();
 			form.dispose();
+		} else {
+			new ErroreDialog("Username o password errati!");
+			form.reset();
 		}
 	}
 
@@ -56,20 +56,26 @@ public class LoginControl {
 	private void controllaLoginAmministrativo(){
 		new ErroreDialog("Funzionalità non implementata per PersonaleAmministrativo");
 
-		//Solo per motivi di test, questa cosa è l'orrore!
-		if(true) {
+		if(( DatabaseInterface.getInstance().ottieniPersonale(form.getUsername(), form.getPassword(), false) )!= null){
 			new MainScreenAmministrativo();
 			form.dispose();
+		} else {
+			new ErroreDialog("Username o password errati!");
+			form.reset();
 		}
+
     }
 
     private void controllaLoginMedico(){
 		new ErroreDialog("Funzionalità non implementata per PersonaleMedico");
 
-			//Solo per motivi di test, questa cosa è l'orrore!
-			if(true) {
-				new MainScreenMedico();
-				form.dispose();
-			}
+		PersonaleEntity.setMedico(DatabaseInterface.getInstance().ottieniPersonale(form.getUsername(), form.getPassword(), true));
+		if(PersonaleEntity.getMedico() != null){
+			new MainScreenMedico();
+			form.dispose();
+		} else {
+			new ErroreDialog("Username o password errati!");
+			form.reset();
+		}
 	}
 }

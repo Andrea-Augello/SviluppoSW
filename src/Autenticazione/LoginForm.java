@@ -4,6 +4,8 @@ import javax.swing.*;
 
 public abstract class LoginForm {
 
+    private JTextField textField1;
+    private JPasswordField passwordField1;
     protected LoginControl control;
     protected JFrame frame;
 
@@ -11,7 +13,13 @@ public abstract class LoginForm {
         this.control = control;
     }
 
-    abstract public void reset();
+    public void dispose() {
+        frame.dispose();
+    }
 
-    abstract public void dispose();
+    public abstract String getUsername();
+
+    public abstract String getPassword();
+
+    public abstract void reset();
 }

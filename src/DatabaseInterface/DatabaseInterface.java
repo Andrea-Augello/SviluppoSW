@@ -77,7 +77,7 @@ public class DatabaseInterface {
         return null;
     }
 
-    public PersonaleEntity ottieniPersonale(int username, String password) {
+    public PersonaleEntity ottieniPersonale(String username, String password, boolean isMedico) {
         return null;
     }
 
