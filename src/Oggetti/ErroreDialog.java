@@ -12,6 +12,7 @@ public class ErroreDialog {
 	private JPanel panel;
 	private JButton okButton;
 	private String errore;
+	private boolean mustQuit = false;
 
 	public ErroreDialog(String errore) {
 		this.errore = "<html>" + errore + "</html>";
@@ -26,8 +27,17 @@ public class ErroreDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
+				if (mustQuit) {
+					System.exit(1);
+				}
 			}
 		});
+	}
+
+	public ErroreDialog(String errore, boolean mustQuit) {
+		this(errore);
+		this.mustQuit = mustQuit;
+		$$$setupUI$$$();
 	}
 
 	public ErroreDialog() {

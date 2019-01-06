@@ -7,6 +7,9 @@ public class PazienteEntity {
 	private String password;
 
 	public static PazienteEntity getPaziente(){
+	    if(pazienteSelezionato == null){
+	    	new ErroreDialog("Impossibile procedere con l'operazione selezionata", true);
+		}
 		return pazienteSelezionato;
 	}
 
