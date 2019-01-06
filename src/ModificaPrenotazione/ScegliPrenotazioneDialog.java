@@ -1,22 +1,25 @@
 package ModificaPrenotazione;
 
+import Oggetti.ErroreDialog;
 import Oggetti.Prenotazione;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.util.List;
 
 public class ScegliPrenotazioneDialog {
     private ScegliPrenotazioneControl control;
+    private List<Prenotazione> prenotazioni;
     private JFrame frame;
     private JButton modificaButton;
     private JPanel panel;
     private JList list1;
 
-    public ScegliPrenotazioneDialog(ScegliPrenotazioneControl control) {
+    public ScegliPrenotazioneDialog(ScegliPrenotazioneControl control, List<Prenotazione> prenotazioni) {
         this.control = control;
+        this.prenotazioni = prenotazioni;
         frame = new JFrame("Seleziona la prenotazione da modificare");
         $$$setupUI$$$();
         frame.setContentPane(panel);
@@ -66,10 +69,14 @@ public class ScegliPrenotazioneDialog {
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        DefaultListModel<String> listModel = new DefaultListModel<String>();
-        listModel.addElement("1");
-        listModel.addElement("2");
-        listModel.addElement("3");
+        DefaultListModel<Prenotazione> listModel = new DefaultListModel<Prenotazione>();
+        if (listModel != null) {
+            for (Prenotazione p : prenotazioni) {
+                listModel.addElement(p);
+            }
+        } else {
+            new ErroreDialog("Nessuna prenotazione modificabile presente");
+        }
         list1 = new JList(listModel);
         list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }

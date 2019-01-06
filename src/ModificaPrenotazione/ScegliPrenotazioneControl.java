@@ -1,10 +1,17 @@
 package ModificaPrenotazione;
 
+import DatabaseInterface.DatabaseInterface;
+import Oggetti.PazienteEntity;
+import Oggetti.Prenotazione;
+
+import java.util.List;
+
 public class ScegliPrenotazioneControl {
-	ScegliPrenotazioneDialog form;
+	private ScegliPrenotazioneDialog form;
 
 	public ScegliPrenotazioneControl() {
-		this.form = new ScegliPrenotazioneDialog(this);
+		List<Prenotazione> listaPrenotazioni = DatabaseInterface .getInstance().ottieniElencoPrenotazioni(PazienteEntity.getPaziente());
+		this.form = new ScegliPrenotazioneDialog(this, listaPrenotazioni);
 	}
 
 	public void estraiPrenotazione() {
