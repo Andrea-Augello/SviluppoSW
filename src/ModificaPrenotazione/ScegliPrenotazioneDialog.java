@@ -20,7 +20,7 @@ public class ScegliPrenotazioneDialog {
     public ScegliPrenotazioneDialog(ScegliPrenotazioneControl control, List<Prenotazione> prenotazioni) {
         this.control = control;
         this.prenotazioni = prenotazioni;
-        frame = new JFrame("Seleziona la prenotazione da modificare");
+        frame = new JFrame("SPRINT - Seleziona la prenotazione da modificare");
         $$$setupUI$$$();
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

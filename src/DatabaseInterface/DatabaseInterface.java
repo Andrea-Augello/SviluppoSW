@@ -17,7 +17,7 @@ public class DatabaseInterface {
         new ErroreDialog("Errore nella connessione, riprovare più tardi.");
     }
 
-    public void aggiornaDettagliVisita(String Diagnosi, String Referti, String Osservazioni) {
+    public void aggiornaDettagliVisita(Prenotazione visita, String [] dettagli) {
 
     }
 
@@ -33,8 +33,8 @@ public class DatabaseInterface {
 
     }
 
-    public void ottieniDettagliVisita() {
-
+    public String [] ottieniDettagliVisita(Prenotazione prenotazione) {
+        return null;
     }
 
     public List<String> ottieniDocumentiNecessari(int prestazione) {
@@ -46,6 +46,10 @@ public class DatabaseInterface {
     }
 
     public List<Prenotazione> ottieniElencoVisite(PazienteEntity paziente) {
+        return null;
+    }
+
+    public List<Prenotazione> ottieniElencoVisite(PersonaleEntity medico) {
         return null;
     }
 

@@ -4,6 +4,7 @@ import Autenticazione.LoginControl;
 import Autenticazione.RegistrazioneForm;
 import Autenticazione.SelezionaPazienteControl;
 import CreaPrenotazione.GeneraRicettaControl;
+import InserisciDettagliVisita.InserisciDettagliVisitaControl;
 import ModificaPrenotazione.ScegliPrenotazioneControl;
 import VisualizzaFSE.FSEControl;
 
@@ -31,8 +32,8 @@ public abstract class MainScreen {
 		new FSEControl();
 	}
 
-	public void inserisciDettagliVisita() {
-
+	public void inserisciDettagliVisita(Prenotazione visita) {
+		new InserisciDettagliVisitaControl(visita);
 	}
 
 	public void updateInformazioniPaziente() {

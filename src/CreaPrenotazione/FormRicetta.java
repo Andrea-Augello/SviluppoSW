@@ -17,7 +17,7 @@ public class FormRicetta {
 	private JButton confermaButton;
 
 	public FormRicetta(GeneraRicettaControl control) {
-		JFrame frame = new JFrame("Inserisci i dati della ricetta");
+		JFrame frame = new JFrame("SPRINT - Inserisci i dati della ricetta");
 		$$$setupUI$$$();
 		frame.setContentPane(panel);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
