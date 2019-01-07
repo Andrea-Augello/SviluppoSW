@@ -2,11 +2,21 @@ package DatabaseInterface;
 
 import Oggetti.*;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class DatabaseInterface {
+    private Connection conn;
+    private Statement st;
+    private ResultSet rs;
+
+    
+    
     private static DatabaseInterface instance = new DatabaseInterface();
 
     public static DatabaseInterface getInstance() {
@@ -15,6 +25,15 @@ public class DatabaseInterface {
 
     private DatabaseInterface() {
         new ErroreDialog("Errore nella connessione, riprovare più tardi.");
+    }
+    
+    public DatabaseInterface(){
+        try{
+            conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","prova");
+            st=conn.createStatement();
+        }catch(SQLException ex) {
+            System.out.println("Error: " + ex);
+        }
     }
 
     public void aggiornaDettagliVisita(Prenotazione visita, String [] dettagli) {
