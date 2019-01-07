@@ -72,7 +72,7 @@
           <text value="Reimmetti password*:"/>
         </properties>
       </component>
-      <component id="50416" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
+      <component id="50416" class="javax.swing.JPasswordField" binding="passwordConfirmation">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -80,7 +80,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="c8220" class="javax.swing.JPasswordField" binding="passwordField2" default-binding="true">
+      <component id="c8220" class="javax.swing.JPasswordField" binding="password">
         <constraints>
           <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -88,7 +88,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="efc9c" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="efc9c" class="javax.swing.JTextField" binding="telefono">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -96,7 +96,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="57f50" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+      <component id="57f50" class="javax.swing.JTextField" binding="indirizzoMail">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -104,7 +104,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="5f9b8" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+      <component id="5f9b8" class="javax.swing.JTextField" binding="cognome">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -112,7 +112,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="cd236" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+      <component id="cd236" class="javax.swing.JTextField" binding="nome">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -120,7 +120,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="7b928" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+      <component id="7b928" class="javax.swing.JTextField" binding="codiceFiscale">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -152,7 +152,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="2ff58" class="com.toedter.calendar.JDateChooser" binding="JDateChooser1" custom-create="true" default-binding="true">
+          <component id="2ff58" class="com.toedter.calendar.JDateChooser" binding="dataDiNascita" custom-create="true">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
