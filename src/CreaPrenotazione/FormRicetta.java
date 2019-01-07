@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.StringTokenizer;
 
 public class FormRicetta {
 	private GeneraRicettaControl control;
@@ -15,6 +16,7 @@ public class FormRicetta {
 	private JComboBox comboBox1;
 	private JTextField textField1;
 	private JButton confermaButton;
+	private int urgenza;
 
 	public FormRicetta(GeneraRicettaControl control) {
 		JFrame frame = new JFrame("SPRINT - Inserisci i dati della ricetta");
@@ -31,6 +33,10 @@ public class FormRicetta {
 				control.ottieniDati();
 			}
 		});
+		uRadioButton.addActionListener(e -> urgenza = 1);
+		bRadioButton.addActionListener(e -> urgenza = 2);
+		dRadioButton.addActionListener(e -> urgenza = 3);
+		pRadioButton.addActionListener(e -> urgenza = 4);
 	}
 
 	public void reset() {
@@ -38,7 +44,19 @@ public class FormRicetta {
 	}
 
 	public void conferma() {
+		control.ottieniDati();
+	}
 
+	public String getCodiceRicetta() {
+		return textField1.getText();
+	}
+
+	public int getCodicePrestazione() {
+		return Integer.parseInt(new StringTokenizer(comboBox1.getSelectedItem().toString()).nextToken());
+	}
+
+	public int getUrgenza() {
+		return urgenza;
 	}
 
 	/**
@@ -115,4 +133,5 @@ public class FormRicetta {
 		String[] prestazioni = {"1", "2", "3"};
         comboBox1 = new JComboBox(prestazioni);
 	}
+
 }

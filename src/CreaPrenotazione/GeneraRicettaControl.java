@@ -1,45 +1,48 @@
 package CreaPrenotazione;
 
+import DatabaseInterface.DatabaseInterface;
 import Oggetti.ErroreDialog;
 import Oggetti.Ricetta;
 
 public class GeneraRicettaControl {
 	private Ricetta ricetta;
 
-	private ScegliRegimeDialog regimeVisita;
-    private FormRicetta datiRicetta;
+	private ScegliRegimeDialog formRegimeVisita;
+    private FormRicetta formDatiRicetta;
 
 	public GeneraRicettaControl() {
-	    datiRicetta = new FormRicetta(this);
+	    formDatiRicetta = new FormRicetta(this);
 	}
 
 
-	public void sceltaRegime() {
-		regimeVisita = new ScegliRegimeDialog(this);
+	private void sceltaRegime() {
+		formRegimeVisita = new ScegliRegimeDialog(this);
 	}
 
-	public void ottieniDati() {
-		new ErroreDialog("Funzionalità non implementata");
-		if(!controllaCorrettezzaDati()){
+	void ottieniDati() {
+	    String codiceRicetta = formDatiRicetta.getCodiceRicetta();
+	    int codicePrestazione = formDatiRicetta.getCodicePrestazione();
+	    int urgenza = formDatiRicetta.getUrgenza();
+
+		if(!controllaCorrettezzaDati(new Ricetta(codicePrestazione, codiceRicetta))){
 			new ErroreDialog("Impossibile procedere con la prenotazione:<br/>Nel sistema risulta già una prenotazione con questo numero di ricetta per la<br/>prestazione selezionata.");
-			datiRicetta.reset();
+			formDatiRicetta.reset();
 		} else {
 		    sceltaRegime();
 		}
 	}
 
-	public void SSN() {
+	void SSN() {
 		new ErroreDialog("Funzionalità non implementata");
 		new EffettuaPrenotazioneControl(0);
 	}
 
-	public void ALPI() {
+	void ALPI() {
 		new ErroreDialog("Funzionalità non implementata");
 		new EffettuaPrenotazioneControl(1);
 	}
 
-	public boolean controllaCorrettezzaDati() {
-		new ErroreDialog("Funzionalità non implementata");
-		return false;
+	private boolean controllaCorrettezzaDati(Ricetta ricetta) {
+	    return DatabaseInterface.getInstance().verificaDuplicati(ricetta);
 	}
 }

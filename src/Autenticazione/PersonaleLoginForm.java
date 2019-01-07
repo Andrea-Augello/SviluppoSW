@@ -37,11 +37,13 @@ public class PersonaleLoginForm extends LoginForm {
     }
 
     public String getUsername() {
-        return textField1.getText();
+        final String text = textField1.getText();
+        return text;
     }
 
     public String getPassword() {
-        return new String(passwordField1.getPassword());
+        final char[] password = passwordField1.getPassword();
+        return new String(password);
     }
 
     public void reset() {
