@@ -835,8 +835,12 @@ SelezionaPazienteControl | Gestisce le operazioni per selezionare un paziente da
 ### 3.4.4 Interfaccia utente: navigazione e mock-up
 #### Login
 ---
-Schermata di login per PersonaleMedico e PersonaleAmministrativo  
-![Schermata di login per PersonaleMedico e PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Personale.png)
+Schermata di login per PersonaleMedico 
+![Schermata di login per PersonaleMedico](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Personale%20Medico.png)
+
+---
+Schermata di login per PersonaleAmministrativo
+![Schermata di login per PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Personale%20Amministrativo.png)
 
 ---
 Schermata di login per Paziente  
