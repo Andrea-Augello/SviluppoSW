@@ -2,12 +2,23 @@ package Oggetti;
 
 public class Ricetta {
 
+	private String codiceRicetta;
 	private int regime;
 	private int prestazione;
+	private int urgenza;
 
-	public Ricetta(int prestazione, String codiceRicetta) {
-		this.prestazione = prestazione;
-		this.codiceRicetta = codiceRicetta;
+	public Ricetta(String codiceRicetta, int urgenza, int prestazione) {
+	    setCodiceRicetta(codiceRicetta);
+	    setUrgenza(urgenza);
+	    setPrestazione(prestazione);
+	}
+
+	public int getUrgenza() {
+		return urgenza;
+	}
+
+	public void setUrgenza(int urgenza) {
+		this.urgenza = urgenza;
 	}
 
 	public int getPrestazione() {
@@ -26,10 +37,8 @@ public class Ricetta {
 		this.codiceRicetta = codiceRicetta;
 	}
 
-	private String codiceRicetta;
-
-	public void setRegime() {
-
+	public void setRegime(int regime) {
+		this.regime = regime;
 	}
 
 }

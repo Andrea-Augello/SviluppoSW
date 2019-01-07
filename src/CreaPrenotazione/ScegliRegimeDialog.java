@@ -14,7 +14,7 @@ public class ScegliRegimeDialog {
 
 	public ScegliRegimeDialog(GeneraRicettaControl control) {
 		this.control = control;
-		frame = new JFrame("Scegli il regime di prenotazione");
+		frame = new JFrame("SPRINT - Scegli il regime di prenotazione");
 		$$$setupUI$$$();
 		frame.setContentPane(panel);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -24,12 +24,14 @@ public class ScegliRegimeDialog {
 		servizioSanitarioNazionaleButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				control.SSN();
 			}
 		});
 		intramoeniaButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				control.ALPI();
 			}
 		});
@@ -45,13 +47,13 @@ public class ScegliRegimeDialog {
 	 */
 	private void $$$setupUI$$$() {
 		panel = new JPanel();
-		panel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
-		servizioSanitarioNazionaleButton = new JButton();
-		servizioSanitarioNazionaleButton.setText("Servizio Sanitario Nazionale");
-		panel.add(servizioSanitarioNazionaleButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+		panel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
 		intramoeniaButton = new JButton();
 		intramoeniaButton.setText("Intramoenia");
-		panel.add(intramoeniaButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+		panel.add(intramoeniaButton, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+		servizioSanitarioNazionaleButton = new JButton();
+		servizioSanitarioNazionaleButton.setText("Servizio Sanitario Nazionale");
+		panel.add(servizioSanitarioNazionaleButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 	}
 
 	/**
@@ -60,4 +62,5 @@ public class ScegliRegimeDialog {
 	public JComponent $$$getRootComponent$$$() {
 		return panel;
 	}
+
 }

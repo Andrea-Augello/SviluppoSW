@@ -14,17 +14,12 @@ public class GeneraRicettaControl {
 	    formDatiRicetta = new FormRicetta(this);
 	}
 
-
-	private void sceltaRegime() {
-		formRegimeVisita = new ScegliRegimeDialog(this);
-	}
-
 	void ottieniDati() {
 	    String codiceRicetta = formDatiRicetta.getCodiceRicetta();
 	    int codicePrestazione = formDatiRicetta.getCodicePrestazione();
 	    int urgenza = formDatiRicetta.getUrgenza();
-
-		if(!controllaCorrettezzaDati(new Ricetta(codicePrestazione, codiceRicetta))){
+		ricetta = new Ricetta(codiceRicetta,urgenza,codicePrestazione);
+		if(!controllaCorrettezzaDati(ricetta)){
 			new ErroreDialog("Impossibile procedere con la prenotazione:<br/>Nel sistema risulta già una prenotazione con questo numero di ricetta per la<br/>prestazione selezionata.");
 			formDatiRicetta.reset();
 		} else {
@@ -32,14 +27,19 @@ public class GeneraRicettaControl {
 		}
 	}
 
+	private void sceltaRegime() {
+		formRegimeVisita = new ScegliRegimeDialog(this);
+	}
+
+
 	void SSN() {
-		new ErroreDialog("Funzionalità non implementata");
-		new EffettuaPrenotazioneControl(0);
+	    ricetta.setRegime(0);
+		new EffettuaPrenotazioneControl(ricetta);
 	}
 
 	void ALPI() {
-		new ErroreDialog("Funzionalità non implementata");
-		new EffettuaPrenotazioneControl(1);
+	    ricetta.setRegime(1);
+		new EffettuaPrenotazioneControl(ricetta);
 	}
 
 	private boolean controllaCorrettezzaDati(Ricetta ricetta) {
