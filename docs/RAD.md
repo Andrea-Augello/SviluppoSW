@@ -835,20 +835,28 @@ SelezionaPazienteControl | Gestisce le operazioni per selezionare un paziente da
 ### 3.4.4 Interfaccia utente: navigazione e mock-up
 #### Login
 ---
-Schermata di login per PersonaleMedico e PersonaleAmministrativo  
-![Schermata di login per PersonaleMedico e PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Personale.png)
+Schermata di login per PersonaleMedico 
+![Schermata di login per PersonaleMedico](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Personale%20Medico.png)
+
+---
+Schermata di login per PersonaleAmministrativo
+![Schermata di login per PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Personale%20Amministrativo.png)
 
 ---
 Schermata di login per Paziente  
 ![Schermata di login per Paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Paziente.png)
 
 ---
-Schermata di errore nel login per PersonaleMedico e PersonaleAmministrativo  
-![Schermata di errore nel login per PersonaleMedico e PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Errore%20(personale).png)
+Schermata di errore nel login per PersonaleMedico 
+![Schermata di errore nel login per PersonaleMedico](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Errore%20(PersonaleMedico).png)
 
 ---
-Schermata di errore nell'inserimento della password
-![Schermata errore inserimento password](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Password%20(Errore).png)
+Schermata di errore nel login per PersonaleAmministrativo
+![Schermata di errore nel login per PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Errore%20(PersonaleAmministrativo).png)
+
+---
+Schermata di errore nel login per Paziente
+![Schermata di errore nel login per Paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Errore%20(Paziente).png)
 
 ---
 Schermata di registrazione paziente
