@@ -23,9 +23,11 @@ public class DatabaseInterface {
         return instance;
     }
 
+    /*
     private DatabaseInterface() {
         new ErroreDialog("Errore nella connessione, riprovare più tardi.");
     }
+    */
     
     public DatabaseInterface(){
         try{
