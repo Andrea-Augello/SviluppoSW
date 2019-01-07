@@ -847,10 +847,6 @@ Schermata di errore nel login per PersonaleMedico e PersonaleAmministrativo
 ![Schermata di errore nel login per PersonaleMedico e PersonaleAmministrativo](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Errore%20(personale).png)
 
 ---
-Schermata di inserimento password
-![Schermata di inserimento password](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Password.png)
-
----
 Schermata di errore nell'inserimento della password
 ![Schermata errore inserimento password](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Password%20(Errore).png)
 
