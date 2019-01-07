@@ -714,6 +714,7 @@ FormRicetta | Permette l'inserimento dei dati relativi alla ricetta.
 FSEControl | Gestisce le operazioni per l'ottenimento del Fascicolo Sanitario Elettronico da parte dell'utente.
 FSEDialog | Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal       personale
 GeneraRicettaControl | Gestisce le operazioni per la memorizzazione delle informazioni relative ad una ricetta.
+IndividuaPazienteForm | Schermata che presenta un box dove scrivere il CF del paziente che PersonaleAmministrativo vuole scegliere per continuare le operazioni desiderate.
 InserisciDettagliVisitaControl | Gestisce le operazioni per il corretto inserimento della diagnosi da parte del medico.
 InserisciDettagliVisitaDialog | Interfaccia per l'inserimento e l'eventuale conferma della diagnosi della visita precedentemente effettuata.
 InviaNotificaControl | Permette la gestione di eventuali notifiche scaturite da operazioni effettuate nel sistema.
@@ -721,10 +722,10 @@ LoginControl | Gestisce le operazioni di verifica della corretteza di un eventua
 MainScreen | Schermata principale per l'avvio di varie procedure.
 ModificaPrenotazioneControl | Gestisce le operazioni necessarie per la modifica di una prenotazione.
 ModificaPrenotazioneDialog | Interfaccia che permette all'utente di modificare la Prenotazione selezionata.
-PasswordForm | Questa schermata presenta un box di testo in cui gli utenti possono inserire la propria password.
 PazienteEntity | All'interno del sistema i dati dei pazienti sono racchiusi in questa classe.
 PazienteLoginForm | Il form attraverso cui Paziente può inserire il proprio codice fiscale e proseguire le procedure di autenticazione.
 PersonaleLoginForm | Il form attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.
+PersonaleEntity | All'interno del sistema i dati del personale sono racchiusi in questa classe.
 Prenotazione | Questa classe contiene i dati rilevanti della prenotazione mentre viene elaborata dal sistema.
 RegistrazioneForm | Il form che permette  di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.
 RegistrazioneControl | Gestisce le operazioni necessarie per la registrazione di un nuovo paziente.
@@ -734,6 +735,7 @@ ScegliPrenotazioneControl | Gestisce le operazioni per la corretta realizzazione
 ScegliPrenotazioneDialog | Questa schermata presenta l'elenco delle prenotazioni per visite ancora non effettuate dal paziente, da qui è possibile selezionarne una per modificarla.
 ScegliRegimeDialog | Nelle operazioni di prenotazione questa schermata consente di scegliere tra regime ALPI e regime SSN.
 SceltaMedicoDialog | Nelle operazioni di prenotazione se si sceglie il regime ALPI questa schermata permette di scegliere il medico dal quale farsi visitare.
+SelezionaPazienteControl | Gestisce le operazioni per selezionare un paziente da parte del PersonaleAmministrativo.
 
 
 
