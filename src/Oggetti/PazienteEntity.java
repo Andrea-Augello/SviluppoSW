@@ -28,9 +28,6 @@ public class PazienteEntity {
 	}
 
     public static PazienteEntity getPaziente(){
-	    if(pazienteSelezionato == null){
-	    	new ErroreDialog("Impossibile procedere con l'operazione selezionata", true);
-		}
 		return pazienteSelezionato;
 	}
 
