@@ -20,6 +20,11 @@ public class MainScreenMedico extends MainScreen {
         JFrame frame = new JFrame("SPRINT");
         $$$setupUI$$$();
         frame.setContentPane(panel);
+
+        inserisciDettagliSullaVisitaButton.setEnabled(false);
+        prenotaUnAltraPrestazioneButton.setEnabled(false);
+        visualizzaCartellaClinicaButton.setEnabled(false);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.pack();
@@ -48,7 +53,13 @@ public class MainScreenMedico extends MainScreen {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new ErroreDialog("Lista non ancora interattiva");
+                if (!list1.isSelectionEmpty()) {
+                    visitaSelezionata = prenotazioni.get(list1.getSelectedIndex());
+                    PazienteEntity.setPaziente(visitaSelezionata.getPaziente());
+                    prenotaUnAltraPrestazioneButton.setEnabled(true);
+                    inserisciDettagliSullaVisitaButton.setEnabled(true);
+                    visualizzaCartellaClinicaButton.setEnabled(true);
+                }
             }
         });
     }

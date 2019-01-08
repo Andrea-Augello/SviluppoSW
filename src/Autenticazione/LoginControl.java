@@ -54,8 +54,6 @@ public class LoginControl {
 
 
 	private void controllaLoginAmministrativo(){
-		new ErroreDialog("Funzionalità non implementata per PersonaleAmministrativo");
-
 		if(( DatabaseInterface.getInstance().ottieniPersonale(form.getUsername(), form.getPassword(), false) )!= null){
 			new MainScreenAmministrativo();
 			form.dispose();
@@ -67,8 +65,6 @@ public class LoginControl {
     }
 
     private void controllaLoginMedico(){
-		new ErroreDialog("Funzionalità non implementata per PersonaleMedico");
-
 		PersonaleEntity.setMedico(DatabaseInterface.getInstance().ottieniPersonale(form.getUsername(), form.getPassword(), true));
 		if(PersonaleEntity.getMedico() != null){
 			new MainScreenMedico();
