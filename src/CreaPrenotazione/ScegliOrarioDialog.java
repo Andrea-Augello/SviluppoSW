@@ -32,7 +32,7 @@ public class ScegliOrarioDialog {
         frame.pack();
         frame.setVisible(true);
 
-        if(annoCombo.getItemCount()<2){
+        if (annoCombo.getItemCount() < 2) {
             annoCombo.setEnabled(false);
         }
 

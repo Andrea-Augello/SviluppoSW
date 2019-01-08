@@ -1,6 +1,7 @@
 package ModificaPrenotazione;
 
 import DatabaseInterface.DatabaseInterface;
+import Oggetti.ErroreDialog;
 import Oggetti.PazienteEntity;
 import Oggetti.Prenotazione;
 
@@ -11,15 +12,19 @@ public class ScegliPrenotazioneControl {
 
 	public ScegliPrenotazioneControl() {
 		List<Prenotazione> listaPrenotazioni = DatabaseInterface .getInstance().ottieniElencoPrenotazioni(PazienteEntity.getPaziente());
-		this.form = new ScegliPrenotazioneDialog(this, listaPrenotazioni);
+		if(listaPrenotazioni == null) {
+			this.form = new ScegliPrenotazioneDialog(this, listaPrenotazioni);
+		}
 	}
 
 	public void estraiPrenotazione() {
-
+		new ModificaPrenotazioneDialog(form.getPrenotazioneSelezionata());
 	}
 
-	public void controllaPrenotazione() {
-
-	}
+/*
+public void controllaPrenotazione() {
+//Metodo non usato, va eliminato?
+}
+*/
 
 }

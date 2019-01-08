@@ -36,7 +36,7 @@ public class ScegliPrenotazioneDialog {
         modificaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: fai qddualcosa
+                selezionaPrenotazione();
             }
         });
         list1.addMouseListener(new MouseAdapter() {
@@ -54,11 +54,17 @@ public class ScegliPrenotazioneDialog {
     }
 
     public void selezionaPrenotazione() {
-
+        if (!list1.isSelectionEmpty()) {
+            control.estraiPrenotazione();
+        }
     }
 
     public void dispose() {
         frame.dispose();
+    }
+
+    public Prenotazione getPrenotazioneSelezionata() {
+        return prenotazioneSelezionata;
     }
 
     /**

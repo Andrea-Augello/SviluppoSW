@@ -9,8 +9,8 @@ public class InserisciDettagliVisitaControl {
 	private Prenotazione visita;
 
 	public InserisciDettagliVisitaControl(Prenotazione visita) {
-		dettagli = DatabaseInterface.getInstance().ottieniDettagliVisita(visita);
 		this.visita = visita;
+		dettagli = DatabaseInterface.getInstance().ottieniDettagliVisita(visita);
 		if(dettagli == null){
 			dettagli = new String[]{" ", " ", " "};
 		}
