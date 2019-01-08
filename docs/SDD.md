@@ -20,21 +20,40 @@
 
 ## 1. Introduzione
 ### 1.1 Obbiettivi di progettazione
-- Facilità di utilizzo;
-- Affidabilità;
-- Robustezza;
-- Documentazione di qualità;
-
+- Tempo di risposta:
+	 il Sistema risponderà alle richieste impartite dall'utente in tempo reale, a meno che la pagina richiesta non sia 		          particolarmente ricca di informazioni. In quest'ultimo caso potrà avvenire un ritardo di pochi secondi.
+- Facilità di utilizzo:
+	 l'utente effettuerà le proprie prenotazioni o modifiche di queste ultime in pochi e chiari passaggi.
+- Memoria:
+	 la dimensione della memoria è dinamica poichè dipendente dalla grandezza del DataBase.
+- Estendibilità:
+	 il sistema potrà essere esteso e modificato in futuro, secondo le nuove esigenze richieste, agendo sul codice.
+- Affidabilità:
+	 i risultati prodotti dalle pagine rispecchieranno istante per istante la situazione ospedaliera, in modo da permettere ai vari 	 utenti di non incorrere ad errori di sistema e di organizzazione.
+- Robustezza:
+	 le interfacce ben definite comportano minima flessibilità per una minimizzazione di errori. L'inserimento dei dati verrà ogni            volta verificato tramite svariati controlli.
+- Disponibilità:
+	 il sistema sarà disponibile ogni qual volta l'utente voglia utilizzarlo.
+- Sicurezza:
+	 i dati personali non verranno utilizzati a fini diversi dall'organizzazione ospedaliera, vigeranno le comuni regole di privacy.  	   La sicurezza è garantita da login e password non criptate.
+- Portabilità:
+	 il sistema è portabile in diverse piattaforme, poichè realizzato in linguaggio Java.
+- Leggibilità:	
+	 le funzionalità del sistema saranno facilmente comprensibili tramite la documentazione fornita, compresa di schemi intuibili e          commenti al codice stilato.
+- Utilità:
+	 l'utente compierà facilmente le operazioni desiderate tramite un supporto continuo da parte del sistema.
+	  
 ## 2. Architettura software corrispondente
 Poichè non è presente un sistema corrente da sostituire, si è preso in esame come riferimento il sistema descritto in [Implementing standards for the interoperability among healthcare providers in the public regionalized Healthcare Information System of the Lombardy Region, Barbarito et. al.](https://doi.org/10.1016/j.jbi.2012.01.006).  
 ![Fig. 4. System architecture for interoperability within hospital departments and its relationship with the regional information system.](https://ars.els-cdn.com/content/image/1-s2.0-S153204641200007X-gr4.jpg)  
-Il sistema proposto prevede però un campo di applicazione molto più ridotto dovendo operare esclusivamente all'interno di un singolo ospedale per il supporto della gestione delle prenotazioni, sono state quindi presi in considerazione principalmente gli aspetti legati ai servizi di assistenza sanitaria digitale, in particolare il sistema di prenotazione degli esami e il PHR (Personal Health Record, corrispondente al Fascicolo Sanitario Elettronico preso in esame durante l'analisi dei requisiti), ma l'intero funzionamento del sistema è stato considerato come punto di partenza per la progettazione del sistema da sviluppare.
+Il sistema proposto prevede però un campo di applicazione molto più ridotto dovendo operare esclusivamente all'interno di un singolo ospedale per il supporto della gestione delle prenotazioni, sono state quindi prese in considerazione principalmente gli aspetti legati ai servizi di assistenza sanitaria digitale, in particolare il sistema di prenotazione degli esami e il PHR (Personal Health Record, corrispondente al Fascicolo Sanitario Elettronico preso in esame durante l'analisi dei requisiti), ma l'intero funzionamento del sistema è stato considerato come punto di partenza per la progettazione del sistema da sviluppare.
 Inoltre dopo un'analisi costi-benefici è risultato che l'adozione di standard per l'interoperabilità quali HL7 fosse troppo onerosa per gli scopi proposti, risultando inoltre dal sistema di riferimento che è possibile implementare questa interoperabilità in un secondo momento senza stravolgere i sistemi informativi preesistenti.
 
 
 
 ## 3. Architettura software proposta
 ### 3.1 Overview
+
 ### 3.2 Scomposizione in sottosistemi
 ![?](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/Architettura%20di%20sistema.png)  
 ### 3.3 Mappatura hardware/software
