@@ -28,7 +28,7 @@ public class DatabaseInterface {
         try{
             //Connection to our local server
             conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","prova");
-            st=conn.createStatement();
+            //st=conn.createStatement();
         }catch(SQLException ex) {
             //System.out.println("Error: " + ex);
             new ErroreDialog("Errore nella connessione, riprovare più tardi.");
