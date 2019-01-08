@@ -12,6 +12,7 @@ import java.util.List;
 
 public class DatabaseInterface {
     private Connection conn;
+    //To update with PreparedStatement
     private Statement st;
     private ResultSet rs;
 
@@ -26,6 +27,7 @@ public class DatabaseInterface {
 
     private DatabaseInterface(){
         try{
+            //Connection to our local server
             conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","prova");
             st=conn.createStatement();
         }catch(SQLException ex) {
