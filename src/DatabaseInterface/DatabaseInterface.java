@@ -2,11 +2,7 @@ package DatabaseInterface;
 
 import Oggetti.*;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -79,7 +75,7 @@ public class DatabaseInterface {
         return null;
     }
 
-    public List<LocalDateTime> ottieniOrari(int prestazione) {
+    public List<LocalDateTime> ottieniOrari(int prestazione, LocalDateTime limiteMassimo) {
         return null;
     }
 
