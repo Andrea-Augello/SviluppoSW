@@ -12,8 +12,7 @@ import java.util.List;
 
 public class DatabaseInterface {
     private Connection conn;
-    //To update with PreparedStatement
-    private Statement st;
+    private PreparedStatement st;
     private ResultSet rs;
 
     
