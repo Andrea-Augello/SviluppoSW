@@ -863,6 +863,14 @@ Schermata di registrazione paziente
 ![Schermata di registrazione paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Registrazione%20paziente.png)
 
 ---
+Schermata di individua paziente
+![Schermata di individua paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Individua%20Paziente.png)
+
+---
+Schermata di errore in individua paziente
+![Schermata di errore in individua paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Individua%20Paziente%20-%20Errore.png)
+
+---
 #### Schermata principale
 ---
 Schermata principale Paziente
