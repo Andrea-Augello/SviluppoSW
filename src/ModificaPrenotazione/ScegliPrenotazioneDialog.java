@@ -7,11 +7,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
 public class ScegliPrenotazioneDialog {
     private ScegliPrenotazioneControl control;
     private List<Prenotazione> prenotazioni;
+    private Prenotazione prenotazioneSelezionata;
     private JFrame frame;
     private JButton modificaButton;
     private JPanel panel;
@@ -23,6 +26,9 @@ public class ScegliPrenotazioneDialog {
         frame = new JFrame("SPRINT - Seleziona la prenotazione da modificare");
         $$$setupUI$$$();
         frame.setContentPane(panel);
+
+        modificaButton.setEnabled(false);
+
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.pack();
@@ -30,7 +36,19 @@ public class ScegliPrenotazioneDialog {
         modificaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: fai qualcosa
+                //TODO: fai qddualcosa
+            }
+        });
+        list1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (!list1.isSelectionEmpty()) {
+                    modificaButton.setEnabled(true);
+                    prenotazioneSelezionata = prenotazioni.get(list1.getSelectedIndex());
+                }
+
+
             }
         });
     }
