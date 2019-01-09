@@ -258,7 +258,7 @@ __Flusso degli eventi:__
 	   messaggio di errore e viene chiesto di inserire dei dati
 	   corretti
 	   ALTRIMENTI
-	   Viene comunicato al DBSM di aggiungere il nuovo paziente.
+	   Viene comunicato al DBMS di aggiungere il nuovo paziente.
 ```
 __Postcondizioni:__  `L'utente può proseguire l'operazione che aveva iniziato`  
 [_Diagramma delle sequenze_](#sequenza-registrapaziente)
@@ -335,7 +335,7 @@ __Flusso degli eventi:__
 ```  
 __Flusso alternativo:__
 ```
-3. Il DBSM comunica che non ci sono orari disponibili
+3. Il DBMS comunica che non ci sono orari disponibili
    4. Il sistema cerca un orario in cui è possibile effettuare
       la vista spostandone una meno urgente e lo propone al paziente.
 5. Il paziente accetta la proposta del sistema
