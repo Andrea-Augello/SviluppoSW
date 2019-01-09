@@ -80,12 +80,12 @@ Come si può intuire sopra, sono presenti due nodi fondamentali:
 - ___UtentePC___  
 - ___Server___  
 
-Entrambi rappresentano dei device fisici: il primo è un qualunque personal computer adibito all'installazione del sistema proposto, il secondo il Server vero e proprio.  
+Entrambi rappresentano dei _device_ fisici: il primo è un qualunque personal computer adibito all'installazione del sistema proposto, il secondo il _Server_ vero e proprio.  
   
-PersonaleAmministrativoApp, PersonaleMedicoApp e PazienteApp sono i nodi software contenenti tutte le componenti adibite alla gestione dei dati ospedalieri.  
-PAConnessioni, PMconnessioni e PConnessioni sono le componenti destinate a gestire la connessione con il Server.   
+_PersonaleAmministrativoApp, PersonaleMedicoApp e PazienteApp_ sono i nodi software contenenti tutte le componenti adibite alla gestione dei dati ospedalieri.  
+_PAConnessioni, PMconnessioni_ e _PConnessioni_ sono le componenti destinate a gestire la connessione con il Server.   
   
-MySQLServer è un'istanza contenuta dal nodo Server che gestirà i contenuti del DataBase. In base alle richieste dei nodi software, gestite tramite protocollo TCP/IP e JDBC, MySQL li fornirà e modificherà efficentemente.
+_MySQLServer_ è un'istanza contenuta dal nodo _Server_ che gestirà i contenuti del _DataBase_. In base alle richieste dei nodi software, gestite tramite protocollo __TCP/IP__ e __JDBC__, _MySQL_ li fornirà e modificherà efficentemente.
  
 
 
