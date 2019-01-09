@@ -74,6 +74,21 @@ Procediamo con la descrizione dettagliata dei sottosistemi dall'alto verso il ba
 - __External components comunication, DBMS, MailServer__  >> gestisce i dati che sono necessari al funzionamento dell’intero sistema. Questi risiedono in un DataBase.  	  	
 	
 ### 3.3 Mappatura hardware/software
+La mappatura è stata effettuata sulla base del modello architetturale Repository, come illustrato in figura:
+
+Come si può intuire sopra, sono presenti due nodi fondamentali:
+- ___UtentePC___  
+- ___Server___  
+Entrambi rappresentano dei device fisici: il primo è un qualunque personal computer adibito all'installazione del sistema proposto, il secondo il Server vero e proprio.  
+  
+PersonaleAmministrativoApp, PersonaleMedicoApp e PazienteApp sono i nodi software contenenti tutte le componenti adibite alla gestione dei dati ospedalieri.  
+PAConnessioni, PMconnessioni e PConnessioni sono le componenti destinate a gestire la connessione con il Server.   
+  
+MySQLServer è un'istanza contenuta dal nodo Server che gestirà i contenuti del DataBase. In base alle richieste dei nodi software, gestite tramite protocollo TCP/IP e JDBC, MySQL li fornirà e modificherà efficentemente.
+ 
+
+
+
 ### 3.4 Gestione dati persistenti
 #### Progetto concettuale
 ![ERD](https://andrea-augello.github.io/SviluppoSW/media/Database/erd.png)  
