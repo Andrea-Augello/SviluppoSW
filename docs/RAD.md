@@ -567,6 +567,7 @@ __Postcondizioni:__ `Il sistema ritorna alla schermata principale`
 
 #### Notifica Prenotazione
 ![Use case "NotificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/NotificaPrenotazione.png)
+[_Vista di alto livello_](#notificaprenotazione)
 
 ---
 #### InvioNotifica
