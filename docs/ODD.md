@@ -26,6 +26,12 @@ I tempi di risposta tra server e interfaccia sono molto rapidi e soddisfano a pi
 - __Costi vs Manutenzione :__  
 Avendo utilizzato materiali opensource e come linguaggio di programmazione Java, il sistema può essere modificato, implementato con nuove funzioni o eventualmente corretto in maniera del tutto facile e intuitiva.  
   
-### 1.2 Linee guida della documentazione delle interfacce
+### 1.2 Linee guida della documentazione delle interfacce  
+Il sistema è multi-utente: può accedervi qualsiasi tipo di utenza, dal paziente al personale dell'ospedale (sia medico che amministrativo).
+A tutta l'utenza vengono nascosti i meccanismi interni di prenotazione e più nello specifico l'algoritmo utilizzato per spostare le varie prenotazioni.
+Al paziente viene fornita una semplice e intuitiva schermata dalla quale può gestire comodamente tutte le sue prenotazioni ed eventualmente visualizzare anche lo storico delle prestazioni effettuate.
+Il personale amministrativo, tramite un'interfaccia simile a quella fornita al paziente, è in grado di effettuare le stesse operazioni ma con permessi più ampi come stampare lo storico delle visite di un determinato paziente.
+Infine, l'interfaccia a disposizione del personale medico è stata realizzata in modo da facilitare la sua professione permettendo di riempire completamente da software la cartella clinica di un suo paziente.  
+
 ## 2. Packages
 ## 3. Interfacce delle classi
