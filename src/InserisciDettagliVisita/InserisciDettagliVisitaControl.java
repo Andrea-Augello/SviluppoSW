@@ -1,6 +1,6 @@
 package InserisciDettagliVisita;
 
-import DatabaseInterface.DatabaseInterface;
+import ExternalComponentsInterface.DatabaseInterface;
 import Oggetti.Prenotazione;
 
 public class InserisciDettagliVisitaControl {

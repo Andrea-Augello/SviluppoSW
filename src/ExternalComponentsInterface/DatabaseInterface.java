@@ -1,4 +1,4 @@
-package DatabaseInterface;
+package ExternalComponentsInterface;
 
 import Oggetti.*;
 

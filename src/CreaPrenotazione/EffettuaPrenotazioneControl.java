@@ -1,9 +1,8 @@
 package CreaPrenotazione;
 
-import DatabaseInterface.DatabaseInterface;
+import ExternalComponentsInterface.DatabaseInterface;
 import Oggetti.ErroreDialog;
 import Oggetti.PersonaleEntity;
-import Oggetti.Prenotazione;
 import Oggetti.Ricetta;
 
 import java.time.LocalDateTime;
@@ -35,7 +34,7 @@ public class EffettuaPrenotazioneControl {
 
 	public void finalizzaPrenotazione() {
 		new ErroreDialog("Funzionalità non ancora implementata");
-		//DatabaseInterface.getInstance().inserisciPrenotazione( null );
+		//ExternalComponentsInterface.getInstance().inserisciPrenotazione( null );
 	}
 
 	public void aggiungiOrario() {

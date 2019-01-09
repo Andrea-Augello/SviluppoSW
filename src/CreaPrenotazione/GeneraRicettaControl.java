@@ -1,6 +1,6 @@
 package CreaPrenotazione;
 
-import DatabaseInterface.DatabaseInterface;
+import ExternalComponentsInterface.DatabaseInterface;
 import Oggetti.ErroreDialog;
 import Oggetti.Ricetta;
 

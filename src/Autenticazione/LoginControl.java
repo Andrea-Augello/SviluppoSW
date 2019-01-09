@@ -1,6 +1,6 @@
 package Autenticazione;
 
-import DatabaseInterface.DatabaseInterface;
+import ExternalComponentsInterface.DatabaseInterface;
 import Oggetti.*;
 
 public class LoginControl {

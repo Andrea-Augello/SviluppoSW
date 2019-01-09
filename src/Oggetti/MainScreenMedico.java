@@ -1,6 +1,6 @@
 package Oggetti;
 
-import DatabaseInterface.DatabaseInterface;
+import ExternalComponentsInterface.DatabaseInterface;
 
 import javax.swing.*;
 import java.awt.*;

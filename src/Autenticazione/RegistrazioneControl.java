@@ -1,11 +1,8 @@
 package Autenticazione;
 
-import DatabaseInterface.DatabaseInterface;
+import ExternalComponentsInterface.DatabaseInterface;
 import Oggetti.ErroreDialog;
 import Oggetti.PazienteEntity;
-
-import java.time.LocalDate;
-import java.util.Date;
 
 public class RegistrazioneControl {
     RegistrazioneForm form;

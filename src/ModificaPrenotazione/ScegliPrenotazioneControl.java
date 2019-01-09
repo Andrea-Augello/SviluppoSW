@@ -1,7 +1,6 @@
 package ModificaPrenotazione;
 
-import DatabaseInterface.DatabaseInterface;
-import Oggetti.ErroreDialog;
+import ExternalComponentsInterface.DatabaseInterface;
 import Oggetti.PazienteEntity;
 import Oggetti.Prenotazione;
 
