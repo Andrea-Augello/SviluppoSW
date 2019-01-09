@@ -17,6 +17,7 @@ public class SelezionaPazienteControl {
 	    	form.reset();
 	    	new ErroreDialog("Non è registrato nessun paziente con il codice fiscale inserito");
 		} else {
+	    	PazienteEntity.setPaziente(paziente);
 	    	form.dispose();
 		}
 	}

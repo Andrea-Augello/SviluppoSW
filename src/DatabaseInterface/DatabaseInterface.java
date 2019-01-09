@@ -3,7 +3,9 @@ package DatabaseInterface;
 import Oggetti.*;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class DatabaseInterface {
@@ -22,7 +24,7 @@ public class DatabaseInterface {
 
     private DatabaseInterface(){
         try{
-            //Connection to our local server
+            //Connection to our local server: DO NOT TOUCH
             conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","prova");
             //st=conn.createStatement();
         }catch(SQLException ex) {
@@ -36,7 +38,22 @@ public class DatabaseInterface {
     }
 
     public void inserisciPaziente(PazienteEntity paziente) {
-
+        try {
+            //Prepare statement
+            st = conn.prepareStatement("INSERT INTO Paziente (`CF`, `Password`, `Nome`, `Cognome`, `Data_di_nascita`, `Telefono`, `Indirizzo_email`) VALUES (?, ?, ?, ?, ?, ?, ?)\n");
+            //Set field
+            st.setString(1, paziente.getCodiceFiscale());
+            st.setString(2, paziente.getPassword());
+            st.setString(3, paziente.getNome());
+            st.setString(4, paziente.getCognome());
+            st.setString(5, paziente.getDataDiNascita().format(DateTimeFormatter.ISO_LOCAL_DATE));
+            st.setString(6, paziente.getTelefono());
+            st.setString(7, paziente.getIndirizzoMail());
+            //Execute
+            st.execute();
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
     }
 
     public void inserisciPrenotazione(Prenotazione prenotazione) {
@@ -84,14 +101,53 @@ public class DatabaseInterface {
     }
 
     public PazienteEntity ottieniPaziente(String cf) {
+        try {
+            //Prepare statement
+            st = conn.prepareStatement("SELECT * FROM Paziente WHERE CF=? ");
+            //Set field
+            st.setString(1, cf);
+            //Execute
+            rs=st.executeQuery();
+            return parserPaziente(rs);
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
     public PazienteEntity ottieniPaziente(String cf, String password) {
+        try {
+            //Prepare statement
+            st = conn.prepareStatement("SELECT * FROM Paziente WHERE CF=? AND Password = ?");
+            //Set field
+            st.setString(1, cf);
+            st.setString(2, password);
+            //Execute
+            rs=st.executeQuery();
+            return parserPaziente(rs);
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
     public PersonaleEntity ottieniPersonale(String username, String password, boolean isMedico) {
+        try {
+            //Prepare statement
+            if(isMedico == true) {
+                st = conn.prepareStatement("SELECT * FROM PersonaleMedico WHERE ID=? AND Password = ?");
+            } else {
+                st = conn.prepareStatement("SELECT * FROM PersonaleAmministrativo WHERE ID=? AND Password = ?");
+            }
+            //Set field
+            st.setString(1, username);
+            st.setString(2, password);
+            //Execute
+            rs=st.executeQuery();
+            return parserPersonale(rs);
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
@@ -112,11 +168,37 @@ public class DatabaseInterface {
     }
 
     private PazienteEntity parserPaziente(ResultSet queryResult) {
-        return null;
+        try{
+            queryResult.next();
+            String codiceFiscale=queryResult.getString("CF");
+            String password = queryResult.getString("Password");
+            String nome = queryResult.getString("Nome");
+            String cognome = queryResult.getString("Cognome");
+            LocalDate dataDiNascita = queryResult.getDate("Data_di_nascita").toLocalDate();
+            String telefono = queryResult.getString("Telefono");
+            String indirizzoEmail = queryResult.getString("Indirizzo_email");
+
+            return PazienteEntity.createInstance(codiceFiscale,nome,cognome,dataDiNascita,telefono,indirizzoEmail, password);
+
+        } catch(Exception ex){
+            //new ErroreDialog("Shit happened:<br/>"+ex);
+            return null;
+        }
+
+
     }
 
-    private List<PersonaleEntity> parserPersonale(ResultSet queryResult) {
-        return null;
+    private PersonaleEntity parserPersonale(ResultSet queryResult) {
+        try{
+            queryResult.next();
+            int matricola =queryResult.getInt("ID");
+            String password = queryResult.getString("Password");
+
+            return new PersonaleEntity(matricola,password);
+        } catch(Exception ex){
+            //new ErroreDialog("Shit happened:<br/>"+ex);
+            return null;
+        }
     }
 
     private List<Prenotazione> parserPrenotazioni(ResultSet queryResult) {

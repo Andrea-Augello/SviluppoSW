@@ -7,6 +7,11 @@ public class PersonaleEntity {
 
 	private String password;
 
+	public PersonaleEntity(int matricola, String password) {
+		this.matricola = matricola;
+		this.password = password;
+	}
+
 	public static PersonaleEntity getMedico(){
 		if(medicoSelezionato == null){
 			new ErroreDialog("Impossibile procedere con l'operazione selezionata", true);

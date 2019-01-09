@@ -18,7 +18,7 @@ public class IndividuaPazienteForm {
     public IndividuaPazienteForm(SelezionaPazienteControl control) {
         this.control = control;
 
-        JFrame frame = new JFrame("Individua paziente");
+        frame = new JFrame("Individua paziente");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);

@@ -1,7 +1,5 @@
 package Autenticazione;
 
-import sun.rmi.runtime.Log;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
