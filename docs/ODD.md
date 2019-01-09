@@ -36,7 +36,7 @@ Infine, l'interfaccia a disposizione del personale medico è stata realizzata in
 
 ## 2. Packages
 
-### 2.1 CreaPrenotazione
+### 2.1 Crea Prenotazione
 Questo package contiene tutte le classi relative alla gestione della creazione di una prenotazione presso la struttura ospedaliera.  
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/CreaPrenotazionePackage.png)  
   
