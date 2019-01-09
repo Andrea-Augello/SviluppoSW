@@ -143,165 +143,32 @@ Fino ad ora il sistema informatico è utilizzato esclusivamente per la memorizza
 
 ---
 ##### EffettuaAutenticazione
-__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `L'utente non si è ancora autenticato in questa sessione`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando l'utente avvia il software.
-	2. Il sistema chiede di inserire un codice univoco di
-	   indentificazione
-3. Paziente inserisce il CF
-   OPPURE
-   PersonaleMedico o PersonaleAmministrativo inserisce il
-   suo codice identificativo.
-	4. Il sistema chiede al DBMS informazioni sull'utente individuato
-	   in modo univoco dal dato inserito.
-5. Il DBMS comunica al sistema che l'utente è presente nel database ed
-   eventuali informazioni connesse.
-	6. L'utente è presente nel database e il sistema richiede
-	   l'inserimento di password.
-7. L'utente inserisce la propria password.
-	8. Il sistema controlla che la password inserita corrisponda a
-	   quella nota, se non lo è chiede nuovamente di autenticarsi.
-```  
-__Flusso alternativo 1:__
-```
-5. Il DBMS comunica al sistema che Paziente non è presente nel database
-	6. Il sistema presenta un form per far registrare Paziente.
-7. L'utente compila il form.
- 	8. Il sistema comunica al DBMS i dati del nuovo utente.
-9. Il DBMS registra il nuovo paziente.
-```
-__Flusso alternativo 2:__
-```
-5. Il DBMS comunica al sistema che l'utente non è presente nel database
-	6. PersonaleMedico o PersonaleAmministrativo non è
-	   presente nel database, il sistema avvisa dell'errato
-	   inserimento del codice e ne chiede il corretto
-	   reinserimento.
-```
-__Postcondizioni:__  `Il sistema mostra la schermata principale`  
+
 [_Vista dettagliata_](#effettua-autenticazione)
 
 ---
 ##### CreaPrenotazione
-__Attori:__ _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `L'utente si trova nella schermata principale `  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando l'attore principale seleziona
-   l'opzione "Crea Prenotazione"
-	2. Il sistema chiede all'utente di compilare un form
-	   con i dati della ricetta.
-3. L'utente inserisce il numero di ricetta, il codice di urgenza e
-   la prestazione richiesta.
-	4. Il sistema chiede con quale regime si voglia effettuare
-	   la visita
-5. L'utente seleziona "Servizio sanitario nazionale".
- 	6. Il sistema chiede al DBMS, tenendo conto del codice di
- 	    urgenza, quali giorni e orari sono disponibili.
-7. Il DBMS comunica al sistema le informazioni richieste.
-	8. Il sistema mostra all'utente giorni e orari in cui è
-	    possibile effettuare la prenotazione.
-9. L'utente seleziona e conferma giorno e ora.
-	10. Il sistema comunica la nuova prenotazione al DBMS e manda
-	    una notifica di avvenuta prenotazione all'utente.
-```  
-__Flusso alternativo__:
-```
-5. L'utente seleziona "Intramoenia".
-	4. Il sistema mostra l'elenco dei professionisti che eseguono
-	   quel tipo di visite e il loro onorario.
-5. L'utente seleziona il medico da cui vuole farsi visitare
- 	6. Il sistema chiede al DBMS i giorni e gli orari in cui il
-	    medico può effettuare visite.
-7. Il DBMS comunica al sistema i dati richiesti.
-	8. Il sistema chiede all'utente di scegliere giorno e ora tra
-	    quelli in cui il medico è disponibile.
-9. L'utente seleziona e conferma giorno e ora.
-	10. Il sistema comunica la nuova prenotazione al DBMS e manda
-	    una notifica di avvenuta prenotazione all'utente.
-```
-__Postcondizioni:__  `L'utente è nuovamente nella schermata principale`  
+ 
 [_Vista dettagliata_](#crea-prenotazione)
 
 ---
 ##### ModificaPrenotazione
-__Attori:__ _Paziente, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `Il sistema è nella schermata iniziale`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando Paziente o PersonaleAmministrativo
-   seleziona l'opzione "Modifica Prenotazione" dalla schermata principale.
-   	2. Il sistema chiede al DBMS l'elenco di tutte le prenotazioni
-	   relative al paziente con data successiva a quella corrente
-	   le relative informazioni.
-3. Il DBMS comunica al sistema le prenotazioni richieste.
-  	4. Il sistema fa scegliere all'utente la prenotazione da
-	   modificare.
-5. L'utente individua la prenotazione che desidera modificare.
-	6. Il sistema mostra i dati relativi alla Prenotazione selezionata
-7. L'utente modifica la data e l'ora scegliendo tra le opzioni proposte
-   e conferma OPPURE elimina la Prenotazione.
-	8. Il sistema richiede un'ulteriore conferma riassumendo i
-	   cambiamenti fatti.
-9. L'utente conferma o annulla le modifiche.
-	10. Se l'utente conferma le modifiche il sistema le comunica
-	   al DBMS e invia al Paziente opportuno una notifica
-```  
-__Postcondizioni:__  `Il sistema mostra nuovamente la schermata principale`  
+ 
 [_Vista dettagliata_](#modifica-prenotazione)
 
 ---
 ##### VisualizzaFSE
-__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
-__Precondizioni:__ `Il sistema è nella schermata principale`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando l'attore principale  seleziona l'opzione
-   "Visualizza Storico Visite" relativamente ad un paziente.
-	2. Il sistema chiede al DBMS i dati relativi a tutte le visite
-	   precedentemente effettuate dal paziente.
-3. Il DBMS comunica al sistema i dati.
-	4. Il sistema restituisce un documento o una schermata con
-	   delle informazioni sulle visite.
-```  
-__Postcondizioni:__  `Il sistema torna nella schermata principale`  
+ 
 [_Vista dettagliata_](#visualizza-fse)
 
 ---
 ##### InserisciDettagliVisita
-__Attori:__  _PersonaleMedico_, DBMS  
-__Precondizioni:__ `Il sistema mostra la schermata principale`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando PersonaleMedico seleziona una delle visite
-   della giornata.
-	2. Il sistema mostra all'utente le eventuali informazioni
-	   riguardanti la visita selezionata.
-3. PersonaleMedico inserisce/modifica i dettagli della visita.
-	4. Il sistema comunica eventualmente al DBMS le informazioni
-	   aggiornate sulla visita.
-```  
-__Postcondizioni:__  `Il sistema torna alla schermata principale`  
+ 
 [_Vista dettagliata_](#inserisci-dettagli-visita)
 
 ---
 ##### NotificaPrenotazione
-__Attori:__  _Tempo_, DBMS  
-__Precondizioni:__ `Nella giornata corrente non sono ancora state inviate le notifiche per le visite previste due giorni dopo`  
-__Flusso degli eventi:__
-```
-1. Il caso d'uso inizia quando mancano meno di 48 ore alla prima visita di
-   due giorni dopo.
-	2. Il sistema chiede al DBMS l'elenco di tutti i pazienti che
-	   hanno una visita tra due giorni e le informazioni relative ad
-	   ogni visita.
-3. Il DBMS restituisce al sistema le informazioni richieste
-	4. Il sistema invia ad ogni paziente una notifica contenente le
-	   informazioni relative alle sue prenotazioni.
-```  
-__Postcondizioni:__  `Tutti i pazienti con visite in programma dopo due giorni hanno ricevuto un promemoria`  
+
 [_Vista dettagliata_](#notifica-prenotazione)
 
 ---
@@ -700,6 +567,22 @@ __Postcondizioni:__ `Il sistema ritorna alla schermata principale`
 #### Notifica Prenotazione
 ![Use case "NotificaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/NotificaPrenotazione.png)
 
+---
+#### InvioNotifica
+__Attori:__  _Tempo_, DBMS  
+__Precondizioni:__ `Nella giornata corrente non sono ancora state inviate le notifiche per le visite previste due giorni dopo`  
+__Flusso degli eventi:__
+```
+1. Il caso d'uso inizia quando mancano meno di 48 ore alla prima visita di
+   due giorni dopo.
+	2. Il sistema chiede al DBMS l'elenco di tutti i pazienti che
+	   hanno una visita tra due giorni e le informazioni relative ad
+	   ogni visita.
+3. Il DBMS restituisce al sistema le informazioni richieste
+	4. Il sistema invia ad ogni paziente una notifica contenente le
+	   informazioni relative alle sue prenotazioni.
+```  
+__Postcondizioni:__  `Tutti i pazienti con visite in programma dopo due giorni hanno ricevuto un promemoria`  
 ---
 ### 3.4.2 Modello degli oggetti
 #### Lista delle classi
