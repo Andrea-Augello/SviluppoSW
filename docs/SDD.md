@@ -60,6 +60,7 @@ Inoltre dopo un'analisi costi-benefici è risultato che l'adozione di standard p
 
 ## 3. Architettura software proposta
 ### 3.1 Overview
+Per il sistema è stata scelta l'architettura a Layer, in modo tale da modellare l'interfacciamento dei sottosistemi descritti di sotto. Essa comporta la suddivisione di un insieme di livelli organizzati in modo tale da fornire specifici servizi in base al loro posizionamento.
 
 ### 3.2 Scomposizione in sottosistemi
 ![?](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/Architettura%20di%20sistema.png)  
