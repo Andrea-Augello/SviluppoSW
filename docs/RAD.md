@@ -713,7 +713,7 @@ SelezionaPazienteControl | Gestisce le operazioni per selezionare un paziente da
 
  ---
 ##### Sequenza InvioNotifica
- ![NotificaPrenotazione](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/NotificaPrenotazione.png)
+ ![NotificaPrenotazione](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/InvioNotifica.png)
  [_Caso d'uso_](#invionotifica)
 
  ---
