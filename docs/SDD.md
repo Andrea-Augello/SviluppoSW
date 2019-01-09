@@ -19,7 +19,14 @@
 <!-- /TOC -->
 
 ## 1. Introduzione
-### 1.1 Obbiettivi di progettazione
+
+### 1.1 Obiettivi generali
+Lo scopo del sistema proposto è quello di automatizzare le attività di gestione delle prenotazioni ospedaliere per aggevolare il cittadino e il personale nell'organizzazione delle operazioni desiderate.
+
+### 1.2 Archittettura software corrente
+Come già esplicato ampliamente nel documento RAD, si suppone non esista alcun software in grado di svolgere le operazioni complesse e automatiche proposte da questo sistema, precedentemente svolte quasi manualmente dagli impiegati.
+
+### 1.3 Obiettivi di progettazione
 - Tempo di risposta:
 	 il Sistema risponderà alle richieste impartite dall'utente in tempo reale, a meno che la pagina richiesta non sia 		          particolarmente ricca di informazioni. In quest'ultimo caso potrà avvenire un ritardo di pochi secondi.
 - Facilità di utilizzo:
