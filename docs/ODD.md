@@ -34,4 +34,11 @@ Il personale amministrativo, tramite un'interfaccia simile a quella fornita al p
 Infine, l'interfaccia a disposizione del personale medico è stata realizzata in modo da facilitare la sua professione permettendo di riempire completamente da software la cartella clinica di un suo paziente.  
 
 ## 2. Packages
+
+### 2.1 CreaPrenotazione
+Questo package contiene tutte le classi relative alla gestione della creazione di una prenotazione presso la struttura ospedaliera.  
+![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/CreaPrenotazionePackage.png)
+
+
+
 ## 3. Interfacce delle classi
