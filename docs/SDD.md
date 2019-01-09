@@ -70,7 +70,7 @@ Al fine di mostrare al meglio i sottosistemi e la loro funzionalità, sono stati
 Procediamo con la descrizione dettagliata dei sottosistemi dall'alto verso il basso e, quindi, dalla parte del sistema più vicina all'utente a quella più basale ed essenziale:  
 -___UI___ >> _User Interface_, insieme di interfacce grafiche predisposte per l'interazione con l'utente.  
 -___Application Logic___ >> include tutti gli oggetti control ed entity per eseguire, così, le funzionalità di un'applicazioni eseguendo 	                       elaborazioni dettagliate.  
--___Query Manager, DataBase Interaction, Data type conversion__ >> _DataBase Interface_ , gestisce le connessioni con il DataBase, rielaborando le risposte ricevute e le Query inviate.  
+-__Query Manager, DataBase Interaction, Data type conversion__ >> _DataBase Interface_ , gestisce le connessioni con il DataBase, rielaborando le risposte ricevute e le Query inviate.  
 -___External components comunication, DBMS, MailServer___  >> gestisce i dati che sono necessari al funzionamento dell’intero sistema. Questi risiedono in un DataBase.  	  	
 	
 ### 3.3 Mappatura hardware/software
