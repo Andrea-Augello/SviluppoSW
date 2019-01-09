@@ -76,6 +76,8 @@ Procediamo con la descrizione dettagliata dei sottosistemi dall'alto verso il ba
 ### 3.3 Mappatura hardware/software
 La mappatura è stata effettuata sulla base del modello architetturale Repository, come illustrato in figura:
 
+![?](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/Mappatura.png)   
+
 Come si può intuire sopra, sono presenti due nodi fondamentali:  
 - ___UtentePC___  
 - ___Server___  
