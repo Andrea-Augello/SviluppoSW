@@ -38,4 +38,9 @@ public class Prenotazione {
 	public LocalDateTime getLimiteMassimo(){
 		return this.ricetta.getLimiteMassimo();
 	}
+	
+	public String getCodiceRicetta() {
+		return this.ricetta.getCodiceRicetta();
+	}
+
 }
