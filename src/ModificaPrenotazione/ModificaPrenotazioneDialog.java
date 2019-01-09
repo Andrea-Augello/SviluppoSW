@@ -6,20 +6,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ModificaPrenotazioneDialog {
     private Prenotazione prenotazione;
-	private JButton modificaPrenotazioneButton;
+    private ModificaPrenotazioneControl control;
+
+	private JButton spostaPrenotazioneButton;
 	private JButton annullaPrenotazioneButton;
 	private JPanel panel;
 	private JLabel id;
 	private JLabel prestazione;
 	private JLabel data;
+	private JPanel bottoni;
+	private JPanel orari;
 	private JFrame frame;
 
-	public ModificaPrenotazioneDialog(Prenotazione prenotazioneSelezionata) {
+	public ModificaPrenotazioneDialog(Prenotazione prenotazioneSelezionata, ModificaPrenotazioneControl control) {
+		this.control = control;
 		this.prenotazione = prenotazioneSelezionata;
 		frame = new JFrame("SPRINT - Modifica la prenotazione selezionata");
 		frame.setContentPane(panel);
@@ -29,31 +33,39 @@ public class ModificaPrenotazioneDialog {
 		id.setText("" + prenotazioneSelezionata.getCodicePrestazione());
 		prestazione.setText("" + prenotazioneSelezionata.getDescrizionePrestazione());
 		data.setText(prenotazioneSelezionata.getData().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")));
+		orari.setVisible(false);
 
 		frame.pack();
 		frame.setVisible(true);
 		annullaPrenotazioneButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+			    modificaPrenotazione();
+			}
+		});
+		annullaPrenotazioneButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cancellaPrenotazione();
 			}
 		});
 	}
 
     public void cancellaPrenotazione() {
-
+		control.eliminaPrenotazione();
 	}
 
 	public void modificaPrenotazione() {
-
+	    control.spostaPrenotazione();
 	}
 
 	public void confermaOrario() {
-
+		control.aggiornaPrenotazione();
 	}
 
 	public void mostraOrari() {
-
+	    bottoni.setVisible(false);
+	    orari.setVisible(true);
 	}
 
 	{
@@ -76,9 +88,9 @@ public class ModificaPrenotazioneDialog {
 		final JPanel panel1 = new JPanel();
 		panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
 		panel.add(panel1, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-		modificaPrenotazioneButton = new JButton();
-		modificaPrenotazioneButton.setText("Modifica prenotazione");
-		panel1.add(modificaPrenotazioneButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+		spostaPrenotazioneButton = new JButton();
+		spostaPrenotazioneButton.setText("Modifica prenotazione");
+		panel1.add(spostaPrenotazioneButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 		annullaPrenotazioneButton = new JButton();
 		annullaPrenotazioneButton.setText("Annulla prenotazione");
 		panel1.add(annullaPrenotazioneButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

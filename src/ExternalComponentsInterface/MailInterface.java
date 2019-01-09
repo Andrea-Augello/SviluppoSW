@@ -1,6 +1,5 @@
 package ExternalComponentsInterface;
 
-import Oggetti.PazienteEntity;
 import Oggetti.Prenotazione;
 
 public class MailInterface {
@@ -11,10 +10,6 @@ public class MailInterface {
     }
 
     private MailInterface() {
-    }
-
-    public void notificaCreazioneAccount(PazienteEntity paziente){
-        //TODO qualcosa di utile
     }
 
     public void notificaCreazionePrenotazione(Prenotazione prenotazione){

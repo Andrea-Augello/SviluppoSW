@@ -1,6 +1,7 @@
 package Autenticazione;
 
 import ExternalComponentsInterface.DatabaseInterface;
+import ExternalComponentsInterface.MailInterface;
 import Oggetti.ErroreDialog;
 import Oggetti.PazienteEntity;
 

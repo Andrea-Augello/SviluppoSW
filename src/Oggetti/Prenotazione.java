@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 
 public class Prenotazione {
 
+    private Ricetta ricetta;
+	private int id;
+
 	private LocalDateTime data;
 
 	private PazienteEntity paziente;
@@ -30,5 +33,9 @@ public class Prenotazione {
 
 	public String getDescrizionePrestazione() {
 		return descrizionePrestazione;
+	}
+
+	public LocalDateTime getLimiteMassimo(){
+		return this.ricetta.getLimiteMassimo();
 	}
 }

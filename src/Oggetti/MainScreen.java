@@ -1,14 +1,11 @@
 package Oggetti;
 
-import Autenticazione.LoginControl;
-import Autenticazione.RegistrazioneForm;
 import Autenticazione.SelezionaPazienteControl;
 import CreaPrenotazione.GeneraRicettaControl;
 import InserisciDettagliVisita.InserisciDettagliVisitaControl;
 import ModificaPrenotazione.ScegliPrenotazioneControl;
 import VisualizzaFSE.FSEControl;
 
-import javax.swing.*;
 
 public abstract class MainScreen {
 
