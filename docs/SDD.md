@@ -63,7 +63,15 @@ Inoltre dopo un'analisi costi-benefici è risultato che l'adozione di standard p
 Per il sistema è stata scelta l'architettura a Layer, in modo tale da modellare l'interfacciamento dei sottosistemi descritti di sotto. Essa comporta la suddivisione di un insieme di livelli organizzati in modo tale da fornire specifici servizi in base al loro posizionamento.
 
 ### 3.2 Scomposizione in sottosistemi
+Al fine di mostrare al meglio i sottosistemi e la loro funzionalità, sono stati utilizzati i component diagram di UML nel seguente modo:
+
 ![?](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/Architettura%20di%20sistema.png)  
+
+Procediamo con la descrizione dettagliata dei sottosistemi dall'alto verso il basso e, quindi, dalla parte del sistema più vicina all'utente a quella più basale ed essenziale:
+-UI >> ___User Interface___, insieme di interfacce grafiche predisposte per l'interazione con l'utente.
+-Application Logic >> include tutti gli oggetti control ed entity controllando, così, le funzionalità di un'applicazioni eseguendo 	                       elaborazioni dettagliate.
+-External component comunication, DBMS, MailServer  >> 	livello che gestisce i dati che sono necessari al funzionamento dell’intero sistema. Questi risiedono in un DataBase.	  	
+	
 ### 3.3 Mappatura hardware/software
 ### 3.4 Gestione dati persistenti
 #### Progetto concettuale
