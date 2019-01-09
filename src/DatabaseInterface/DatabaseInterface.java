@@ -34,8 +34,17 @@ public class DatabaseInterface {
     }
 
     public void aggiornaDettagliVisita(Prenotazione visita, String [] dettagli) {
-
-    }
+        try {
+            st = conn.prepareStatement("UPDATE `mydb`.`prenotazione_has_personalemedico` SET `Diagnosi` = ?, `Referti` = ?, `Osservazioni` = ?  WHERE (`Prenotazione_ID` = ?);");
+            st.setString(1, dettagli[0]);
+            st.setString(2, dettagli[1]);
+            st.setString(3, dettagli[2]);
+            st.setInt(4,visita.getCodicePrestazione());
+            st.execute();
+        } catch (SQLException e) {
+            new ErroreDialog(""+e);
+        }
+   }
 
     public void inserisciPaziente(PazienteEntity paziente) {
         try {
