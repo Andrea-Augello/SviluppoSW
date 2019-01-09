@@ -78,7 +78,8 @@ La mappatura è stata effettuata sulla base del modello architetturale Repositor
 
 Come si può intuire sopra, sono presenti due nodi fondamentali:  
 - ___UtentePC___  
-- ___Server___
+- ___Server___  
+
 Entrambi rappresentano dei device fisici: il primo è un qualunque personal computer adibito all'installazione del sistema proposto, il secondo il Server vero e proprio.  
   
 PersonaleAmministrativoApp, PersonaleMedicoApp e PazienteApp sono i nodi software contenenti tutte le componenti adibite alla gestione dei dati ospedalieri.  
