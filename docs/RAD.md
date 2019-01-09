@@ -583,6 +583,8 @@ __Flusso degli eventi:__
 	   informazioni relative alle sue prenotazioni.
 ```  
 __Postcondizioni:__  `Tutti i pazienti con visite in programma dopo due giorni hanno ricevuto un promemoria`  
+[_Diagramma delle sequenze_](#sequenza-invionotifica)
+
 ---
 ### 3.4.2 Modello degli oggetti
 #### Lista delle classi
@@ -710,9 +712,9 @@ SelezionaPazienteControl | Gestisce le operazioni per selezionare un paziente da
  [_Caso d'uso_](#inseriscidettagli)
 
  ---
-##### Sequenza NotificaPrenotazione
+##### Sequenza InvioNotifica
  ![NotificaPrenotazione](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/NotificaPrenotazione.png)
- [_Caso d'uso_](#notificaprenotazione)
+ [_Caso d'uso_](#invionotifica)
 
  ---
 ### 3.4.4 Interfaccia utente: navigazione e mock-up
