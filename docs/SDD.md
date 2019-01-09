@@ -60,7 +60,7 @@ Inoltre dopo un'analisi costi-benefici è risultato che l'adozione di standard p
 
 ## 3. Architettura software proposta
 ### 3.1 Overview
-Per il sistema è stata scelta l'architettura a Layer, in modo tale da modellare l'interfacciamento dei sottosistemi descritti di sotto. Essa comporta la suddivisione di un insieme di livelli organizzati in modo tale da fornire specifici servizi in base al loro posizionamento.
+Per il sistema è stata scelta l'architettura a Layer, in modo tale da modellare l'interfacciamento dei sottosistemi descritti di sotto. Essa comporta la suddivisione di un insieme di livelli organizzati in modo tale da fornire specifici servizi in base al loro posizionamento. La gerarchia dei sottosistemi, inoltre, diminuisce la complessità.
 
 ### 3.2 Scomposizione in sottosistemi
 Al fine di mostrare al meglio i sottosistemi e la loro funzionalità, sono stati utilizzati i component diagram di UML nel seguente modo:  
