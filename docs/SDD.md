@@ -76,7 +76,7 @@ Procediamo con la descrizione dettagliata dei sottosistemi dall'alto verso il ba
 ### 3.3 Mappatura hardware/software
 La mappatura è stata effettuata sulla base del modello architetturale Repository, come illustrato in figura:
 
-Come si può intuire sopra, sono presenti due nodi fondamentali:
+Come si può intuire sopra, sono presenti due nodi fondamentali:  
 - ___UtentePC___  
 - ___Server___  
 Entrambi rappresentano dei device fisici: il primo è un qualunque personal computer adibito all'installazione del sistema proposto, il secondo il Server vero e proprio.  
