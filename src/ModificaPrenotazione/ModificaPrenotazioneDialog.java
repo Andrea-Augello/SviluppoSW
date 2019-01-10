@@ -37,7 +37,7 @@ public class ModificaPrenotazioneDialog {
 
 		frame.pack();
 		frame.setVisible(true);
-		annullaPrenotazioneButton.addActionListener(new ActionListener() {
+		spostaPrenotazioneButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			    modificaPrenotazione();
