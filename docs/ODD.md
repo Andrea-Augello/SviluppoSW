@@ -95,7 +95,7 @@ Questo package raggruppa le classi che permettono a tutta l'utenza di effettuare
 - __RegistrazioneForm :__ Il form che permette di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.  
   
 ### 2.6 Entity
-Questo package raggruppa le classe entity che si occupano di gestire i dati permanenti all'interno del database.  
+Questo package raggruppa le classi entity che si occupano di gestire i dati permanenti all'interno del database.  
   
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/EntityPackage.png)  
   
