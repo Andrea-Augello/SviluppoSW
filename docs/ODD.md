@@ -9,6 +9,7 @@
 	- [2. Packages](#2-packages)
 		- [2.1 CreaPrenotazione](#21-creaprenotazione)
 		- [2.2 ModificaPrenotazione](#22-modificaprenotazione)
+		- [2.3 VisualizzaFSE](#23-visualizzafse)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 
 <!-- /TOC -->
@@ -49,7 +50,7 @@ Questo package contiene tutte le classi relative alla gestione della creazione d
 - __SceltaMedicoDialog :__ Schermata che appare nelle operazioni di prenotazione se si sceglie il regime ALPI. Permette di scegliere il medico dal quale farsi visitare.  
   
 ### 2.2 ModificaPrenotazione
-Questo package racchiude tutte le classi relative alla modifica di un'eventuale prenotazione già effettuata.
+Questo package racchiude tutte le classi relative alla modifica di un'eventuale prenotazione già effettuata.  
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/ModificaPrenotazionePackage.png)  
   
 - __ScegliPrenotazioneControl :__ Control che gestisce le operazioni per la corretta realizzazione della scelta della visita da modificare da parte dell’utente.  
@@ -58,6 +59,13 @@ Questo package racchiude tutte le classi relative alla modifica di un'eventuale 
 - __ScegliPrenotazioneDialog :__ Schermata che presenta l’elenco delle prenotazioni per visite ancora non effettuate dal paziente, da qui è possibile selezionarne una per modificarla.  
 - __ModificaPrenotazioneDialog :__ Interfaccia che permette all’utente di modificare la Prenotazione selezionata.  
 - __ConfermaDialog :__ Questa schermata, nelle operazioni di modifica di una prenotazione già effettuata, riassume le modifiche e consente di confermarle o annullarle.  
+  
+### 2.3 VisualizzaFSE
+Questo package contiene tutte le classi adibite a far visualizzare a video il fascicolo sanitario elettronico.  
+![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/VisualizzaFSEPackage.png)  
+  
+- __FSEControl :__ Control che gestisce le operazioni per l’ottenimento del Fascicolo Sanitario Elettronico da parte dell’utente.  
+- __FSEDialog :__ Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal personale.  
   
 
 
