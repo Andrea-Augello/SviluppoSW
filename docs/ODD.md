@@ -12,6 +12,7 @@
 		- [2.3 VisualizzaFSE](#23-visualizzafse)
 		- [2.4 InserisciDettagliVisita](#24-inseriscidettaglivisita)
 		- [2.5 Autenticazione](#25-autenticazione)
+		- [2.6 Entity](#26-entity)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 
 <!-- /TOC -->
@@ -82,7 +83,7 @@ Package che contiene le classi che permettono al personale medico di inserire ul
   
 ### 2.5 Autenticazione
 Questo package raggruppa le classi che permettono a tutta l'utenza di effettuare il login e/o registrarsi.  
-
+  
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/AutenticazionePackage.png)  
   
 - __LoginControl :__ Control che gestisce le operazioni di verifica della corretteza di un eventuale login da parte di un utente.  
@@ -92,6 +93,16 @@ Questo package raggruppa le classi che permettono a tutta l'utenza di effettuare
 - __PersonaleLoginForm :__ Form attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.  
 - __IndividuaPazienteForm :__ Schermata che presenta un box dove scrivere il CF del paziente che PersonaleAmministrativo vuole scegliere per continuare le operazioni desiderate.  
 - __RegistrazioneForm :__ Il form che permette di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.  
+  
+### 2.6 Entity
+Questo package raggruppa le classe entity che si occupano di gestire i dati permanenti all'interno del database.  
+  
+![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/EntityPackage.png)  
+  
+- __Prenotazione :__ Questa classe contiene i dati rilevanti della prenotazione mentre viene elaborata dal sistema.  
+- __Ricetta :__ Questa classe contiene i dati relativi alle ricetta mentre viene inserita nel DBMS.  
+- __PazienteEntity :__ All’interno del sistema i dati dei pazienti sono racchiusi in questa classe.  
+- __PersonaleEntity :__ All’interno del sistema i dati del personale sono racchiusi in questa classe.  
   
 
 
