@@ -143,32 +143,59 @@ Il nostro sistema, tenendo conto delle problematiche di quello corrente, si ripr
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
 
 ---
-##### EffettuaAutenticazione
+##### EffettuaAutenticazione  
+
+__Attori:__  _PersonaleMedico, PersonaleAmministrativo, Paziente_, DBMS  
+
+__Breve descrizione:__ Caso d'uso che permette la corretta autenticazione degli utenti che intendono utilizzare il software proposto.
 
 [_Vista dettagliata_](#effettua-autenticazione)
 
 ---
-##### CreaPrenotazione
+##### CreaPrenotazione  
  
+__Attori:__  _PersonaleMedico, PersonaleAmministrativo, Paziente_, DBMS  
+ 
+__Breve descrizione:__ Caso d'uso che permette la creazione di una prenotazione o di un ricovero.  
+
 [_Vista dettagliata_](#crea-prenotazione)
 
 ---
-##### ModificaPrenotazione
+##### ModificaPrenotazione  
+
+__Attori:__  _PersonaleAmministrativo, Paziente_, DBMS 
+
+__Breve descrizione:__ Caso d'uso che permette di modificare, ed eventualmente eliminare, una prenotazione o un ricovero.
  
 [_Vista dettagliata_](#modifica-prenotazione)
 
 ---
-##### VisualizzaFSE
+##### VisualizzaFSE  
+
+__Attori:__  _PersonaleMedico, PersonaleAmministrativo, Paziente_, DBMS 
+
+__Breve descrizione:__ Caso d'uso che permette la lettura, e l'eventuale stampa, del Fascicolo Sanitario elettronico o, in un caso specifico, dello storico visite.
  
 [_Vista dettagliata_](#visualizza-fse)
 
 ---
-##### InserisciDettagliVisita
+##### InserisciDettagliVisita  
+
+__Attori:__   _PersonaleMedico_, DBMS  
+
+__Breve descrizione:__ Caso d'uso che permette l'inserimento della diagnosi e dei relativi dettagli riguardanti una visita.
  
 [_Vista dettagliata_](#inserisci-dettagli-visita)
 
 ---
-##### NotificaPrenotazione
+##### NotificaPrenotazione  
+
+__Attori:__   _Tempo_, DBMS  
+
+__Breve descrizione:__ Caso d'uso che permette di inviare notifiche reminder agli specifici pazienti riguardo le loro prenotazioni.
+
+
+
 
 [_Vista dettagliata_](#notifica-prenotazione)
 
