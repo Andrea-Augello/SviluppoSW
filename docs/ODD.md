@@ -8,6 +8,7 @@
 		- [1.2 Linee guida della documentazione delle interfacce](#12-linee-guida-della-documentazione-delle-interfacce)
 	- [2. Packages](#2-packages)
 		- [2.1 CreaPrenotazione](#21-creaprenotazione)
+		- [2.2 ModificaPrenotazione](#22-modificaprenotazione)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 
 <!-- /TOC -->
@@ -46,6 +47,18 @@ Questo package contiene tutte le classi relative alla gestione della creazione d
 - __FormRicetta :__ Form che permette l’inserimento dei dati relativi alla ricetta.  
 - __ScegliOrarioDialog :__ Schermata attraverso la quale, durante le operazioni di prenotazione, l’utente può selezionare data e ora della visita tra quelli proposti dal sistema.  
 - __SceltaMedicoDialog :__ Schermata che appare nelle operazioni di prenotazione se si sceglie il regime ALPI. Permette di scegliere il medico dal quale farsi visitare.  
+  
+### 2.2 ModificaPrenotazione
+Questo package racchiude tutte le classi relative alla modifica di un'eventuale prenotazione già effettuata.
+![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/ModificaPrenotazionePackage.png)  
+  
+- __ScegliPrenotazioneControl :__ Control che gestisce le operazioni per la corretta realizzazione della scelta della visita da modificare da parte dell’utente.  
+- __ModificaPrenotazioneControl :__ Control che gestisce le operazioni necessarie per la modifica di una prenotazione.  
+- __ConfermaModificaControl :__ Control che gestisce le operazioni riguardanti la conferma di una modifica da effettuare.  
+- __ScegliPrenotazioneDialog :__ Schermata che presenta l’elenco delle prenotazioni per visite ancora non effettuate dal paziente, da qui è possibile selezionarne una per modificarla.  
+- __ModificaPrenotazioneDialog :__ Interfaccia che permette all’utente di modificare la Prenotazione selezionata.  
+- __ConfermaDialog :__ Questa schermata, nelle operazioni di modifica di una prenotazione già effettuata, riassume le modifiche e consente di confermarle o annullarle.  
+  
 
 
 ## 3. Interfacce delle classi
