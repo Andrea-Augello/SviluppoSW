@@ -40,6 +40,7 @@ Infine, l'interfaccia a disposizione del personale medico è stata realizzata in
 
 ### 2.1 CreaPrenotazione
 Questo package contiene tutte le classi relative alla gestione della creazione di una prenotazione presso la struttura ospedaliera.  
+   
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/CreaPrenotazionePackage.png)  
   
 - __EffettuaPrenotazioneControl :__ Control che gestisce le operazioni riguardanti la prenotazione di una nuova visita da effettuare.  
@@ -51,6 +52,7 @@ Questo package contiene tutte le classi relative alla gestione della creazione d
   
 ### 2.2 ModificaPrenotazione
 Questo package racchiude tutte le classi relative alla modifica di un'eventuale prenotazione già effettuata.  
+  
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/ModificaPrenotazionePackage.png)  
   
 - __ScegliPrenotazioneControl :__ Control che gestisce le operazioni per la corretta realizzazione della scelta della visita da modificare da parte dell’utente.  
@@ -62,6 +64,7 @@ Questo package racchiude tutte le classi relative alla modifica di un'eventuale 
   
 ### 2.3 VisualizzaFSE
 Questo package contiene tutte le classi adibite a far visualizzare a video il fascicolo sanitario elettronico.  
+  
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/VisualizzaFSEPackage.png)  
   
 - __FSEControl :__ Control che gestisce le operazioni per l’ottenimento del Fascicolo Sanitario Elettronico da parte dell’utente.  
