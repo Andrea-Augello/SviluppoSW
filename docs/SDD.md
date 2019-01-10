@@ -98,7 +98,7 @@ _Vincoli di Tupla_
 
 ### 3.5 Sicurezza e controllo degli accessi  
 
-Per poter usufruire dei servizi proposti dal sistema è necessario eseguire un Login di autenticazione. A tal proposito, ogni utente creato sarà provvisto di password e vari identificativi caratterizzanti che potranno permettergli di accedere a varie aree del sistema. Alcune di queste ultime saranno esclusive ad alcune tipologie di utente. Le informazioni necessarie per tali operazioni risiedono in un DataBase.
+Per poter usufruire dei servizi proposti dal sistema è necessario eseguire un Login di autenticazione. A tal proposito, ogni utente creato sarà provvisto di password e vari identificativi caratterizzanti che potranno permettergli di accedere a varie aree del sistema. Alcune di queste ultime saranno esclusive a determinate tipologie di utente. Le informazioni necessarie per tali operazioni risiedono in un DataBase.
 
 
 ### 3.6 Controllo globale del software
