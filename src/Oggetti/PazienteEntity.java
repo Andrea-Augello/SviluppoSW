@@ -90,4 +90,8 @@ public class PazienteEntity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+    public String toHtml() {
+		return null;
+    }
 }

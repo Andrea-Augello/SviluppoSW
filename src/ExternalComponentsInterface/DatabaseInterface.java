@@ -186,6 +186,10 @@ public class DatabaseInterface {
 
     }
 
+    public String ottieniStoricoVisite(PazienteEntity paziente, LocalDateTime now) {
+        return null;
+    }
+
     public boolean verificaDuplicati(Ricetta ricetta) {
         return false;
     }
@@ -227,5 +231,4 @@ public class DatabaseInterface {
     private List<Prenotazione> parserPrenotazioni(ResultSet queryResult) {
         return null;
     }
-
 }
