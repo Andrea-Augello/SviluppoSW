@@ -68,7 +68,7 @@ public class DatabaseInterface {
   public void inserisciPrenotazione(Prenotazione prenotazione) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("INSERT INTO Prenotazione (`ID`, `Regime`, `Limite_massimo`, `Paziente_CF`, `Prestazione_ID`, `Ricetta_Numero_ricetta`) VALUES (?, ?, ?, ?, ?, ?)\n");
+            st = conn.prepareStatement("INSERT INTO Prenotazione (`ID`, `Regime`, `Limite_massimo`, `Paziente_CF`,`FasciaOraria_Data_e_ora`,`Prestazione_ID`, `Ricetta_Numero_ricetta`) VALUES (?, ?, ?, ?, ?, ?,?)\n");
             //Set field
             st.setString(2, prenotazione.getDescrizionePrestazione());
             st.setString(3, prenotazione.getLimiteMassimo().format(DateTimeFormatter.ISO_LOCAL_DATE));

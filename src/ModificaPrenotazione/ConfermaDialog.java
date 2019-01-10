@@ -42,17 +42,13 @@ public class ConfermaDialog {
     }
 
     public void prosegui() {
-        switch (isDestroying){
-            case true:
-                DatabaseInterface.getInstance().rimuoviPrenotazione(prenotazioneSelezionata);
-                break;
-            case false:
-                DatabaseInterface.getInstance().modificaPrenotazione(prenotazioneSelezionata);
-                break;
-            default:
-                new ErroreDialog("Operazione fallita");
-                break;
+        if (isDestroying) {
+            DatabaseInterface.getInstance().rimuoviPrenotazione(prenotazioneSelezionata);
+        }else{
+            DatabaseInterface.getInstance().modificaPrenotazione(prenotazioneSelezionata);
+        }
+        new ErroreDialog("Operazione fallita");
         }
 	}
 
-}
+
