@@ -34,7 +34,7 @@ public class EffettuaPrenotazioneControl {
 
 	public void finalizzaPrenotazione(LocalDateTime slotScelto) {
 		new ErroreDialog("Funzionalità non ancora implementata");
-		//ExternalComponentsInterface.getInstance().inserisciPrenotazione( null );
+		//DatabaseInterface.getInstance().inserisciPrenotazione( null );
 	}
 
 	public void aggiungiOrario() {

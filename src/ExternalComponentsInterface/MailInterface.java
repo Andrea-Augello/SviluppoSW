@@ -20,6 +20,10 @@ public class MailInterface {
         //TODO qualcosa di utile
     }
 
+    public void notificaCancellazionePrenotazione(Prenotazione prenotazione){
+
+    }
+
     public void notificaReminderPrenotazione(Prenotazione prenotazione){
         //TODO qualcosa di utile
     }

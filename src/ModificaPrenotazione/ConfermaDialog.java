@@ -1,6 +1,7 @@
 package ModificaPrenotazione;
 
 import ExternalComponentsInterface.DatabaseInterface;
+import ExternalComponentsInterface.MailInterface;
 import Oggetti.ErroreDialog;
 import Oggetti.Prenotazione;
 
@@ -45,8 +46,10 @@ public class ConfermaDialog {
     public void prosegui() {
         if (isDestroying) {
             DatabaseInterface.getInstance().rimuoviPrenotazione(prenotazioneSelezionata);
+            MailInterface.getInstance().notificaCancellazionePrenotazione(prenotazioneSelezionata);
         } else {
             DatabaseInterface.getInstance().modificaPrenotazione(prenotazioneSelezionata);
+            MailInterface.getInstance().notificaSpostamentoPrenotazione(prenotazioneSelezionata);
         }
         new ErroreDialog("Operazione fallita");
     }
