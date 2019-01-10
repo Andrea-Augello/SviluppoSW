@@ -11,6 +11,7 @@
 		- [2.2 ModificaPrenotazione](#22-modificaprenotazione)
 		- [2.3 VisualizzaFSE](#23-visualizzafse)
 		- [2.4 InserisciDettagliVisita](#24-inseriscidettaglivisita)
+		- [2.5 Autenticazione](#25-autenticazione)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 
 <!-- /TOC -->
@@ -79,5 +80,19 @@ Package che contiene le classi che permettono al personale medico di inserire ul
 - __InserisciDettagliVisitaControl :__ Control che gestisce le operazioni per il corretto inserimento della diagnosi da parte del medico.  
 - __InserisciDettagliVisitaDialog :__ Interfaccia per l’inserimento e l’eventuale conferma della diagnosi della visita precedentemente effettuata.  
   
+### 2.5 Autenticazione
+Questo package raggruppa le classi che permettono a tutta l'utenza di effettuare il login e/o registrarsi.  
+
+![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/AutenticazionePackage.png)  
+  
+- __LoginControl :__ Control che gestisce le operazioni di verifica della corretteza di un eventuale login da parte di un utente.  
+- __RegistrazioneControl :__ Control che gestisce le operazioni necessarie per la registrazione di un nuovo paziente.  
+- __SelezionaPazienteControl :__ Control che gestisce le operazioni per selezionare un paziente da parte del PersonaleAmministrativo.  
+- __PazienteLoginForm :__ Form attraverso cui Paziente può inserire il proprio codice fiscale e proseguire le procedure di autenticazione.  
+- __PersonaleLoginForm :__ Form attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.  
+- __IndividuaPazienteForm :__ Schermata che presenta un box dove scrivere il CF del paziente che PersonaleAmministrativo vuole scegliere per continuare le operazioni desiderate.  
+- __RegistrazioneForm :__ Il form che permette di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.  
+  
+
 
 ## 3. Interfacce delle classi
