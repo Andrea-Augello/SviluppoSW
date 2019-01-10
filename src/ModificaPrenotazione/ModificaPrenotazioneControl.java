@@ -1,6 +1,10 @@
 package ModificaPrenotazione;
 
+import ExternalComponentsInterface.DatabaseInterface;
 import Oggetti.Prenotazione;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 public class ModificaPrenotazioneControl {
 	private Prenotazione prenotazioneSelezionata;
@@ -13,7 +17,8 @@ public class ModificaPrenotazioneControl {
 	}
 
 	public void spostaPrenotazione(){
-		form.mostraOrari();
+		List<LocalDateTime> orariDisponibili = DatabaseInterface.getInstance().ottieniOrari(prenotazioneSelezionata.getCodicePrestazione(), prenotazioneSelezionata.getLimiteMassimo());
+		form.mostraOrari(orariDisponibili);
 	}
 
 	public void aggiornaPrenotazione() {

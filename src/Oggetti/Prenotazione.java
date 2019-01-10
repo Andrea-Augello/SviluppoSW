@@ -29,10 +29,6 @@ public class Prenotazione {
 		return paziente;
 	}
 
-	public void setData() {
-
-	}
-
 	public LocalDateTime getData() {
 		return data;
 	}
