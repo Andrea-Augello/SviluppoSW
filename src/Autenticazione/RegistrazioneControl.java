@@ -28,6 +28,9 @@ public class RegistrazioneControl {
 		if (DatabaseInterface.getInstance().ottieniPaziente(nuovoPaziente.getCodiceFiscale()) != null){
 			return "Il codice fiscale inserito risulta già registrato nel sistema.";
 		}
+		if (nuovoPaziente.getPassword().length() < 8){
+			return "Password troppo corta";
+		}
 		if (!nuovoPaziente.getPassword().equals(form.getPasswordConfirmation())) {
 			return "Le due password inserite non coincidono.";
 		}
