@@ -7,7 +7,7 @@
 		- [1.1 Trade-off della progettazione degli oggetti](#11-trade-off-della-progettazione-degli-oggetti)
 		- [1.2 Linee guida della documentazione delle interfacce](#12-linee-guida-della-documentazione-delle-interfacce)
 	- [2. Packages](#2-packages)
-		- [2.1 CreaPrenotazione](#21-crea-prenotazione)
+		- [2.1 CreaPrenotazione](#21-creaprenotazione)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 
 <!-- /TOC -->
@@ -36,7 +36,7 @@ Infine, l'interfaccia a disposizione del personale medico è stata realizzata in
 
 ## 2. Packages
 
-### 2.1 Crea Prenotazione
+### 2.1 CreaPrenotazione
 Questo package contiene tutte le classi relative alla gestione della creazione di una prenotazione presso la struttura ospedaliera.  
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/CreaPrenotazionePackage.png)  
   
