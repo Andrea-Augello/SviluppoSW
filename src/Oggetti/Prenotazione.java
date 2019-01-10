@@ -15,6 +15,16 @@ public class Prenotazione {
 
 	private String descrizionePrestazione;
 
+	private LocalDateTime dataOraAppuntamento;
+
+	public LocalDateTime getDataOraAppuntamento() {
+		return dataOraAppuntamento;
+	}
+
+	public void setDataOraAppuntamento(LocalDateTime dataOraAppuntamento) {
+		this.dataOraAppuntamento = dataOraAppuntamento;
+	}
+
 	public PazienteEntity getPaziente() {
 		return paziente;
 	}

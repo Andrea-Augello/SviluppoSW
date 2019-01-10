@@ -73,8 +73,9 @@ public class DatabaseInterface {
             st.setString(2, prenotazione.getDescrizionePrestazione());
             st.setString(3, prenotazione.getLimiteMassimo().format(DateTimeFormatter.ISO_LOCAL_DATE));
             st.setString(4, prenotazione.getPaziente().getCodiceFiscale());
-            st.setInt(5, prenotazione.getCodicePrestazione());
-            st.setString(6,prenotazione.getCodiceRicetta());
+            st.setString(5,prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ISO_LOCAL_DATE));
+            st.setInt(6, prenotazione.getCodicePrestazione());
+            st.setString(7,prenotazione.getCodiceRicetta());
             //Execute
             st.execute();
         }catch(SQLException ex) {
