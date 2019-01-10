@@ -10,6 +10,7 @@
 		- [2.1 CreaPrenotazione](#21-creaprenotazione)
 		- [2.2 ModificaPrenotazione](#22-modificaprenotazione)
 		- [2.3 VisualizzaFSE](#23-visualizzafse)
+		- [2.4 InserisciDettagliVisita](#24-inseriscidettaglivisita)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 
 <!-- /TOC -->
@@ -70,6 +71,13 @@ Questo package contiene tutte le classi adibite a far visualizzare a video il fa
 - __FSEControl :__ Control che gestisce le operazioni per l’ottenimento del Fascicolo Sanitario Elettronico da parte dell’utente.  
 - __FSEDialog :__ Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal personale.  
   
-
+### 2.4 InserisciDettagliVisita
+Package che contiene le classi che permettono al personale medico di inserire ulteriori informazioni relative alla visita di un paziente.  
+  
+![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/InserisciDettagliVisitaPackage.png)  
+  
+- __InserisciDettagliVisitaControl :__ Control che gestisce le operazioni per il corretto inserimento della diagnosi da parte del medico.  
+- __InserisciDettagliVisitaDialog :__ Interfaccia per l’inserimento e l’eventuale conferma della diagnosi della visita precedentemente effettuata.  
+  
 
 ## 3. Interfacce delle classi
