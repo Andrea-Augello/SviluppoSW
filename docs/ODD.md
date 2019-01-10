@@ -7,6 +7,7 @@
 		- [1.1 Trade-off della progettazione degli oggetti](#11-trade-off-della-progettazione-degli-oggetti)
 		- [1.2 Linee guida della documentazione delle interfacce](#12-linee-guida-della-documentazione-delle-interfacce)
 	- [2. Packages](#2-packages)
+		- [2.1 CreaPrenotazione](#21-crea-prenotazione)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 
 <!-- /TOC -->
@@ -34,4 +35,17 @@ Il personale amministrativo, tramite un'interfaccia simile a quella fornita al p
 Infine, l'interfaccia a disposizione del personale medico è stata realizzata in modo da facilitare la sua professione permettendo di riempire completamente da software la cartella clinica di un suo paziente.  
 
 ## 2. Packages
+
+### 2.1 Crea Prenotazione
+Questo package contiene tutte le classi relative alla gestione della creazione di una prenotazione presso la struttura ospedaliera.  
+![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/CreaPrenotazionePackage.png)  
+  
+- __EffettuaPrenotazioneControl :__ Control che gestisce le operazioni riguardanti la prenotazione di una nuova visita da effettuare.  
+- __GeneraRicettaControl :__ Control che gestisce le operazioni per la memorizzazione delle informazioni relative ad una ricetta.  
+- __ScegliRegimeDialog :__ Schermata che nelle operazioni di prenotazione consente di scegliere tra regime ALPI e regime SSN.  
+- __FormRicetta :__ Form che permette l’inserimento dei dati relativi alla ricetta.  
+- __ScegliOrarioDialog :__ Schermata attraverso la quale, durante le operazioni di prenotazione, l’utente può selezionare data e ora della visita tra quelli proposti dal sistema.  
+- __SceltaMedicoDialog :__ Schermata che appare nelle operazioni di prenotazione se si sceglie il regime ALPI. Permette di scegliere il medico dal quale farsi visitare.  
+
+
 ## 3. Interfacce delle classi
