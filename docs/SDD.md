@@ -102,10 +102,10 @@ _MySQLServer_ è un'istanza contenuta dal nodo _Server_ che gestirà i contenuti
 
 _Vincoli di Tupla_
 
-- Ogni attributo delle varie classi sarà vincolato in dimensione e tipo. I vincoli sono espressi nel Progetto Logico mostrato sopra.
-- Non si potrà effettuare una prenotazione per un paziente ad un orario già previsto per altre prestazioni del medesimo.
-- Ogni indirizzo e-mail corrisponderà ad uno e un solo Paziente.
-- 
+- Ogni attributo delle varie classi sarà vincolato in dimensione e tipo. I vincoli sono espressi nel Progetto Logico mostrato sopra.  
+- Non si potrà effettuare una prenotazione per un paziente ad un orario già previsto per altre prestazioni del medesimo.  
+- Ogni indirizzo e-mail corrisponderà ad uno e un solo Paziente.  
+- Non possono essere presenti più prenotazioni per la stessa prestazioni all'interno della medesima ricetta.  
 
 ### 3.5 Sicurezza e controllo degli accessi
 ### 3.6 Controllo globale del software
