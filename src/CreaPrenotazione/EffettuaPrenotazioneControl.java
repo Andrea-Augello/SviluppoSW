@@ -32,7 +32,7 @@ public class EffettuaPrenotazioneControl {
 		sceltaOrarioForm = new ScegliOrarioDialog(this, listaOrariDisponibili );
 	}
 
-	public void finalizzaPrenotazione() {
+	public void finalizzaPrenotazione(LocalDateTime slotScelto) {
 		new ErroreDialog("Funzionalità non ancora implementata");
 		//ExternalComponentsInterface.getInstance().inserisciPrenotazione( null );
 	}
