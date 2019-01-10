@@ -95,8 +95,18 @@ _MySQLServer_ è un'istanza contenuta dal nodo _Server_ che gestirà i contenuti
 ### 3.4 Gestione dati persistenti
 #### Progetto concettuale
 ![ERD](https://andrea-augello.github.io/SviluppoSW/media/Database/erd.png)  
-![EERD](https://andrea-augello.github.io/SviluppoSW/media/Database/eerd.png)  
-#### Progetto logico
+
+#### Progetto logico  
+
+![EERD](https://andrea-augello.github.io/SviluppoSW/media/Database/eerd.png)    
+
+_Vincoli di Tupla_
+
+- Ogni attributo delle varie classi sarà vincolato in dimensione e tipo. I vincoli sono espressi nel Progetto Logico mostrato sopra.
+- Non si potrà effettuare una prenotazione per un paziente ad un orario già previsto per altre prestazioni del medesimo.
+- Ogni indirizzo e-mail corrisponderà ad uno e un solo Paziente.
+- 
+
 ### 3.5 Sicurezza e controllo degli accessi
 ### 3.6 Controllo globale del software
 ### 3.7 Condizioni di boundary
