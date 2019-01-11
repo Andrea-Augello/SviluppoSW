@@ -30,7 +30,7 @@ public class FormRicetta {
 		confermaButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				control.ottieniDati();
+			    conferma();
 			}
 		});
 		uRadioButton.addActionListener(e -> urgenza = 1);

@@ -1,8 +1,5 @@
 package InserisciDettagliVisita;
 
-import Oggetti.ErroreDialog;
-import Oggetti.Prenotazione;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class InserisciDettagliVisitaDialog {
 	private InserisciDettagliVisitaControl control;
-	private String[] dettagli = new String[3];
+	private String[] dettagli;
 	private JPanel panel;
 	private JTextArea textArea1;
 	private JTextArea textArea2;

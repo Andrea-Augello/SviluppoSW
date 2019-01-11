@@ -3,7 +3,6 @@ package Autenticazione;
 
 
 
-import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
@@ -96,8 +95,7 @@ public class RegistrazioneForm {
 
     public LocalDate getDataDiNascita() {
         Date dataInserita = Optional.ofNullable(dataDiNascita.getDate()).orElse(new Date());
-        LocalDate data = LocalDate.from(Instant.ofEpochMilli(dataInserita.getTime()).atZone(ZoneId.systemDefault()));
-        return data;
+        return LocalDate.from(Instant.ofEpochMilli(dataInserita.getTime()).atZone(ZoneId.systemDefault()));
     }
 
     /**
@@ -172,7 +170,7 @@ public class RegistrazioneForm {
         Date date = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());
         dataDiNascita.setMaxSelectableDate(date);
         dataDiNascita.setDateFormatString("dd/MM/yyyy");
-        dataDiNascita.setDate(new Date(0, 0, 0));
+        dataDiNascita.setDate(new Date());
     }
 
     public void dispose() {

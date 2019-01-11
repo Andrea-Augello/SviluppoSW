@@ -1,7 +1,5 @@
 package Oggetti;
 
-import CreaPrenotazione.GeneraRicettaControl;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

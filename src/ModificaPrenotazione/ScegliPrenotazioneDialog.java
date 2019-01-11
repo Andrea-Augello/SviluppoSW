@@ -93,7 +93,7 @@ public class ScegliPrenotazioneDialog {
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        DefaultListModel<Prenotazione> listModel = new DefaultListModel<Prenotazione>();
+        DefaultListModel<Prenotazione> listModel = new DefaultListModel<>();
         if (prenotazioni != null) {
             for (Prenotazione p : prenotazioni) {
                 listModel.addElement(p);

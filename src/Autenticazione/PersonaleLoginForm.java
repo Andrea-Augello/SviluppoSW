@@ -24,7 +24,7 @@ public class PersonaleLoginForm extends LoginForm {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                control.controllaDati();
+                conferma();
             }
         });
     }
@@ -35,8 +35,7 @@ public class PersonaleLoginForm extends LoginForm {
     }
 
     public String getUsername() {
-        final String text = textField1.getText();
-        return text;
+        return textField1.getText();
     }
 
     public String getPassword() {

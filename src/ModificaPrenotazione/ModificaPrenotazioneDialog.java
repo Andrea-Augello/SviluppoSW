@@ -75,7 +75,7 @@ public class ModificaPrenotazioneDialog {
                 DefaultListModel model = ((DefaultListModel) list1.getModel());
                 model.clear();
                 for (LocalDateTime data : orariDisponibili) {
-                    if (Timestamp.valueOf(data) == calendario.getDate()) {
+                    if (Timestamp.valueOf(data).equals(calendario.getDate())) {
                         model.addElement(data.toLocalTime());
                     }
 
@@ -138,7 +138,7 @@ public class ModificaPrenotazioneDialog {
             @Override
             public boolean isInvalid(Date date) {
                 for (LocalDateTime dataDisponibile : orariDisponibili) {
-                    if (Timestamp.valueOf(dataDisponibile) == date) {
+                    if (Timestamp.valueOf(dataDisponibile).equals(date)) {
                         return false;
                     }
                 }

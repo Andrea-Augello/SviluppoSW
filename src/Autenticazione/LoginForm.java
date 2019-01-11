@@ -4,8 +4,6 @@ import javax.swing.*;
 
 public abstract class LoginForm {
 
-    private JTextField textField1;
-    private JPasswordField passwordField1;
     protected LoginControl control;
     protected JFrame frame;
 

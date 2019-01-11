@@ -1,6 +1,5 @@
 package VisualizzaFSE;
 
-import javax.activation.MimeType;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

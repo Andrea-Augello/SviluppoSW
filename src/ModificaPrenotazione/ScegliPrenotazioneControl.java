@@ -17,6 +17,7 @@ public class ScegliPrenotazioneControl {
 	}
 
 	public void estraiPrenotazione() {
+		form.dispose();
 		new ModificaPrenotazioneControl(form.getPrenotazioneSelezionata());
 	}
 

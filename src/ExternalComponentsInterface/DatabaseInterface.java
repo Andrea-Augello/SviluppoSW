@@ -176,7 +176,7 @@ public class DatabaseInterface {
     public PersonaleEntity ottieniPersonale(String username, String password, boolean isMedico) {
         try {
             //Prepare statement
-            if(isMedico == true) {
+            if(isMedico) {
                 st = conn.prepareStatement("SELECT * FROM PersonaleMedico WHERE ID=? AND Password = ?");
             } else {
                 st = conn.prepareStatement("SELECT * FROM PersonaleAmministrativo WHERE ID=? AND Password = ?");
