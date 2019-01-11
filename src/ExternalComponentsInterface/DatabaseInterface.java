@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import java.util.ArrayList;
+
 public class DatabaseInterface {
     private Connection conn;
     private PreparedStatement st;
@@ -96,6 +98,7 @@ public class DatabaseInterface {
             //Execute
             rs=st.executeQuery();
             String[] dettagli=new String[3];
+            rs.next();
             dettagli[0]=rs.getString("Diagnosi");
             dettagli[1]=rs.getString("Referti");
             dettagli[2]=rs.getString("Osservazioni");
@@ -107,10 +110,21 @@ public class DatabaseInterface {
     }
 
     public List<String> ottieniDocumentiNecessari(int prestazione) {
-        
-
-
-
+        try {
+            //Prepare statement
+            st = conn.prepareStatement("SELECT Documentazione_Tipologia FROM Necessita WHERE Prestazione_ID=? ");
+            //Set field
+            st.setInt(1,prestazione);
+            //Execute
+            rs=st.executeQuery();
+            List<String> documenti = new ArrayList<String>();
+            while(rs.next()) {
+                documenti.add(rs.getString("Documentazione_Tipologia"));
+            }
+            return documenti;
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
