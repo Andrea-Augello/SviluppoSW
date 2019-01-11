@@ -208,6 +208,12 @@ public class DatabaseInterface {
     }
 
     public Prenotazione ottieniPrenotazione(int id) {
+        try {
+            //Prepare statement
+            
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
@@ -272,6 +278,27 @@ public class DatabaseInterface {
     }
 
     private Prenotazione parserPrenotazioni(ResultSet queryResult) {
+        try{
+            queryResult.next();
+            int id =queryResult.getInt("ID");
+            String regime=queryResult.getString("Regime");
+            LocalDate limiteMassimo=queryResult.getDate("Limite_massimo").toLocalDate();
+            String pazienteCf=queryResult.getString("Paziente_CF");
+            Date dataOraAppuntamentoDate= queryResult.getDate("FasciaOraria_Data_e_ora");
+            int prestazione=queryResult.getInt("Prestazione_ID");
+            String numeroRicetta=queryResult.getString("Ricetta_Numero_ricetta");
+
+
+        } catch(Exception ex){
+            //new ErroreDialog("Shit happened:<br/>"+ex);
+            return null;
+        }
+
         return null;
+    }
+
+    //Conversion method Date ---> LocalDateTime
+    LocalDateTime convertToLocalDateTimeViaSqlTimestamp(Date dateToConvert) {
+        return new java.sql.Timestamp(dateToConvert.getTime()).toLocalDateTime();
     }
 }
