@@ -4,7 +4,7 @@
 
 - [System Design Document](#system-design-document)
 	- [1. Introduzione](#1-introduzione)
-		- [1.1 Obbiettivi di progettazione](#12-obbiettivi-di-progettazione)
+		- [1.1 Obiettivi di progettazione](#12-obiettivi-di-progettazione)
 	- [2. Architettura software corrispondente](#2-architettura-software-corrispondente)
 	- [3. Architettura software proposta](#3-architettura-software-proposta)
 		- [3.1 Overview](#31-overview)
@@ -12,8 +12,7 @@
 		- [3.3 Mappatura hardware/software](#33-mappatura-hardwaresoftware)
 		- [3.4 Gestione dati persistenti](#34-gestione-dati-persistenti)
 		- [3.5 Sicurezza e controllo degli accessi](#35-sicurezza-e-controllo-degli-accessi)
-		- [3.6 Controllo globale del software](#36-controllo-globale-del-software)
-		- [3.7 Condizioni di boundary](#37-condizioni-di-boundary)
+		- [3.6 Condizioni di boundary](#37-condizioni-di-boundary)
 	- [4. Servizi dei sottosistemi](#4-servizi-dei-sottosistemi)
 
 <!-- /TOC -->
@@ -100,7 +99,21 @@ _Vincoli di Tupla_
 
 Per poter usufruire dei servizi proposti dal sistema è necessario eseguire un Login di autenticazione. A tal proposito, ogni utente creato sarà provvisto di password e vari identificativi caratterizzanti che potranno permettergli di accedere a varie aree del sistema. Alcune di queste ultime saranno esclusive a determinate tipologie di utente. Le informazioni necessarie per tali operazioni risiedono in un DataBase.
 
+### 3.6 Condizioni di boundary  
 
-### 3.6 Controllo globale del software
-### 3.7 Condizioni di boundary
+_Accensione_  
+Dal momento in cui il sistema verrà avviato per la prima volta, il server rimarrà attivo per tutte le ventiquattro ore giornaliere, senza mai terminare. Il client, invece, si attiverà ogni qual volta partirà il sistema da PC, inserendo successivamente le informazioni richieste.  
+
+_Spegnimento_  
+Il Server non terminerà la sua esecuzione a meno che non vi siano dei guasti. Il lato client, invece, cesserà lla sua esecuzione quando verrà chiuso il sistema da PC con successivo rilasciodi eventuali variabili temporanee.  
+
+_Fallimento_  
+Il sistema lato Server fallirà in caso di problemi hardware, attacchi esterni o mancanza di elettricità. Stessa cosa potrà dirsi per il sistema da parte client, a meno che non si usino dispositivi non cablati.  
+
+
+
+
+
+
+
 ## 4. Servizi dei sottosistemi
