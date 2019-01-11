@@ -4,7 +4,7 @@
 
 - [Object Design Document](#object-design-document)
 	- [1. Introduzione](#1-introduzione)
-		- [1.1 Trade-off della progettazione degli oggetti](#11-trade-off-della-progettazione-degli-oggetti)
+		- [1.1 Trade-off e scelte nella progettazione degli oggetti](#11-trade-off-e-scelte-nella-progettazione-degli-oggetti)
 		- [1.2 Linee guida della documentazione delle interfacce](#12-linee-guida-della-documentazione-delle-interfacce)
 	- [2. Packages](#2-packages)
 		- [2.1 CreaPrenotazione](#21-creaprenotazione)
@@ -20,7 +20,7 @@
 
 ## 1. Introduzione
 
-### 1.1 Trade-off della progettazione degli oggetti
+### 1.1 Trade-off e scelte nella progettazione degli oggetti
 - __Prestazioni vs Costi :__  
 Il sistema realizzato con un budget ristretto ha permesso la realizzazione di un prodotto creato a partire da librerie open source, minimizzando i costi ma comunque al contempo permettendo di realizzare un sistema molto soddisfacente.  
   
@@ -29,7 +29,15 @@ Le interfacce utilizzate per il software, grazie all'utilizzo di form e di un la
   
 - __Interfaccia vs Tempo di risposta :__  
 I tempi di risposta tra server e interfaccia sono molto rapidi e soddisfano a pieno le esigenze del sistema. Naturalmente all'aumentare della dimensione del Database aumentano anche i corrispettivi tempi di risposta e di ricerca nello stesso.  
-    
+   
+Per quanto riguarda la gestione e la progettazione delle interfacce grafiche sono state scelte le API di Java offerte da Oracle, tra le quali:
+- __Swing widget toolkit :__ Framework appartenente alla Java Foundation Classes (JFC), utilizzato per strutturare la maggior parte delle interfacce grafice presenti nel software.  
+- __UI Designer :__ Plugin di IntelliJIdea messo a disposizione da jetbrains. Fornisce un supporto interattivo per l'editing delle Swing UI.  
+- __JCalendar :__ Libreria di Java utilizzata per semplificare la selezione delle date tramite un calendario.  
+- __JavaMail :__ Package realizzato da Oracle che fornisce le classi necessarie per la gestione della posta elettronica in linguaggio Java. Supporta tutti i protocolli di posta elettronica tra i quali POP3 e SMTP.  
+  
+A livello di User Interface il sottosistema relativo, dato l'elevatissimo coupling, è stato smembrato e distribuito nei package della logica dell'applicazione.  
+
 ### 1.2 Linee guida della documentazione delle interfacce  
 Il sistema è multi-utente: può accedervi qualsiasi tipo di utenza, dal paziente al personale dell'ospedale (sia medico che amministrativo).
 A tutta l'utenza vengono nascosti i meccanismi interni di prenotazione e più nello specifico l'algoritmo utilizzato per spostare le varie prenotazioni.
