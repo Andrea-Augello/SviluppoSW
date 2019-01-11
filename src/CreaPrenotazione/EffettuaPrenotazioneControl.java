@@ -12,6 +12,7 @@ public class EffettuaPrenotazioneControl {
 	private ScegliOrarioDialog sceltaOrarioForm;
 	private Ricetta ricetta;
 	private PersonaleEntity medico;
+	private Prenotazione prenotazioneSpostata;
 
 	public EffettuaPrenotazioneControl(Ricetta ricetta) {
 		this.ricetta = ricetta;
@@ -41,7 +42,9 @@ public class EffettuaPrenotazioneControl {
 	}
 
 	public void aggiungiOrario() {
-		LocalDateTime orarioOttenibile = (DatabaseInterface.getInstance().ottieniPrenotazioneSpostabile(ricetta.getPrestazione(), ricetta.getLimiteMassimo()));
+		LocalDateTime orarioOttenibile;
+		prenotazioneSpostata = DatabaseInterface.getInstance().ottieniPrenotazioneSpostabile(ricetta.getPrestazione(), ricetta.getLimiteMassimo());
+		orarioOttenibile = ();
 
 		if(orarioOttenibile == null){
 			new ErroreDialog("Impossibile prenotare una visita entro i tempi previsti per il codice di urgenza immesso");

@@ -197,7 +197,7 @@ public class DatabaseInterface {
         return null;
     }
 
-    public LocalDateTime ottieniPrenotazioneSpostabile(int prestazione, LocalDateTime limiteTemporale) {
+    public Prenotazione ottieniPrenotazioneSpostabile(int prestazione, LocalDateTime limiteTemporale) {
         return null;
     }
 
