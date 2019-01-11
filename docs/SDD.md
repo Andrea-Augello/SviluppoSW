@@ -111,6 +111,9 @@ _Fallimento_
 Il sistema lato Server fallirà in caso di problemi hardware, attacchi esterni o mancanza di elettricità. Stessa cosa potrà dirsi per il sistema da parte client, a meno che non si usino dispositivi non cablati.  
 
 
+## 3.7 Flusso controllo globale  
+Quando un utente si logga e può visualizzare i propri dati vi è un accesso al __DataBase__, tramite una _Query_, che permette di controllare l'esistenza del soggetto. Dopo la conferma, l'utente potrà accedere a diverse operazioni messe a disposizione dal sistema, attivabili tramite la pressione di un bottone digitale.   
+Il controllo del flusso viene attuato principalmente da __MySQL__ che si occupa di gestire gli accessi concorrenti da parte di più utenti. Ad esempio, durante la prenotazione di una visita intramoenia, al momento della conferma del Medico e dell'orario, __MySQL__ entra in una sezione critica gestendo la concorrenza ed evitando che più utenti scelgano le stesse caratteristiche di Prenotazione. 
 
 
 
