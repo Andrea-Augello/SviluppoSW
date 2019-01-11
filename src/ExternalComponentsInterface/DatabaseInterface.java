@@ -245,32 +245,33 @@ public class DatabaseInterface {
 
     private PazienteEntity parserPaziente(ResultSet queryResult) {
         try{
-            queryResult.next();
-            String codiceFiscale=queryResult.getString("CF");
-            String password = queryResult.getString("Password");
-            String nome = queryResult.getString("Nome");
-            String cognome = queryResult.getString("Cognome");
-            LocalDate dataDiNascita = queryResult.getDate("Data_di_nascita").toLocalDate();
-            String telefono = queryResult.getString("Telefono");
-            String indirizzoEmail = queryResult.getString("Indirizzo_email");
-
-            return PazienteEntity.createInstance(codiceFiscale,nome,cognome,dataDiNascita,telefono,indirizzoEmail, password);
-
+            if (queryResult.next()) {
+                String codiceFiscale=queryResult.getString("CF");
+                String password = queryResult.getString("Password");
+                String nome = queryResult.getString("Nome");
+                String cognome = queryResult.getString("Cognome");
+                LocalDate dataDiNascita = queryResult.getDate("Data_di_nascita").toLocalDate();
+                String telefono = queryResult.getString("Telefono");
+                String indirizzoEmail = queryResult.getString("Indirizzo_email");
+                return PazienteEntity.createInstance(codiceFiscale,nome,cognome,dataDiNascita,telefono,indirizzoEmail, password);
+            } else {
+                return null;
+            }
         } catch(Exception ex){
-            //new ErroreDialog("Shit happened:<br/>"+ex);
             return null;
         }
-
-
     }
 
     private PersonaleEntity parserPersonale(ResultSet queryResult) {
         try{
-            queryResult.next();
-            int matricola =queryResult.getInt("ID");
-            String password = queryResult.getString("Password");
+            if(queryResult.next()) {
+                int matricola = queryResult.getInt("ID");
+                String password = queryResult.getString("Password");
 
-            return new PersonaleEntity(matricola,password);
+                return new PersonaleEntity(matricola, password);
+            } else {
+                return null;
+            }
         } catch(Exception ex){
             //new ErroreDialog("Shit happened:<br/>"+ex);
             return null;
@@ -279,16 +280,18 @@ public class DatabaseInterface {
 
     private Prenotazione parserPrenotazioni(ResultSet queryResult) {
         try{
-            queryResult.next();
-            int id =queryResult.getInt("ID");
-            String regime=queryResult.getString("Regime");
-            LocalDate limiteMassimo=queryResult.getDate("Limite_massimo").toLocalDate();
-            String pazienteCf=queryResult.getString("Paziente_CF");
-            Date dataOraAppuntamentoDate= queryResult.getDate("FasciaOraria_Data_e_ora");
-            int prestazione=queryResult.getInt("Prestazione_ID");
-            String numeroRicetta=queryResult.getString("Ricetta_Numero_ricetta");
+            if(queryResult.next()) {
+                int id = queryResult.getInt("ID");
+                String regime = queryResult.getString("Regime");
+                LocalDate limiteMassimo = queryResult.getDate("Limite_massimo").toLocalDate();
+                String pazienteCf = queryResult.getString("Paziente_CF");
+                Date dataOraAppuntamentoDate = queryResult.getDate("FasciaOraria_Data_e_ora");
+                int prestazione = queryResult.getInt("Prestazione_ID");
+                String numeroRicetta = queryResult.getString("Ricetta_Numero_ricetta");
 
-
+            } else {
+                return null;
+            }
         } catch(Exception ex){
             //new ErroreDialog("Shit happened:<br/>"+ex);
             return null;
@@ -298,7 +301,7 @@ public class DatabaseInterface {
     }
 
     //Conversion method Date ---> LocalDateTime
-    LocalDateTime convertToLocalDateTimeViaSqlTimestamp(Date dateToConvert) {
+    private LocalDateTime convertToLocalDateTimeViaSqlTimestamp(Date dateToConvert) {
         return new java.sql.Timestamp(dateToConvert.getTime()).toLocalDateTime();
     }
 }
