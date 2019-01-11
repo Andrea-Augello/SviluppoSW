@@ -75,7 +75,7 @@ Entrambi rappresentano dei _device_ fisici: il primo è un qualunque personal co
 _PersonaleAmministrativoApp, PersonaleMedicoApp e PazienteApp_ sono i nodi software contenenti tutte le componenti adibite alla gestione dei dati ospedalieri.  
 _PAConnessioni, PMconnessioni_ e _PConnessioni_ sono le componenti destinate a gestire la connessione con il Server.   
   
-_MySQLServer_ è un'istanza contenuta dal nodo _Server_ che gestirà i contenuti del _DataBase_. In base alle richieste dei nodi software, gestite tramite protocollo __TCP/IP__ e __JDBC__, _MySQL_ li fornirà e modificherà efficentemente.
+_MySQLServer_ è un'istanza contenuta dal nodo _Server_ che gestirà i contenuti del _DataBase_. In base alle richieste dei nodi software, gestite tramite protocollo __TCP/IP__ e __JDBC__, _MySQL_ li fornirà e modificherà efficentemente. Inoltre, si occuperà, grazie a _SPRINTserver_, di gestire le operazioni per l'invio notifiche.
  
 
 
