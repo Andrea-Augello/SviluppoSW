@@ -17,7 +17,7 @@ public class DatabaseInterface {
 
     
     
-    private static DatabaseInterface instance = new DatabaseInterface();
+    private static final DatabaseInterface instance = new DatabaseInterface();
 
     public static DatabaseInterface getInstance() {
         return instance;
