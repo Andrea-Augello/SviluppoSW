@@ -13,6 +13,7 @@
 		- [2.4 InserisciDettagliVisita](#24-inseriscidettaglivisita)
 		- [2.5 Autenticazione](#25-autenticazione)
 		- [2.6 Entity](#26-entity)
+		- [2.7 MainScreen](#27-mainscreen)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 
 <!-- /TOC -->
@@ -101,6 +102,16 @@ Questo package raggruppa le classi entity che si occupano di gestire i dati perm
 - __PazienteEntity :__ All’interno del sistema i dati dei pazienti sono racchiusi in questa classe.  
 - __PersonaleEntity :__ All’interno del sistema i dati del personale sono racchiusi in questa classe.  
   
-
+### 2.7 MainScreen
+Questo package contiene le classi responsabili del corretto funzionamento delle schermate principali del software e gestisce le finestre di errore.  
+  
+![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/MainScreenPackage.png)  
+  
+- __MainScreen :__ Schermata principale per l’avvio di varie procedure.  
+- __MainScreenPaziente :__ Schermata principale personalizzata per essere visualizzata solo dall'utente "Paziente".
+- __MainScreenAmministrativo :__ Schermata principale personalizzata per essere visualizzata solo dall'utente "Personale Amministrativo".  
+- __MainScreenMedico :__ Schermata principale personalizzata per essere visualizzata solo dall'utente "Personale Medico".  
+- __ErroreDialog :__ Mostra a video all’utente che l’operazione da lui intrapresa non è andata a buon fine.  
+  
 
 ## 3. Interfacce delle classi

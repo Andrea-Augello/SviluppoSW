@@ -12,7 +12,7 @@ public class FSEDialog {
     private String content;
     private JButton stampaButton;
     private JPanel panel;
-    private JEditorPane editorPane1;
+    private JTextArea textArea1;
 
     public FSEDialog(FSEControl control, String content) {
         this.control = control;
@@ -24,7 +24,9 @@ public class FSEDialog {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        editorPane1.setEditable(false);
+        textArea1.setEditable(false);
+        textArea1.setLineWrap(true);
+        textArea1.setWrapStyleWord(true);
 
         frame.pack();
         frame.setVisible(true);
@@ -45,7 +47,7 @@ public class FSEDialog {
     }
 
     private void createUIComponents() {
-        editorPane1 = new JEditorPane("text/html", content);
+        textArea1 = new JTextArea(content);
     }
 
     /**
@@ -61,8 +63,9 @@ public class FSEDialog {
         panel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         stampaButton.setText("Stampa");
         panel.add(stampaButton, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        editorPane1 = new JEditorPane();
-        panel.add(editorPane1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        final JScrollPane scrollPane1 = new JScrollPane();
+        panel.add(scrollPane1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        scrollPane1.setViewportView(textArea1);
     }
 
     /**
@@ -71,4 +74,5 @@ public class FSEDialog {
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
+
 }

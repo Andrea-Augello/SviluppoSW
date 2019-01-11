@@ -112,7 +112,7 @@ public class ModificaPrenotazioneDialog {
 	public void mostraOrari(List<LocalDateTime> orariDisponibili) {
 		this.orariDisponibili = orariDisponibili;
 		bottoni.setVisible(false);
-		orari.setVisible(true);//noinspection Duplicates
+		orari.setVisible(true);
 		//noinspection Duplicates
 		calendario.getDayChooser().addDateEvaluator(new IDateEvaluator() {
             @Override

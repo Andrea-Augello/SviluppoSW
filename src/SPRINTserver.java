@@ -22,7 +22,7 @@ public class SPRINTserver {
     }
 
     private static void inviaNotifiche() {
-        LocalDateTime upTo = LocalDateTime.now().plusHours(27);
+        LocalDateTime upTo = LocalDateTime.now().plusHours(25);
         LocalDateTime lastNotified;
         try
         {

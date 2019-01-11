@@ -215,6 +215,10 @@ public class DatabaseInterface {
         return null;
     }
 
+    public PersonaleEntity ottieniMedicoDisponibile(LocalDateTime slotScelto, int prestazione) {
+        return null;
+    }
+
     public boolean verificaDuplicati(Ricetta ricetta) {
         return false;
     }
