@@ -1,6 +1,7 @@
 package CreaPrenotazione;
 
 import ExternalComponentsInterface.DatabaseInterface;
+import ExternalComponentsInterface.MailInterface;
 import Oggetti.*;
 
 import java.time.LocalDateTime;
@@ -12,7 +13,7 @@ public class EffettuaPrenotazioneControl {
 	private ScegliOrarioDialog sceltaOrarioForm;
 	private Ricetta ricetta;
 	private PersonaleEntity medico;
-	private Prenotazione prenotazioneSpostata;
+	private Prenotazione prenotazioneSpostata = null;
 
 	public EffettuaPrenotazioneControl(Ricetta ricetta) {
 		this.ricetta = ricetta;
@@ -34,6 +35,12 @@ public class EffettuaPrenotazioneControl {
 	}
 
 	public void finalizzaPrenotazione(LocalDateTime slotScelto) {
+		if(prenotazioneSpostata != null){
+			LocalDateTime nuovoOrario = DatabaseInterface.getInstance().ottieniOrari(prenotazioneSpostata.getCodicePrestazione(), prenotazioneSpostata.getLimiteMassimo()).get(0);
+			prenotazioneSpostata.setDataOraAppuntamento(nuovoOrario);
+			DatabaseInterface.getInstance().modificaPrenotazione(prenotazioneSpostata);
+			MailInterface.getInstance().notificaSpostamentoPrenotazione(prenotazioneSpostata);
+		}
 	    if(medico == null){
 	    	medico = DatabaseInterface.getInstance().ottieniMedicoDisponibile(slotScelto, ricetta.getPrestazione());
 		}
@@ -42,9 +49,11 @@ public class EffettuaPrenotazioneControl {
 	}
 
 	public void aggiungiOrario() {
-		LocalDateTime orarioOttenibile;
 		prenotazioneSpostata = DatabaseInterface.getInstance().ottieniPrenotazioneSpostabile(ricetta.getPrestazione(), ricetta.getLimiteMassimo());
-		orarioOttenibile = ();
+		LocalDateTime orarioOttenibile = null;
+		if(prenotazioneSpostata != null){
+			orarioOttenibile = prenotazioneSpostata.getDataOraAppuntamento();
+		}
 
 		if(orarioOttenibile == null){
 			new ErroreDialog("Impossibile prenotare una visita entro i tempi previsti per il codice di urgenza immesso");
