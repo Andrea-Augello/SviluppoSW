@@ -35,7 +35,7 @@ public class DatabaseInterface {
 
     public void aggiornaDettagliVisita(Prenotazione visita, String [] dettagli) {
         try {
-            st = conn.prepareStatement("UPDATE `mydb`.`prenotazione_has_personalemedico` SET `Diagnosi` = ?, `Referti` = ?, `Osservazioni` = ?  WHERE (`Prenotazione_ID` = ?);");
+            st = conn.prepareStatement("UPDATE `mydb`.`Visita` SET `Diagnosi` = ?, `Referti` = ?, `Osservazioni` = ?  WHERE (`Prenotazione_ID` = ?);");
             st.setString(1, dettagli[0]);
             st.setString(2, dettagli[1]);
             st.setString(3, dettagli[2]);
@@ -88,10 +88,29 @@ public class DatabaseInterface {
     }
 
     public String [] ottieniDettagliVisita(Prenotazione prenotazione) {
+        try {
+            //Prepare statement
+            st = conn.prepareStatement("SELECT Diagnosi,Referti,Osservazioni FROM Visita WHERE ID=? ");
+            //Set field
+            st.setInt(1,prenotazione.getId());
+            //Execute
+            rs=st.executeQuery();
+            String[] dettagli=new String[3];
+            dettagli[0]=rs.getString("Diagnosi");
+            dettagli[1]=rs.getString("Referti");
+            dettagli[2]=rs.getString("Osservazioni");
+            return dettagli;
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
     public List<String> ottieniDocumentiNecessari(int prestazione) {
+        
+
+
+
         return null;
     }
 
@@ -183,7 +202,13 @@ public class DatabaseInterface {
     }
 
     public void rimuoviPrenotazione(Prenotazione prenotazione) {
-
+        try {
+            st = conn.prepareStatement("DELETE FROM Prenotazione WHERE ID=?;\n");
+            st.setInt(1, prenotazione.getId());
+            st.execute();
+        } catch (SQLException e) {
+            new ErroreDialog(""+e);
+        }
     }
 
     public String ottieniStoricoVisite(PazienteEntity paziente, LocalDateTime now) {
@@ -228,7 +253,7 @@ public class DatabaseInterface {
         }
     }
 
-    private List<Prenotazione> parserPrenotazioni(ResultSet queryResult) {
+    private Prenotazione parserPrenotazioni(ResultSet queryResult) {
         return null;
     }
 }

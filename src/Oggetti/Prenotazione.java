@@ -21,6 +21,10 @@ public class Prenotazione {
 		return dataOraAppuntamento;
 	}
 
+	public int getId() {
+		return id;
+	}
+
 	public void setDataOraAppuntamento(LocalDateTime dataOraAppuntamento) {
 		this.dataOraAppuntamento = dataOraAppuntamento;
 	}
