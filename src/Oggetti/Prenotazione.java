@@ -48,5 +48,4 @@ public class Prenotazione {
 	public String getCodiceRicetta() {
 		return this.ricetta.getCodiceRicetta();
 	}
-
 }

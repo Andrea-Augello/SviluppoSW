@@ -12,7 +12,7 @@ public class FSEDialog {
     private String content;
     private JButton stampaButton;
     private JPanel panel;
-    private JEditorPane editorPane1;
+    private JTextArea textArea1;
 
     public FSEDialog(FSEControl control, String content) {
         this.control = control;
@@ -24,7 +24,9 @@ public class FSEDialog {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        editorPane1.setEditable(false);
+        textArea1.setEditable(false);
+        textArea1.setLineWrap(true);
+        textArea1.setWrapStyleWord(true);
 
         frame.pack();
         frame.setVisible(true);
@@ -45,7 +47,7 @@ public class FSEDialog {
     }
 
     private void createUIComponents() {
-        editorPane1 = new JEditorPane("text/html", content);
+        textArea1 = new JTextArea(content);
     }
 
     /**

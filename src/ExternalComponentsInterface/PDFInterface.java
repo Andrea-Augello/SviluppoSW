@@ -1,5 +1,7 @@
 package ExternalComponentsInterface;
 
+import Oggetti.ErroreDialog;
+
 public class PDFInterface {
     private static PDFInterface instance = new PDFInterface();
 
@@ -10,7 +12,7 @@ public class PDFInterface {
     private PDFInterface() {
     }
 
-    public void stampa(String html){
-
+    public void stampa(String testo){
+        new ErroreDialog("Funzionalità di stampa non ancora implementate");
     }
 }

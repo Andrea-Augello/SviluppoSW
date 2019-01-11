@@ -91,7 +91,7 @@ public class PazienteEntity {
 		this.password = password;
 	}
 
-    public String toHtml() {
+    public String toFormatted() {
 		return null;
     }
 }
