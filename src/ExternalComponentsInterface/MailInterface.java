@@ -1,5 +1,6 @@
 package ExternalComponentsInterface;
 
+import Oggetti.ErroreDialog;
 import Oggetti.Prenotazione;
 
 public class MailInterface {
@@ -10,6 +11,7 @@ public class MailInterface {
     }
 
     private MailInterface() {
+        new ErroreDialog("Funzionalità mail non ancora abilitata");
     }
 
     public void notificaCreazionePrenotazione(Prenotazione prenotazione){

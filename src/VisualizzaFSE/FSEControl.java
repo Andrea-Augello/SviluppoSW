@@ -11,7 +11,7 @@ public class FSEControl {
 
 	public FSEControl() {
 	    content = DatabaseInterface.getInstance().ottieniStoricoVisite(PazienteEntity.getPaziente(), LocalDateTime.now());
-	    new FSEDialog(content);
+	    new FSEDialog(this, content);
 	}
 
 	public void stampa() {
