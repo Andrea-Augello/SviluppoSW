@@ -1,9 +1,7 @@
 package CreaPrenotazione;
 
 import ExternalComponentsInterface.DatabaseInterface;
-import Oggetti.ErroreDialog;
-import Oggetti.PersonaleEntity;
-import Oggetti.Ricetta;
+import Oggetti.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -13,6 +11,7 @@ public class EffettuaPrenotazioneControl {
 	private List<LocalDateTime> listaOrariDisponibili;
 	private ScegliOrarioDialog sceltaOrarioForm;
 	private Ricetta ricetta;
+	private PersonaleEntity medico;
 
 	public EffettuaPrenotazioneControl(Ricetta ricetta) {
 		this.ricetta = ricetta;
@@ -28,13 +27,17 @@ public class EffettuaPrenotazioneControl {
 	}
 
 	public void prenotaMedico(PersonaleEntity medicoScelto) {
+		medico = medicoScelto;
 		listaOrariDisponibili = DatabaseInterface.getInstance().ottieniOrari(medicoScelto);
 		sceltaOrarioForm = new ScegliOrarioDialog(this, listaOrariDisponibili );
 	}
 
 	public void finalizzaPrenotazione(LocalDateTime slotScelto) {
-		new ErroreDialog("Funzionalità non ancora implementata");
-		//DatabaseInterface.getInstance().inserisciPrenotazione( null );
+	    if(medico == null){
+	    	medico = DatabaseInterface.getInstance().ottieniMedicoDisponibile(slotScelto, ricetta.getPrestazione());
+		}
+		Prenotazione prenotazione = new Prenotazione(PazienteEntity.getPaziente(),ricetta, slotScelto, medico);
+		DatabaseInterface.getInstance().inserisciPrenotazione( prenotazione );
 	}
 
 	public void aggiungiOrario() {
