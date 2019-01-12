@@ -4,15 +4,20 @@
 
 - [System Design Document](#system-design-document)
 	- [1. Introduzione](#1-introduzione)
-		- [1.1 Obiettivi di progettazione](#12-obiettivi-di-progettazione)
+		- [1.1 Obiettivi generali](#11-obiettivi-generali)
+		- [1.2 Archittettura software corrente](#12-archittettura-software-corrente)
+		- [1.3 Obiettivi di progettazione](#13-obiettivi-di-progettazione)
 	- [2. Architettura software corrispondente](#2-architettura-software-corrispondente)
 	- [3. Architettura software proposta](#3-architettura-software-proposta)
 		- [3.1 Overview](#31-overview)
 		- [3.2 Scomposizione in sottosistemi](#32-scomposizione-in-sottosistemi)
 		- [3.3 Mappatura hardware/software](#33-mappatura-hardwaresoftware)
 		- [3.4 Gestione dati persistenti](#34-gestione-dati-persistenti)
+			- [Progetto concettuale](#progetto-concettuale)
+			- [Progetto logico](#progetto-logico)
 		- [3.5 Sicurezza e controllo degli accessi](#35-sicurezza-e-controllo-degli-accessi)
-		- [3.6 Condizioni di boundary](#37-condizioni-di-boundary)
+		- [3.6 Condizioni di boundary](#36-condizioni-di-boundary)
+	- [3.7 Flusso controllo globale](#37-flusso-controllo-globale)
 	- [4. Servizi dei sottosistemi](#4-servizi-dei-sottosistemi)
 
 <!-- /TOC -->
@@ -37,7 +42,7 @@ Come già esplicato ampliamente nel documento RAD, si suppone non esista alcun s
 - __Portabilità__: il sistema è portabile in diverse piattaforme, poichè realizzato in linguaggio Java.  
 - __Leggibilità__: le funzionalità del sistema saranno facilmente comprensibili tramite la documentazione fornita, compresa di schemi intuibili e commenti al codice stilato.  
 - __Utilità__: l'utente compierà facilmente le operazioni desiderate tramite un supporto continuo da parte del sistema.  
-	  
+
 ## 2. Architettura software corrispondente
 Poichè non è presente un sistema corrente da sostituire, si è preso in esame come riferimento il sistema descritto in [Implementing standards for the interoperability among healthcare providers in the public regionalized Healthcare Information System of the Lombardy Region, Barbarito et. al.](https://doi.org/10.1016/j.jbi.2012.01.006).  
 ![Fig. 4. System architecture for interoperability within hospital departments and its relationship with the regional information system.](https://ars.els-cdn.com/content/image/1-s2.0-S153204641200007X-gr4.jpg)  
@@ -60,7 +65,7 @@ Procediamo con la descrizione dettagliata dei sottosistemi dall'alto verso il ba
 - __Application Logic__ >> include tutti gli oggetti control ed entity per eseguire, così, le funzionalità di un'applicazioni eseguendo 	                       elaborazioni dettagliate.  
 - __Query Manager, DataBase Interaction, Data type conversion__ >> _DataBase Interface_ , gestisce le connessioni con il DataBase, rielaborando le risposte ricevute e le Query inviate.  
 - __External components comunication, DBMS, MailServer__  >> gestisce i dati che sono necessari al funzionamento dell’intero sistema. Questi risiedono in un DataBase.  	  	
-	
+
 ### 3.3 Mappatura hardware/software
 La mappatura è stata effettuata sulla base del modello architetturale Repository, come illustrato in figura:
 
@@ -71,12 +76,12 @@ Come si può intuire sopra, sono presenti due nodi fondamentali:
 - ___Server___  
 
 Entrambi rappresentano dei _device_ fisici: il primo è un qualunque personal computer adibito all'installazione del sistema proposto, il secondo il _Server_ vero e proprio.  
-  
+
 _PersonaleAmministrativoApp, PersonaleMedicoApp e PazienteApp_ sono i nodi software contenenti tutte le componenti adibite alla gestione dei dati ospedalieri.  
 _PAConnessioni, PMconnessioni_ e _PConnessioni_ sono le componenti destinate a gestire la connessione con il Server.   
-  
+
 _MySQLServer_ è un'istanza contenuta dal nodo _Server_ che gestirà i contenuti del _DataBase_. In base alle richieste dei nodi software, gestite tramite protocollo __TCP/IP__ e __JDBC__, _MySQL_ li fornirà e modificherà efficentemente. Inoltre, si occuperà, grazie a _SPRINTserver_, di gestire le operazioni per l'invio notifiche.
- 
+
 
 
 
@@ -92,7 +97,8 @@ _Vincoli di Tupla_
 
 - Ogni attributo delle varie classi sarà vincolato in dimensione e tipo. I vincoli sono espressi nel Progetto Logico mostrato sopra.  
 - Non si potrà effettuare una _Prenotazione_ per un _Paziente_ ad un orario già previsto per altre _Prestazioni_ del medesimo.  
-- Ogni indirizzo e-mail corrisponderà ad uno e un solo _Paziente_.  
+- Ogni  codice fiscale corrisponderà ad uno e un solo _Paziente_.  
+- Ogni password deve contenere almeno 8 caratteri.
 - Non possono essere presenti più _Prenotazioni_ per la stessa _Prestazione_ all'interno della medesima _Ricetta_.  
 
 ### 3.5 Sicurezza e controllo degli accessi  
@@ -113,7 +119,7 @@ Il sistema lato Server fallirà in caso di problemi hardware, attacchi esterni o
 
 ## 3.7 Flusso controllo globale  
 Quando un utente si logga, vi è un accesso al __DataBase__, tramite una _Query_, che permette di controllare l'esistenza del soggetto. Dopo la conferma, l'utente potrà accedere a diverse operazioni messe a disposizione dal sistema, attivabili tramite la pressione di un bottone digitale.   
-Il controllo del flusso viene attuato principalmente da __MySQL__ che si occupa di gestire gli accessi concorrenti da parte di più utenti. Ad esempio, durante la prenotazione di una visita intramoenia, al momento della conferma del Medico e dell'orario, __MySQL__ entra in una sezione critica gestendo la concorrenza ed evitando che più utenti scelgano le stesse caratteristiche di Prenotazione. 
+Il controllo del flusso viene attuato principalmente da __MySQL__ che si occupa di gestire gli accessi concorrenti da parte di più utenti. Ad esempio, durante la prenotazione di una visita intramoenia, al momento della conferma del Medico e dell'orario, __MySQL__ entra in una sezione critica gestendo la concorrenza ed evitando che più utenti scelgano le stesse caratteristiche di Prenotazione.
 
 
 
