@@ -15,14 +15,11 @@ public class DatabaseInterface {
     private PreparedStatement st;
     private ResultSet rs;
 
-    
-    
     private static final DatabaseInterface instance = new DatabaseInterface();
 
     public static DatabaseInterface getInstance() {
         return instance;
     }
-
 
     private DatabaseInterface(){
         try{
@@ -37,7 +34,7 @@ public class DatabaseInterface {
 
     public void aggiornaDettagliVisita(Prenotazione visita, String [] dettagli) {
         try {
-            st = conn.prepareStatement("UPDATE `mydb`.`Visita` SET `Diagnosi` = ?, `Referti` = ?, `Osservazioni` = ?  WHERE (`Prenotazione_ID` = ?);");
+            st = conn.prepareStatement("UPDATE `Visita` SET `Diagnosi` = ?, `Referti` = ?, `Osservazioni` = ?  WHERE `Prenotazione_ID` = ? ;");
             st.setString(1, dettagli[0]);
             st.setString(2, dettagli[1]);
             st.setString(3, dettagli[2]);
@@ -71,11 +68,13 @@ public class DatabaseInterface {
         try {
             //Prepare statement
             st = conn.prepareStatement("INSERT INTO Prenotazione (`ID`, `Regime`, `Limite_massimo`, `Paziente_CF`,`FasciaOraria_Data_e_ora`,`Prestazione_ID`, `Ricetta_Numero_ricetta`) VALUES (?, ?, ?, ?, ?, ?,?)\n");
+            // We first need to convert from LocalDateTime to String
+            String formattedDateTime = prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
             //Set field
             st.setString(2, prenotazione.getDescrizionePrestazione());
             st.setString(3, prenotazione.getLimiteMassimo().format(DateTimeFormatter.ISO_LOCAL_DATE));
             st.setString(4, prenotazione.getPaziente().getCodiceFiscale());
-            st.setString(5,prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ISO_LOCAL_DATE));
+            st.setString(5,formattedDateTime);
             st.setInt(6, prenotazione.getCodicePrestazione());
             st.setString(7,prenotazione.getCodiceRicetta());
             //Execute
@@ -92,7 +91,7 @@ public class DatabaseInterface {
     public String [] ottieniDettagliVisita(Prenotazione prenotazione) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("SELECT Diagnosi,Referti,Osservazioni FROM Visita WHERE ID=? ");
+            st = conn.prepareStatement("SELECT Diagnosi,Referti,Osservazioni FROM Visita WHERE Prenotazione_ID=? ");
             //Set field
             st.setInt(1,prenotazione.getId());
             //Execute
@@ -209,8 +208,14 @@ public class DatabaseInterface {
 
     public Prenotazione ottieniPrenotazione(int id) {
         try {
-            //Prepare statement
-            
+            st=conn.prepareStatement("SELECT * FROM Prenotazione,Ricetta,Medico,Paziente WHERE ");
+
+
+            /*
+            st.setInt(1,id);
+            */
+
+            rs=st.executeQuery();
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
@@ -273,7 +278,6 @@ public class DatabaseInterface {
                 return null;
             }
         } catch(Exception ex){
-            //new ErroreDialog("Shit happened:<br/>"+ex);
             return null;
         }
     }
@@ -281,27 +285,18 @@ public class DatabaseInterface {
     private Prenotazione parserPrenotazioni(ResultSet queryResult) {
         try{
             if(queryResult.next()) {
-                int id = queryResult.getInt("ID");
-                String regime = queryResult.getString("Regime");
-                LocalDate limiteMassimo = queryResult.getDate("Limite_massimo").toLocalDate();
-                String pazienteCf = queryResult.getString("Paziente_CF");
-                Date dataOraAppuntamentoDate = queryResult.getDate("FasciaOraria_Data_e_ora");
-                int prestazione = queryResult.getInt("Prestazione_ID");
-                String numeroRicetta = queryResult.getString("Ricetta_Numero_ricetta");
 
+                /*
+                return new Prenotazione( paziente,  ricetta,  slotScelto,  medico);
+                */
             } else {
                 return null;
             }
         } catch(Exception ex){
-            //new ErroreDialog("Shit happened:<br/>"+ex);
             return null;
         }
-
         return null;
     }
 
-    //Conversion method Date ---> LocalDateTime
-    private LocalDateTime convertToLocalDateTimeViaSqlTimestamp(Date dateToConvert) {
-        return new java.sql.Timestamp(dateToConvert.getTime()).toLocalDateTime();
-    }
+
 }
