@@ -16,6 +16,11 @@ public class Ricetta {
 	    setPrestazione(prestazione);
 	}
 
+	public Ricetta(String codiceRicetta, int prestazione) {
+		setCodiceRicetta(codiceRicetta);
+		setPrestazione(prestazione);
+	}
+
 	public int getUrgenza() {
 		return urgenza;
 	}
