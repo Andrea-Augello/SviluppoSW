@@ -45,6 +45,7 @@
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 				- [InserisciDettagli](#inseriscidettagli)
 			- [Notifica Prenotazione](#notifica-prenotazione)
+			- [InvioNotifica](#invionotifica)
 		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 			- [Lista delle classi](#lista-delle-classi)
 			- [Diagramma delle entity](#diagramma-delle-entity)
@@ -67,7 +68,7 @@
 				- [Sequenza StampaCartellaClinica](#sequenza-stampacartellaclinica)
 				- [Sequenza VisualizzaCartellaClinica](#sequenza-visualizzacartellaclinica)
 				- [Sequenza InserisciDettagliVisita](#sequenza-inseriscidettaglivisita)
-				- [Sequenza NotificaPrenotazione](#sequenza-notificaprenotazione)
+				- [Sequenza InvioNotifica](#sequenza-invionotifica)
 		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
 			- [Login](#login)
 			- [Schermata principale](#schermata-principale)
@@ -153,9 +154,9 @@ __Breve descrizione:__ Caso d'uso che permette la corretta autenticazione degli 
 
 ---
 ##### CreaPrenotazione  
- 
+
 __Attori:__  _PersonaleMedico, PersonaleAmministrativo, Paziente_, DBMS  
- 
+
 __Breve descrizione:__ Caso d'uso che permette la creazione di una prenotazione o di un ricovero.  
 
 [_Vista dettagliata_](#crea-prenotazione)
@@ -163,19 +164,19 @@ __Breve descrizione:__ Caso d'uso che permette la creazione di una prenotazione 
 ---
 ##### ModificaPrenotazione  
 
-__Attori:__  _PersonaleAmministrativo, Paziente_, DBMS 
+__Attori:__  _PersonaleAmministrativo, Paziente_, DBMS
 
 __Breve descrizione:__ Caso d'uso che permette di modificare, ed eventualmente eliminare, una prenotazione o un ricovero.
- 
+
 [_Vista dettagliata_](#modifica-prenotazione)
 
 ---
 ##### VisualizzaFSE  
 
-__Attori:__  _PersonaleMedico, PersonaleAmministrativo, Paziente_, DBMS 
+__Attori:__  _PersonaleMedico, PersonaleAmministrativo, Paziente_, DBMS
 
 __Breve descrizione:__ Caso d'uso che permette la lettura, e l'eventuale stampa, del Fascicolo Sanitario elettronico o, in un caso specifico, dello storico visite.
- 
+
 [_Vista dettagliata_](#visualizza-fse)
 
 ---
@@ -184,7 +185,7 @@ __Breve descrizione:__ Caso d'uso che permette la lettura, e l'eventuale stampa,
 __Attori:__   _PersonaleMedico_, DBMS  
 
 __Breve descrizione:__ Caso d'uso che permette l'inserimento della diagnosi e dei relativi dettagli riguardanti una visita.
- 
+
 [_Vista dettagliata_](#inserisci-dettagli-visita)
 
 ---
@@ -599,7 +600,7 @@ __Attori:__  _Tempo_, DBMS
 __Precondizioni:__ `È trascorsa un'ora dall'ultima volta che si è provato ad inviare le notifiche`  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando è passata un'ora dall'ultima volta che 
+1. Il caso d'uso inizia quando è passata un'ora dall'ultima volta che
    è iniziato il caso d'uso.
 	2. Il sistema chiede al DBMS l'elenco di tutti i pazienti che
 	   hanno una visita dopo l'ultima prenotazione già notificata
@@ -746,7 +747,7 @@ SelezionaPazienteControl | Gestisce le operazioni per selezionare un paziente da
 ### 3.4.4 Interfaccia utente: navigazione e mock-up
 #### Login
 ---
-Schermata di login per PersonaleMedico 
+Schermata di login per PersonaleMedico
 ![Schermata di login per PersonaleMedico](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Personale%20Medico.png)
 
 ---
@@ -758,7 +759,7 @@ Schermata di login per Paziente
 ![Schermata di login per Paziente](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Paziente.png)
 
 ---
-Schermata di errore nel login per PersonaleMedico 
+Schermata di errore nel login per PersonaleMedico
 ![Schermata di errore nel login per PersonaleMedico](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20Login/Schermata%20Login%20-%20Errore%20(PersonaleMedico).png)
 
 ---
