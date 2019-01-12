@@ -62,7 +62,7 @@ Al fine di mostrare al meglio i sottosistemi e la loro funzionalità, sono stati
 
 Procediamo con la descrizione dettagliata dei sottosistemi dall'alto verso il basso e, quindi, dalla parte del sistema più vicina all'utente a quella più basale ed essenziale:  
 - __UI__ >> _User Interface_, insieme di interfacce grafiche predisposte per l'interazione con l'utente.  
-- __Application Logic__ >> include tutti gli oggetti control ed entity per eseguire, così, le funzionalità di un'applicazioni eseguendo 	                       elaborazioni dettagliate.  
+- __Application Logic__ >> include tutti gli oggetti control ed entity per eseguire, così, le funzionalità di un'applicazione eseguendo 	                       elaborazioni dettagliate.  
 - __Query Manager, DataBase Interaction, Data type conversion__ >> _DataBase Interface_ , gestisce le connessioni con il DataBase, rielaborando le risposte ricevute e le Query inviate.  
 - __External components comunication, DBMS, MailServer__  >> gestisce i dati che sono necessari al funzionamento dell’intero sistema. Questi risiedono in un DataBase.  	  	
 
