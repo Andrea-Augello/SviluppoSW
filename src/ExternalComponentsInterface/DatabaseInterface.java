@@ -25,7 +25,7 @@ public class DatabaseInterface {
         try{
             //Connection to our local server: DO NOT TOUCH
             conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","prova");
-            //st=conn.createStatement();
+            //st=conn.createStatement ();
         }catch(SQLException ex) {
             //System.out.println("Error: " + ex);
             new ErroreDialog("Errore nella connessione, riprovare più tardi.");
@@ -285,7 +285,13 @@ public class DatabaseInterface {
     private Prenotazione parserPrenotazioni(ResultSet queryResult) {
         try{
             if(queryResult.next()) {
-
+                PazienteEntity paziente=parserPaziente(queryResult);
+                PersonaleEntity medico=parserPersonale(queryResult);
+                medico.setMedico(medico);
+                String codiceRicetta=queryResult.getString("Numero_ricetta");
+                /* TO BE FINISHED
+                int urgenza=queryResult.getInt("");
+                int prestazione
                 /*
                 return new Prenotazione( paziente,  ricetta,  slotScelto,  medico);
                 */
