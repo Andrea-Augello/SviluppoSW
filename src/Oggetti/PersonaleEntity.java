@@ -1,6 +1,6 @@
 package Oggetti;
 
-public class PersonaleEntity {
+public class PersonaleEntity implements Comparable<PersonaleEntity> {
 	private static PersonaleEntity medicoSelezionato = null;
 
 	private int matricola;
@@ -21,5 +21,10 @@ public class PersonaleEntity {
 
 	public static void setMedico(PersonaleEntity medico){
 		medicoSelezionato = medico;
+	}
+
+	@Override
+	public int compareTo(PersonaleEntity o) {
+	    return 0;
 	}
 }

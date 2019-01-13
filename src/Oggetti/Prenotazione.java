@@ -2,7 +2,7 @@ package Oggetti;
 
 import java.time.LocalDateTime;
 
-public class Prenotazione {
+public class Prenotazione  implements Comparable<Prenotazione>{
 
     private Ricetta ricetta;
 
@@ -48,10 +48,6 @@ public class Prenotazione {
 		return paziente;
 	}
 
-	public LocalDateTime getData() {
-		return dataOraAppuntamento;
-	}
-
 	public int getCodicePrestazione() {
 		return ricetta.getPrestazione();
 	}
@@ -74,5 +70,10 @@ public class Prenotazione {
 	
 	public String getCodiceRicetta() {
 		return this.ricetta.getCodiceRicetta();
+	}
+
+	@Override
+	public int compareTo(Prenotazione o) {
+		return this.getDataOraAppuntamento().compareTo(o.getDataOraAppuntamento());
 	}
 }

@@ -50,7 +50,7 @@ public class ModificaPrenotazioneDialog {
 
 		id.setText("" + prenotazioneSelezionata.getCodicePrestazione());
 		prestazione.setText("" + prenotazioneSelezionata.getDescrizionePrestazione());
-		data.setText(prenotazioneSelezionata.getData().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")));
+		data.setText(prenotazioneSelezionata.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")));
 		orari.setVisible(false);
 
 		frame.pack();

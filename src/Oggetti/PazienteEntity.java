@@ -2,7 +2,7 @@ package Oggetti;
 
 import java.time.LocalDate;
 
-public class PazienteEntity {
+public class PazienteEntity  implements Comparable<PazienteEntity>{
 	private static PazienteEntity pazienteSelezionato = null;
 
 	private String codiceFiscale;
@@ -94,4 +94,14 @@ public class PazienteEntity {
     public String toFormatted() {
 		return null;
     }
+
+	@Override
+	public int compareTo(PazienteEntity o) {
+		int compare = this.getCognome().compareTo(o.getCognome());
+		if (compare == 0){
+			return this.getNome().compareTo(o.getNome());
+		} else {
+			return compare;
+		}
+	}
 }
