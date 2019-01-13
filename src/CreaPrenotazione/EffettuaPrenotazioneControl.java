@@ -38,15 +38,19 @@ public class EffettuaPrenotazioneControl {
 		if(prenotazioneSpostata != null){
 			LocalDateTime nuovoOrario = DatabaseInterface.getInstance().ottieniOrari(prenotazioneSpostata.getCodicePrestazione(), prenotazioneSpostata.getLimiteMassimo()).get(0);
 			prenotazioneSpostata.setDataOraAppuntamento(nuovoOrario);
-			DatabaseInterface.getInstance().modificaPrenotazione(prenotazioneSpostata);
-			MailInterface.getInstance().notificaSpostamentoPrenotazione(prenotazioneSpostata);
+			boolean success = DatabaseInterface.getInstance().modificaPrenotazione(prenotazioneSpostata);
+			if(success) {
+				MailInterface.getInstance().notificaSpostamentoPrenotazione(prenotazioneSpostata);
+			}
 		}
 	    if(medico == null){
 	    	medico = DatabaseInterface.getInstance().ottieniMedicoDisponibile(slotScelto, ricetta.getPrestazione());
 		}
 		Prenotazione prenotazione = new Prenotazione(PazienteEntity.getPaziente(),ricetta, slotScelto, medico);
-		DatabaseInterface.getInstance().inserisciPrenotazione( prenotazione );
-		MailInterface.getInstance().notificaCreazionePrenotazione(prenotazione);
+		boolean success = DatabaseInterface.getInstance().inserisciPrenotazione( prenotazione );
+		if(success) {
+			MailInterface.getInstance().notificaCreazionePrenotazione(prenotazione);
+		}
 	}
 
 	public void aggiungiOrario() {

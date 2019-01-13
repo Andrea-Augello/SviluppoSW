@@ -46,7 +46,7 @@ public class ConfermaDialog {
     public void prosegui() {
         if (isDestroying) {
             boolean success = DatabaseInterface.getInstance().rimuoviPrenotazione(prenotazioneSelezionata);
-            if(success) {
+            if (success) {
                 MailInterface.getInstance().notificaCancellazionePrenotazione(prenotazioneSelezionata);
             }
         } else {
@@ -100,6 +100,7 @@ public class ConfermaDialog {
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
+
 }
 
 
