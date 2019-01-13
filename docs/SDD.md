@@ -18,7 +18,6 @@
 		- [3.5 Sicurezza e controllo degli accessi](#35-sicurezza-e-controllo-degli-accessi)
 		- [3.6 Condizioni di boundary](#36-condizioni-di-boundary)
 	- [3.7 Flusso controllo globale](#37-flusso-controllo-globale)
-	- [4. Servizi dei sottosistemi](#4-servizi-dei-sottosistemi)
 
 <!-- /TOC -->
 
@@ -70,40 +69,38 @@ Questa classe di fatto sostituirà il DBSM in tutte le interazioni con il sistem
 ![DatabaseInterface](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/DatabaseInterface.png)
 
 ### 3.3 Mappatura hardware/software
-La mappatura è stata effettuata sulla base del modello architetturale Repository, come illustrato in figura:
+Nella mappatura si è deciso di concentrare la complessità del sistema sui calcolatori degli utenti per permettere una migliore scalabilità.
 
-![?](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/Mappatura.png)   
+![Deployment_diagram](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/Mappatura.png)   
 
-Come si può intuire sopra, sono presenti due nodi fondamentali:  
-- ___UtentePC___  
+Come si evince dal precedente  diagramma di deployment, sono presenti due nodi fondamentali:  
+- ___PC utente__  
 - ___Server___  
 
-Entrambi rappresentano dei _device_ fisici: il primo è un qualunque personal computer adibito all'installazione del sistema proposto, il secondo il _Server_ vero e proprio.  
+Entrambi rappresentano dei _device_ fisici: il primo è un qualunque personal computer adibito all'installazione del sistema proposto, il secondo il _Server_ (o i server).  
 
-_PersonaleAmministrativoApp, PersonaleMedicoApp e PazienteApp_ sono i nodi software contenenti tutte le componenti adibite alla gestione dei dati ospedalieri.  
-_PAConnessioni, PMconnessioni_ e _PConnessioni_ sono le componenti destinate a gestire la connessione con il Server.   
+_SPRINT-paziente, SPRINT-medico e SPRINT-amministrativo_ sono i nodi software contenenti i layer di interfaccia utente, funzionalità e connessioni a database e mail server, questi nodi sono installabili ed utilizzabili su qualunque calcolatore in cui sia presente una Java Virtual Machine.  
 
-_MySQLServer_ è un'istanza contenuta dal nodo _Server_ che gestirà i contenuti del _DataBase_. In base alle richieste dei nodi software, gestite tramite protocollo __TCP/IP__ e __JDBC__, _MySQL_ li fornirà e modificherà efficentemente.   
-
-_SPRINTserver_, anch'esso contenuto nel _Server_, si occuperà di gestire le operazioni per l'invio notifiche.
-
+Nel nodo _Server_, oltre al nodo software adibito all'invio di notifiche promemoria (_SPRINT-server_), sono presenti anche un'istanza di _MySQL Server_, che gestirà i contenuti del _DataBase_, e di _SMTP Server_, che gestirà l'invio dei messaggi di posta elettronica in base alle richieste dei nodi software.
+Le richieste dei nodi software sono gestite tramite protocollo __TCP/IP__ e, a livello applicativo rispettivamente tramite __JDBC__ ed __SMTP__.   
 
 
 ### 3.4 Gestione dati persistenti
 #### Progetto concettuale
+Diagramma entità-relazione:  
 ![ERD](https://andrea-augello.github.io/SviluppoSW/media/Database/erd.png)  
+
+_Vincoli di Tupla_
+
+- Ogni attributo delle varie classi sarà vincolato in dimensione e tipo. I vincoli sono espressi nel successivo Progetto Logico.  
+- Non si potrà effettuare una _Prenotazione_ per un _Paziente_ ad un orario già previsto per altre _Prestazioni_ del medesimo.  
+- Ogni password dovrà contenere almeno 8 caratteri.
+- Una _Prenotazione_ può essere associata ad una _Fascia Oraria_ solo se c'è un _Medico_ che _esercita_ in quella _fascia oraria_ in grado di _erogare_ quella _prestazione_.
+- Non possono essere presenti più _Prenotazioni_ per la stessa _Prestazione_ all'interno della medesima _Ricetta_.  
 
 #### Progetto logico  
 
 ![EERD](https://andrea-augello.github.io/SviluppoSW/media/Database/eerd.png)    
-
-_Vincoli di Tupla_
-
-- Ogni attributo delle varie classi sarà vincolato in dimensione e tipo. I vincoli sono espressi nel Progetto Logico mostrato sopra.  
-- Non si potrà effettuare una _Prenotazione_ per un _Paziente_ ad un orario già previsto per altre _Prestazioni_ del medesimo.  
-- Ogni  codice fiscale corrisponderà ad uno e un solo _Paziente_.  
-- Ogni password deve contenere almeno 8 caratteri.
-- Non possono essere presenti più _Prenotazioni_ per la stessa _Prestazione_ all'interno della medesima _Ricetta_.  
 
 ### 3.5 Sicurezza e controllo degli accessi  
 
