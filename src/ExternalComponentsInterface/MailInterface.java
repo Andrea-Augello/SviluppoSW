@@ -78,12 +78,19 @@ InternetAddress.parse(destinationMail));
         return message;
     }
 
-    	
+    public String documentsToString( List<String> lista){
+	    String result="";
+	    for(String documento: lista){
+		    result+= (documento + "\n");
+	    }    
+    return result;
+    }	    
+	
     public void notificaCreazionePrenotazione(Prenotazione prenotazione){
 	try{
 		Message message = this.setMessage();
-        message.setText("Gentile utente, la informiamo che la vostra prenotazione è avvenuta con successo. La visita si terrà il "
-                    + prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) );
+        	message.setText("Gentile utente, la informiamo che la vostra prenotazione è avvenuta con successo. La visita si terrà il "
+                + prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) + ". Le sarà richiesta la seguente documentazione: " + this.documentsToString(DataBaseInterface.getInstance().ottieniDocumentiNecessari(prenotazione)));
 		//Send Message
 		Transport.send(message);
 		System.out.println("Sent messagge successfully");
@@ -96,7 +103,7 @@ InternetAddress.parse(destinationMail));
         try{
             Message message = this.setMessage();
         	message.setText("Gentile utente, è stata rilevata una modifica alla vostra prenotazione numero " + prenotazione.getId() +
-                    "\nLa visita si terrà il " + prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) );
+                    "\nLa visita si terrà il " + prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) + ". Le sarà richiesta la seguente documentazione: " + this.documentsToString(DataBaseInterface.getInstance().ottieniDocumentiNecessari(prenotazione)));
             //Send Message
             Transport.send(message);
             System.out.println("Sent messagge successfully");
@@ -108,7 +115,7 @@ InternetAddress.parse(destinationMail));
     public void notificaCancellazionePrenotazione(Prenotazione prenotazione){
 	try{
         Message message = this.setMessage();
-        message.setText("Gentile utente, la informiamo che la sua prenotazione numero " + prenotazione.getId() +" che si sarebbe tenuta il "
+        message.setText("Gentile utente, la informiamo che la sua prenotazione numero " + prenotazione.getId() +" che si sarebbe dovuta tenere il "
                 + prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) +" è stata cancellata con successo. " );
 		//Send Message
 		Transport.send(message);
@@ -122,7 +129,7 @@ InternetAddress.parse(destinationMail));
         try{
             Message message = this.setMessage();
         	message.setText("Gentile utente, le ricordiamo che la sua prenotazione numero " + prenotazione.getId() + " si terrà il " +
-                    prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) );
+                    prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM"))+ ". Le sarà richiesta la seguente documentazione: " + this.documentsToString(DataBaseInterface.getInstance().ottieniDocumentiNecessari(prenotazione)));
             //Send Message
             Transport.send(message);
             System.out.println("Sent messagge successfully");
