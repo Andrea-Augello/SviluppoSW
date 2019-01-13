@@ -92,7 +92,7 @@ Questo package raggruppa le classi che permettono a tutta l'utenza di effettuare
   
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/AutenticazionePackage.png)  
   
-- __LoginControl :__ Control che gestisce le operazioni di verifica della corretteza di un eventuale login da parte di un utente.  
+- __LoginControl :__ Control che gestisce le operazioni di verifica della correttezza di un eventuale login da parte di un utente.  
 - __RegistrazioneControl :__ Control che gestisce le operazioni necessarie per la registrazione di un nuovo paziente.  
 - __SelezionaPazienteControl :__ Control che gestisce le operazioni per selezionare un paziente da parte del PersonaleAmministrativo.  
 - __PazienteLoginForm :__ Form attraverso cui Paziente può inserire il proprio codice fiscale e proseguire le procedure di autenticazione.  
