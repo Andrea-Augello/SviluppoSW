@@ -62,7 +62,7 @@ public class DatabaseInterface {
         }
     }
 
-  public void inserisciPrenotazione(Prenotazione prenotazione) {
+  public boolean inserisciPrenotazione(Prenotazione prenotazione) {
         try {
             //Prepare statement
             st = conn.prepareStatement("INSERT INTO Prenotazione (ID,Regime,Limite_massimo,Paziente_CF,FasciaOraria_Data_e_ora,Prestazione_ID, Ricetta_Numero_ricetta) VALUES (?, ?, ?, ?, ?, ?)");
@@ -77,13 +77,23 @@ public class DatabaseInterface {
             st.setString(6,prenotazione.getCodiceRicetta());
             //Execute
             st.execute();
+
+            return true;
         }catch(SQLException ex) {
             new ErroreDialog(ex);
+
+            return false;
         }
     }
 
-    public void modificaPrenotazione(Prenotazione prenotazione) {
+    public boolean modificaPrenotazione(Prenotazione prenotazione) {
+            try{
 
+                return true;
+            }catch(SQLException ex){
+                new ErroreDialog(ex);
+                return false;
+            }
     }
 
     public String [] ottieniDettagliVisita(Prenotazione prenotazione) {
@@ -258,7 +268,7 @@ public class DatabaseInterface {
         return null;
     }
 
-    public void rimuoviPrenotazione(Prenotazione prenotazione) {
+    public boolean rimuoviPrenotazione(Prenotazione prenotazione) {
         try {
             st = conn.prepareStatement("DELETE FROM Prenotazione WHERE ID=?");
             st.setInt(1, prenotazione.getId());
@@ -266,8 +276,11 @@ public class DatabaseInterface {
             st=conn.prepareStatement("DELETE FROM Visita WHERE Prenotazione_ID=?");
             st.setInt(1, prenotazione.getId());
             st.execute();
+
+            return true;
         } catch (SQLException e) {
             new ErroreDialog(""+e);
+            return false;
         }
     }
 
