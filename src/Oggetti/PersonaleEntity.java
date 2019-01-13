@@ -7,6 +7,10 @@ public class PersonaleEntity implements Comparable<PersonaleEntity> {
 
 	private String password;
 
+	public int getMatricola() {
+		return matricola;
+	}
+
 	public PersonaleEntity(int matricola, String password) {
 		this.matricola = matricola;
 		this.password = password;
