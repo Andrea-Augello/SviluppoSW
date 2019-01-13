@@ -18,6 +18,7 @@
 		- [3.1 Package CreaPrenotazione](#31-package-creaprenotazione)
 		- [3.2 Package ModificaPrenotazione](#32-package-modificaprenotazione)
 		- [3.3 Package VisualizzaFSE](#33-package-visualizzafse)
+		- [3.4 Package InserisciDettagliVisita](#34-package-inseriscidettaglivisita)
 
 <!-- /TOC -->
 
@@ -239,3 +240,18 @@ Metodo | Descrizione
 -|-|
 FSEDialog | Costruttore della classe che prende in input la control FSE. Crea l'interfaccia adibita alla visualizzazione del fascicolo sanitario elettronico specifico di un utente. Inoltre si occupa anche della funzione di visualizzazione dello storico visite di un dato utente.
 stampaFSE | Metodo che chiama la control FSE che inizierà la procedura di stampa del fasciolo sanitario elettronico.
+
+### 3.4 Package InserisciDettagliVisita
+
+#### Classe InserisciDettagliVisitaControl
+
+Metodo | Descrizione
+-|-|
+InserisciDettagliVisita | Costruttore della classe che prende in input una prenotazione. Dopo aver acquisito i dati necessari predispone l'interfaccia per inserire i dettagli di una visita.
+aggiornaDettagli | Aggiorna correttamente i dettagli inseriti.
+
+#### Classe InserisciDettagliVisitaDialog
+Metodo | Descrizione
+-|-|
+InserisciDettagliVisitaDialog | Costruttore della classe che accetta come parametri la control InserisciDettagliVisita e la stringa contenente i dettagli. Inizializza e crea correttamente l'interfaccia dalla quale l'utente potrà inserire i dettagli relativi ad una visita negli appositi box.
+conferma | Metodo che conferma i dati inseriti e comunica alla control di aggiornarli.
