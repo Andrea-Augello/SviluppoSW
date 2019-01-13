@@ -251,6 +251,7 @@ InserisciDettagliVisita | Costruttore della classe che prende in input una preno
 aggiornaDettagli | Aggiorna correttamente i dettagli inseriti.
 
 #### Classe InserisciDettagliVisitaDialog
+
 Metodo | Descrizione
 -|-|
 InserisciDettagliVisitaDialog | Costruttore della classe che accetta come parametri la control InserisciDettagliVisita e la stringa contenente i dettagli. Inizializza e crea correttamente l'interfaccia dalla quale l'utente potrà inserire i dettagli relativi ad una visita negli appositi box.
