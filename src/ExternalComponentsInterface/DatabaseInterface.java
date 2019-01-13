@@ -67,7 +67,7 @@ public class DatabaseInterface {
             //Prepare statement
             st = conn.prepareStatement("INSERT INTO Prenotazione (ID,Regime,Limite_massimo,Paziente_CF,FasciaOraria_Data_e_ora,Prestazione_ID, Ricetta_Numero_ricetta) VALUES (?, ?, ?, ?, ?, ?)");
             // We first need to convert from LocalDateTime to String
-            String formattedDateTime = prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            String formattedDateTime = prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
             //Set field
             st.setString(1, prenotazione.getDescrizionePrestazione());
             st.setString(2, prenotazione.getLimiteMassimo().format(DateTimeFormatter.ISO_LOCAL_DATE));
@@ -160,22 +160,22 @@ public class DatabaseInterface {
         return null;
     }
 
+    //Work in progress
     public List<LocalDateTime> ottieniOrari(int prestazione, LocalDateTime limiteMassimo) {
         try {
             LocalDateTime safeTimeCondition=LocalDateTime.now().plusHours(24);
             //Prepare statement
             st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione WHERE Esercita_durante.FasciaOraria_Data_e_ora <=? AND Prestazione.ID=? AND Esercita_durante.FasciaOraria_Data_e_ora <= safeTimeCondition AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND NOT (Prenotazione.ID=Visita.Prenotazione_ID AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)");
             //Set field
-            String formattedDateTime = limiteMassimo.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            st.setString(1,formattedDateTime);
-            st.setInt(2,prestazione);
+            st.setInt(1,prestazione);
+            st.setString(2,limiteMassimo.format(DateTimeFormatter.ISO_LOCAL_DATE));
             //Execute
             rs=st.executeQuery();
-            List<LocalDateTime> times = new ArrayList<>();
+            List<>  = new ArrayList<>();
             while(rs.next()) {
-                times.add(rs.getObject("FasciaOraria_Data_e_ora", LocalDateTime.class));
+                .add((rs));
             }
-            return times;
+            return ;
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
@@ -261,9 +261,6 @@ public class DatabaseInterface {
     public void rimuoviPrenotazione(Prenotazione prenotazione) {
         try {
             st = conn.prepareStatement("DELETE FROM Prenotazione WHERE ID=?");
-            st.setInt(1, prenotazione.getId());
-            st.execute();
-            st=conn.prepareStatement("DELETE FROM Visita WHERE Prenotazione_ID=? ");
             st.setInt(1, prenotazione.getId());
             st.execute();
         } catch (SQLException e) {
