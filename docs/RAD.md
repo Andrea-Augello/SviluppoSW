@@ -76,7 +76,6 @@
 			- [Modifica di una prenotazione](#modifica-di-una-prenotazione)
 			- [Visualizzazione del fascicolo sanitario elettronico](#visualizzazione-del-fascicolo-sanitario-elettronico)
 			- [Inserimento dati sulla visita](#inserimento-dati-sulla-visita)
-	- [4. Glossario](#4-glossario)
 
 <!-- /TOC -->
 
@@ -122,21 +121,19 @@ Il nostro sistema, tenendo conto delle problematiche di quello corrente, si ripr
 - Il personale medico dovrà poter inserire i dettagli della visita effettuata
 - Il sistema dovrà offrire funzionalità di reminder agli utenti che dovranno effettuare una o più visite
 - Il sistema dovrà gestire prestazioni sanitarie in dipendenza della politica dei differenti reparti
-- Il sistema dovrà saper gestire differentemente le prenotazioni in base all'urgenza riportata nella relative ricette
+- Il sistema dovrà sempre rispettare i tempi previsti dalla legge in base al codice di urgenza di ogni prenotazione registrata.
 - Il sistema dovrà tenere informato il paziente sulla documentazione da portare all'eventuale visita
 - Il sistema dovrà saper gestire le prenotazioni in base alle scelte del personale medico, del paziente o del personale amministrativo,   modificandole se necessario, per una eventuale soluzione più efficiente
 - Il paziente e il personale amministrativo potranno modificare le prenotazioni ed eventualmente cancellarle
-- Il personale medico potrà prenotare eventuali ricoveri
 - Il sistema dovrà saper fare distinzione tra paziente, personale medico e personale amministrativo
 - Il sistema dovrà saper gestire differentemente visite intramoenia e visite con SSN
 
 ## 3.3 Requisiti non funzionali
 - Per effettuare una prenotazione sarà necessario essere provvisti di ricetta
-- Con la stessa ricetta non sarà consentito effettuare più prenotazioni per la medesima prestazione
-- Il Fascicolo Sanitario Elettronico potrà essere visionato dal paziente solo tramite pagamento di una somma di denaro
-- La prenotazione di urgenza dovrà essere erogata entro e non oltre un giorno prima della prenotazione da effettuare
-- La notifica al paziente dovrà essere effettuata a meno di 48 ore prima della prima visita prenotata ad inizio giornata
-- Il paziente avrà la possibilità di rinunciare alla visita tramite risposta alla notifica inviata dal sistema entro e non oltre 24 ore   prima della relativa prenotazione
+- Il sistema dovrà impedire di utilizzare più volte la stessa ricetta per la medesima prestazione   
+- Il Fascicolo Sanitario Elettronico potrà essere stampato dal paziente solo tramite pagamento di una somma di denaro
+- Il sistema dovrà inviare al paziente una mail di reminder almeno 24 ore prima della visita.
+- Il sistema dovrà inviare una mail di notifica al Paziente ogni volta che viene creata o modificata una prenotazione a suo nome.
 
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
@@ -868,5 +865,3 @@ Visualizzazione fasciolo sanitario (Paziente)
 #### Inserimento dati sulla visita
 
 ![Inserisci dettagli visita](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20InserisciDettagliVisita/Schermata%20Inserisci%20Dettagli%20Visita%20-%20InserisciDettagli.png)
-
-## 4. Glossario
