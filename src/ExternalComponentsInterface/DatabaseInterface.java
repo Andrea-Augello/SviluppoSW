@@ -40,6 +40,7 @@ public class DatabaseInterface {
             st.setString(3, dettagli[2]);
             st.setInt(4,visita.getCodicePrestazione());
             st.execute();
+
         } catch (SQLException e) {
             new ErroreDialog(""+e);
         }
@@ -59,12 +60,13 @@ public class DatabaseInterface {
             st.setString(7, paziente.getIndirizzoMail());
             //Execute
             st.execute();
+
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
     }
 
-  public void inserisciPrenotazione(Prenotazione prenotazione) {
+  public boolean inserisciPrenotazione(Prenotazione prenotazione) {
         try {
             //Prepare statement
             st = conn.prepareStatement("INSERT INTO Prenotazione (`ID`, `Regime`, `Limite_massimo`, `Paziente_CF`,`FasciaOraria_Data_e_ora`,`Prestazione_ID`, `Ricetta_Numero_ricetta`) VALUES (?, ?, ?, ?, ?, ?,?)\n");
@@ -79,13 +81,23 @@ public class DatabaseInterface {
             st.setString(7,prenotazione.getCodiceRicetta());
             //Execute
             st.execute();
+
+            return true;
         }catch(SQLException ex) {
             new ErroreDialog(ex);
+            return false;
         }
     }
 
-    public void modificaPrenotazione(Prenotazione prenotazione) {
+    public boolean modificaPrenotazione(Prenotazione prenotazione) {
+            try{
 
+
+                return true;
+            }catch(SQLException ex){
+                new ErroreDialog(ex);
+                return false;
+            }
     }
 
     public String [] ottieniDettagliVisita(Prenotazione prenotazione) {
@@ -226,13 +238,16 @@ public class DatabaseInterface {
         return null;
     }
 
-    public void rimuoviPrenotazione(Prenotazione prenotazione) {
+    public boolean rimuoviPrenotazione(Prenotazione prenotazione) {
         try {
             st = conn.prepareStatement("DELETE FROM Prenotazione WHERE ID=?;\n");
             st.setInt(1, prenotazione.getId());
             st.execute();
+
+            return true;
         } catch (SQLException e) {
             new ErroreDialog(""+e);
+            return false;
         }
     }
 

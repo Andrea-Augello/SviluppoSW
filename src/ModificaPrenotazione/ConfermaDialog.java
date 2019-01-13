@@ -45,11 +45,15 @@ public class ConfermaDialog {
 
     public void prosegui() {
         if (isDestroying) {
-            DatabaseInterface.getInstance().rimuoviPrenotazione(prenotazioneSelezionata);
-            MailInterface.getInstance().notificaCancellazionePrenotazione(prenotazioneSelezionata);
+            boolean success = DatabaseInterface.getInstance().rimuoviPrenotazione(prenotazioneSelezionata);
+            if(success) {
+                MailInterface.getInstance().notificaCancellazionePrenotazione(prenotazioneSelezionata);
+            }
         } else {
-            DatabaseInterface.getInstance().modificaPrenotazione(prenotazioneSelezionata);
-            MailInterface.getInstance().notificaSpostamentoPrenotazione(prenotazioneSelezionata);
+            boolean success = DatabaseInterface.getInstance().modificaPrenotazione(prenotazioneSelezionata);
+            if (success) {
+                MailInterface.getInstance().notificaSpostamentoPrenotazione(prenotazioneSelezionata);
+            }
         }
         new ErroreDialog("Operazione fallita");
     }
