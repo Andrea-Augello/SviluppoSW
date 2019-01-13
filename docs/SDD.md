@@ -108,15 +108,17 @@ Vista la natura sensibile dei dati gestiti dal sistema, per poter usufruire dei 
 ### 3.6 Condizioni di boundary  
 
 _Accensione_  
-Dal momento in cui il sistema verrà avviato per la prima volta, il server rimarrà attivo per tutte le ventiquattro ore giornaliere, senza mai terminare. Il client, invece, si attiverà ogni qual volta partirà il sistema da PC, inserendo successivamente le informazioni richieste.  
+Dal momento in cui il sistema verrà avviato per la prima volta, il server rimarrà attivo per tutte le ventiquattro ore giornaliere, senza mai terminare.  
+Il software usato degli utenti, all'avvio, richiederà sempre di effettuare l'autenticazione e mostrerà la schermata principale soltanto dopo che questa verrà completata con successo.
 
 _Spegnimento_  
-Il Server non terminerà la sua esecuzione a meno che non vi siano dei guasti. Il lato client, invece, cesserà la sua esecuzione quando verrà chiuso il sistema da PC con successivo rilascio di eventuali variabili temporanee.  
+Il Server non terminerà la sua esecuzione a meno che non vi siano dei guasti.  
+Il software usato dagli utenti, invece, cesserà la sua esecuzione quando verrà chiuso il sistema da PC con successivo rilascio di eventuali variabili temporanee.  
 
 _Fallimento_  
 Il sistema lato Server fallirà in caso di problemi hardware, attacchi esterni o mancanza di elettricità. Stessa cosa potrà dirsi per il sistema da parte client, a meno che non si usino dispositivi non cablati.  
 
 
 ## 3.7 Flusso controllo globale  
-Quando un utente si logga, vi è un accesso al __DataBase__, tramite una _Query_, che permette di controllare l'esistenza del soggetto. Dopo la conferma, l'utente potrà accedere a diverse operazioni messe a disposizione dal sistema, attivabili tramite la pressione di un bottone digitale.   
-Il controllo del flusso viene attuato principalmente da __MySQL__ che si occupa di gestire gli accessi concorrenti da parte di più utenti. Ad esempio, durante la prenotazione di una visita intramoenia, al momento della conferma del Medico e dell'orario, __MySQL__ entra in una sezione critica gestendo la concorrenza ed evitando che più utenti scelgano le stesse caratteristiche di Prenotazione.
+Quando un utente si logga, vi è un accesso al __DataBase__, tramite una _Query_, che permette di controllare l'esistenza del soggetto. Dopo la conferma, l'utente potrà accedere a diverse operazioni messe a disposizione dal sistema, accessibili tramite un'interfaccia grafica.   
+Il controllo del flusso viene attuato principalmente dal __Server MySQL__ che si occupa di gestire gli accessi concorrenti da parte di più utenti. Ad esempio, durante la prenotazione di una visita intramoenia, al momento della conferma del Medico e dell'orario, __MySQL__ entra in una sezione critica gestendo la concorrenza ed evitando che più utenti scelgano le stesse caratteristiche di Prenotazione.
