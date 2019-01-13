@@ -16,6 +16,7 @@
 		- [2.7 MainScreen](#27-mainscreen)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 		- [3.1 Package CreaPrenotazione](#31-package-creaprenotazione)
+		- [3.2 Package ModificaPrenotazione](#32-package-modificaprenotazione)
 
 <!-- /TOC -->
 
@@ -177,3 +178,47 @@ getUrgenza | Metodo getter che restituisce il tipo di urgenza di una relativa ri
 Metodo | Descrizione
 -|-|
 ScegliRegimeDialog | Costruttore della classe che riceve in input la control GeneraRicetta. Predispone e crea l'interfaccia dalla quale l'utente può scegliere il regime di prenotazione desiderato.
+  
+### 3.2 Package ModificaPrenotazione
+
+#### Classe ScegliPrenotazioneControl
+
+Metodo | Descrizione
+-|-|
+ScegliPrenotazioneControl | Costruttore della classe che acquisisce la lista delle prenotazioni effettuate da un utente.
+estraiPrenotazione | Metodo che predispone la prenotazione selezionata per eventuali altre operazioni.
+
+#### Classe ScegliPrenotazioneDialog
+
+Metodo | Descrizione
+-|-|
+ScegliPrenotazioneDialog | Costruttore della classe che riceve in input la control ScegliPrenotazione e la lista delle prenotazioni. Crea correttamente l'interfaccia dalla quale l'utente può scegliere la prenotazione da modificare.
+selezionaPrenotazione | Metodo che seleziona la prenotazione scelta e la passa alla control ScegliPrenotazione per essere gestita.
+dispose | Metodo che agisce sullo stato della finestra dell'interfaccia di scelta della prenotazione chiudendola.
+getPrenotazioneSelezionata | Metodo getter che restituisce la prenotazione selezionata dall'utente.
+
+#### Classe ModificaPrenotazioneControl
+
+Metodo | Descrizione
+-|-|
+ModificaPrenotazioneControl | Costruttore della classe che prende in input la prenotazione selezionata dall'utente. Si occupa di inizalizzare la schermata di modifica in base alla prenotazione scelta passata come parametro.
+spostaPrenotazione | Metodo che dopo aver ottenuto una lista degli orari disponibili li usa per inizializzare la schermata relativa ai nuovi orari data una prenotazione da spostare.
+aggiornaPrenotazione | Metodo che si occupa di predisporre il dialog relativo alla conferma dell'operazione che avrà esito positivo, spostando la prenotazione selezionata.
+eliminaPrenotazione | Metodo che si occupa di predisporre il dialog relativo alla conferma dell'operazione che avrà esito negativo, cancellando la prenotazione selezionata.
+
+#### Classe ModificaPrenotazioneDialog
+
+Metodo | Descrizione
+-|-|
+ModificaPrenotazioneDialog | Costruttore della classe che prende in input la control ModificaPrenotazione e la prenotazione selezionata. Crea correttamente l'interfaccia necessaria a modificare una prenotazione.
+cancellaPrenotazione | Metodo che chiama la control ModificaPrenotazione che si occuperà di cancellare la prenotazione selezionata.
+modificaPrenotazione | Metodo che chiama la control ModificaPrenotazione che si occuperà di modificare la prenotazione selezionata, spostandola.
+confermaOrario | Metodo che chiama la control ModificaPrenotazione che si occuperà di aggiornare i dati relativi alla prenotazione selezionata precedentemente.
+mostraOrari | Metodo che crea l'interfaccia relativa all'orario da selezionare da parte dell'utente in caso di modifica di una prenotazione.
+
+#### Classe ConfermaDialog
+
+Metodo | Descrizione
+-|-|
+ConfermaDialog | Costruttore della classe che prende in input una prenotazione selezionata e un flag. Crea l'interfaccia relativa al popup di conferma operazione che porterà ad un'operazione o ad un'altra a seconda del valore della flag.
+prosegui | Metodo che tramite un opportuno controllo gestisce la prenotazione nel database a seconda che sia stata cancellata o modificata. In caso di errore gestirà una schermata dove verrà notificato.
