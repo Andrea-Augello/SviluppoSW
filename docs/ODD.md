@@ -258,7 +258,7 @@ Metodo | Descrizione
 InserisciDettagliVisitaDialog | Costruttore della classe che accetta come parametri la control InserisciDettagliVisita e la stringa contenente i dettagli. Inizializza e crea correttamente l'interfaccia dalla quale l'utente potrà inserire i dettagli relativi ad una visita negli appositi box.
 conferma | Metodo che conferma i dati inseriti e comunica alla control di aggiornarli.
 
-### 3.4 Package Autenticazione
+### 3.5 Package Autenticazione
 
 #### Classe LoginControl
 
