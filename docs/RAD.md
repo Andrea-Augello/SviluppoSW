@@ -214,12 +214,13 @@ __Flusso degli eventi:__
 3. L'utente inserisce il proprio codice identificativo e la sua password
    e conferma.
 	4. Il sistema chiede al DBMS informazioni sull'utente individuato
-	   univocamente attraverso il codice che abbia password corrispondente
-	   a quella inserita.
+	   univocamente attraverso il codice che abbia password
+	   corrispondente a quella inserita.
 5. Il DBMS comunica al sistema se l'utente è presente nel database ed
    eventuali informazioni connesse.
 	6. Se l'utente non è presente nel database il sistema informa che
-       il codice inserito o la password sono errati e chiede di reinserirli.
+       il codice inserito o la password sono errati e chiede di
+	   reinserirli.
 ```  
 __Postcondizioni:__  `Il sistema è nella schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-AutenticaPersonale)
@@ -266,12 +267,12 @@ __Postcondizioni:__ `PersonaleAmministrativo si trova nella schermata principale
 ---
 ##### RegistraPaziente
 __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
-__Precondizioni:__ ` `  
+__Precondizioni:__ `Il sistema è in una schermata di login per il Paziente o di individuazione paziente`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando ,durante un'operazione di autenticazione
-   di un paziente, Paziente o PersonaleAmministrativo selezionano l'opzione
-   "Registra paziente"
+   di un paziente, Paziente o PersonaleAmministrativo selezionano la
+   opzione "Registra paziente"
 	2. Il sistema mostra un form per inserire i dati necessari
 	   all'inserimento nel sistema
 3. L'utente compila il modulo, eventualmente non riempiendo i campi
@@ -346,14 +347,13 @@ __Flusso degli eventi:__
 1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
    prenotare una visita in convenzione con il sistema sanitario nazionale.
 	2. Il sistema, tenendo conto del codice di urgenza, chiede al DBMS
-	   quali giorni e orari sono disponibili per la nuova prenotazione.  
+	   quali giorni e orari sono disponibili per la nuova prenotazione  
 3. Il DBMS comunica al sistema l'elenco degli orari disponibili.
 	4. Il sistema propone al paziente le date disponibili per
 	   effettuare la visita.
 5. Il paziente sceglie tra le opzioni proposte e conferma la scelta.
-	6. Il sistema comunica la nuova prenotazione al DBMS, e chiede
-	   al DBMS il costo della prestazione e i documenti richiesti.
-7. Il DBMS comunica le informazioni richieste.
+	6. Il sistema comunica la nuova prenotazione al DBMS.
+7. Il DBMS aggiorna i dati.
 	8. Il sistema invia una notifica di avvenuta prenotazione
 	   all'utente, riportando il costo del ticket e i documenti
 	   da portare.
@@ -364,10 +364,9 @@ __Flusso alternativo:__
    4. Il sistema cerca un orario in cui è possibile effettuare
       la vista spostandone una meno urgente e lo propone al paziente.
 5. Il paziente accetta la proposta del sistema
-	6. Il sistema comunica la nuova prenotazione al DBMS e lo spostamento
-	   della prenotazioni meno urgente, e chiede al DBMS il costo
-	   della prestazione e i documenti richiesti.
-7. Il DBMS comunica le informazioni richieste.
+	6. Il sistema comunica la nuova prenotazione al DBMS e lo
+	   spostamento della prenotazioni meno urgente.
+7. Il DBMS aggiorna i dati.
 	8. Il sistema invia una notifica di avvenuta prenotazione
 	   all'utente, riportando il costo del ticket e i documenti
 	   da portare.
@@ -398,9 +397,8 @@ __Flusso degli eventi:__
            quelli in cui il medico è disponibile.
 9. L'utente seleziona e conferma giorno e ora.	   
 	10. Il sistema comunica la nuova prenotazione al DBMS.
-	11. Il sistema chiede al DBMS i documenti richiesti per la visita.
-12. Il DBMS comunica le informazioni richieste.
-	13. Il sistema invia una notifica di avvenuta prenotazione
+11. Il DBMS aggiorna i dati.
+	12. Il sistema invia una notifica di avvenuta prenotazione
 	    all'utente, riportando i documenti
 	    da portare.
 
@@ -583,7 +581,8 @@ __Flusso degli eventi:__
         4. Il sistema mostra una schermata con box di testo modificabili
            contenenti le eventuali informazioni già presenti.
 5. PersonaleMedico modifica/aggiunge informazioni e conferma le modifiche.
-        6. Il sistema comunica al DBMS le informazioni aggiornate sulla visita.	  
+        6. Il sistema comunica al DBMS le informazioni aggiornate sulla
+		   visita.	  
 ```
 __Postcondizioni:__ `Il sistema ritorna alla schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-inseriscidettaglivisita)
