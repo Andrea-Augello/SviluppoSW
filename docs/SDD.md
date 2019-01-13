@@ -61,10 +61,13 @@ Al fine di mostrare al meglio i sottosistemi e la loro funzionalità, sono stati
 Procediamo con la descrizione dettagliata dei sottosistemi dall'alto verso il basso e, quindi, dalla parte del sistema più vicina all'utente a quella più basale ed essenziale:  
 - __User Interface__ >> Insieme di interfacce grafiche predisposte per permettere all'utente di interagire con il sistema.  
 - __Funzionalità__ >>  Vista la complessità questo sottosistema è stato a sua volta scomposto in sottosistemi a basso coupling, ognuno di questi gestisce la logica di funzionamento di uno dei casi d'uso di alto livello individuati in fase di analisi dei requisiti.  
-- __Recupero e modifica delle informazioni__ >> Gestisce le connessioni con il DataBase, si occupa anche della conversione tra il formato in cui i dati sono rappresentati nel database e le entity nel sistema.  
 - __Invio notifiche__  >>  Gestisce la connessione con il server mail, si occupa anche di ottenere le informazioni necessarie a generare i messaggi da inviare tramite posta elettronica ai pazienti.
+- __Recupero e modifica delle informazioni__ >> Gestisce le connessioni con il DataBase, si occupa anche della conversione tra il formato in cui i dati sono rappresentati nel database e le entity nel sistema.  
 
 
+In fase di progettazione si è deciso di creare una nuova classe appartenente al sottosistema "Recupero e modifica delle informazioni" alla quale assegnare le operazioni che, nei diagrammi delle sequenza in analisi dei requisiti, risultavano essere messaggi mandati al DBSM.  
+Questa classe di fatto sostituirà il DBSM in tutte le interazioni con il sistema, per completezza si riporta la classe insieme ai suoi metodi.  
+![DatabaseInterface](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/DatabaseInterface.png)
 
 ### 3.3 Mappatura hardware/software
 La mappatura è stata effettuata sulla base del modello architetturale Repository, come illustrato in figura:
