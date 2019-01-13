@@ -74,7 +74,7 @@ Nella mappatura si è deciso di concentrare la complessità del sistema sui calc
 ![Deployment_diagram](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/Mappatura.png)   
 
 Come si evince dal precedente  diagramma di deployment, sono presenti due nodi fondamentali:  
-- ___PC utente__  
+- ___PC utente___  
 - ___Server___  
 
 Entrambi rappresentano dei _device_ fisici: il primo è un qualunque personal computer adibito all'installazione del sistema proposto, il secondo il _Server_ (o i server).  
