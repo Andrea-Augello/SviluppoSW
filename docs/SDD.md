@@ -64,6 +64,8 @@ Procediamo con la descrizione dettagliata dei sottosistemi dall'alto verso il ba
 - __Recupero e modifica delle informazioni__ >> Gestisce le connessioni con il DataBase, si occupa anche della conversione tra il formato in cui i dati sono rappresentati nel database e le entity nel sistema.  
 - __Invio notifiche__  >>  Gestisce la connessione con il server mail, si occupa anche di ottenere le informazioni necessarie a generare i messaggi da inviare tramite posta elettronica ai pazienti.
 
+
+
 ### 3.3 Mappatura hardware/software
 La mappatura è stata effettuata sulla base del modello architetturale Repository, come illustrato in figura:
 
