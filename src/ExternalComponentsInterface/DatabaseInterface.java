@@ -25,16 +25,14 @@ public class DatabaseInterface {
         try{
             //Connection to our local server: DO NOT TOUCH
             conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","prova");
-            //st=conn.createStatement ();
         }catch(SQLException ex) {
-            //System.out.println("Error: " + ex);
             new ErroreDialog("Errore nella connessione, riprovare più tardi.");
         }
     }
 
     public void aggiornaDettagliVisita(Prenotazione visita, String [] dettagli) {
         try {
-            st = conn.prepareStatement("UPDATE `Visita` SET `Diagnosi` = ?, `Referti` = ?, `Osservazioni` = ?  WHERE `Prenotazione_ID` = ? ;");
+            st = conn.prepareStatement("UPDATE Visita SET Diagnosi = ?, Referti = ?, Osservazioni = ?  WHERE Prenotazione_ID = ?");
             st.setString(1, dettagli[0]);
             st.setString(2, dettagli[1]);
             st.setString(3, dettagli[2]);
@@ -48,7 +46,7 @@ public class DatabaseInterface {
     public void inserisciPaziente(PazienteEntity paziente) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("INSERT INTO Paziente (`CF`, `Password`, `Nome`, `Cognome`, `Data_di_nascita`, `Telefono`, `Indirizzo_email`) VALUES (?, ?, ?, ?, ?, ?, ?)\n");
+            st = conn.prepareStatement("INSERT INTO Paziente (CF,Password,Nome,Cognome,Data_di_nascita,Telefono,Indirizzo_email) VALUES (?, ?, ?, ?, ?, ?, ?)");
             //Set field
             st.setString(1, paziente.getCodiceFiscale());
             st.setString(2, paziente.getPassword());
@@ -67,16 +65,16 @@ public class DatabaseInterface {
   public void inserisciPrenotazione(Prenotazione prenotazione) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("INSERT INTO Prenotazione (`ID`, `Regime`, `Limite_massimo`, `Paziente_CF`,`FasciaOraria_Data_e_ora`,`Prestazione_ID`, `Ricetta_Numero_ricetta`) VALUES (?, ?, ?, ?, ?, ?,?)\n");
+            st = conn.prepareStatement("INSERT INTO Prenotazione (ID,Regime,Limite_massimo,Paziente_CF,FasciaOraria_Data_e_ora,Prestazione_ID, Ricetta_Numero_ricetta) VALUES (?, ?, ?, ?, ?, ?)");
             // We first need to convert from LocalDateTime to String
             String formattedDateTime = prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
             //Set field
-            st.setString(2, prenotazione.getDescrizionePrestazione());
-            st.setString(3, prenotazione.getLimiteMassimo().format(DateTimeFormatter.ISO_LOCAL_DATE));
-            st.setString(4, prenotazione.getPaziente().getCodiceFiscale());
-            st.setString(5,formattedDateTime);
-            st.setInt(6, prenotazione.getCodicePrestazione());
-            st.setString(7,prenotazione.getCodiceRicetta());
+            st.setString(1, prenotazione.getDescrizionePrestazione());
+            st.setString(2, prenotazione.getLimiteMassimo().format(DateTimeFormatter.ISO_LOCAL_DATE));
+            st.setString(3, prenotazione.getPaziente().getCodiceFiscale());
+            st.setString(4,formattedDateTime);
+            st.setInt(5, prenotazione.getCodicePrestazione());
+            st.setString(6,prenotazione.getCodiceRicetta());
             //Execute
             st.execute();
         }catch(SQLException ex) {
@@ -91,7 +89,7 @@ public class DatabaseInterface {
     public String [] ottieniDettagliVisita(Prenotazione prenotazione) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("SELECT Diagnosi,Referti,Osservazioni FROM Visita WHERE Prenotazione_ID=? ");
+            st = conn.prepareStatement("SELECT Diagnosi,Referti,Osservazioni FROM Visita WHERE Prenotazione_ID=?");
             //Set field
             st.setInt(1,prenotazione.getId());
             //Execute
@@ -111,7 +109,7 @@ public class DatabaseInterface {
     public List<String> ottieniDocumentiNecessari(int prestazione) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("SELECT Documentazione_Tipologia FROM Necessita WHERE Prestazione_ID=? ");
+            st = conn.prepareStatement("SELECT Documentazione_Tipologia FROM Necessita WHERE Prestazione_ID=?");
             //Set field
             st.setInt(1,prestazione);
             //Execute
@@ -144,21 +142,55 @@ public class DatabaseInterface {
     }
 
     public List<PersonaleEntity> ottieniListaMedici(int prestazione) {
+        try {
+            //Prepare statement
+            st = conn.prepareStatement("SELECT * FROM PersonaleMedico,Eroga,Prestazione WHERE PersonaleMedico.ID=Eroga.PersonaleMedico_ID AND Eroga.Prestazione_ID=Prestazione.ID AND Prestazione.ID=?");
+            //Set field
+            st.setInt(1,prestazione);
+            //Execute
+            rs=st.executeQuery();
+            List<PersonaleEntity> personaleEntities = new ArrayList<>();
+            while(rs.next()) {
+                personaleEntities.add(parserPersonale(rs));
+            }
+            return personaleEntities;
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
+    //Work in progress
     public List<LocalDateTime> ottieniOrari(int prestazione, LocalDateTime limiteMassimo) {
+        try {
+            LocalDateTime safeTimeCondition=LocalDateTime.now().plusHours(24);
+            //Prepare statement
+            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione WHERE Esercita_durante.FasciaOraria_Data_e_ora <=? AND Prestazione.ID=? AND Esercita_durante.FasciaOraria_Data_e_ora <= safeTimeCondition AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND NOT (Prenotazione.ID=Visita.Prenotazione_ID AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)");
+            //Set field
+            st.setInt(1,prestazione);
+            st.setString(2,limiteMassimo.format(DateTimeFormatter.ISO_LOCAL_DATE));
+            //Execute
+            rs=st.executeQuery();
+            List<>  = new ArrayList<>();
+            while(rs.next()) {
+                .add((rs));
+            }
+            return ;
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
     public List<LocalDateTime> ottieniOrari(PersonaleEntity medico) {
+
         return null;
     }
 
     public PazienteEntity ottieniPaziente(String cf) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("SELECT * FROM Paziente WHERE CF=? ");
+            st = conn.prepareStatement("SELECT * FROM Paziente WHERE CF=?");
             //Set field
             st.setString(1, cf);
             //Execute
@@ -228,7 +260,7 @@ public class DatabaseInterface {
 
     public void rimuoviPrenotazione(Prenotazione prenotazione) {
         try {
-            st = conn.prepareStatement("DELETE FROM Prenotazione WHERE ID=?;\n");
+            st = conn.prepareStatement("DELETE FROM Prenotazione WHERE ID=?");
             st.setInt(1, prenotazione.getId());
             st.execute();
         } catch (SQLException e) {
