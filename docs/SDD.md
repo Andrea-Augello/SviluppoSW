@@ -35,11 +35,11 @@ Come già esplicato ampliamente in fase di analisi dei requisiti, si suppone che
 - __Facilità di utilizzo__: l'utente effettuerà le proprie prenotazioni o modifiche di queste ultime nel minor numero possibile di passaggi.  
 - __Memoria__: Database escluso il sistema deve occupare uno spazio su disco inferiore ai 100 MB.  
 - __Estendibilità__: il sistema potrà essere esteso e modificato in futuro, secondo le nuove esigenze richieste, agendo sul codice.  
-- __Affidabilità__: i risultati prodotti dalle pagine rispecchieranno istante per istante la situazione ospedaliera, in modo da permettere ai vari utenti di non incorrere ad errori di sistema e di organizzazione.  
+- __Affidabilità__: i risultati prodotti dalle pagine rispecchieranno istante per istante la situazione ospedaliera, in modo da permettere ai vari utenti di non incorrere in errori di sistema e di organizzazione.  
 - __Robustezza__: il sistema tramite dei controlli deve impedire l'inserimento da parte degli utenti di input non validi.  
 - __Disponibilità__: il sistema sarà disponibile ogni qual volta l'utente voglia utilizzarlo.  
-- __Sicurezza__: i dati personali non verranno utilizzati a fini diversi dall'organizzazione ospedaliera, vigeranno le comuni regole di privacy. La sicurezza è garantita da login e password.  
-- __Portabilità__: il sistema è portabile in diverse piattaforme, poichè realizzato in linguaggio Java.  
+- __Sicurezza__: i dati personali non verranno utilizzati a fini diversi dall'organizzazione ospedaliera, vigeranno gli standard dell'industria nel campo della protezione dei dati. La sicurezza è garantita da login e password.  
+- __Portabilità__: il sistema è portabile in diverse piattaforme, in quanto realizzato in linguaggio Java.  
 
 ## 2. Architettura software corrispondente
 Poichè non è presente un sistema corrente da sostituire, si è preso in esame come riferimento il sistema descritto in [Implementing standards for the interoperability among healthcare providers in the public regionalized Healthcare Information System of the Lombardy Region, Barbarito et. al.](https://doi.org/10.1016/j.jbi.2012.01.006).  
