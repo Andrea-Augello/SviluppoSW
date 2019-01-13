@@ -88,19 +88,20 @@ Le richieste dei nodi software sono gestite tramite protocollo __TCP/IP__ e, a l
 
 ### 3.4 Gestione dati persistenti
 #### Progetto concettuale
+Diagramma entità-relazione:  
 ![ERD](https://andrea-augello.github.io/SviluppoSW/media/Database/erd.png)  
+
+_Vincoli di Tupla_
+
+- Ogni attributo delle varie classi sarà vincolato in dimensione e tipo. I vincoli sono espressi nel successivo Progetto Logico.  
+- Non si potrà effettuare una _Prenotazione_ per un _Paziente_ ad un orario già previsto per altre _Prestazioni_ del medesimo.  
+- Ogni password dovrà contenere almeno 8 caratteri.
+- Una _Prenotazione_ può essere associata ad una _Fascia Oraria_ solo se c'è un _Medico_ che _esercita_ in quella _fascia oraria_ in grado di _erogare_ quella _prestazione_.
+- Non possono essere presenti più _Prenotazioni_ per la stessa _Prestazione_ all'interno della medesima _Ricetta_.  
 
 #### Progetto logico  
 
 ![EERD](https://andrea-augello.github.io/SviluppoSW/media/Database/eerd.png)    
-
-_Vincoli di Tupla_
-
-- Ogni attributo delle varie classi sarà vincolato in dimensione e tipo. I vincoli sono espressi nel Progetto Logico mostrato sopra.  
-- Non si potrà effettuare una _Prenotazione_ per un _Paziente_ ad un orario già previsto per altre _Prestazioni_ del medesimo.  
-- Ogni  codice fiscale corrisponderà ad uno e un solo _Paziente_.  
-- Ogni password deve contenere almeno 8 caratteri.
-- Non possono essere presenti più _Prenotazioni_ per la stessa _Prestazione_ all'interno della medesima _Ricetta_.  
 
 ### 3.5 Sicurezza e controllo degli accessi  
 
