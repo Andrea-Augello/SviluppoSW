@@ -111,7 +111,7 @@ _Accensione_
 Dal momento in cui il sistema verrà avviato per la prima volta, il server rimarrà attivo per tutte le ventiquattro ore giornaliere, senza mai terminare. Il client, invece, si attiverà ogni qual volta partirà il sistema da PC, inserendo successivamente le informazioni richieste.  
 
 _Spegnimento_  
-Il Server non terminerà la sua esecuzione a meno che non vi siano dei guasti. Il lato client, invece, cesserà lla sua esecuzione quando verrà chiuso il sistema da PC con successivo rilasciodi eventuali variabili temporanee.  
+Il Server non terminerà la sua esecuzione a meno che non vi siano dei guasti. Il lato client, invece, cesserà la sua esecuzione quando verrà chiuso il sistema da PC con successivo rilascio di eventuali variabili temporanee.  
 
 _Fallimento_  
 Il sistema lato Server fallirà in caso di problemi hardware, attacchi esterni o mancanza di elettricità. Stessa cosa potrà dirsi per il sistema da parte client, a meno che non si usino dispositivi non cablati.  
