@@ -70,23 +70,20 @@ Questa classe di fatto sostituirà il DBSM in tutte le interazioni con il sistem
 ![DatabaseInterface](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/DatabaseInterface.png)
 
 ### 3.3 Mappatura hardware/software
-La mappatura è stata effettuata sulla base del modello architetturale Repository, come illustrato in figura:
+Nella mappatura si è deciso di concentrare la complessità del sistema sui calcolatori degli utenti per permettere una migliore scalabilità.
 
-![?](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/Mappatura.png)   
+![Deployment_diagram](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/Mappatura.png)   
 
-Come si può intuire sopra, sono presenti due nodi fondamentali:  
-- ___UtentePC___  
+Come si evince dal precedente  diagramma di deployment, sono presenti due nodi fondamentali:  
+- ___PC utente__  
 - ___Server___  
 
-Entrambi rappresentano dei _device_ fisici: il primo è un qualunque personal computer adibito all'installazione del sistema proposto, il secondo il _Server_ vero e proprio.  
+Entrambi rappresentano dei _device_ fisici: il primo è un qualunque personal computer adibito all'installazione del sistema proposto, il secondo il _Server_ (o i server).  
 
-_PersonaleAmministrativoApp, PersonaleMedicoApp e PazienteApp_ sono i nodi software contenenti tutte le componenti adibite alla gestione dei dati ospedalieri.  
-_PAConnessioni, PMconnessioni_ e _PConnessioni_ sono le componenti destinate a gestire la connessione con il Server.   
+_SPRINT-paziente, SPRINT-medico e SPRINT-amministrativo_ sono i nodi software contenenti i layer di interfaccia utente, funzionalità e connessioni a database e mail server, questi nodi sono installabili ed utilizzabili su qualunque calcolatore in cui sia presente una Java Virtual Machine.  
 
-_MySQLServer_ è un'istanza contenuta dal nodo _Server_ che gestirà i contenuti del _DataBase_. In base alle richieste dei nodi software, gestite tramite protocollo __TCP/IP__ e __JDBC__, _MySQL_ li fornirà e modificherà efficentemente.   
-
-_SPRINTserver_, anch'esso contenuto nel _Server_, si occuperà di gestire le operazioni per l'invio notifiche.
-
+Nel nodo _Server_, oltre al nodo software adibito all'invio di notifiche promemoria (_SPRINT-server_), sono presenti anche un'istanza di _MySQL Server_, che gestirà i contenuti del _DataBase_, e di _SMTP Server_, che gestirà l'invio dei messaggi di posta elettronica in base alle richieste dei nodi software.
+Le richieste dei nodi software sono gestite tramite protocollo __TCP/IP__ e, a livello applicativo rispettivamente tramite __JDBC__ ed __SMTP__.   
 
 
 ### 3.4 Gestione dati persistenti
