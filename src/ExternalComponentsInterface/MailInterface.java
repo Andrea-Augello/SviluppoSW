@@ -92,7 +92,8 @@ InternetAddress.parse(destinationMail));
 	try{
 		Message message = this.setMessage();
         	message.setText("Gentile utente, la informiamo che la vostra prenotazione è avvenuta con successo. La visita si terrà il "
-                + prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) + ". Le sarà richiesta la seguente documentazione: " + this.documentsToString(DatabaseInterface.getInstance().ottieniDocumentiNecessari(prenotazione.getCodicePrestazione())));
+                + prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) + ". Le sarà richiesta la seguente documentazione: " + this.documentsToString(DatabaseInterface.getInstance().ottieniDocumentiNecessari(prenotazione.getCodicePrestazione()))
+                + "La prestazione verrà svolta presso "+DatabaseInterface.getInstance().ottieniPosizioneMedico(prenotazione.getMedico()));
 		//Send Message
 		Transport.send(message);
 		System.out.println("Sent messagge successfully");
@@ -106,7 +107,8 @@ InternetAddress.parse(destinationMail));
             Message message = this.setMessage();
         	message.setText("Gentile utente, è stata rilevata una modifica alla vostra prenotazione numero " + prenotazione.getId() +
                     "\nLa visita si terrà il " + prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) +
-                    ".\n Le sarà richiesta la seguente documentazione:\n " + this.documentsToString(DatabaseInterface.getInstance().ottieniDocumentiNecessari(prenotazione.getCodicePrestazione())));
+                    ".\n Le sarà richiesta la seguente documentazione:\n " + this.documentsToString(DatabaseInterface.getInstance().ottieniDocumentiNecessari(prenotazione.getCodicePrestazione()))
+                    + "La prestazione verrà svolta presso "+DatabaseInterface.getInstance().ottieniPosizioneMedico(prenotazione.getMedico()));
             //Send Message
             Transport.send(message);
             System.out.println("Sent messagge successfully");
@@ -133,7 +135,8 @@ InternetAddress.parse(destinationMail));
             Message message = this.setMessage();
         	message.setText("Gentile utente, le ricordiamo che la sua prenotazione numero " + prenotazione.getId() + " si terrà il " +
                     prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM"))+
-                    ".\n Le sarà richiesta la seguente documentazione:\n " + this.documentsToString(DatabaseInterface.getInstance().ottieniDocumentiNecessari(prenotazione.getCodicePrestazione())));
+                    ".\n Le sarà richiesta la seguente documentazione:\n " + this.documentsToString(DatabaseInterface.getInstance().ottieniDocumentiNecessari(prenotazione.getCodicePrestazione()))
+                    + "La prestazione verrà svolta presso "+DatabaseInterface.getInstance().ottieniPosizioneMedico(prenotazione.getMedico()));
             //Send Message
             Transport.send(message);
             System.out.println("Sent messagge successfully");

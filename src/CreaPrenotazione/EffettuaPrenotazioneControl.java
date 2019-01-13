@@ -46,6 +46,7 @@ public class EffettuaPrenotazioneControl {
 		}
 		Prenotazione prenotazione = new Prenotazione(PazienteEntity.getPaziente(),ricetta, slotScelto, medico);
 		DatabaseInterface.getInstance().inserisciPrenotazione( prenotazione );
+		MailInterface.getInstance().notificaCreazionePrenotazione(prenotazione);
 	}
 
 	public void aggiungiOrario() {
