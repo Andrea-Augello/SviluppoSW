@@ -2,6 +2,8 @@ package ExternalComponentsInterface;
 
 import Oggetti.ErroreDialog;
 import Oggetti.Prenotazione;
+
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -14,15 +16,16 @@ import javax.mail.internet.MimeMessage;
 
 public class MailInterface {
     private static MailInterface instance = new MailInterface();
+    private Session session;
     private String destinationMail;
-    private final sourceMail, sourcePassword, username;		
+    private final String sourceMail, sourcePassword, username;
     
     public static MailInterface getInstance() {
         return instance;
     }
 
     private MailInterface() {
-	username="OspedalePalermo"
+	username="OspedalePalermo";
         sourceMail="cup_ospedalePalermo@gmail.com";
 	sourcePassword= "password";
         // Assuming you are sending email through localhost
@@ -35,34 +38,52 @@ public class MailInterface {
         props.put("mail.smtp.port", "25");
 
 	// Get the Session object.
-        Session session = Session.getInstance(props,
+        session = Session.getInstance(props,
            new javax.mail.Authenticator() {
               protected PasswordAuthentication getPasswordAuthentication() {
                  return new PasswordAuthentication(username,sourcePassword);
 	      }
            });
-         // Create a default MimeMessage object.
-         Message message = new MimeMessage(session);
     }
 	
-    private  void setMessage(){
-	
+    private Message setMessage(){
+        // Create a default MimeMessage object.
+       Message message = new MimeMessage(session);
+
 	   // Set From: header field of the header.
-	   message.setFrom(new InternetAddress(sourceMail);
-	
-	   // Set To: header field of the header.
-	   message.setRecipients(Message.RecipientType.TO,
-               InternetAddress.parse(destinationMail));
-	
-	   // Set Subject: header field
-	   message.setSubject("Testing Subject");
+        try {
+            message.setFrom(new InternetAddress(sourceMail));
+        } catch (MessagingException e) {
+            new ErroreDialog(e);
+            return null;
+        }
+
+        // Set To: header field of the header.
+        try {
+            message.setRecipients(Message.RecipientType.TO,
+InternetAddress.parse(destinationMail));
+        } catch (MessagingException e) {
+            new ErroreDialog(e);
+            return null;
+        }
+
+        // Set Subject: header field
+        try {
+            message.setSubject("SPRINT - Notifica prenotazione");
+        } catch (MessagingException e) {
+            new ErroreDialog(e);
+            return null;
+        }
+
+        return message;
     }
 
     	
     public void notificaCreazionePrenotazione(Prenotazione prenotazione){
 	try{
-		this.setMessage();
-        	message.setText("Gentile utente, la informiamo che la vostra prenotazione è avvenuta con successo. La visita si terrà il " + Prenotazione.getDataOraAppuntamento() );
+		Message message = this.setMessage();
+        message.setText("Gentile utente, la informiamo che la vostra prenotazione è avvenuta con successo. La visita si terrà il "
+                    + prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) );
 		//Send Message
 		Transport.send(message);
 		System.out.println("Sent messagge successfully");
@@ -73,11 +94,12 @@ public class MailInterface {
 
     public void notificaSpostamentoPrenotazione(Prenotazione prenotazione){
         try{
-		this.setMessage();
-        	message.setText("Gentile utente, è stata rilevata una modifica alla vostra prenotazione numero " + prenotazione.getId() + " è stata modificata correttamente. La visita si terrà il " + prenotazione.getDataOraAppuntamento() );
-		//Send Message
-		Transport.send(message);
-		System.out.println("Sent messagge successfully");
+            Message message = this.setMessage();
+        	message.setText("Gentile utente, è stata rilevata una modifica alla vostra prenotazione numero " + prenotazione.getId() +
+                    "\nLa visita si terrà il " + prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) );
+            //Send Message
+            Transport.send(message);
+            System.out.println("Sent messagge successfully");
         }catch (MessagingException e) {
 	        throw new RuntimeException(e);
         }
@@ -85,8 +107,9 @@ public class MailInterface {
 
     public void notificaCancellazionePrenotazione(Prenotazione prenotazione){
 	try{
-  		this.setMessage();
-        	message.setText("Gentile utente, la informiamo che la sua prenotazione numero " + prenotazione.getId() +" che si sarebbe tenuta il " + prenotazione.getDataOraAppuntamento() +" è stata cancellata con successo. " );
+        Message message = this.setMessage();
+        message.setText("Gentile utente, la informiamo che la sua prenotazione numero " + prenotazione.getId() +" che si sarebbe tenuta il "
+                + prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) +" è stata cancellata con successo. " );
 		//Send Message
 		Transport.send(message);
 		System.out.println("Sent messagge successfully");
@@ -97,11 +120,12 @@ public class MailInterface {
 
     public void notificaReminderPrenotazione(Prenotazione prenotazione){
         try{
-  		this.setMessage();
-        	message.setText("Gentile utente, le ricordiamo che la sua prenotazione numero " + prenotazione.getId() + " si terrà il " + prenotazione.getDataOraAppuntamento() );
-		//Send Message
-		Transport.send(message);
-		System.out.println("Sent messagge successfully");
+            Message message = this.setMessage();
+        	message.setText("Gentile utente, le ricordiamo che la sua prenotazione numero " + prenotazione.getId() + " si terrà il " +
+                    prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:MM")) );
+            //Send Message
+            Transport.send(message);
+            System.out.println("Sent messagge successfully");
        	}catch (MessagingException e) {
          	throw new RuntimeException(e);
         }	
