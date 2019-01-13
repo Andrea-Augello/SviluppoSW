@@ -19,6 +19,7 @@
 		- [3.2 Package ModificaPrenotazione](#32-package-modificaprenotazione)
 		- [3.3 Package VisualizzaFSE](#33-package-visualizzafse)
 		- [3.4 Package InserisciDettagliVisita](#34-package-inseriscidettaglivisita)
+		- [3.5 Package Autenticazione](#35-package-autenticazione)
 
 <!-- /TOC -->
 
@@ -256,3 +257,81 @@ Metodo | Descrizione
 -|-|
 InserisciDettagliVisitaDialog | Costruttore della classe che accetta come parametri la control InserisciDettagliVisita e la stringa contenente i dettagli. Inizializza e crea correttamente l'interfaccia dalla quale l'utente potrà inserire i dettagli relativi ad una visita negli appositi box.
 conferma | Metodo che conferma i dati inseriti e comunica alla control di aggiornarli.
+
+### 3.4 Package Autenticazione
+
+#### Classe LoginControl
+
+Metodo | Descrizione
+-|-|
+LoginControl | Costruttore della classe che riceve un parametro di tipo int per identificare il tipo di utenza. Predispone il login a seconda del valore dell'input passatogli.
+controllaDati | Metodo che si occupa di effettuare un controllo sulla correttezza dei dati inseriti da parte di tutte le tipologie di utente.
+
+#### Classe LoginForm
+
+Metodo | Descrizione
+-|-|
+LoginForm | Costruttore della classe che accetta in input la control Login memorizzandola correttamente.
+dispose | Metodo che predispone la finestra relativa al login.
+getUsername | Metodo astratto che verrà implementato in una sottoclasse di LoginForm.
+getPassword | Metodo astratto che verrà implementato in una sottoclasse di LoginForm.
+reset | Metodo astratto che verrà implementato in una sottoclasse di LoginForm.
+
+#### Classe PazienteLoginForm
+
+Metodo | Descrizione
+-|-|
+PazienteLoginForm | Costruttore della classe che accetta in input la control Login. Crea la schermata adibita al login per gli utenti di tipo "Paziente".
+conferma | Metodo che conferma i dati inseriti dall'utente facendo partire il controllo degli stessi gestito dalla control Login.
+RegistraPaziente | Metodo che predispone la registrazione di un nuovo utente di tipo "Paziente" inizializzando la control Registrazione.
+getUsername | Metodo getter che restituisce l'username inserito.
+getPassword | Metodo getter che restituisce la password inserita.
+reset | Metodo che aggiorna i campi relativi a username e password predisponendoli per un nuovo utilizzo.
+
+#### Classe PersonaleLoginForm
+
+Metodo | Descrizione
+-|-|
+PersonaleLoginForm | Costruttore della classe che accetta in input la control Login. Crea la schermata adibita al login per gli utenti di tipo "Personale Amministrativo" e "Personale Medico".
+conferma | Metodo che conferma i dati inseriti dall'utente facendo partire il controllo degli stessi gestito dalla control Login.
+getUsername | Metodo getter che restituisce l'username inserito.
+getPassword | Metodo getter che restituisce la password inserita.
+reset | Metodo che aggiorna i campi relativi a username e password predisponendoli per un nuovo utilizzo.
+
+#### Classe RegistrazioneControl
+
+Metodo | Descrizione
+-|-|
+RegistrazioneControl | Costruttore della classe che istanzia correttamente il form che verrà utilizzato.
+registraPaziente | Metodo che inizializza e predispone il form nel quale verranno inseriti i dati del nuovo utente di tipo "Paziente".
+
+#### Classe RegistrazioneForm
+
+Metodo | Descrizione
+-|-|
+RegistrazioneForm | Costruttore della classe che crea l'interfaccia nella quale l'utente potrà inserire i dati che verranno memorizzati per la registrazione.
+conferma | Metodo che conferma i dati inseriti dall'utente facendo partire il controllo degli stessi gestito dalla control Login.
+getPasswordConfirmation | Metodo getter che restituisce la conferma della password.
+getPassword | Metodo getter che restituisce la password inserita.
+getTelefono | Metodo getter che restituisce il numero di telefono inserito.
+getIndirizzoMail | Metodo getter che restituisce l'indirizzo email inserito.
+getCognome | Metodo getter che restituisce il cognome del paziente.
+getNome | Metodo getter che restituisce il nome del paziente.
+getCodiceFiscale | Metodo getter che restituisce il codice fiscale del paziente.
+getDataDiNascita | Metodo getter che restituisce la data di nascita del paziente.
+dispose | Metodo che agisce sullo stato della finestra dell'interfaccia di registrazione chiudendola.
+
+#### Classe SelezionaPazienteControl
+
+Metodo | Descrizione
+-|-|
+SelezionaPazienteControl | Costruttore della classe che istanzia correttamente il form che verrà utilizzato.
+ottieniDati | Metodo che si occupa di recuperare dal database i dati del paziente scelto.
+
+#### Classe IndividuaPazienteForm
+
+Metodo | Descrizione
+-|-|
+IndividuaPazienteForm | Costruttore della classe che crea l'interfaccia nella quale l'utente di tipo "Personale Amministrativo" potrà inserire il codice fiscale di un paziente per accedere alla sua area servizi.
+dispose | Metodo che agisce sullo stato della finestra dell'interfaccia di individuazione chiudendola.
+getCodiceFiscale | Metodo getter che restituisce il codice fiscale del paziente.
