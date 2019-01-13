@@ -28,20 +28,18 @@
 Lo scopo del sistema proposto è quello di automatizzare le attività di gestione delle prenotazioni ospedaliere per aggevolare il cittadino e il personale nell'organizzazione delle operazioni desiderate.
 
 ### 1.2 Archittettura software corrente
-Come già esplicato ampliamente nel documento RAD, si suppone non esista alcun software in grado di svolgere le operazioni complesse e automatiche proposte da questo sistema, precedentemente svolte manualmente dagli impiegati.
+Come già esplicato ampliamente in fase di analisi dei requisiti, si suppone che all'interno dell'ospedale non  venga utilizzato alcun software in grado di svolgere le operazioni complesse e automatiche proposte da questo sistema, che sono al momento svolte manualmente dagli impiegati.
 
 ### 1.3 Obiettivi di progettazione
 - __Tempo di risposta__: il Sistema risponderà alle richieste impartite dall'utente in tempo reale, a meno che la pagina richiesta non sia particolarmente ricca di informazioni. In quest'ultimo caso potrà avvenire un ritardo di pochi secondi.  
-- __Facilità di utilizzo__: l'utente effettuerà le proprie prenotazioni o modifiche di queste ultime in pochi e chiari passaggi.  
-- __Memoria__: la dimensione della memoria è dinamica poichè dipendente dalla grandezza del DataBase.  
+- __Facilità di utilizzo__: l'utente effettuerà le proprie prenotazioni o modifiche di queste ultime nel minor numero possibile di passaggi.  
+- __Memoria__: Database escluso il sistema deve occupare uno spazio su disco inferiore ai 100 MB.  
 - __Estendibilità__: il sistema potrà essere esteso e modificato in futuro, secondo le nuove esigenze richieste, agendo sul codice.  
 - __Affidabilità__: i risultati prodotti dalle pagine rispecchieranno istante per istante la situazione ospedaliera, in modo da permettere ai vari utenti di non incorrere ad errori di sistema e di organizzazione.  
-- __Robustezza__: le interfacce ben definite comportano minima flessibilità per una minimizzazione di errori. L'inserimento dei dati verrà ogni volta verificato tramite svariati controlli.  
+- __Robustezza__: il sistema tramite dei controlli deve impedire l'inserimento da parte degli utenti di input non validi.  
 - __Disponibilità__: il sistema sarà disponibile ogni qual volta l'utente voglia utilizzarlo.  
-- __Sicurezza__: i dati personali non verranno utilizzati a fini diversi dall'organizzazione ospedaliera, vigeranno le comuni regole di privacy. La sicurezza è garantita da login e password non criptate.  
+- __Sicurezza__: i dati personali non verranno utilizzati a fini diversi dall'organizzazione ospedaliera, vigeranno le comuni regole di privacy. La sicurezza è garantita da login e password.  
 - __Portabilità__: il sistema è portabile in diverse piattaforme, poichè realizzato in linguaggio Java.  
-- __Leggibilità__: le funzionalità del sistema saranno facilmente comprensibili tramite la documentazione fornita, compresa di schemi intuibili e commenti al codice stilato.  
-- __Utilità__: l'utente compierà facilmente le operazioni desiderate tramite un supporto continuo da parte del sistema.  
 
 ## 2. Architettura software corrispondente
 Poichè non è presente un sistema corrente da sostituire, si è preso in esame come riferimento il sistema descritto in [Implementing standards for the interoperability among healthcare providers in the public regionalized Healthcare Information System of the Lombardy Region, Barbarito et. al.](https://doi.org/10.1016/j.jbi.2012.01.006).  
