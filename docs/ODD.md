@@ -15,6 +15,7 @@
 		- [2.6 Entity](#26-entity)
 		- [2.7 MainScreen](#27-mainscreen)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
+		-[3.1 Package CreaPrenotazione](#31-package-creaprenotazione)
 
 <!-- /TOC -->
 
@@ -126,3 +127,47 @@ Questo package contiene le classi responsabili del corretto funzionamento delle 
   
 
 ## 3. Interfacce delle classi
+Di seguito vengono documentati i metodi public relativi a tutte le classi raggruppate nei vari package.
+
+### 3.1 Package CreaPrenotazione
+
+#### Classe EffettuaPrenotazioneControl
+Metodo | Descrizione
+-|-|
+EffettuaPrenotazioneControl | Costruttore della classe che riceve in input un oggetto di tipo Ricetta. Dopo aver correttamente memorizzato l'oggetto Ricetta, effettua un controllo per decidere se si tratta di una prenotazione di tipo ALPI o SSN.
+prenotaMedico | Accetta in input l'entity Medico. Metodo che ottiene gli orari disponibili e permette di sceglierne uno all'utente inizializzando il form apposito.
+finalizzaPrenotazione | Metodo che si occupa di creare una prenotazione. Se ne è presente già una gestisce lo spostamento di quest'ultima. Se invece non è stato selezionato nessun medico provvede a farlo scegliere.
+  
+#### Classe ScegliOrarioDialog
+Metodo | Descrizione
+-|-|
+ScegliOrarioDialog | Costruttore della classe che riceve in input la control EffettuaPrenotazione e la lista di orari disponibili. Si occupa di creare correttamente l'interfaccia dalla quale l'utente potrà scegliere gli orari disponibili.
+scegliOrario | Metodo che si occupa della corretta memorizzazione dei campi selezionati dall'interfaccia di gestione dell'orario.
+
+#### Classe SceltaMedicoDialog
+Metodo | Descrizione
+-|-|
+SceltaMedicoDialog | Costruttore della classe che riceve in input la control EffettuaPrenotazione e la lista dei medici disponibili. Si occupa di creare correttamente l'interfaccia dalla quale l'utente potrà scegliere il medico con cui effettuare la visita secondo il regime ALPI.
+scegliMedico | Metodo che si occupa della corretta memorizzazione del medico scelto tramite l'interfaccia apposita.
+
+#### Classe GeneraRicettaControl
+Metodo | Descrizione
+-|-|
+GeneraRicettaControl | Costruttore della classe che crea un'istanza del form che gestisce i dati di una ricetta con i dati passati alla control stessa.
+ottieniDati | Metodo che memorizza correttamente i dati della ricetta e controlla che non ce ne sia una con lo stesso numero.
+SSN | Metodo che inizializza il regime di prenotazione in SSN.
+ALPI | Metodo che inizializza il regime di prenotazione in ALPI.
+
+#### Classe FormRicetta
+Metodo | Descrizione
+-|-|
+FormRicetta | Costruttore della classe che istanzia correttamente il form per inserire i dati di una ricetta.
+reset | Metodo che fa il refesh del campo "codice ricetta".
+getCodiceRicetta | Metodo getter che restituisce il codice di una ricetta.
+getCodicePrestazione | Metodo getter che restituisce il codice della prestazione richiesta.
+getUrgenza | Metodo getter che restituisce il tipo di urgenza di una relativa ricetta.
+
+#### Classe ScegliRegimeDialog
+Metodo | Descrizione
+-|-|
+ScegliRegimeDialog | Costruttore della classe che riceve in input la control GeneraRicetta. Predispone e crea l'interfaccia dalla quale l'utente può scegliere il regime di prenotazione desiderato.
