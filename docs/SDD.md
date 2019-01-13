@@ -51,7 +51,7 @@ Inoltre dopo un'analisi costi-benefici è risultato che l'adozione di standard p
 
 ## 3. Architettura software proposta
 ### 3.1 Overview
-Per il sistema è stata scelta l'architettura a Layer, in modo tale da modellare l'interfacciamento dei sottosistemi descritti di sotto. Essa comporta la suddivisione di un insieme di livelli organizzati in modo tale da fornire specifici servizi in base al loro posizionamento. La gerarchia dei sottosistemi, inoltre, diminuisce la complessità.
+Per il sistema è stata scelta un'architettura a layer. Essa comporta la suddivisione di un insieme di livelli organizzati in modo tale da fornire specifici servizi in base al loro posizionamento. La gerarchia dei sottosistemi, inoltre, diminuisce la complessità.
 
 ### 3.2 Scomposizione in sottosistemi
 Al fine di mostrare al meglio i sottosistemi e la loro funzionalità, sono stati utilizzati i component diagram di UML nel seguente modo:  
@@ -102,7 +102,8 @@ _Vincoli di Tupla_
 
 ### 3.5 Sicurezza e controllo degli accessi  
 
-Per poter usufruire dei servizi proposti dal sistema è necessario eseguire un Login di autenticazione. A tal proposito, ogni utente creato sarà provvisto di password e vari identificativi caratterizzanti che potranno permettergli di accedere a varie aree del sistema. Alcune di queste ultime saranno esclusive a determinate tipologie di utente. Le informazioni necessarie per tali operazioni risiedono in un DataBase.
+
+Vista la natura sensibile dei dati gestiti dal sistema, per poter usufruire dei servizi proposti è necessario eseguire una procedura di autenticazione. Per tale scopo, ogni utente sarà provvisto di una password e vari identificativi caratterizzanti che potranno permettergli di accedere alle diverse aree del sistema. Alcune funzionalità del sistema, inoltre, saranno accessibili esclusivamente per determinate tipologie di utente.  
 
 ### 3.6 Condizioni di boundary  
 
@@ -119,7 +120,3 @@ Il sistema lato Server fallirà in caso di problemi hardware, attacchi esterni o
 ## 3.7 Flusso controllo globale  
 Quando un utente si logga, vi è un accesso al __DataBase__, tramite una _Query_, che permette di controllare l'esistenza del soggetto. Dopo la conferma, l'utente potrà accedere a diverse operazioni messe a disposizione dal sistema, attivabili tramite la pressione di un bottone digitale.   
 Il controllo del flusso viene attuato principalmente da __MySQL__ che si occupa di gestire gli accessi concorrenti da parte di più utenti. Ad esempio, durante la prenotazione di una visita intramoenia, al momento della conferma del Medico e dell'orario, __MySQL__ entra in una sezione critica gestendo la concorrenza ed evitando che più utenti scelgano le stesse caratteristiche di Prenotazione.
-
-
-
-
