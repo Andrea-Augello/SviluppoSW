@@ -17,6 +17,7 @@
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 		- [3.1 Package CreaPrenotazione](#31-package-creaprenotazione)
 		- [3.2 Package ModificaPrenotazione](#32-package-modificaprenotazione)
+		- [3.3 Package VisualizzaFSE](#33-package-visualizzafse)
 
 <!-- /TOC -->
 
@@ -222,3 +223,19 @@ Metodo | Descrizione
 -|-|
 ConfermaDialog | Costruttore della classe che prende in input una prenotazione selezionata e un flag. Crea l'interfaccia relativa al popup di conferma operazione che porterà ad un'operazione o ad un'altra a seconda del valore della flag.
 prosegui | Metodo che tramite un opportuno controllo gestisce la prenotazione nel database a seconda che sia stata cancellata o modificata. In caso di errore gestirà una schermata dove verrà notificato.
+
+### 3.3 Package VisualizzaFSE
+
+#### Classe FSEControl
+
+Metodo | Descrizione
+-|-|
+FSEControl | Costruttore della classe che dopo essersi fatto passare i dati necessari, predispone la creazione dell'interfaccia relativa al Fascicolo Sanitario Elettronico.
+stampa | Metodo che gestisce la stampa del FSE.
+
+#### Classe FSEDialog
+
+Metodo | Descrizione
+-|-|
+FSEDialog | Costruttore della classe che prende in input la control FSE. Crea l'interfaccia adibita alla visualizzazione del fascicolo sanitario elettronico specifico di un utente. Inoltre si occupa anche della funzione di visualizzazione dello storico visite di un dato utente.
+stampaFSE | Metodo che chiama la control FSE che inizierà la procedura di stampa del fasciolo sanitario elettronico.
