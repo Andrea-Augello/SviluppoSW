@@ -27,6 +27,12 @@ public class RegistrazioneControl {
 		if (DatabaseInterface.getInstance().ottieniPaziente(nuovoPaziente.getCodiceFiscale()) != null){
 			return "Il codice fiscale inserito risulta già registrato nel sistema.";
 		}
+        if (nuovoPaziente.getNome().length() <= 1){
+            return "Nome non inserito";
+        }
+        if (nuovoPaziente.getCognome().length() <= 1){
+            return "Cognome non inserito";
+        }
 		if (nuovoPaziente.getPassword().length() < 8){
 			return "Password troppo corta";
 		}

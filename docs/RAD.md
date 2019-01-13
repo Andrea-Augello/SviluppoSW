@@ -76,7 +76,6 @@
 			- [Modifica di una prenotazione](#modifica-di-una-prenotazione)
 			- [Visualizzazione del fascicolo sanitario elettronico](#visualizzazione-del-fascicolo-sanitario-elettronico)
 			- [Inserimento dati sulla visita](#inserimento-dati-sulla-visita)
-	- [4. Glossario](#4-glossario)
 
 <!-- /TOC -->
 
@@ -122,21 +121,19 @@ Il nostro sistema, tenendo conto delle problematiche di quello corrente, si ripr
 - Il personale medico dovrà poter inserire i dettagli della visita effettuata
 - Il sistema dovrà offrire funzionalità di reminder agli utenti che dovranno effettuare una o più visite
 - Il sistema dovrà gestire prestazioni sanitarie in dipendenza della politica dei differenti reparti
-- Il sistema dovrà saper gestire differentemente le prenotazioni in base all'urgenza riportata nella relative ricette
+- Il sistema dovrà sempre rispettare i tempi previsti dalla legge in base al codice di urgenza di ogni prenotazione registrata.
 - Il sistema dovrà tenere informato il paziente sulla documentazione da portare all'eventuale visita
 - Il sistema dovrà saper gestire le prenotazioni in base alle scelte del personale medico, del paziente o del personale amministrativo,   modificandole se necessario, per una eventuale soluzione più efficiente
 - Il paziente e il personale amministrativo potranno modificare le prenotazioni ed eventualmente cancellarle
-- Il personale medico potrà prenotare eventuali ricoveri
 - Il sistema dovrà saper fare distinzione tra paziente, personale medico e personale amministrativo
 - Il sistema dovrà saper gestire differentemente visite intramoenia e visite con SSN
 
 ## 3.3 Requisiti non funzionali
 - Per effettuare una prenotazione sarà necessario essere provvisti di ricetta
-- Con la stessa ricetta non sarà consentito effettuare più prenotazioni per la medesima prestazione
-- Il Fascicolo Sanitario Elettronico potrà essere visionato dal paziente solo tramite pagamento di una somma di denaro
-- La prenotazione di urgenza dovrà essere erogata entro e non oltre un giorno prima della prenotazione da effettuare
-- La notifica al paziente dovrà essere effettuata a meno di 48 ore prima della prima visita prenotata ad inizio giornata
-- Il paziente avrà la possibilità di rinunciare alla visita tramite risposta alla notifica inviata dal sistema entro e non oltre 24 ore   prima della relativa prenotazione
+- Il sistema dovrà impedire di utilizzare più volte la stessa ricetta per la medesima prestazione   
+- Il Fascicolo Sanitario Elettronico potrà essere stampato dal paziente solo tramite pagamento di una somma di denaro
+- Il sistema dovrà inviare al paziente una mail di reminder almeno 24 ore prima della visita.
+- Il sistema dovrà inviare una mail di notifica al Paziente ogni volta che viene creata o modificata una prenotazione a suo nome.
 
 ## 3.4 Modelli del sistema
 ### 3.4.1 Casi d'uso
@@ -214,12 +211,13 @@ __Flusso degli eventi:__
 3. L'utente inserisce il proprio codice identificativo e la sua password
    e conferma.
 	4. Il sistema chiede al DBMS informazioni sull'utente individuato
-	   univocamente attraverso il codice che abbia password corrispondente
-	   a quella inserita.
+	   univocamente attraverso il codice che abbia password
+	   corrispondente a quella inserita.
 5. Il DBMS comunica al sistema se l'utente è presente nel database ed
    eventuali informazioni connesse.
 	6. Se l'utente non è presente nel database il sistema informa che
-       il codice inserito o la password sono errati e chiede di reinserirli.
+       il codice inserito o la password sono errati e chiede di
+	   reinserirli.
 ```  
 __Postcondizioni:__  `Il sistema è nella schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-AutenticaPersonale)
@@ -266,12 +264,12 @@ __Postcondizioni:__ `PersonaleAmministrativo si trova nella schermata principale
 ---
 ##### RegistraPaziente
 __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS  
-__Precondizioni:__ ` `  
+__Precondizioni:__ `Il sistema è in una schermata di login per il Paziente o di individuazione paziente`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando ,durante un'operazione di autenticazione
-   di un paziente, Paziente o PersonaleAmministrativo selezionano l'opzione
-   "Registra paziente"
+   di un paziente, Paziente o PersonaleAmministrativo selezionano la
+   opzione "Registra paziente"
 	2. Il sistema mostra un form per inserire i dati necessari
 	   all'inserimento nel sistema
 3. L'utente compila il modulo, eventualmente non riempiendo i campi
@@ -346,14 +344,13 @@ __Flusso degli eventi:__
 1. Il caso d'uso inizia quando l'utente comunica al sistema di volere
    prenotare una visita in convenzione con il sistema sanitario nazionale.
 	2. Il sistema, tenendo conto del codice di urgenza, chiede al DBMS
-	   quali giorni e orari sono disponibili per la nuova prenotazione.  
+	   quali giorni e orari sono disponibili per la nuova prenotazione  
 3. Il DBMS comunica al sistema l'elenco degli orari disponibili.
 	4. Il sistema propone al paziente le date disponibili per
 	   effettuare la visita.
 5. Il paziente sceglie tra le opzioni proposte e conferma la scelta.
-	6. Il sistema comunica la nuova prenotazione al DBMS, e chiede
-	   al DBMS il costo della prestazione e i documenti richiesti.
-7. Il DBMS comunica le informazioni richieste.
+	6. Il sistema comunica la nuova prenotazione al DBMS.
+7. Il DBMS aggiorna i dati.
 	8. Il sistema invia una notifica di avvenuta prenotazione
 	   all'utente, riportando il costo del ticket e i documenti
 	   da portare.
@@ -364,10 +361,9 @@ __Flusso alternativo:__
    4. Il sistema cerca un orario in cui è possibile effettuare
       la vista spostandone una meno urgente e lo propone al paziente.
 5. Il paziente accetta la proposta del sistema
-	6. Il sistema comunica la nuova prenotazione al DBMS e lo spostamento
-	   della prenotazioni meno urgente, e chiede al DBMS il costo
-	   della prestazione e i documenti richiesti.
-7. Il DBMS comunica le informazioni richieste.
+	6. Il sistema comunica la nuova prenotazione al DBMS e lo
+	   spostamento della prenotazioni meno urgente.
+7. Il DBMS aggiorna i dati.
 	8. Il sistema invia una notifica di avvenuta prenotazione
 	   all'utente, riportando il costo del ticket e i documenti
 	   da portare.
@@ -398,9 +394,8 @@ __Flusso degli eventi:__
            quelli in cui il medico è disponibile.
 9. L'utente seleziona e conferma giorno e ora.	   
 	10. Il sistema comunica la nuova prenotazione al DBMS.
-	11. Il sistema chiede al DBMS i documenti richiesti per la visita.
-12. Il DBMS comunica le informazioni richieste.
-	13. Il sistema invia una notifica di avvenuta prenotazione
+11. Il DBMS aggiorna i dati.
+	12. Il sistema invia una notifica di avvenuta prenotazione
 	    all'utente, riportando i documenti
 	    da portare.
 
@@ -583,7 +578,8 @@ __Flusso degli eventi:__
         4. Il sistema mostra una schermata con box di testo modificabili
            contenenti le eventuali informazioni già presenti.
 5. PersonaleMedico modifica/aggiunge informazioni e conferma le modifiche.
-        6. Il sistema comunica al DBMS le informazioni aggiornate sulla visita.	  
+        6. Il sistema comunica al DBMS le informazioni aggiornate sulla
+		   visita.	  
 ```
 __Postcondizioni:__ `Il sistema ritorna alla schermata principale`  
 [_Diagramma delle sequenze_](#sequenza-inseriscidettaglivisita)
@@ -869,5 +865,3 @@ Visualizzazione fasciolo sanitario (Paziente)
 #### Inserimento dati sulla visita
 
 ![Inserisci dettagli visita](https://andrea-augello.github.io/SviluppoSW/media/mock-up/Mock-ups%20InserisciDettagliVisita/Schermata%20Inserisci%20Dettagli%20Visita%20-%20InserisciDettagli.png)
-
-## 4. Glossario

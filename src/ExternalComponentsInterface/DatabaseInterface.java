@@ -280,6 +280,10 @@ public class DatabaseInterface {
         return false;
     }
 
+    public String ottieniPosizioneMedico(PersonaleEntity medico){
+        return "IGNOTO";
+    }
+
     private PazienteEntity parserPaziente(ResultSet queryResult) {
         try{
             if (queryResult.next()) {

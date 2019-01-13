@@ -2,7 +2,7 @@ package Oggetti;
 
 import java.time.LocalDateTime;
 
-public class Ricetta {
+public class Ricetta  implements Comparable<Ricetta>{
 
 	private String codiceRicetta;
 	private int regime;
@@ -70,5 +70,10 @@ public class Ricetta {
 
 	public LocalDateTime getLimiteMassimo() {
 		return limiteMassimo;
+	}
+
+	@Override
+	public int compareTo(Ricetta o) {
+		return 0;
 	}
 }
