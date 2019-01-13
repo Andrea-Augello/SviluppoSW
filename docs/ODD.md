@@ -22,7 +22,7 @@
 
 ### 1.1 Trade-off e scelte nella progettazione degli oggetti
 - __Prestazioni vs Costi :__  
-Il sistema realizzato con un budget ristretto ha permesso la realizzazione di un prodotto creato a partire da librerie open source, minimizzando i costi ma comunque al contempo permettendo di realizzare un sistema molto soddisfacente.  
+Il sistema realizzato con un budget ristretto ha permesso la realizzazione di un prodotto creato a partire da librerie open source, minimizzando i costi ma al contempo permettendo di realizzare un sistema molto soddisfacente.  
   
 - __Interfaccia vs Facilità d'utilizzo :__  
 Le interfacce utilizzate per il software, grazie all'utilizzo di form e di un layout semplice e minimale, permettono la migliore interazione possibile anche con un utente meno esperto nel campo informatico. Il tutto è facilitato da una semplice gestione del database.  
