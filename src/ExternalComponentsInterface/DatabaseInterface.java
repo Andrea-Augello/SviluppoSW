@@ -86,6 +86,7 @@ public class DatabaseInterface {
         }
     }
 
+    /* WORK IN PROGRESS
     public boolean modificaPrenotazione(Prenotazione prenotazione) {
             try{
 
@@ -94,7 +95,7 @@ public class DatabaseInterface {
                 new ErroreDialog(ex);
                 return false;
             }
-    }
+    }*/
 
     public String [] ottieniDettagliVisita(Prenotazione prenotazione) {
         try {
@@ -193,7 +194,21 @@ public class DatabaseInterface {
     }
 
     public List<LocalDateTime> ottieniOrari(PersonaleEntity medico) {
-
+        try {
+            LocalDateTime safeTimeCondition=LocalDateTime.now().plusHours(24);
+            int matricolaMedico=medico.getMatricola();
+            //Prepare statement
+            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione WHERE PersonaleMedico.ID=matricolaMedico AND Esercita_durante.FasciaOraria_Data_e_ora <= safeTimeCondition AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND NOT (Prenotazione.ID=Visita.Prenotazione_ID AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)");
+            //Execute
+            rs=st.executeQuery();
+            List<LocalDateTime> times = new ArrayList<>();
+            while(rs.next()) {
+                times.add(rs.getObject("FasciaOraria_Data_e_ora",LocalDateTime.class));
+            }
+            return times;
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
@@ -276,7 +291,6 @@ public class DatabaseInterface {
             st=conn.prepareStatement("DELETE FROM Visita WHERE Prenotazione_ID=?");
             st.setInt(1, prenotazione.getId());
             st.execute();
-
             return true;
         } catch (SQLException e) {
             new ErroreDialog(""+e);
@@ -355,6 +369,5 @@ public class DatabaseInterface {
         }
         return null;
     }
-
 
 }
