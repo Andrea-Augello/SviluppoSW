@@ -299,6 +299,22 @@ public class DatabaseInterface {
     }
 
     public List<String> ottieniPrestazioniErogabili(){
+        try {
+            //Prepare statement
+            st = conn.prepareStatement("SELECT * FROM Prestazione");
+            //Execute
+            rs=st.executeQuery();
+            List<String> prestazioniErogabili=new ArrayList<>();
+            while(rs.next()) {
+                int id=rs.getInt("ID");
+                String idString=Integer.toString(id);
+                prestazioniErogabili.add(idString);
+                prestazioniErogabili.add(rs.getString("Nome"));
+            }
+            return prestazioniErogabili;
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
