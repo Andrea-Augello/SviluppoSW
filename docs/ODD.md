@@ -570,6 +570,7 @@ ottieniPaziente| Restituisce il paziente individuato univocamente dai dati passa
 ottieniPersonale| Restituisce il personale (medico o amministrativo, dipendentemente dal flag passato come argomento) individuato univocamente dai dati passati per argomento al metodo.
 ottieniPrenotazione| Restituisce la prenotazione corrispondente ad un dato codice identificativo
 ottieniPrenotazioneSpostabile| Metodo per individuare una prenotazione che può eventualmente essere spostata per permettere di effettuare una prenotazione più urgente.
+ottieniPrestazioniErogabili | Questo metodo restituisce la lista delle prestazioni che l'ospedale è in grado di erogare.
 rimuoviPrenotazione| Questo metodo permette di cancellare dal database la prenotazione selezionata e tutte le relazioni collegate.
 verificaDuplicati| Metodo per controllare che una data ricetta non sia stata già utilizzata per prenotare una visita.
 
