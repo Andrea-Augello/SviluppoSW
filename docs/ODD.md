@@ -21,6 +21,7 @@
 		- [3.4 Package InserisciDettagliVisita](#34-package-inseriscidettaglivisita)
 		- [3.5 Package Autenticazione](#35-package-autenticazione)
 		- [3.6 Package Entity](#36-package-entity)
+		- [3.7 Package MainScreen](#37-package-mainscreen)
 
 <!-- /TOC -->
 
@@ -400,3 +401,37 @@ setCodiceRicetta | Metodo setter che memorizza il codice di una ricetta passatog
 getRegime | Metodo getter che restituisce il regime di prenotazione.
 setRegime | Metodo setter che memorizza il regime di prenotazione passatogli in input.
 getLimiteMassimo | Metodo getter che restituisce la data massima entro la quale la prenotazione può essere spostata.
+
+### 3.7 Package MainScreen
+
+#### Classe MainScreen
+
+Metodo | Descrizione
+-|-|
+creaPrenotazioni | Metodo che crea una prenotazione chiamando la control GeneraRicetta che la gestirà.
+modificaPrenotazione | Metodo che modifica una prenotazione chiamando la control ScegliPrenotazione.
+visualizzaStoricoVisite | Metodo che fa visualizzare a schermo lo storico delle visite chiamando la control FSE.
+visualizzaCartellaClinica | Metodo che fa visualizzare la cartella clinica chiamando la control FSE.
+inserisciDettagliVisita | Metodo che accettando in input una visita permette di inserirne i dettagli chiamando la control InserisciDettagliVisita.
+individuaPaziente | Metodo che permette all'utente di tipo "Personale Amministrativo" di accedere all'area riservata di un paziente chiamando la control SelezionaPaziente.
+
+#### Classe MainScreenPaziente
+
+Metodo | Descrizione
+-|-|
+MainScreenPaziente | Costruttore della classe che crea l'interfaccia della schermata principale personalizzata per l'utente di tipo "Paziente".
+
+#### Classe MainScreenAmministrativo
+
+Metodo | Descrizione
+-|-|
+MainScreenAmministrativo | Costruttore della classe che crea l'interfaccia della schermata principale personalizzata per l'utente di tipo "PersonaleAmministrativo".
+
+#### Classe MainScreenMedico
+
+Metodo | Descrizione
+-|-|
+MainScreenMedico | Costruttore della classe che crea l'interfaccia della schermata principale personalizzata per l'utente di tipo "PersonaleMedico".
+
+#### Classe ErroreDialog
+ErroreDialog | Costruttore della classe che crea l'interfaccia del popup di errore. Ce ne sono quattro all'interno della classe che variano a seconda dei parametri passati in input.
