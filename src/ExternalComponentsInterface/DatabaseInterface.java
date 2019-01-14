@@ -346,11 +346,13 @@ public class DatabaseInterface {
     }
 
     public boolean verificaDuplicati(Ricetta ricetta) {
-        try{   //Prepare statement
-            st = conn.prepareStatement("SELECT Numero_ricetta,COUNT(Numero_ricetta) FROM Ricetta HAVING COUNT(Numero_ricetta)>1 ");
+        try {
+            //Prepare statement
+            String numeroRicetta=ricetta.getCodiceRicetta();
+            st = conn.prepareStatement("SELECT COUNT(Prenotazione.ID) FROM Ricetta,Prenotazione,Prestazione WHERE Ricetta.Numero_ricetta=numeroRicetta AND  Ricetta.Numero_ricetta = Prenotazione.Ricetta_Numero_ricetta AND Prenotazione.Prestazione_ID =Prestazione.ID");
             //Execute
             rs=st.executeQuery();
-            if(rs.getInt("COUNT(Numero_ricetta)")>0){
+            if(rs.getInt("COUNT(Prenotazione.ID)")>1){
                 return true;
             }else{
                 return false;
@@ -400,7 +402,6 @@ public class DatabaseInterface {
             if(queryResult.next()) {
                 int matricola = queryResult.getInt("ID");
                 String password = queryResult.getString("Password");
-
                 return new PersonaleEntity(matricola, password);
             } else {
                 return null;
