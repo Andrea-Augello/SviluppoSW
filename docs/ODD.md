@@ -145,12 +145,16 @@ EffettuaPrenotazioneControl | Costruttore della classe che riceve in input un og
 prenotaMedico | Accetta in input l'entity Medico. Metodo che ottiene gli orari disponibili e permette di sceglierne uno all'utente inizializzando il form apposito.
 finalizzaPrenotazione | Metodo che si occupa di creare una prenotazione. Se ne è presente già una gestisce lo spostamento di quest'ultima. Se invece non è stato selezionato nessun medico provvede a farlo scegliere.
   
+[Vai al package corrispondente](#21-creaprenotazione)
+
 #### Classe ScegliOrarioDialog
 
 Metodo | Descrizione
 -|-|
 ScegliOrarioDialog | Costruttore della classe che riceve in input la control EffettuaPrenotazione e la lista di orari disponibili. Si occupa di creare correttamente l'interfaccia dalla quale l'utente potrà scegliere gli orari disponibili.
 scegliOrario | Metodo che si occupa della corretta memorizzazione dei campi selezionati dall'interfaccia di gestione dell'orario.
+  
+[Vai al package corrispondente](#21-creaprenotazione)
 
 #### Classe SceltaMedicoDialog
 
@@ -158,7 +162,8 @@ Metodo | Descrizione
 -|-|
 SceltaMedicoDialog | Costruttore della classe che riceve in input la control EffettuaPrenotazione e la lista dei medici disponibili. Si occupa di creare correttamente l'interfaccia dalla quale l'utente potrà scegliere il medico con cui effettuare la visita secondo il regime ALPI.
 scegliMedico | Metodo che si occupa della corretta memorizzazione del medico scelto tramite l'interfaccia apposita.
-[Vai alla descrizione della classe](#sceltamedicodialog)
+  
+[Vai al package corrispondente](#21-creaprenotazione)
 
 #### Classe GeneraRicettaControl
 
@@ -168,6 +173,8 @@ GeneraRicettaControl | Costruttore della classe che crea un'istanza del form che
 ottieniDati | Metodo che memorizza correttamente i dati della ricetta e controlla che non ce ne sia una con lo stesso numero.
 SSN | Metodo che inizializza il regime di prenotazione in SSN.
 ALPI | Metodo che inizializza il regime di prenotazione in ALPI.
+  
+[Vai al package corrispondente](#21-creaprenotazione)
 
 #### Classe FormRicetta
 
@@ -178,6 +185,8 @@ reset | Metodo che fa il refesh del campo "codice ricetta".
 getCodiceRicetta | Metodo getter che restituisce il codice di una ricetta.
 getCodicePrestazione | Metodo getter che restituisce il codice della prestazione richiesta.
 getUrgenza | Metodo getter che restituisce il tipo di urgenza di una relativa ricetta.
+  
+[Vai al package corrispondente](#21-creaprenotazione)
 
 #### Classe ScegliRegimeDialog
 
@@ -185,6 +194,8 @@ Metodo | Descrizione
 -|-|
 ScegliRegimeDialog | Costruttore della classe che riceve in input la control GeneraRicetta. Predispone e crea l'interfaccia dalla quale l'utente può scegliere il regime di prenotazione desiderato.
   
+[Vai al package corrispondente](#21-creaprenotazione)
+
 ### 3.2 Package ModificaPrenotazione
 
 #### Classe ScegliPrenotazioneControl
