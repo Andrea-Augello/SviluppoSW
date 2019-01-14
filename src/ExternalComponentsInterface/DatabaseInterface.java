@@ -298,6 +298,10 @@ public class DatabaseInterface {
         }
     }
 
+    public List<String> ottieniPrestazioniErogabili(){
+        return null;
+    }
+
     public String ottieniStoricoVisite(PazienteEntity paziente, LocalDateTime now) {
         return null;
     }
