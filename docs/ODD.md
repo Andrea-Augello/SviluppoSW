@@ -204,6 +204,8 @@ Metodo | Descrizione
 -|-|
 ScegliPrenotazioneControl | Costruttore della classe che acquisisce la lista delle prenotazioni effettuate da un utente.
 estraiPrenotazione | Metodo che predispone la prenotazione selezionata per eventuali altre operazioni.
+  
+[Vai al package corrispondente](#22-modificaprenotazione)
 
 #### Classe ScegliPrenotazioneDialog
 
@@ -213,6 +215,8 @@ ScegliPrenotazioneDialog | Costruttore della classe che riceve in input la contr
 selezionaPrenotazione | Metodo che seleziona la prenotazione scelta e la passa alla control ScegliPrenotazione per essere gestita.
 dispose | Metodo che agisce sullo stato della finestra dell'interfaccia di scelta della prenotazione chiudendola.
 getPrenotazioneSelezionata | Metodo getter che restituisce la prenotazione selezionata dall'utente.
+  
+[Vai al package corrispondente](#22-modificaprenotazione)
 
 #### Classe ModificaPrenotazioneControl
 
@@ -222,6 +226,8 @@ ModificaPrenotazioneControl | Costruttore della classe che prende in input la pr
 spostaPrenotazione | Metodo che dopo aver ottenuto una lista degli orari disponibili li usa per inizializzare la schermata relativa ai nuovi orari data una prenotazione da spostare.
 aggiornaPrenotazione | Metodo che si occupa di predisporre il dialog relativo alla conferma dell'operazione che avrà esito positivo, spostando la prenotazione selezionata.
 eliminaPrenotazione | Metodo che si occupa di predisporre il dialog relativo alla conferma dell'operazione che avrà esito negativo, cancellando la prenotazione selezionata.
+  
+[Vai al package corrispondente](#22-modificaprenotazione)
 
 #### Classe ModificaPrenotazioneDialog
 
@@ -232,6 +238,8 @@ cancellaPrenotazione | Metodo che chiama la control ModificaPrenotazione che si 
 modificaPrenotazione | Metodo che chiama la control ModificaPrenotazione che si occuperà di modificare la prenotazione selezionata, spostandola.
 confermaOrario | Metodo che chiama la control ModificaPrenotazione che si occuperà di aggiornare i dati relativi alla prenotazione selezionata precedentemente.
 mostraOrari | Metodo che crea l'interfaccia relativa all'orario da selezionare da parte dell'utente in caso di modifica di una prenotazione.
+  
+[Vai al package corrispondente](#22-modificaprenotazione)
 
 #### Classe ConfermaDialog
 
@@ -239,6 +247,8 @@ Metodo | Descrizione
 -|-|
 ConfermaDialog | Costruttore della classe che prende in input una prenotazione selezionata e un flag. Crea l'interfaccia relativa al popup di conferma operazione che porterà ad un'operazione o ad un'altra a seconda del valore della flag.
 prosegui | Metodo che tramite un opportuno controllo gestisce la prenotazione nel database a seconda che sia stata cancellata o modificata. In caso di errore gestirà una schermata dove verrà notificato.
+  
+[Vai al package corrispondente](#22-modificaprenotazione)
 
 ### 3.3 Package VisualizzaFSE
 
@@ -248,6 +258,8 @@ Metodo | Descrizione
 -|-|
 FSEControl | Costruttore della classe che dopo essersi fatto passare i dati necessari, predispone la creazione dell'interfaccia relativa al Fascicolo Sanitario Elettronico.
 stampa | Metodo che gestisce la stampa del FSE.
+  
+[Vai al package corrispondente](#23-visualizzafse)
 
 #### Classe FSEDialog
 
@@ -255,6 +267,8 @@ Metodo | Descrizione
 -|-|
 FSEDialog | Costruttore della classe che prende in input la control FSE. Crea l'interfaccia adibita alla visualizzazione del fascicolo sanitario elettronico specifico di un utente. Inoltre si occupa anche della funzione di visualizzazione dello storico visite di un dato utente.
 stampaFSE | Metodo che chiama la control FSE che inizierà la procedura di stampa del fasciolo sanitario elettronico.
+  
+[Vai al package corrispondente](#23-visualizzafse)
 
 ### 3.4 Package InserisciDettagliVisita
 
@@ -264,6 +278,8 @@ Metodo | Descrizione
 -|-|
 InserisciDettagliVisita | Costruttore della classe che prende in input una prenotazione. Dopo aver acquisito i dati necessari predispone l'interfaccia per inserire i dettagli di una visita.
 aggiornaDettagli | Aggiorna correttamente i dettagli inseriti.
+  
+[Vai al package corrispondente](#24-inseriscidettaglivisita)
 
 #### Classe InserisciDettagliVisitaDialog
 
@@ -271,6 +287,8 @@ Metodo | Descrizione
 -|-|
 InserisciDettagliVisitaDialog | Costruttore della classe che accetta come parametri la control InserisciDettagliVisita e la stringa contenente i dettagli. Inizializza e crea correttamente l'interfaccia dalla quale l'utente potrà inserire i dettagli relativi ad una visita negli appositi box.
 conferma | Metodo che conferma i dati inseriti e comunica alla control di aggiornarli.
+  
+[Vai al package corrispondente](#24-inseriscidettaglivisita)
 
 ### 3.5 Package Autenticazione
 
@@ -280,6 +298,8 @@ Metodo | Descrizione
 -|-|
 LoginControl | Costruttore della classe che riceve un parametro di tipo int per identificare il tipo di utenza. Predispone il login a seconda del valore dell'input passatogli.
 controllaDati | Metodo che si occupa di effettuare un controllo sulla correttezza dei dati inseriti da parte di tutte le tipologie di utente.
+  
+[Vai al package corrispondente](#25-autenticazione)
 
 #### Classe LoginForm
 
@@ -290,6 +310,8 @@ dispose | Metodo che predispone la finestra relativa al login.
 getUsername | Metodo astratto che verrà implementato in una sottoclasse di LoginForm.
 getPassword | Metodo astratto che verrà implementato in una sottoclasse di LoginForm.
 reset | Metodo astratto che verrà implementato in una sottoclasse di LoginForm.
+  
+[Vai al package corrispondente](#25-autenticazione)
 
 #### Classe PazienteLoginForm
 
@@ -301,6 +323,8 @@ RegistraPaziente | Metodo che predispone la registrazione di un nuovo utente di 
 getUsername | Metodo getter che restituisce l'username inserito.
 getPassword | Metodo getter che restituisce la password inserita.
 reset | Metodo che aggiorna i campi relativi a username e password predisponendoli per un nuovo utilizzo.
+  
+[Vai al package corrispondente](#25-autenticazione)
 
 #### Classe PersonaleLoginForm
 
@@ -311,6 +335,8 @@ conferma | Metodo che conferma i dati inseriti dall'utente facendo partire il co
 getUsername | Metodo getter che restituisce l'username inserito.
 getPassword | Metodo getter che restituisce la password inserita.
 reset | Metodo che aggiorna i campi relativi a username e password predisponendoli per un nuovo utilizzo.
+  
+[Vai al package corrispondente](#25-autenticazione)
 
 #### Classe RegistrazioneControl
 
@@ -318,6 +344,8 @@ Metodo | Descrizione
 -|-|
 RegistrazioneControl | Costruttore della classe che istanzia correttamente il form che verrà utilizzato.
 registraPaziente | Metodo che inizializza e predispone il form nel quale verranno inseriti i dati del nuovo utente di tipo "Paziente".
+  
+[Vai al package corrispondente](#25-autenticazione)
 
 #### Classe RegistrazioneForm
 
@@ -334,6 +362,8 @@ getNome | Metodo getter che restituisce il nome del paziente.
 getCodiceFiscale | Metodo getter che restituisce il codice fiscale del paziente.
 getDataDiNascita | Metodo getter che restituisce la data di nascita del paziente.
 dispose | Metodo che agisce sullo stato della finestra dell'interfaccia di registrazione chiudendola.
+  
+[Vai al package corrispondente](#25-autenticazione)
 
 #### Classe SelezionaPazienteControl
 
@@ -341,6 +371,8 @@ Metodo | Descrizione
 -|-|
 SelezionaPazienteControl | Costruttore della classe che istanzia correttamente il form che verrà utilizzato.
 ottieniDati | Metodo che si occupa di recuperare dal database i dati del paziente scelto.
+  
+[Vai al package corrispondente](#25-autenticazione)
 
 #### Classe IndividuaPazienteForm
 
@@ -349,6 +381,8 @@ Metodo | Descrizione
 IndividuaPazienteForm | Costruttore della classe che crea l'interfaccia nella quale l'utente di tipo "Personale Amministrativo" potrà inserire il codice fiscale di un paziente per accedere alla sua area servizi.
 dispose | Metodo che agisce sullo stato della finestra dell'interfaccia di individuazione chiudendola.
 getCodiceFiscale | Metodo getter che restituisce il codice fiscale del paziente.
+  
+[Vai al package corrispondente](#25-autenticazione)
 
 ### 3.6 Package Entity
 
@@ -373,6 +407,8 @@ getTelefono | Metodo getter che restituisce il numero di telefono inserito.
 setTelefono | Metodo setter che memorizza correttamente il numero di telefono del paziente passatogli in input.
 getPassword | Metodo getter che restituisce la password inserita.
 setPassword | Metodo setter che memorizza correttamente la password passata in input.
+  
+[Vai al package corrispondente](#26-entity)
 
 #### Classe PersonaleEntity
 
@@ -382,6 +418,8 @@ PersonaleEntity | Costruttore della classe che inizializza tutti i campi present
 getMatricola | Metodo getter che restituisce la matricola dell'utente.
 getMedico | Metodo getter che restituisce un utente di tipo "PersonaleMedico".
 setMedico | Metodo setter che memorizza un utente di tipo "PersonaleMedico" passatogli in input.
+  
+[Vai al package corrispondente](#26-entity)
 
 #### Classe Prenotazione
 
@@ -398,6 +436,8 @@ getRicetta | Metodo getter che restituisce la ricetta specifica di una data visi
 getDescrizionePrestazione | Metodo getter che restituisce la descrizione della prestazione correlata alla prenotazione.
 getLimiteMassimo | Metodo getter che restituisce la data massima entro la quale la prenotazione può essere spostata.
 getCodiceRicetta | Metodo getter che restituisce il codice della ricetta specifica di una data visita legata alla prenotazione.
+  
+[Vai al package corrispondente](#26-entity)
 
 #### Classe Ricetta
 
@@ -413,6 +453,8 @@ setCodiceRicetta | Metodo setter che memorizza il codice di una ricetta passatog
 getRegime | Metodo getter che restituisce il regime di prenotazione.
 setRegime | Metodo setter che memorizza il regime di prenotazione passatogli in input.
 getLimiteMassimo | Metodo getter che restituisce la data massima entro la quale la prenotazione può essere spostata.
+  
+[Vai al package corrispondente](#26-entity)
 
 ### 3.7 Package MainScreen
 
@@ -426,24 +468,34 @@ visualizzaStoricoVisite | Metodo che fa visualizzare a schermo lo storico delle 
 visualizzaCartellaClinica | Metodo che fa visualizzare la cartella clinica chiamando la control FSE.
 inserisciDettagliVisita | Metodo che accettando in input una visita permette di inserirne i dettagli chiamando la control InserisciDettagliVisita.
 individuaPaziente | Metodo che permette all'utente di tipo "Personale Amministrativo" di accedere all'area riservata di un paziente chiamando la control SelezionaPaziente.
+  
+[Vai al package corrispondente](#27-mainscreen)
 
 #### Classe MainScreenPaziente
 
 Metodo | Descrizione
 -|-|
 MainScreenPaziente | Costruttore della classe che crea l'interfaccia della schermata principale personalizzata per l'utente di tipo "Paziente".
+  
+[Vai al package corrispondente](#27-mainscreen)
 
 #### Classe MainScreenAmministrativo
 
 Metodo | Descrizione
 -|-|
 MainScreenAmministrativo | Costruttore della classe che crea l'interfaccia della schermata principale personalizzata per l'utente di tipo "PersonaleAmministrativo".
+  
+[Vai al package corrispondente](#27-mainscreen)
 
 #### Classe MainScreenMedico
 
 Metodo | Descrizione
 -|-|
 MainScreenMedico | Costruttore della classe che crea l'interfaccia della schermata principale personalizzata per l'utente di tipo "PersonaleMedico".
+  
+[Vai al package corrispondente](#27-mainscreen)
 
 #### Classe ErroreDialog
 ErroreDialog | Costruttore della classe che crea l'interfaccia del popup di errore. Ce ne sono quattro all'interno della classe che variano a seconda dei parametri passati in input.
+  
+[Vai al package corrispondente](#27-mainscreen)
