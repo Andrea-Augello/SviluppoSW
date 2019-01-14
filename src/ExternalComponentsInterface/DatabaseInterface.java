@@ -342,6 +342,15 @@ public class DatabaseInterface {
     }
 
     public PersonaleEntity ottieniMedicoDisponibile(LocalDateTime slotScelto, int prestazione) {
+        try {
+            //Prepare statement
+            st = conn.prepareStatement("SELECT PersonaleMedico.* FROM PersonaleMedico,Esercita_durante,Eroga,Prestazione WHERE Prestazione.ID=prestazione AND Esercita_durante.FasciaOraria_Data_e_ora=slotScelto AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Esercita_durante.PersonaleMedico_ID");
+            //Execute
+            rs=st.executeQuery();
+            return parserPersonale(rs);
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
