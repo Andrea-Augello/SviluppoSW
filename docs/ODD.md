@@ -17,13 +17,46 @@
 		- [2.8 ExternalComponentsInterface](#28-externalcomponentsinterface)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 		- [3.1 Package CreaPrenotazione](#31-package-creaprenotazione)
+			- [Classe EffettuaPrenotazioneControl](#classe-effettuaprenotazionecontrol)
+			- [Classe ScegliOrarioDialog](#classe-scegliorariodialog)
+			- [Classe SceltaMedicoDialog](#classe-sceltamedicodialog)
+			- [Classe GeneraRicettaControl](#classe-generaricettacontrol)
+			- [Classe FormRicetta](#classe-formricetta)
+			- [Classe ScegliRegimeDialog](#classe-scegliregimedialog)
 		- [3.2 Package ModificaPrenotazione](#32-package-modificaprenotazione)
+			- [Classe ScegliPrenotazioneControl](#classe-scegliprenotazionecontrol)
+			- [Classe ScegliPrenotazioneDialog](#classe-scegliprenotazionedialog)
+			- [Classe ModificaPrenotazioneControl](#classe-modificaprenotazionecontrol)
+			- [Classe ModificaPrenotazioneDialog](#classe-modificaprenotazionedialog)
+			- [Classe ConfermaDialog](#classe-confermadialog)
 		- [3.3 Package VisualizzaFSE](#33-package-visualizzafse)
+			- [Classe FSEControl](#classe-fsecontrol)
+			- [Classe FSEDialog](#classe-fsedialog)
 		- [3.4 Package InserisciDettagliVisita](#34-package-inseriscidettaglivisita)
+			- [Classe InserisciDettagliVisitaControl](#classe-inseriscidettaglivisitacontrol)
+			- [Classe InserisciDettagliVisitaDialog](#classe-inseriscidettaglivisitadialog)
 		- [3.5 Package Autenticazione](#35-package-autenticazione)
+			- [Classe LoginControl](#classe-logincontrol)
+			- [Classe LoginForm](#classe-loginform)
+			- [Classe PazienteLoginForm](#classe-pazienteloginform)
+			- [Classe PersonaleLoginForm](#classe-personaleloginform)
+			- [Classe RegistrazioneControl](#classe-registrazionecontrol)
+			- [Classe RegistrazioneForm](#classe-registrazioneform)
+			- [Classe SelezionaPazienteControl](#classe-selezionapazientecontrol)
+			- [Classe IndividuaPazienteForm](#classe-individuapazienteform)
 		- [3.6 Package Entity](#36-package-entity)
+			- [Classe PazienteEntity](#classe-pazienteentity)
+			- [Classe PersonaleEntity](#classe-personaleentity)
+			- [Classe Prenotazione](#classe-prenotazione)
+			- [Classe Ricetta](#classe-ricetta)
 		- [3.7 Package MainScreen](#37-package-mainscreen)
+			- [Classe MainScreen](#classe-mainscreen)
+			- [Classe MainScreenPaziente](#classe-mainscreenpaziente)
+			- [Classe MainScreenAmministrativo](#classe-mainscreenamministrativo)
+			- [Classe MainScreenMedico](#classe-mainscreenmedico)
+			- [Classe ErroreDialog](#classe-erroredialog)
 		- [3.8 Package ExternalComponentsInterface](#38-package-externalcomponentsinterface)
+			- [Classe DatabaseInterface](#classe-databaseinterface)
 
 <!-- /TOC -->
 
@@ -32,19 +65,19 @@
 ### 1.1 Trade-off e scelte nella progettazione degli oggetti
 - __Prestazioni vs Costi :__  
 Il sistema realizzato con un budget ristretto ha permesso la realizzazione di un prodotto creato a partire da librerie open source, minimizzando i costi ma al contempo permettendo di realizzare un sistema molto soddisfacente.  
-  
+
 - __Interfaccia vs Facilità d'utilizzo :__  
 Le interfacce utilizzate per il software, grazie all'utilizzo di form e di un layout semplice e minimale, permettono la migliore interazione possibile anche con un utente meno esperto nel campo informatico. Il tutto è facilitato da una semplice gestione del database.  
-  
+
 - __Interfaccia vs Tempo di risposta :__  
 I tempi di risposta tra server e interfaccia sono molto rapidi e soddisfano a pieno le esigenze del sistema. Naturalmente all'aumentare della dimensione del Database aumentano anche i corrispettivi tempi di risposta e di ricerca nello stesso.  
-   
+
 Per quanto riguarda la gestione e la progettazione delle interfacce grafiche sono state scelte le API di Java offerte da Oracle, tra le quali:
 - __Swing widget toolkit :__ Framework appartenente alla Java Foundation Classes (JFC), utilizzato per strutturare la maggior parte delle interfacce grafice presenti nel software.  
 - __UI Designer :__ Plugin di IntelliJIdea messo a disposizione da jetbrains. Fornisce un supporto interattivo per l'editing delle Swing UI.  
 - __JCalendar :__ Libreria di Java utilizzata per semplificare la selezione delle date tramite un calendario.  
 - __JavaMail :__ Package realizzato da Oracle che fornisce le classi necessarie per la gestione della posta elettronica in linguaggio Java. Supporta tutti i protocolli di posta elettronica tra i quali POP3 e SMTP.  
-  
+
 A livello di User Interface il sottosistema relativo, dato l'elevatissimo coupling, è stato smembrato e distribuito nei package della logica dell'applicazione.  
 
 ### 1.2 Linee guida della documentazione delle interfacce  
@@ -53,7 +86,7 @@ A tutta l'utenza vengono nascosti i meccanismi interni di prenotazione e più ne
 Al paziente viene fornita una semplice e intuitiva schermata dalla quale può gestire comodamente tutte le sue prenotazioni ed eventualmente visualizzare anche lo storico delle prestazioni effettuate.
 Il personale amministrativo, tramite un'interfaccia simile a quella fornita al paziente, è in grado di effettuare le stesse operazioni ma con permessi più ampi come stampare lo storico delle visite di un determinato paziente.
 Infine, l'interfaccia a disposizione del personale medico è stata realizzata in modo da facilitare la sua professione permettendo di riempire completamente da software la cartella clinica di un suo paziente.  
-  
+
 Di seguito viene illustrata la vista d'insieme che racchiude tutte le classi utilizzate per lo sviluppo del nostro software.
 ![Package "TutteLeClassi"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/TutteLeClassi.png)  
 
@@ -61,49 +94,49 @@ Di seguito viene illustrata la vista d'insieme che racchiude tutte le classi uti
 
 ### 2.1 CreaPrenotazione
 Questo package contiene tutte le classi relative alla gestione della creazione di una prenotazione presso la struttura ospedaliera.  
-   
+
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/CreaPrenotazionePackage.png)  
-  
+
 - [__EffettuaPrenotazioneControl :__](#classe-effettuaprenotazionecontrol) Control che gestisce le operazioni riguardanti la prenotazione di una nuova visita da effettuare.  
 - [__GeneraRicettaControl :__](#classe-generaricettacontrol) Control che gestisce le operazioni per la memorizzazione delle informazioni relative ad una ricetta.  
 - [__ScegliRegimeDialog :__](#classe-scegliregimedialog) Schermata che nelle operazioni di prenotazione consente di scegliere tra regime ALPI e regime SSN.  
 - [__FormRicetta :__](#classe-formricetta) Form che permette l’inserimento dei dati relativi alla ricetta.  
 - [__ScegliOrarioDialog :__](#classe-scegliorariodialog) Schermata attraverso la quale, durante le operazioni di prenotazione, l’utente può selezionare data e ora della visita tra quelli proposti dal sistema.  
 - [__SceltaMedicoDialog :__](#classe-sceltamedicodialog) Schermata che appare nelle operazioni di prenotazione se si sceglie il regime ALPI. Permette di scegliere il medico dal quale farsi visitare.  
-  
+
 ### 2.2 ModificaPrenotazione
 Questo package racchiude tutte le classi relative alla modifica di un'eventuale prenotazione già effettuata.  
-  
+
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/ModificaPrenotazionePackage.png)  
-  
+
 - [__ScegliPrenotazioneControl :__](#classe-scegliprenotazionecontrol) Control che gestisce le operazioni per la corretta realizzazione della scelta della visita da modificare da parte dell’utente.  
 - [__ModificaPrenotazioneControl :__](#classe-modificaprenotazionecontrol) Control che gestisce le operazioni necessarie per la modifica di una prenotazione.  
 - [__ConfermaModificaControl :__](#classe-confermamodificacontrol) Control che gestisce le operazioni riguardanti la conferma di una modifica da effettuare.  
 - [__ScegliPrenotazioneDialog :__](#classe-scegliprenotazionedialog) Schermata che presenta l’elenco delle prenotazioni per visite ancora non effettuate dal paziente, da qui è possibile selezionarne una per modificarla.  
 - [__ModificaPrenotazioneDialog :__](#classe-modificaprenotazionedialog) Interfaccia che permette all’utente di modificare la Prenotazione selezionata.  
 - [__ConfermaDialog :__](#classe-confermadialog) Questa schermata, nelle operazioni di modifica di una prenotazione già effettuata, riassume le modifiche e consente di confermarle o annullarle.  
-  
+
 ### 2.3 VisualizzaFSE
 Questo package contiene tutte le classi adibite a far visualizzare a video il fascicolo sanitario elettronico.  
-  
+
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/VisualizzaFSEPackage.png)  
-  
+
 - [__FSEControl :__](#classe-fsecontrol) Control che gestisce le operazioni per l’ottenimento del Fascicolo Sanitario Elettronico da parte dell’utente.  
 - [__FSEDialog :__](#classe-fsedialog) Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal personale.  
-  
+
 ### 2.4 InserisciDettagliVisita
 Package che contiene le classi che permettono al personale medico di inserire ulteriori informazioni relative alla visita di un paziente.  
-  
+
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/InserisciDettagliVisitaPackage.png)  
-  
+
 - [__InserisciDettagliVisitaControl :__](#classe-inseriscidettaglivisitacontrol) Control che gestisce le operazioni per il corretto inserimento della diagnosi da parte del medico.  
 - [__InserisciDettagliVisitaDialog :__](#classe-inseriscidettaglivisitadialog) Interfaccia per l’inserimento e l’eventuale conferma della diagnosi della visita precedentemente effettuata.  
-  
+
 ### 2.5 Autenticazione
 Questo package raggruppa le classi che permettono a tutta l'utenza di effettuare il login e/o registrarsi.  
-  
+
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/AutenticazionePackage.png)  
-  
+
 - [__LoginControl :__](#classe-logincontrol) Control che gestisce le operazioni di verifica della correttezza di un eventuale login da parte di un utente.  
 - [__RegistrazioneControl :__](#classe-registrazionecontrol) Control che gestisce le operazioni necessarie per la registrazione di un nuovo paziente.  
 - [__SelezionaPazienteControl :__](#classe-selezionapazientecontrol) Control che gestisce le operazioni per selezionare un paziente da parte del PersonaleAmministrativo.  
@@ -111,33 +144,33 @@ Questo package raggruppa le classi che permettono a tutta l'utenza di effettuare
 - [__PersonaleLoginForm :__](#classe-personaleloginform) Form attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.  
 - [__IndividuaPazienteForm :__](#classe-individuapazienteform) Schermata che presenta un box dove scrivere il CF del paziente che PersonaleAmministrativo vuole scegliere per continuare le operazioni desiderate.  
 - [__RegistrazioneForm :__](#classe-registrazioneform) Il form che permette di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.  
-  
+
 ### 2.6 Entity
 Questo package raggruppa le classi entity che si occupano di gestire i dati permanenti all'interno del database. Tutte le classi che fanno parte di questo package implementano l'interfaccia Comparable.
-  
+
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/EntityPackage.png)  
-  
+
 - [__Prenotazione :__](#classe-prenotazione) Questa classe contiene i dati rilevanti della prenotazione mentre viene elaborata dal sistema.  
 - [__Ricetta :__](#classe-ricetta) Questa classe contiene i dati relativi alle ricetta mentre viene inserita nel DBMS.  
 - [__PazienteEntity :__](#classe-pazienteentity) All’interno del sistema i dati dei pazienti sono racchiusi in questa classe.  
 - [__PersonaleEntity :__](#classe-personaleentity) All’interno del sistema i dati del personale sono racchiusi in questa classe.  
-  
+
 ### 2.7 MainScreen
 Questo package contiene le classi responsabili del corretto funzionamento delle schermate principali del software e gestisce le finestre di errore.  
-  
+
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/MainScreenPackage.png)  
-  
+
 - [__MainScreen :__](#classe-mainscreen) Schermata principale per l’avvio di varie procedure.  
 - [__MainScreenPaziente :__](#classe-mainscreenpaziente) Schermata principale personalizzata per essere visualizzata solo dall'utente "Paziente".
 - [__MainScreenAmministrativo :__](#classe-mainscreenamministrativo) Schermata principale personalizzata per essere visualizzata solo dall'utente "Personale Amministrativo".  
 - [__MainScreenMedico :__](#classe-mainscreenmedico) Schermata principale personalizzata per essere visualizzata solo dall'utente "Personale Medico".  
 - [__ErroreDialog :__](#classe-erroredialog) Mostra a video all’utente che l’operazione da lui intrapresa non è andata a buon fine.  
-  
+
 ### 2.8 ExternalComponentsInterface
 Questo package contiene tutte le classi che gestiscono interfacce esterne necessarie al corretto funzionamento del software.
-  
+
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/ExternalComponentsInterfacePackage.png)  
-  
+
 - [__DatabaseInterface :__](#classe-databaseinterface) Interfaccia del database che gestisce tutti i dati permanenti del nostro software.
 - [__MailInterface :__](#classe-mailinterface) Interfaccia del server di posta elettronica che gestisce le notifiche relative alle prenotazioni. É stata inserita con lo scopo di sostituire gran parte delle funzionalità della precedente classe inviaNotificaControl.
 - [__PDFInterface :__](#classe-pdfinterface) Interfaccia che si occupa di produrre un documento PDF corretto con tutte le informazioni richieste dall'utente.
@@ -154,7 +187,7 @@ Metodo | Descrizione
 EffettuaPrenotazioneControl | Costruttore della classe che riceve in input un oggetto di tipo Ricetta. Dopo aver correttamente memorizzato l'oggetto Ricetta, effettua un controllo per decidere se si tratta di una prenotazione di tipo ALPI o SSN.
 prenotaMedico | Accetta in input l'entity Medico. Metodo che ottiene gli orari disponibili e permette di sceglierne uno all'utente inizializzando il form apposito.
 finalizzaPrenotazione | Metodo che si occupa di creare una prenotazione. Se ne è presente già una gestisce lo spostamento di quest'ultima. Se invece non è stato selezionato nessun medico provvede a farlo scegliere.
-  
+
 [Vai al package corrispondente](#21-creaprenotazione)
 
 #### Classe ScegliOrarioDialog
@@ -163,7 +196,7 @@ Metodo | Descrizione
 -|-|
 ScegliOrarioDialog | Costruttore della classe che riceve in input la control EffettuaPrenotazione e la lista di orari disponibili. Si occupa di creare correttamente l'interfaccia dalla quale l'utente potrà scegliere gli orari disponibili.
 scegliOrario | Metodo che si occupa della corretta memorizzazione dei campi selezionati dall'interfaccia di gestione dell'orario.
-  
+
 [Vai al package corrispondente](#21-creaprenotazione)
 
 #### Classe SceltaMedicoDialog
@@ -172,7 +205,7 @@ Metodo | Descrizione
 -|-|
 SceltaMedicoDialog | Costruttore della classe che riceve in input la control EffettuaPrenotazione e la lista dei medici disponibili. Si occupa di creare correttamente l'interfaccia dalla quale l'utente potrà scegliere il medico con cui effettuare la visita secondo il regime ALPI.
 scegliMedico | Metodo che si occupa della corretta memorizzazione del medico scelto tramite l'interfaccia apposita.
-  
+
 [Vai al package corrispondente](#21-creaprenotazione)
 
 #### Classe GeneraRicettaControl
@@ -183,7 +216,7 @@ GeneraRicettaControl | Costruttore della classe che crea un'istanza del form che
 ottieniDati | Metodo che memorizza correttamente i dati della ricetta e controlla che non ce ne sia una con lo stesso numero.
 SSN | Metodo che inizializza il regime di prenotazione in SSN.
 ALPI | Metodo che inizializza il regime di prenotazione in ALPI.
-  
+
 [Vai al package corrispondente](#21-creaprenotazione)
 
 #### Classe FormRicetta
@@ -195,7 +228,7 @@ reset | Metodo che fa il refesh del campo "codice ricetta".
 getCodiceRicetta | Metodo getter che restituisce il codice di una ricetta.
 getCodicePrestazione | Metodo getter che restituisce il codice della prestazione richiesta.
 getUrgenza | Metodo getter che restituisce il tipo di urgenza di una relativa ricetta.
-  
+
 [Vai al package corrispondente](#21-creaprenotazione)
 
 #### Classe ScegliRegimeDialog
@@ -203,7 +236,7 @@ getUrgenza | Metodo getter che restituisce il tipo di urgenza di una relativa ri
 Metodo | Descrizione
 -|-|
 ScegliRegimeDialog | Costruttore della classe che riceve in input la control GeneraRicetta. Predispone e crea l'interfaccia dalla quale l'utente può scegliere il regime di prenotazione desiderato.
-  
+
 [Vai al package corrispondente](#21-creaprenotazione)
 
 ### 3.2 Package ModificaPrenotazione
@@ -214,7 +247,7 @@ Metodo | Descrizione
 -|-|
 ScegliPrenotazioneControl | Costruttore della classe che acquisisce la lista delle prenotazioni effettuate da un utente.
 estraiPrenotazione | Metodo che predispone la prenotazione selezionata per eventuali altre operazioni.
-  
+
 [Vai al package corrispondente](#22-modificaprenotazione)
 
 #### Classe ScegliPrenotazioneDialog
@@ -225,7 +258,7 @@ ScegliPrenotazioneDialog | Costruttore della classe che riceve in input la contr
 selezionaPrenotazione | Metodo che seleziona la prenotazione scelta e la passa alla control ScegliPrenotazione per essere gestita.
 dispose | Metodo che agisce sullo stato della finestra dell'interfaccia di scelta della prenotazione chiudendola.
 getPrenotazioneSelezionata | Metodo getter che restituisce la prenotazione selezionata dall'utente.
-  
+
 [Vai al package corrispondente](#22-modificaprenotazione)
 
 #### Classe ModificaPrenotazioneControl
@@ -236,7 +269,7 @@ ModificaPrenotazioneControl | Costruttore della classe che prende in input la pr
 spostaPrenotazione | Metodo che dopo aver ottenuto una lista degli orari disponibili li usa per inizializzare la schermata relativa ai nuovi orari data una prenotazione da spostare.
 aggiornaPrenotazione | Metodo che si occupa di predisporre il dialog relativo alla conferma dell'operazione che avrà esito positivo, spostando la prenotazione selezionata.
 eliminaPrenotazione | Metodo che si occupa di predisporre il dialog relativo alla conferma dell'operazione che avrà esito negativo, cancellando la prenotazione selezionata.
-  
+
 [Vai al package corrispondente](#22-modificaprenotazione)
 
 #### Classe ModificaPrenotazioneDialog
@@ -248,7 +281,7 @@ cancellaPrenotazione | Metodo che chiama la control ModificaPrenotazione che si 
 modificaPrenotazione | Metodo che chiama la control ModificaPrenotazione che si occuperà di modificare la prenotazione selezionata, spostandola.
 confermaOrario | Metodo che chiama la control ModificaPrenotazione che si occuperà di aggiornare i dati relativi alla prenotazione selezionata precedentemente.
 mostraOrari | Metodo che crea l'interfaccia relativa all'orario da selezionare da parte dell'utente in caso di modifica di una prenotazione.
-  
+
 [Vai al package corrispondente](#22-modificaprenotazione)
 
 #### Classe ConfermaDialog
@@ -257,7 +290,7 @@ Metodo | Descrizione
 -|-|
 ConfermaDialog | Costruttore della classe che prende in input una prenotazione selezionata e un flag. Crea l'interfaccia relativa al popup di conferma operazione che porterà ad un'operazione o ad un'altra a seconda del valore della flag.
 prosegui | Metodo che tramite un opportuno controllo gestisce la prenotazione nel database a seconda che sia stata cancellata o modificata. In caso di errore gestirà una schermata dove verrà notificato.
-  
+
 [Vai al package corrispondente](#22-modificaprenotazione)
 
 ### 3.3 Package VisualizzaFSE
@@ -268,7 +301,7 @@ Metodo | Descrizione
 -|-|
 FSEControl | Costruttore della classe che dopo essersi fatto passare i dati necessari, predispone la creazione dell'interfaccia relativa al Fascicolo Sanitario Elettronico.
 stampa | Metodo che gestisce la stampa del FSE.
-  
+
 [Vai al package corrispondente](#23-visualizzafse)
 
 #### Classe FSEDialog
@@ -277,7 +310,7 @@ Metodo | Descrizione
 -|-|
 FSEDialog | Costruttore della classe che prende in input la control FSE. Crea l'interfaccia adibita alla visualizzazione del fascicolo sanitario elettronico specifico di un utente. Inoltre si occupa anche della funzione di visualizzazione dello storico visite di un dato utente.
 stampaFSE | Metodo che chiama la control FSE che inizierà la procedura di stampa del fasciolo sanitario elettronico.
-  
+
 [Vai al package corrispondente](#23-visualizzafse)
 
 ### 3.4 Package InserisciDettagliVisita
@@ -288,7 +321,7 @@ Metodo | Descrizione
 -|-|
 InserisciDettagliVisita | Costruttore della classe che prende in input una prenotazione. Dopo aver acquisito i dati necessari predispone l'interfaccia per inserire i dettagli di una visita.
 aggiornaDettagli | Aggiorna correttamente i dettagli inseriti.
-  
+
 [Vai al package corrispondente](#24-inseriscidettaglivisita)
 
 #### Classe InserisciDettagliVisitaDialog
@@ -297,7 +330,7 @@ Metodo | Descrizione
 -|-|
 InserisciDettagliVisitaDialog | Costruttore della classe che accetta come parametri la control InserisciDettagliVisita e la stringa contenente i dettagli. Inizializza e crea correttamente l'interfaccia dalla quale l'utente potrà inserire i dettagli relativi ad una visita negli appositi box.
 conferma | Metodo che conferma i dati inseriti e comunica alla control di aggiornarli.
-  
+
 [Vai al package corrispondente](#24-inseriscidettaglivisita)
 
 ### 3.5 Package Autenticazione
@@ -308,7 +341,7 @@ Metodo | Descrizione
 -|-|
 LoginControl | Costruttore della classe che riceve un parametro di tipo int per identificare il tipo di utenza. Predispone il login a seconda del valore dell'input passatogli.
 controllaDati | Metodo che si occupa di effettuare un controllo sulla correttezza dei dati inseriti da parte di tutte le tipologie di utente.
-  
+
 [Vai al package corrispondente](#25-autenticazione)
 
 #### Classe LoginForm
@@ -320,7 +353,7 @@ dispose | Metodo che predispone la finestra relativa al login.
 getUsername | Metodo astratto che verrà implementato in una sottoclasse di LoginForm.
 getPassword | Metodo astratto che verrà implementato in una sottoclasse di LoginForm.
 reset | Metodo astratto che verrà implementato in una sottoclasse di LoginForm.
-  
+
 [Vai al package corrispondente](#25-autenticazione)
 
 #### Classe PazienteLoginForm
@@ -333,7 +366,7 @@ RegistraPaziente | Metodo che predispone la registrazione di un nuovo utente di 
 getUsername | Metodo getter che restituisce l'username inserito.
 getPassword | Metodo getter che restituisce la password inserita.
 reset | Metodo che aggiorna i campi relativi a username e password predisponendoli per un nuovo utilizzo.
-  
+
 [Vai al package corrispondente](#25-autenticazione)
 
 #### Classe PersonaleLoginForm
@@ -345,7 +378,7 @@ conferma | Metodo che conferma i dati inseriti dall'utente facendo partire il co
 getUsername | Metodo getter che restituisce l'username inserito.
 getPassword | Metodo getter che restituisce la password inserita.
 reset | Metodo che aggiorna i campi relativi a username e password predisponendoli per un nuovo utilizzo.
-  
+
 [Vai al package corrispondente](#25-autenticazione)
 
 #### Classe RegistrazioneControl
@@ -354,7 +387,7 @@ Metodo | Descrizione
 -|-|
 RegistrazioneControl | Costruttore della classe che istanzia correttamente il form che verrà utilizzato.
 registraPaziente | Metodo che inizializza e predispone il form nel quale verranno inseriti i dati del nuovo utente di tipo "Paziente".
-  
+
 [Vai al package corrispondente](#25-autenticazione)
 
 #### Classe RegistrazioneForm
@@ -372,7 +405,7 @@ getNome | Metodo getter che restituisce il nome del paziente.
 getCodiceFiscale | Metodo getter che restituisce il codice fiscale del paziente.
 getDataDiNascita | Metodo getter che restituisce la data di nascita del paziente.
 dispose | Metodo che agisce sullo stato della finestra dell'interfaccia di registrazione chiudendola.
-  
+
 [Vai al package corrispondente](#25-autenticazione)
 
 #### Classe SelezionaPazienteControl
@@ -381,7 +414,7 @@ Metodo | Descrizione
 -|-|
 SelezionaPazienteControl | Costruttore della classe che istanzia correttamente il form che verrà utilizzato.
 ottieniDati | Metodo che si occupa di recuperare dal database i dati del paziente scelto.
-  
+
 [Vai al package corrispondente](#25-autenticazione)
 
 #### Classe IndividuaPazienteForm
@@ -391,7 +424,7 @@ Metodo | Descrizione
 IndividuaPazienteForm | Costruttore della classe che crea l'interfaccia nella quale l'utente di tipo "Personale Amministrativo" potrà inserire il codice fiscale di un paziente per accedere alla sua area servizi.
 dispose | Metodo che agisce sullo stato della finestra dell'interfaccia di individuazione chiudendola.
 getCodiceFiscale | Metodo getter che restituisce il codice fiscale del paziente.
-  
+
 [Vai al package corrispondente](#25-autenticazione)
 
 ### 3.6 Package Entity
@@ -417,7 +450,7 @@ getTelefono | Metodo getter che restituisce il numero di telefono inserito.
 setTelefono | Metodo setter che memorizza correttamente il numero di telefono del paziente passatogli in input.
 getPassword | Metodo getter che restituisce la password inserita.
 setPassword | Metodo setter che memorizza correttamente la password passata in input.
-  
+
 [Vai al package corrispondente](#26-entity)
 
 #### Classe PersonaleEntity
@@ -428,7 +461,7 @@ PersonaleEntity | Costruttore della classe che inizializza tutti i campi present
 getMatricola | Metodo getter che restituisce la matricola dell'utente.
 getMedico | Metodo getter che restituisce un utente di tipo "PersonaleMedico".
 setMedico | Metodo setter che memorizza un utente di tipo "PersonaleMedico" passatogli in input.
-  
+
 [Vai al package corrispondente](#26-entity)
 
 #### Classe Prenotazione
@@ -446,7 +479,7 @@ getRicetta | Metodo getter che restituisce la ricetta specifica di una data visi
 getDescrizionePrestazione | Metodo getter che restituisce la descrizione della prestazione correlata alla prenotazione.
 getLimiteMassimo | Metodo getter che restituisce la data massima entro la quale la prenotazione può essere spostata.
 getCodiceRicetta | Metodo getter che restituisce il codice della ricetta specifica di una data visita legata alla prenotazione.
-  
+
 [Vai al package corrispondente](#26-entity)
 
 #### Classe Ricetta
@@ -463,7 +496,7 @@ setCodiceRicetta | Metodo setter che memorizza il codice di una ricetta passatog
 getRegime | Metodo getter che restituisce il regime di prenotazione.
 setRegime | Metodo setter che memorizza il regime di prenotazione passatogli in input.
 getLimiteMassimo | Metodo getter che restituisce la data massima entro la quale la prenotazione può essere spostata.
-  
+
 [Vai al package corrispondente](#26-entity)
 
 ### 3.7 Package MainScreen
@@ -478,7 +511,7 @@ visualizzaStoricoVisite | Metodo che fa visualizzare a schermo lo storico delle 
 visualizzaCartellaClinica | Metodo che fa visualizzare la cartella clinica chiamando la control FSE.
 inserisciDettagliVisita | Metodo che accettando in input una visita permette di inserirne i dettagli chiamando la control InserisciDettagliVisita.
 individuaPaziente | Metodo che permette all'utente di tipo "Personale Amministrativo" di accedere all'area riservata di un paziente chiamando la control SelezionaPaziente.
-  
+
 [Vai al package corrispondente](#27-mainscreen)
 
 #### Classe MainScreenPaziente
@@ -486,7 +519,7 @@ individuaPaziente | Metodo che permette all'utente di tipo "Personale Amministra
 Metodo | Descrizione
 -|-|
 MainScreenPaziente | Costruttore della classe che crea l'interfaccia della schermata principale personalizzata per l'utente di tipo "Paziente".
-  
+
 [Vai al package corrispondente](#27-mainscreen)
 
 #### Classe MainScreenAmministrativo
@@ -494,7 +527,7 @@ MainScreenPaziente | Costruttore della classe che crea l'interfaccia della scher
 Metodo | Descrizione
 -|-|
 MainScreenAmministrativo | Costruttore della classe che crea l'interfaccia della schermata principale personalizzata per l'utente di tipo "PersonaleAmministrativo".
-  
+
 [Vai al package corrispondente](#27-mainscreen)
 
 #### Classe MainScreenMedico
@@ -502,7 +535,7 @@ MainScreenAmministrativo | Costruttore della classe che crea l'interfaccia della
 Metodo | Descrizione
 -|-|
 MainScreenMedico | Costruttore della classe che crea l'interfaccia della schermata principale personalizzata per l'utente di tipo "PersonaleMedico".
-  
+
 [Vai al package corrispondente](#27-mainscreen)
 
 #### Classe ErroreDialog
@@ -510,7 +543,7 @@ MainScreenMedico | Costruttore della classe che crea l'interfaccia della scherma
 Metodo | Descrizione
 -|-|
 ErroreDialog | Costruttore della classe che crea l'interfaccia del popup di errore. Ce ne sono quattro all'interno della classe che variano a seconda dei parametri passati in input.
-  
+
 [Vai al package corrispondente](#27-mainscreen)
 
 ### 3.8 Package ExternalComponentsInterface
