@@ -304,6 +304,7 @@ public class DatabaseInterface {
             st = conn.prepareStatement("SELECT * FROM Prestazione");
             //Execute
             rs=st.executeQuery();
+            rs.next();
             List<String> prestazioniErogabili=new ArrayList<>();
             while(rs.next()) {
                 int id=rs.getInt("ID");
@@ -325,6 +326,7 @@ public class DatabaseInterface {
             st = conn.prepareStatement("SELECT Visita.*,Prestazione.Nome,PersonaleMedico.Nome,PersonaleMedico.Cognome FROM Visita,Paziente,Prenotazione,PersonaleMedico,Eroga,Prestazione WHERE Paziente.CF=cf AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.ID=Visita.Prenotazione_ID AND Visita.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Eroga.PersonaleMedico_ID AND Eroga.Prestazione_ID =Prestazione.ID AND Prenotazione.FasciaOraria_Data_e_ora<=now");
             //Execute
             rs=st.executeQuery();
+            rs.next();
             String storicoVisite=("ID: " + rs.getInt("ID") + "\nTipo di prestazione: " + rs.getString("Nome") +"\nMedico: " + rs.getString("PersonaleMedico.Nome") + " " + rs.getString("Cognome") + "\nDiagnosi: " + rs.getString("Diagnosi")+ "\nReferti: " + rs.getString("Referti") + "\nOsservazioni: " + rs.getString("Osservazioni") + "\n");
             /*
                 "ID: " + ...+
@@ -361,6 +363,7 @@ public class DatabaseInterface {
             st = conn.prepareStatement("SELECT COUNT(Prenotazione.ID) FROM Ricetta,Prenotazione,Prestazione WHERE Ricetta.Numero_ricetta=numeroRicetta AND  Ricetta.Numero_ricetta = Prenotazione.Ricetta_Numero_ricetta AND Prenotazione.Prestazione_ID =Prestazione.ID");
             //Execute
             rs=st.executeQuery();
+            rs.next();
             if(rs.getInt("COUNT(Prenotazione.ID)")>1){
                 return true;
             }else{
