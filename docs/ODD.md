@@ -23,6 +23,7 @@
 		- [3.5 Package Autenticazione](#35-package-autenticazione)
 		- [3.6 Package Entity](#36-package-entity)
 		- [3.7 Package MainScreen](#37-package-mainscreen)
+		- [3.8 Package ExternalComponentsInterface](#38-package-externalcomponentsinterface)
 
 <!-- /TOC -->
 
@@ -135,7 +136,7 @@ Questo package contiene le classi responsabili del corretto funzionamento delle 
 ### 2.8 ExternalComponentsInterface
 Questo package contiene tutte le classi che gestiscono interfacce esterne necessarie al corretto funzionamento del software.
   
-![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/ExternalComponentsInterface.png)  
+![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/ExternalComponentsInterfacePackage.png)  
   
 - [__DatabaseInterface :__](#classe-databaseinterface) Interfaccia del database che gestisce tutti i dati permanenti del nostro software.
 - [__MailInterface :__](#classe-mailinterface) Interfaccia del server di posta elettronica che gestisce le notifiche relative alle prenotazioni. É stata inserita con lo scopo di sostituire gran parte delle funzionalità della precedente classe inviaNotificaControl.
@@ -505,6 +506,15 @@ MainScreenMedico | Costruttore della classe che crea l'interfaccia della scherma
 [Vai al package corrispondente](#27-mainscreen)
 
 #### Classe ErroreDialog
+
+Metodo | Descrizione
+-|-|
 ErroreDialog | Costruttore della classe che crea l'interfaccia del popup di errore. Ce ne sono quattro all'interno della classe che variano a seconda dei parametri passati in input.
   
 [Vai al package corrispondente](#27-mainscreen)
+
+### 3.8 Package ExternalComponentsInterface
+
+#### Classe DatabaseInterface
+Metodo | Descrizione
+-|-|
