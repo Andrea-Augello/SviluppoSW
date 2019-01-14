@@ -62,7 +62,7 @@ Questo package contiene tutte le classi relative alla gestione della creazione d
    
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/CreaPrenotazionePackage.png)  
   
-- __EffettuaPrenotazioneControl :__ Control che gestisce le operazioni riguardanti la prenotazione di una nuova visita da effettuare.  
+- [__EffettuaPrenotazioneControl :__](#classe-effettuaprenotazionecontrol) Control che gestisce le operazioni riguardanti la prenotazione di una nuova visita da effettuare.  
 - __GeneraRicettaControl :__ Control che gestisce le operazioni per la memorizzazione delle informazioni relative ad una ricetta.  
 - __ScegliRegimeDialog :__ Schermata che nelle operazioni di prenotazione consente di scegliere tra regime ALPI e regime SSN.  
 - __FormRicetta :__ Form che permette l’inserimento dei dati relativi alla ricetta.  
