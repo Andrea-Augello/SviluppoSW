@@ -63,73 +63,73 @@ Questo package contiene tutte le classi relative alla gestione della creazione d
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/CreaPrenotazionePackage.png)  
   
 - [__EffettuaPrenotazioneControl :__](#classe-effettuaprenotazionecontrol) Control che gestisce le operazioni riguardanti la prenotazione di una nuova visita da effettuare.  
-- __GeneraRicettaControl :__ Control che gestisce le operazioni per la memorizzazione delle informazioni relative ad una ricetta.  
-- __ScegliRegimeDialog :__ Schermata che nelle operazioni di prenotazione consente di scegliere tra regime ALPI e regime SSN.  
-- __FormRicetta :__ Form che permette l’inserimento dei dati relativi alla ricetta.  
-- __ScegliOrarioDialog :__ Schermata attraverso la quale, durante le operazioni di prenotazione, l’utente può selezionare data e ora della visita tra quelli proposti dal sistema.  
-- __SceltaMedicoDialog :__ Schermata che appare nelle operazioni di prenotazione se si sceglie il regime ALPI. Permette di scegliere il medico dal quale farsi visitare.  
+- [__GeneraRicettaControl :__](#classe-generaricettacontrol) Control che gestisce le operazioni per la memorizzazione delle informazioni relative ad una ricetta.  
+- [__ScegliRegimeDialog :__](#classe-scegliregimedialog) Schermata che nelle operazioni di prenotazione consente di scegliere tra regime ALPI e regime SSN.  
+- [__FormRicetta :__](#classe-formricetta) Form che permette l’inserimento dei dati relativi alla ricetta.  
+- [__ScegliOrarioDialog :__](#classe-scegliorariodialog) Schermata attraverso la quale, durante le operazioni di prenotazione, l’utente può selezionare data e ora della visita tra quelli proposti dal sistema.  
+- [__SceltaMedicoDialog :__](#classe-sceltamedicodialog) Schermata che appare nelle operazioni di prenotazione se si sceglie il regime ALPI. Permette di scegliere il medico dal quale farsi visitare.  
   
 ### 2.2 ModificaPrenotazione
 Questo package racchiude tutte le classi relative alla modifica di un'eventuale prenotazione già effettuata.  
   
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/ModificaPrenotazionePackage.png)  
   
-- __ScegliPrenotazioneControl :__ Control che gestisce le operazioni per la corretta realizzazione della scelta della visita da modificare da parte dell’utente.  
-- __ModificaPrenotazioneControl :__ Control che gestisce le operazioni necessarie per la modifica di una prenotazione.  
-- __ConfermaModificaControl :__ Control che gestisce le operazioni riguardanti la conferma di una modifica da effettuare.  
-- __ScegliPrenotazioneDialog :__ Schermata che presenta l’elenco delle prenotazioni per visite ancora non effettuate dal paziente, da qui è possibile selezionarne una per modificarla.  
-- __ModificaPrenotazioneDialog :__ Interfaccia che permette all’utente di modificare la Prenotazione selezionata.  
-- __ConfermaDialog :__ Questa schermata, nelle operazioni di modifica di una prenotazione già effettuata, riassume le modifiche e consente di confermarle o annullarle.  
+- [__ScegliPrenotazioneControl :__](#classe-scegliprenotazionecontrol) Control che gestisce le operazioni per la corretta realizzazione della scelta della visita da modificare da parte dell’utente.  
+- [__ModificaPrenotazioneControl :__](#classe-modificaprenotazionecontrol) Control che gestisce le operazioni necessarie per la modifica di una prenotazione.  
+- [__ConfermaModificaControl :__](#classe-confermamodificacontrol) Control che gestisce le operazioni riguardanti la conferma di una modifica da effettuare.  
+- [__ScegliPrenotazioneDialog :__](#classe-scegliprenotazionedialog) Schermata che presenta l’elenco delle prenotazioni per visite ancora non effettuate dal paziente, da qui è possibile selezionarne una per modificarla.  
+- [__ModificaPrenotazioneDialog :__](#classe-modificaprenotazionedialog) Interfaccia che permette all’utente di modificare la Prenotazione selezionata.  
+- [__ConfermaDialog :__](#classe-confermadialog) Questa schermata, nelle operazioni di modifica di una prenotazione già effettuata, riassume le modifiche e consente di confermarle o annullarle.  
   
 ### 2.3 VisualizzaFSE
 Questo package contiene tutte le classi adibite a far visualizzare a video il fascicolo sanitario elettronico.  
   
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/VisualizzaFSEPackage.png)  
   
-- __FSEControl :__ Control che gestisce le operazioni per l’ottenimento del Fascicolo Sanitario Elettronico da parte dell’utente.  
-- __FSEDialog :__ Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal personale.  
+- [__FSEControl :__](#classe-fsecontrol) Control che gestisce le operazioni per l’ottenimento del Fascicolo Sanitario Elettronico da parte dell’utente.  
+- [__FSEDialog :__](#classe-fsedialog) Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal personale.  
   
 ### 2.4 InserisciDettagliVisita
 Package che contiene le classi che permettono al personale medico di inserire ulteriori informazioni relative alla visita di un paziente.  
   
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/InserisciDettagliVisitaPackage.png)  
   
-- __InserisciDettagliVisitaControl :__ Control che gestisce le operazioni per il corretto inserimento della diagnosi da parte del medico.  
-- __InserisciDettagliVisitaDialog :__ Interfaccia per l’inserimento e l’eventuale conferma della diagnosi della visita precedentemente effettuata.  
+- [__InserisciDettagliVisitaControl :__](#classe-inseriscidettaglivisitacontrol) Control che gestisce le operazioni per il corretto inserimento della diagnosi da parte del medico.  
+- [__InserisciDettagliVisitaDialog :__](#classe-inseriscidettaglivisitadialog) Interfaccia per l’inserimento e l’eventuale conferma della diagnosi della visita precedentemente effettuata.  
   
 ### 2.5 Autenticazione
 Questo package raggruppa le classi che permettono a tutta l'utenza di effettuare il login e/o registrarsi.  
   
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/AutenticazionePackage.png)  
   
-- __LoginControl :__ Control che gestisce le operazioni di verifica della correttezza di un eventuale login da parte di un utente.  
-- __RegistrazioneControl :__ Control che gestisce le operazioni necessarie per la registrazione di un nuovo paziente.  
-- __SelezionaPazienteControl :__ Control che gestisce le operazioni per selezionare un paziente da parte del PersonaleAmministrativo.  
-- __PazienteLoginForm :__ Form attraverso cui Paziente può inserire il proprio codice fiscale e proseguire le procedure di autenticazione.  
-- __PersonaleLoginForm :__ Form attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.  
-- __IndividuaPazienteForm :__ Schermata che presenta un box dove scrivere il CF del paziente che PersonaleAmministrativo vuole scegliere per continuare le operazioni desiderate.  
-- __RegistrazioneForm :__ Il form che permette di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.  
+- [__LoginControl :__](#classe-logincontrol) Control che gestisce le operazioni di verifica della correttezza di un eventuale login da parte di un utente.  
+- [__RegistrazioneControl :__](#classe-registrazionecontrol) Control che gestisce le operazioni necessarie per la registrazione di un nuovo paziente.  
+- [__SelezionaPazienteControl :__](#classe-selezionapazientecontrol) Control che gestisce le operazioni per selezionare un paziente da parte del PersonaleAmministrativo.  
+- [__PazienteLoginForm :__](#classe-pazienteloginform) Form attraverso cui Paziente può inserire il proprio codice fiscale e proseguire le procedure di autenticazione.  
+- [__PersonaleLoginForm :__](#classe-personaleloginform) Form attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.  
+- [__IndividuaPazienteForm :__](#classe-individuapazienteform) Schermata che presenta un box dove scrivere il CF del paziente che PersonaleAmministrativo vuole scegliere per continuare le operazioni desiderate.  
+- [__RegistrazioneForm :__](#classe-registrazioneform) Il form che permette di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.  
   
 ### 2.6 Entity
 Questo package raggruppa le classi entity che si occupano di gestire i dati permanenti all'interno del database. Tutte le classi che fanno parte di questo package implementano l'interfaccia Comparable.
   
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/EntityPackage.png)  
   
-- __Prenotazione :__ Questa classe contiene i dati rilevanti della prenotazione mentre viene elaborata dal sistema.  
-- __Ricetta :__ Questa classe contiene i dati relativi alle ricetta mentre viene inserita nel DBMS.  
-- __PazienteEntity :__ All’interno del sistema i dati dei pazienti sono racchiusi in questa classe.  
-- __PersonaleEntity :__ All’interno del sistema i dati del personale sono racchiusi in questa classe.  
+- [__Prenotazione :__](#classe-prenotazione) Questa classe contiene i dati rilevanti della prenotazione mentre viene elaborata dal sistema.  
+- [__Ricetta :__](#classe-ricetta) Questa classe contiene i dati relativi alle ricetta mentre viene inserita nel DBMS.  
+- [__PazienteEntity :__](#classe-pazienteentity) All’interno del sistema i dati dei pazienti sono racchiusi in questa classe.  
+- [__PersonaleEntity :__](#classe-personaleentity) All’interno del sistema i dati del personale sono racchiusi in questa classe.  
   
 ### 2.7 MainScreen
 Questo package contiene le classi responsabili del corretto funzionamento delle schermate principali del software e gestisce le finestre di errore.  
   
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/MainScreenPackage.png)  
   
-- __MainScreen :__ Schermata principale per l’avvio di varie procedure.  
-- __MainScreenPaziente :__ Schermata principale personalizzata per essere visualizzata solo dall'utente "Paziente".
-- __MainScreenAmministrativo :__ Schermata principale personalizzata per essere visualizzata solo dall'utente "Personale Amministrativo".  
-- __MainScreenMedico :__ Schermata principale personalizzata per essere visualizzata solo dall'utente "Personale Medico".  
-- __ErroreDialog :__ Mostra a video all’utente che l’operazione da lui intrapresa non è andata a buon fine.  
+- [__MainScreen :__](#classe-mainscreen) Schermata principale per l’avvio di varie procedure.  
+- [__MainScreenPaziente :__](#classe-mainscreenpaziente) Schermata principale personalizzata per essere visualizzata solo dall'utente "Paziente".
+- [__MainScreenAmministrativo :__](#classe-mainscreenamministrativo) Schermata principale personalizzata per essere visualizzata solo dall'utente "Personale Amministrativo".  
+- [__MainScreenMedico :__](#classe-mainscreenmedico) Schermata principale personalizzata per essere visualizzata solo dall'utente "Personale Medico".  
+- [__ErroreDialog :__](#classe-erroredialog) Mostra a video all’utente che l’operazione da lui intrapresa non è andata a buon fine.  
   
 
 ## 3. Interfacce delle classi
@@ -158,6 +158,7 @@ Metodo | Descrizione
 -|-|
 SceltaMedicoDialog | Costruttore della classe che riceve in input la control EffettuaPrenotazione e la lista dei medici disponibili. Si occupa di creare correttamente l'interfaccia dalla quale l'utente potrà scegliere il medico con cui effettuare la visita secondo il regime ALPI.
 scegliMedico | Metodo che si occupa della corretta memorizzazione del medico scelto tramite l'interfaccia apposita.
+[Vai alla descrizione della classe](#sceltamedicodialog)
 
 #### Classe GeneraRicettaControl
 
