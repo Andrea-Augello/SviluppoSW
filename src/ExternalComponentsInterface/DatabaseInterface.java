@@ -320,13 +320,21 @@ public class DatabaseInterface {
     public String ottieniStoricoVisite(PazienteEntity paziente, LocalDateTime now) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("SELECT * FROM Paziente WHERE CF=? AND Password = ?");
-            //Set field
-            st.setString(1, cf);
-            st.setString(2, password);
+            String cf= paziente.getCodiceFiscale();
+
+            st = conn.prepareStatement("SELECT Visita.*,Prestazione.Nome FROM Visita,Paziente,Prenotazione,PersonaleMedico,Eroga,Prestazione WHERE Paziente.CF=cf AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.ID=Visita.Prenotazione_ID AND Visita.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Eroga.PersonaleMedico_ID AND Eroga.Prestazione_ID =Prestazione.ID AND Prenotazione.FasciaOraria_Data_e_ora<=now AND ");
             //Execute
             rs=st.executeQuery();
-            return parserPaziente(rs);
+            String storicoVisite=("ID: " + rs.getInt("ID") + "\nTipo di prestazione: " + rs.getString("Nome") +"\nMedico: " + rs.getString("PersonaleMedico_ID") + "\nDiagnosi: " + rs.getString("Diagnosi")+ "\nReferti: " + rs.getString("Referti") + "\nOsservazioni: " + rs.getString("Osservazioni") + "\n");
+            /*
+                "ID: " + ...+
+                "\nTipo di prestazione: "+...
+                "\nMedico: "+...
+                "\nReferti: "+...
+                   ...
+                +"\n"
+            */
+            return storicoVisite;
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
