@@ -57,6 +57,8 @@
 			- [Classe ErroreDialog](#classe-erroredialog)
 		- [3.8 Package ExternalComponentsInterface](#38-package-externalcomponentsinterface)
 			- [Classe DatabaseInterface](#classe-databaseinterface)
+			- [Classe MailInterface](#classe-mailinterface)
+			- [Classe PDFInterface](#classe-pdfinterface)
 
 <!-- /TOC -->
 
@@ -172,8 +174,10 @@ Questo package contiene tutte le classi che gestiscono interfacce esterne necess
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/ExternalComponentsInterfacePackage.png)  
 
 - [__DatabaseInterface :__](#classe-databaseinterface) Interfaccia del database che gestisce tutti i dati permanenti del nostro software.
-- [__MailInterface :__](#classe-mailinterface) Interfaccia del server di posta elettronica che gestisce le notifiche relative alle prenotazioni. É stata inserita con lo scopo di sostituire gran parte delle funzionalità della precedente classe inviaNotificaControl.
+- [__MailInterface :__](#classe-mailinterface) Interfaccia del server di posta elettronica che gestisce le notifiche relative alle prenotazioni. É stata inserita con lo scopo di sostituire gran parte delle funzionalità della classe inviaNotificaControl identificata in fase di analisi dei requisiti.
 - [__PDFInterface :__](#classe-pdfinterface) Interfaccia che si occupa di produrre un documento PDF corretto con tutte le informazioni richieste dall'utente.
+
+Queste classi sono implementate come dei Singleton per impedire che vengano lasciate aperte contemporaneamente più connessioni.  
 
 ## 3. Interfacce delle classi
 Di seguito vengono documentati i metodi public relativi a tutte le classi raggruppate nei vari package.
@@ -551,3 +555,30 @@ ErroreDialog | Costruttore della classe che crea l'interfaccia del popup di erro
 #### Classe DatabaseInterface
 Metodo | Descrizione
 -|-|
+getInstance| Metodo statico che restituisce l'istanza di DatabaseInterface
+aggiornaDettagliVisita| Questo metodo modifica gli attributi _Diagnosi_, _Referti_, e _Osservazioni_ della relazione _Visita_.  
+inserisciPaziente| Metodo che Metodo che aggiunge una nuova entry nella relazione _Paziente_.
+inserisciPrenotazione| Questo metodo prende in input una prenotazione e la inserisce nel database, insieme alle relazioni correlate.
+modificaPrenotazione| Metodo che va a modificare la colonna _FasciaOraria_Data_e_ora_ per la prenotazione passata come argomento.
+ottieniDettagliVisita| Questo metodo restituisce gli attributi _Diagnosi_, _Referti_, e _Osservazioni_ della relazione _Visita_.  
+ottieniDocumentiNecessari| Metodo che restituisce la lista dei documenti necessari per una determinata prestazione.
+ottieniElencoPrenotazioni| Questo metodo restitiusce l'elenco di tutte le prenotazioni modificabili a nome di un determinato paziente.
+ottieniElencoVisite| A seconda degli argomenti restituisce: le visite mediche di un determinato medico nel giorno corrente, le prenotazioni passate non annullate di un paziente, o tutte le prenotazioni in un dato range di orari.
+ottieniListaMedici| Metodo che, data una tipologia di prestazione, restituisce tutti i medici che la erogano.
+ottieniOrari| A seconda degli argomenti passati restituisce gli orari entro un certo limite massimo in cui è possibile erogare una prestazione o gli orari in cui un dato medico è libero e può effettuare visite.
+ottieniPaziente| Restituisce il paziente individuato univocamente dai dati passati per argomento al metodo.
+ottieniPersonale| Restituisce il personale (medico o amministrativo, dipendentemente dal flag passato come argomento) individuato univocamente dai dati passati per argomento al metodo.
+ottieniPrenotazione| Restituisce la prenotazione corrispondente ad un dato codice identificativo
+ottieniPrenotazioneSpostabile| Metodo per individuare una prenotazione che può eventualmente essere spostata per permettere di effettuare una prenotazione più urgente.
+rimuoviPrenotazione| Questo metodo permette di cancellare dal database la prenotazione selezionata e tutte le relazioni collegate.
+verificaDuplicati| Metodo per controllare che una data ricetta non sia stata già utilizzata per prenotare una visita.
+
+#### Classe MailInterface
+Metodo | Descrizione
+-|-|
+
+#### Classe PDFInterface
+Metodo | Descrizione
+-|-|
+
+[Vai al package corrispondente](#28-externalcomponentsinterface)
