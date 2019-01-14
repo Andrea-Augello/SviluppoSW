@@ -14,6 +14,7 @@
 		- [2.5 Autenticazione](#25-autenticazione)
 		- [2.6 Entity](#26-entity)
 		- [2.7 MainScreen](#27-mainscreen)
+		- [2.8 ExternalComponentsInterface](#28-externalcomponentsinterface)
 	- [3. Interfacce delle classi](#3-interfacce-delle-classi)
 		- [3.1 Package CreaPrenotazione](#31-package-creaprenotazione)
 		- [3.2 Package ModificaPrenotazione](#32-package-modificaprenotazione)
@@ -131,6 +132,14 @@ Questo package contiene le classi responsabili del corretto funzionamento delle 
 - [__MainScreenMedico :__](#classe-mainscreenmedico) Schermata principale personalizzata per essere visualizzata solo dall'utente "Personale Medico".  
 - [__ErroreDialog :__](#classe-erroredialog) Mostra a video all’utente che l’operazione da lui intrapresa non è andata a buon fine.  
   
+### 2.8 ExternalComponentsInterface
+Questo package contiene tutte le classi che gestiscono interfacce esterne necessarie al corretto funzionamento del software.
+  
+![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/ExternalComponentsInterface.png)  
+  
+- [__DatabaseInterface :__](#classe-databaseinterface) Interfaccia del database che gestisce tutti i dati permanenti del nostro software.
+- [__MailInterface :__](#classe-mailinterface) Interfaccia del server di posta elettronica che gestisce le notifiche relative alle prenotazioni. É stata inserita con lo scopo di sostituire gran parte delle funzionalità della precedente classe inviaNotificaControl.
+- [__PDFInterface :__](#classe-pdfinterface) Interfaccia che si occupa di produrre un documento PDF corretto con tutte le informazioni richieste dall'utente.
 
 ## 3. Interfacce delle classi
 Di seguito vengono documentati i metodi public relativi a tutte le classi raggruppate nei vari package.
