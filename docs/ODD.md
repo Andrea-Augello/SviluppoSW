@@ -580,9 +580,11 @@ getInstance| Metodo statico che restituisce l'istanza di MailInterface
 notificaCreazionePrenotazione | Metodo per l'invio di una mail di notifica alla creazione di una nuova prenotazione.
 notificaSpostamentoPrenotazione | Questo metodo invia una mail per avvisare dell'avvenuta modifica della data di appuntamento per una prenotazione.
 notificaCancellazionePrenotazione| Metodo per l'invio di una mail segnalante la cancellazione di una prenotazione.
-notificaReminderPrenotazione|  Questo metodo invia una mail per ricordare al paziente della prestazione prenotata. 
+notificaReminderPrenotazione|  Questo metodo invia una mail per ricordare al paziente della prestazione prenotata.
 #### Classe PDFInterface
 Metodo | Descrizione
 -|-|
+getInstance| Metodo statico che restituisce l'istanza di PDFInterface
+stampa | Questo metodo crea un file PDF contenete il testo passato come argomento
 
 [Vai al package corrispondente](#28-externalcomponentsinterface)
