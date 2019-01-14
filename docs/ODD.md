@@ -553,8 +553,9 @@ ErroreDialog | Costruttore della classe che crea l'interfaccia del popup di erro
 ### 3.8 Package ExternalComponentsInterface
 
 #### Classe DatabaseInterface
+
 Metodo | Descrizione
--|-|
+|-|-|
 getInstance| Metodo statico che restituisce l'istanza di DatabaseInterface
 aggiornaDettagliVisita| Questo metodo modifica gli attributi _Diagnosi_, _Referti_, e _Osservazioni_ della relazione _Visita_.  
 inserisciPaziente| Metodo che Metodo che aggiunge una nuova entry nella relazione _Paziente_.
@@ -575,16 +576,19 @@ rimuoviPrenotazione| Questo metodo permette di cancellare dal database la prenot
 verificaDuplicati| Metodo per controllare che una data ricetta non sia stata già utilizzata per prenotare una visita.
 
 #### Classe MailInterface
+
 Metodo | Descrizione
--|-|
+|-|-|
 getInstance| Metodo statico che restituisce l'istanza di MailInterface
 notificaCreazionePrenotazione | Metodo per l'invio di una mail di notifica alla creazione di una nuova prenotazione.
 notificaSpostamentoPrenotazione | Questo metodo invia una mail per avvisare dell'avvenuta modifica della data di appuntamento per una prenotazione.
 notificaCancellazionePrenotazione| Metodo per l'invio di una mail segnalante la cancellazione di una prenotazione.
 notificaReminderPrenotazione|  Questo metodo invia una mail per ricordare al paziente della prestazione prenotata.
+
 #### Classe PDFInterface
+
 Metodo | Descrizione
--|-|
+|-|-|
 getInstance| Metodo statico che restituisce l'istanza di PDFInterface
 stampa | Questo metodo crea un file PDF contenete il testo passato come argomento
 
