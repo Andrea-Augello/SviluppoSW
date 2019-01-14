@@ -4,6 +4,8 @@ import ExternalComponentsInterface.DatabaseInterface;
 import Oggetti.ErroreDialog;
 import Oggetti.Ricetta;
 
+import java.util.List;
+
 public class GeneraRicettaControl {
 	private Ricetta ricetta;
 
@@ -11,7 +13,9 @@ public class GeneraRicettaControl {
     private FormRicetta formDatiRicetta;
 
 	public GeneraRicettaControl() {
-	    formDatiRicetta = new FormRicetta(this);
+		List<String> prestazioni = DatabaseInterface.getInstance().ottieniPrestazioniErogabili();
+		prestazioni.add("RICOVERO");
+	    formDatiRicetta = new FormRicetta(this, prestazioni);
 	}
 
 	void ottieniDati() {
