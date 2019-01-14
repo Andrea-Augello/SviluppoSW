@@ -4,9 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class FormRicetta {
+	private final List<String> prestazioni;
 	private GeneraRicettaControl control;
 	private JPanel panel;
 	private JRadioButton uRadioButton;
@@ -18,7 +20,8 @@ public class FormRicetta {
 	private JButton confermaButton;
 	private int urgenza;
 
-	public FormRicetta(GeneraRicettaControl control) {
+	public FormRicetta(GeneraRicettaControl control, List<String> prestazioni) {
+		this.prestazioni = prestazioni;
 		JFrame frame = new JFrame("SPRINT - Inserisci i dati della ricetta");
 		$$$setupUI$$$();
 		frame.setContentPane(panel);
@@ -30,7 +33,7 @@ public class FormRicetta {
 		confermaButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			    conferma();
+				conferma();
 			}
 		});
 		uRadioButton.addActionListener(e -> urgenza = 1);
@@ -130,8 +133,10 @@ public class FormRicetta {
 
 	private void createUIComponents() {
 		// TODO: place custom component creation code here
-		String[] prestazioni = {"1", "2", "3"};
-        comboBox1 = new JComboBox(prestazioni);
+        comboBox1 = new JComboBox();
+        for (String prestazione : prestazioni) {
+			comboBox1.addItem(prestazione);
+		}
 	}
 
 }
