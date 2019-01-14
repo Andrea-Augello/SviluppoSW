@@ -346,6 +346,18 @@ public class DatabaseInterface {
     }
 
     public boolean verificaDuplicati(Ricetta ricetta) {
+        try{   //Prepare statement
+            st = conn.prepareStatement("SELECT Numero_ricetta,COUNT(Numero_ricetta) FROM Ricetta HAVING COUNT(Numero_ricetta)>1 ");
+            //Execute
+            rs=st.executeQuery();
+            if(rs.getInt("COUNT(Numero_ricetta)")>0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return false;
     }
 
