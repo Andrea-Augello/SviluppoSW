@@ -350,7 +350,18 @@ public class DatabaseInterface {
     }
 
     public String ottieniPosizioneMedico(PersonaleEntity medico){
-        return "IGNOTO";
+        try {
+            int medicoId=medico.getMatricola();
+            //Prepare statement
+            st=conn.prepareStatement("SELECT Ambulatorio.* FROM Ambulatorio,PersonaleMedico WHERE PersonaleMedico.ID=medicoId AND PersonaleMedico.Ambulatorio_Nome=Ambulatorio.Nome");
+            //Execute
+            rs=st.executeQuery();
+            String posizioneMedico=("Nome ambulatorio: " + rs.getString("Nome") + "\nNome reparto: " + rs.getString("Reparto_Nome") + "\n");
+            return posizioneMedico;
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
+        return null;
     }
 
     private PazienteEntity parserPaziente(ResultSet queryResult) {
