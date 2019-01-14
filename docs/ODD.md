@@ -20,6 +20,7 @@
 		- [3.3 Package VisualizzaFSE](#33-package-visualizzafse)
 		- [3.4 Package InserisciDettagliVisita](#34-package-inseriscidettaglivisita)
 		- [3.5 Package Autenticazione](#35-package-autenticazione)
+		- [3.6 Package Entity](#36-package-entity)
 
 <!-- /TOC -->
 
@@ -109,7 +110,7 @@ Questo package raggruppa le classi che permettono a tutta l'utenza di effettuare
 - __RegistrazioneForm :__ Il form che permette di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.  
   
 ### 2.6 Entity
-Questo package raggruppa le classi entity che si occupano di gestire i dati permanenti all'interno del database.  
+Questo package raggruppa le classi entity che si occupano di gestire i dati permanenti all'interno del database. Tutte le classi che fanno parte di questo package implementano l'interfaccia Comparable.
   
 ![Package "CreaPrenotazione"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/EntityPackage.png)  
   
@@ -335,3 +336,67 @@ Metodo | Descrizione
 IndividuaPazienteForm | Costruttore della classe che crea l'interfaccia nella quale l'utente di tipo "Personale Amministrativo" potrà inserire il codice fiscale di un paziente per accedere alla sua area servizi.
 dispose | Metodo che agisce sullo stato della finestra dell'interfaccia di individuazione chiudendola.
 getCodiceFiscale | Metodo getter che restituisce il codice fiscale del paziente.
+
+### 3.6 Package Entity
+
+#### Classe PazienteEntity
+
+Metodo | Descrizione
+-|-|
+PazienteEntity | Costruttore della classe che inizializza tutti i campi presenti nella classe stessa.
+createInstance | Metodo che crea un'istanza corretta dell'oggetto "Paziente"
+setPaziente | Metodo setter che memorizza in "pazienteSelezionato" l'oggetto "Paziente" passatogli in input.
+getCodiceFiscale | Metodo getter che restituisce il codice fiscale del paziente.
+setCodiceFiscale | Metodo setter che memorizza correttamente il codice fiscale passatogli in input.
+getNome | Metodo getter che restituisce il nome del paziente.
+setNome | Metodo setter che memorizza correttamente il nome del paziente passatogli in input.
+getCognome | Metodo getter che restituisce il cognome del paziente.
+setCognome | Metodo setter che memorizza correttamente il cognome del paziente passatogli in input.
+getDataDiNascita | Metodo getter che restituisce la data di nascita del paziente.
+setDataDiNascita | Metodo setter che memorizza correttamente la data di nascita del paziente passata in input.
+getIndirizzoMail | Metodo getter che restituisce l'indirizzo email inserito.
+setIndirizzoMail | Metodo setter che memorizza correttamente l'indirizzo email passatogli in input.
+getTelefono | Metodo getter che restituisce il numero di telefono inserito.
+setTelefono | Metodo setter che memorizza correttamente il numero di telefono del paziente passatogli in input.
+getPassword | Metodo getter che restituisce la password inserita.
+setPassword | Metodo setter che memorizza correttamente la password passata in input.
+
+#### Classe PersonaleEntity
+
+Metodo | Descrizione
+-|-|
+PersonaleEntity | Costruttore della classe che inizializza tutti i campi presenti nella classe stessa.
+getMatricola | Metodo getter che restituisce la matricola dell'utente.
+getMedico | Metodo getter che restituisce un utente di tipo "PersonaleMedico".
+setMedico | Metodo setter che memorizza un utente di tipo "PersonaleMedico" passatogli in input.
+
+#### Classe Prenotazione
+
+Metodo | Descrizione
+-|-|
+Prenotazione | Costruttore della classe che inizializza tutti i campi presenti nella classe stessa.
+getDataOraAppuntamento | Metodo getter che restituisce la data e l'ora della prenotazione.
+getId | Metodo getter che restituisce l'ID della prenotazione.
+setDataOraAppuntamento | Metodo setter che memorizza correttamente la data e l'ora della prenotazione passata in input.
+getPaziente | Metodo getter che restituisce l'utente di tipo "Paziente" associato alla prenotazione.
+getCodicePrestazione | Metodo getter che restituisce il codice della prestazione relativa ad una prenotazione.
+getMedico | Metodo getter che restituisce l'utente di tipo "PersonaleMedico" associato alla prenotazione.
+getRicetta | Metodo getter che restituisce la ricetta specifica di una data visita legata alla prenotazione.
+getDescrizionePrestazione | Metodo getter che restituisce la descrizione della prestazione correlata alla prenotazione.
+getLimiteMassimo | Metodo getter che restituisce la data massima entro la quale la prenotazione può essere spostata.
+getCodiceRicetta | Metodo getter che restituisce il codice della ricetta specifica di una data visita legata alla prenotazione.
+
+#### Classe Ricetta
+
+Metodo | Descrizione
+-|-|
+Ricetta | Costruttore della classe che inizializza tutti i campi presenti nella classe stessa.
+getUrgenza | Metodo getter che restituisce il tipo di urgenza di una relativa ricetta.
+setUrgenza | Metodo setter che inizializza la data massima entro la quale la prenotazione può essere spostata in base al tipo di urgenza passatogli in input.
+getPrestazione | Metodo getter che restituisce la prestazione relativa ad una ricetta.
+setPrestazione | Metodo setter che memorizza la prestazione di una ricetta.
+getCodiceRicetta | Metodo getter che restituisce il codice di una ricetta.
+setCodiceRicetta | Metodo setter che memorizza il codice di una ricetta passatogli in input.
+getRegime | Metodo getter che restituisce il regime di prenotazione.
+setRegime | Metodo setter che memorizza il regime di prenotazione passatogli in input.
+getLimiteMassimo | Metodo getter che restituisce la data massima entro la quale la prenotazione può essere spostata.
