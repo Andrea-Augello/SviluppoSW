@@ -308,8 +308,7 @@ public class DatabaseInterface {
             while(rs.next()) {
                 int id=rs.getInt("ID");
                 String idString=Integer.toString(id);
-                prestazioniErogabili.add(idString);
-                prestazioniErogabili.add(rs.getString("Nome"));
+                prestazioniErogabili.add(idString + " - " + rs.getString("Nome"));
             }
             return prestazioniErogabili;
         }catch(SQLException ex) {
@@ -319,6 +318,18 @@ public class DatabaseInterface {
     }
 
     public String ottieniStoricoVisite(PazienteEntity paziente, LocalDateTime now) {
+        try {
+            //Prepare statement
+            st = conn.prepareStatement("SELECT * FROM Paziente WHERE CF=? AND Password = ?");
+            //Set field
+            st.setString(1, cf);
+            st.setString(2, password);
+            //Execute
+            rs=st.executeQuery();
+            return parserPaziente(rs);
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
