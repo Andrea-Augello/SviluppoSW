@@ -14,7 +14,7 @@ public class GeneraRicettaControl {
 
 	public GeneraRicettaControl() {
 		List<String> prestazioni = DatabaseInterface.getInstance().ottieniPrestazioniErogabili();
-		prestazioni.add("RICOVERO");
+		prestazioni.add("000 - RICOVERO");
 	    formDatiRicetta = new FormRicetta(this, prestazioni);
 	}
 
