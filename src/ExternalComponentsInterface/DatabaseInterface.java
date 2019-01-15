@@ -1,8 +1,6 @@
 package ExternalComponentsInterface;
 
 import Oggetti.*;
-import com.sun.javafx.binding.StringFormatter;
-import jdk.vm.ci.meta.Local;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -441,11 +439,7 @@ public class DatabaseInterface {
             //Execute
             rs=st.executeQuery();
             rs.next();
-            if(rs.getInt("COUNT(Prenotazione.ID)")>1){
-                return true;
-            }else{
-                return false;
-            }
+            return rs.getInt("COUNT(Prenotazione.ID)") > 1;
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
@@ -459,8 +453,7 @@ public class DatabaseInterface {
             st=conn.prepareStatement("SELECT Ambulatorio.* FROM Ambulatorio,PersonaleMedico WHERE PersonaleMedico.ID=medicoId AND PersonaleMedico.Ambulatorio_Nome=Ambulatorio.Nome");
             //Execute
             rs=st.executeQuery();
-            String posizioneMedico=("Nome ambulatorio: " + rs.getString("Nome") + "\nNome reparto: " + rs.getString("Reparto_Nome") + "\n");
-            return posizioneMedico;
+            return ("Nome ambulatorio: " + rs.getString("Nome") + "\nNome reparto: " + rs.getString("Reparto_Nome") + "\n");
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }

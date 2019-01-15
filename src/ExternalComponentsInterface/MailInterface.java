@@ -14,7 +14,6 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.xml.crypto.Data;
 
 public class MailInterface {
     private static MailInterface instance = new MailInterface();
