@@ -6,6 +6,7 @@ import jdk.vm.ci.meta.Local;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalTime
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -79,7 +80,6 @@ public class DatabaseInterface {
             st.setString(6,prenotazione.getCodiceRicetta());
             //Execute
             st.execute();
-
             return true;
         }catch(SQLException ex) {
             new ErroreDialog(ex);
@@ -160,7 +160,7 @@ public class DatabaseInterface {
         return null;
     }
 
-    // This method is not yes used
+    // This method is not yet used
     public List<Prenotazione> ottieniElencoVisite(PazienteEntity paziente) {
        return null;
     }
@@ -168,13 +168,33 @@ public class DatabaseInterface {
     public List<Prenotazione> ottieniElencoVisite(PersonaleEntity medico) {
         try{
             //Prepare statement
+            int id=medico.getMatricola();
+            //We need the current day
+            LocalDate dateCurrent = LocalDate.now();
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_TIME;
+            String timeStart="00:00:00";
+            LocalTime timeStartDay = LocalTime.parse(timeStart, dateTimeFormatter);
+            String timeEnd="23:59:59";
+            LocalTime timeEndDay = LocalTime.parse(timeEnd, dateTimeFormatter);
+            LocalDateTime dateTimeStart = LocalDateTime.of(dateCurrent, timeStartDay);
+            LocalDateTime dateTimeEnd=LocalDateTime.of(dateCurrent, timeEndDay) ;
+            //We format to DateTime Pattern
+            String formattedDateTimeStart = dateTimeStart.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            String formattedDateTimeEnd = dateTimeEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione,Paziente WHERE  Paziente.CF=Prenotazione.Paziente_CF");
-
+            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= formattedDateTimeStart AND Prenotazione.FasciaOraria_Data_e_ora <= formattedDateTimeEnd AND PersonaleMedico.ID=id AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Visita.Prenotazione_ID=Prenotazione.ID");
+            //Execute
+            rs=st.executeQuery();
+            List<Prenotazione> prenotazioni = new ArrayList<>();
+            while(rs.next()) {
+                prenotazioni.add(parserPrenotazioni(rs));
+            }
+            return prenotazioni;
         }catch (SQLException ex){
             new ErroreDialog(ex);
         }
-        return null;    }
+        return null;
+    }
 
     public List<Prenotazione> ottieniElencoVisite(LocalDateTime inizio, LocalDateTime fine) {
         return null;
@@ -248,7 +268,11 @@ public class DatabaseInterface {
             st.setString(1, cf);
             //Execute
             rs=st.executeQuery();
-            return parserPaziente(rs);
+            if(rs.next()) {
+                return parserPaziente(rs);
+            }else {
+                return null;
+            }
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
@@ -264,7 +288,11 @@ public class DatabaseInterface {
             st.setString(2, password);
             //Execute
             rs=st.executeQuery();
-            return parserPaziente(rs);
+            if(rs.next()) {
+                return parserPaziente(rs);
+            }else {
+                return null;
+            }
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
@@ -284,7 +312,11 @@ public class DatabaseInterface {
             st.setString(2, password);
             //Execute
             rs=st.executeQuery();
-            return parserPersonale(rs);
+            if(rs.next()) {
+                return parserPersonale(rs);
+            }else {
+                return null;
+            }
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
@@ -374,7 +406,11 @@ public class DatabaseInterface {
             st = conn.prepareStatement("SELECT PersonaleMedico.* FROM PersonaleMedico,Esercita_durante,Eroga,Prestazione WHERE Prestazione.ID=prestazione AND Esercita_durante.FasciaOraria_Data_e_ora=slotScelto AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Esercita_durante.PersonaleMedico_ID");
             //Execute
             rs=st.executeQuery();
-            return parserPersonale(rs);
+            if(rs.next()) {
+                return parserPersonale(rs);
+            }else {
+                return null;
+            }
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
@@ -417,7 +453,6 @@ public class DatabaseInterface {
 
     private PazienteEntity parserPaziente(ResultSet queryResult) {
         try{
-            if (queryResult.next()) {
                 String codiceFiscale=queryResult.getString("CF");
                 String password = queryResult.getString("Password");
                 String nome = queryResult.getString("Nome");
@@ -426,9 +461,6 @@ public class DatabaseInterface {
                 String telefono = queryResult.getString("Telefono");
                 String indirizzoEmail = queryResult.getString("Indirizzo_email");
                 return PazienteEntity.createInstance(codiceFiscale,nome,cognome,dataDiNascita,telefono,indirizzoEmail, password);
-            } else {
-                return null;
-            }
         } catch(Exception ex){
             return null;
         }
@@ -436,13 +468,9 @@ public class DatabaseInterface {
 
     private PersonaleEntity parserPersonale(ResultSet queryResult) {
         try{
-            if(queryResult.next()) {
                 int matricola = queryResult.getInt("ID");
                 String password = queryResult.getString("Password");
                 return new PersonaleEntity(matricola, password);
-            } else {
-                return null;
-            }
         } catch(Exception ex){
             return null;
         }
@@ -450,7 +478,6 @@ public class DatabaseInterface {
 
     private Prenotazione parserPrenotazioni(ResultSet queryResult) {
         try{
-            if(queryResult.next()) {
                 PazienteEntity paziente=parserPaziente(queryResult);
                 PersonaleEntity medico=parserPersonale(queryResult);
                 medico.setMedico(medico);
@@ -461,11 +488,7 @@ public class DatabaseInterface {
                 String str = queryResult.getString("FasciaOraria_Data_e_ora");
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                 LocalDateTime slotScelto = LocalDateTime.parse(str, formatter);
-
                 return new Prenotazione( paziente,  new Ricetta(codiceRicetta,prestazione),  slotScelto,  medico);
-            } else {
-                return null;
-            }
         } catch(Exception ex){
             return null;
         }
