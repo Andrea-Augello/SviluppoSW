@@ -90,8 +90,12 @@ public class DatabaseInterface {
             try{
                 //Prepare statement
                 LocalDateTime newFasciaOraria=prenotazione.getDataOraAppuntamento();
+                String formattedNewFasciaOraria = newFasciaOraria.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
                 int id=prenotazione.getId();
-                st = conn.prepareStatement("UPDATE Prenotazione SET FasciaOraria_Data_e_ora=newFasciaOraria WHERE ID=id");
+                st = conn.prepareStatement("UPDATE Prenotazione SET FasciaOraria_Data_e_ora=? WHERE ID=?");
+                //Set field
+                st.setString(1, formattedNewFasciaOraria);
+                st.setInt(2, id);
                 //Execute
                 st.execute();
                 return true;
@@ -144,7 +148,9 @@ public class DatabaseInterface {
         try{
             //Prepare statement
             String cf=paziente.getCodiceFiscale();
-            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione,Paziente WHERE Paziente.CF=cf AND Paziente.CF=Prenotazione.Paziente_CF");
+            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione,Paziente WHERE Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF");
+            //Set field
+            st.setString(1,cf);
             //Execute
             rs=st.executeQuery();
             List<Prenotazione> prenotazioni = new ArrayList<>();
@@ -180,7 +186,11 @@ public class DatabaseInterface {
             String formattedDateTimeStart = dateTimeStart.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String formattedDateTimeEnd = dateTimeEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= formattedDateTimeStart AND Prenotazione.FasciaOraria_Data_e_ora <= formattedDateTimeEnd AND PersonaleMedico.ID=id AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Visita.Prenotazione_ID=Prenotazione.ID");
+            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? AND PersonaleMedico.ID=? AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Visita.Prenotazione_ID=Prenotazione.ID");
+            //Set field
+            st.setString(1,formattedDateTimeStart);
+            st.setString(2,formattedDateTimeEnd);
+            st.setInt(1,medico.getMatricola());
             //Execute
             rs=st.executeQuery();
             List<Prenotazione> prenotazioni = new ArrayList<>();
@@ -200,7 +210,10 @@ public class DatabaseInterface {
             String formattedDateTimeStart = inizio.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String formattedDateTimeEnd = fine.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione WHERE Prenotazione.FasciaOraria_Data_e_ora >= inizio AND Prenotazione.FasciaOraria_Data_e_ora <= fine ");
+            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? ");
+            //Set field
+            st.setString(1,formattedDateTimeStart);
+            st.setString(2,formattedDateTimeEnd);
             //Execute
             rs=st.executeQuery();
             List<Prenotazione> prenotazioni = new ArrayList<>();
@@ -237,11 +250,13 @@ public class DatabaseInterface {
         try {
             LocalDateTime safeTimeCondition=LocalDateTime.now().plusHours(24);
             //Prepare statement
-            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione WHERE Esercita_durante.FasciaOraria_Data_e_ora <=? AND Prestazione.ID=? AND Esercita_durante.FasciaOraria_Data_e_ora <= safeTimeCondition AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND NOT (Prenotazione.ID=Visita.Prenotazione_ID AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)");
+            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione WHERE Esercita_durante.FasciaOraria_Data_e_ora <=? AND Prestazione.ID=? AND Esercita_durante.FasciaOraria_Data_e_ora <= ? AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND NOT (Prenotazione.ID=Visita.Prenotazione_ID AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)");
             //Set field
             String formattedDateTime = limiteMassimo.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            String formattedSafeTimeCondition = safeTimeCondition.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             st.setString(1,formattedDateTime);
             st.setInt(2,prestazione);
+            st.setString(3,formattedSafeTimeCondition);
             //Execute
             rs=st.executeQuery();
             List<LocalDateTime> times = new ArrayList<>();
@@ -258,9 +273,13 @@ public class DatabaseInterface {
     public List<LocalDateTime> ottieniOrari(PersonaleEntity medico) {
         try {
             LocalDateTime safeTimeCondition=LocalDateTime.now().plusHours(24);
+            String formattedSafeTimeCondition = safeTimeCondition.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             int matricolaMedico=medico.getMatricola();
             //Prepare statement
-            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione WHERE PersonaleMedico.ID=matricolaMedico AND Esercita_durante.FasciaOraria_Data_e_ora <= safeTimeCondition AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND NOT (Prenotazione.ID=Visita.Prenotazione_ID AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)");
+            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione WHERE PersonaleMedico.ID=? AND Esercita_durante.FasciaOraria_Data_e_ora <= ? AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND NOT (Prenotazione.ID=Visita.Prenotazione_ID AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)");
+            //Set field
+            st.setInt(1,matricolaMedico);
+            st.setString(2,formattedSafeTimeCondition);
             //Execute
             rs=st.executeQuery();
             List<LocalDateTime> times = new ArrayList<>();
@@ -340,7 +359,9 @@ public class DatabaseInterface {
     public Prenotazione ottieniPrenotazione(int id) {
         try {
             //Prepare statement
-            st=conn.prepareStatement("SELECT * FROM Prenotazione WHERE Prenotazione.ID=id");
+            st=conn.prepareStatement("SELECT * FROM Prenotazione WHERE Prenotazione.ID=?");
+            //Set field
+            st.setInt(1, id);
             //Execute
             rs=st.executeQuery();
             return parserPrenotazioni(rs);
@@ -393,8 +414,11 @@ public class DatabaseInterface {
         try {
             //Prepare statement
             String cf= paziente.getCodiceFiscale();
-
-            st = conn.prepareStatement("SELECT Visita.*,Prestazione.Nome,PersonaleMedico.Nome,PersonaleMedico.Cognome FROM Visita,Paziente,Prenotazione,PersonaleMedico,Eroga,Prestazione WHERE Paziente.CF=cf AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.ID=Visita.Prenotazione_ID AND Visita.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Eroga.PersonaleMedico_ID AND Eroga.Prestazione_ID =Prestazione.ID AND Prenotazione.FasciaOraria_Data_e_ora<=now");
+            String formattedNow = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            st = conn.prepareStatement("SELECT Visita.*,Prestazione.Nome,PersonaleMedico.Nome,PersonaleMedico.Cognome FROM Visita,Paziente,Prenotazione,PersonaleMedico,Eroga,Prestazione WHERE Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.ID=Visita.Prenotazione_ID AND Visita.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Eroga.PersonaleMedico_ID AND Eroga.Prestazione_ID =Prestazione.ID AND Prenotazione.FasciaOraria_Data_e_ora<=?");
+            //Set field
+            st.setString(1, cf);
+            st.setString(2, formattedNow);
             //Execute
             rs=st.executeQuery();
             rs.next();
@@ -417,7 +441,11 @@ public class DatabaseInterface {
     public PersonaleEntity ottieniMedicoDisponibile(LocalDateTime slotScelto, int prestazione) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("SELECT PersonaleMedico.* FROM PersonaleMedico,Esercita_durante,Eroga,Prestazione WHERE Prestazione.ID=prestazione AND Esercita_durante.FasciaOraria_Data_e_ora=slotScelto AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Esercita_durante.PersonaleMedico_ID");
+            st = conn.prepareStatement("SELECT PersonaleMedico.* FROM PersonaleMedico,Esercita_durante,Eroga,Prestazione WHERE Prestazione.ID=? AND Esercita_durante.FasciaOraria_Data_e_ora=? AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Esercita_durante.PersonaleMedico_ID");
+            //Set field
+            String formattedSlotScelto = slotScelto.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            st.setInt(1, prestazione);
+            st.setString(2, formattedSlotScelto);
             //Execute
             rs=st.executeQuery();
             if(rs.next()) {
@@ -435,7 +463,9 @@ public class DatabaseInterface {
         try {
             //Prepare statement
             String numeroRicetta=ricetta.getCodiceRicetta();
-            st = conn.prepareStatement("SELECT COUNT(Prenotazione.ID) FROM Ricetta,Prenotazione,Prestazione WHERE Ricetta.Numero_ricetta=numeroRicetta AND  Ricetta.Numero_ricetta = Prenotazione.Ricetta_Numero_ricetta AND Prenotazione.Prestazione_ID =Prestazione.ID");
+            st = conn.prepareStatement("SELECT COUNT(Prenotazione.ID) FROM Ricetta,Prenotazione,Prestazione WHERE Ricetta.Numero_ricetta=? AND  Ricetta.Numero_ricetta = Prenotazione.Ricetta_Numero_ricetta AND Prenotazione.Prestazione_ID =Prestazione.ID");
+            //Set field
+            st.setString(1, numeroRicetta);
             //Execute
             rs=st.executeQuery();
             rs.next();
@@ -450,7 +480,9 @@ public class DatabaseInterface {
         try {
             int medicoId=medico.getMatricola();
             //Prepare statement
-            st=conn.prepareStatement("SELECT Ambulatorio.* FROM Ambulatorio,PersonaleMedico WHERE PersonaleMedico.ID=medicoId AND PersonaleMedico.Ambulatorio_Nome=Ambulatorio.Nome");
+            st=conn.prepareStatement("SELECT Ambulatorio.* FROM Ambulatorio,PersonaleMedico WHERE PersonaleMedico.ID=? AND PersonaleMedico.Ambulatorio_Nome=Ambulatorio.Nome");
+            //Set field
+            st.setInt(1, medicoId);
             //Execute
             rs=st.executeQuery();
             return ("Nome ambulatorio: " + rs.getString("Nome") + "\nNome reparto: " + rs.getString("Reparto_Nome") + "\n");
