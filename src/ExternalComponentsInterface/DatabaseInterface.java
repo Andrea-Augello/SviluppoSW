@@ -415,14 +415,14 @@ public class DatabaseInterface {
             //Prepare statement
             String cf= paziente.getCodiceFiscale();
             String formattedNow = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            st = conn.prepareStatement("SELECT Visita.*,Prestazione.Nome,PersonaleMedico.Nome,PersonaleMedico.Cognome FROM Visita,Paziente,Prenotazione,PersonaleMedico,Eroga,Prestazione WHERE Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.ID=Visita.Prenotazione_ID AND Visita.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Eroga.PersonaleMedico_ID AND Eroga.Prestazione_ID =Prestazione.ID AND Prenotazione.FasciaOraria_Data_e_ora<=?");
+            st = conn.prepareStatement("SELECT Visita.*,Prestazione.Nome AS Nome_prestazione,PersonaleMedico.Nome,PersonaleMedico.Cognome FROM Visita,Paziente,Prenotazione,PersonaleMedico,Eroga,Prestazione WHERE Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.ID=Visita.Prenotazione_ID AND Visita.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Eroga.PersonaleMedico_ID AND Eroga.Prestazione_ID =Prestazione.ID AND Prenotazione.FasciaOraria_Data_e_ora<=?");
             //Set field
             st.setString(1, cf);
             st.setString(2, formattedNow);
             //Execute
             rs=st.executeQuery();
             rs.next();
-            String storicoVisite=("ID: " + rs.getInt("Prenotazione_ID") + "\nTipo di prestazione: " + rs.getString("Nome") +"\nMedico: " + rs.getString("PersonaleMedico.Nome") + " " + rs.getString("Cognome") + "\nDiagnosi: " + rs.getString("Diagnosi")+ "\nReferti: " + rs.getString("Referti") + "\nOsservazioni: " + rs.getString("Osservazioni") + "\n");
+            String storicoVisite=("ID: " + rs.getInt("Prenotazione_ID") + "\nTipo di prestazione: " + rs.getString("Nome_prestazione") +"\nMedico: " + rs.getString("Nome") + " " + rs.getString("Cognome") + rs.getString("Cognome") + "\nDiagnosi: " + rs.getString("Diagnosi")+ "\nReferti: " + rs.getString("Referti") + "\nOsservazioni: " + rs.getString("Osservazioni") + "\n");
             /*
                 "ID: " + ...+
                 "\nTipo di prestazione: "+...
