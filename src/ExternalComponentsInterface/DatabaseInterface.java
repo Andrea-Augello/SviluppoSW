@@ -197,6 +197,22 @@ public class DatabaseInterface {
     }
 
     public List<Prenotazione> ottieniElencoVisite(LocalDateTime inizio, LocalDateTime fine) {
+        try{
+            //Prepare statement
+            String formattedDateTimeStart = inizio.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            String formattedDateTimeEnd = fine.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione WHERE Prenotazione.FasciaOraria_Data_e_ora >= inizio AND Prenotazione.FasciaOraria_Data_e_ora <= fine ");
+            //Execute
+            rs=st.executeQuery();
+            List<Prenotazione> prenotazioni = new ArrayList<>();
+            while(rs.next()) {
+                prenotazioni.add(parserPrenotazioni(rs));
+            }
+            return prenotazioni;
+        }catch (SQLException ex){
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
