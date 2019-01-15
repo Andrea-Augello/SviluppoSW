@@ -2,6 +2,7 @@ package ExternalComponentsInterface;
 
 import Oggetti.*;
 import com.sun.javafx.binding.StringFormatter;
+import jdk.vm.ci.meta.Local;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -87,16 +88,18 @@ public class DatabaseInterface {
         }
     }
 
-    /* WORK IN PROGRESS
     public boolean modificaPrenotazione(Prenotazione prenotazione) {
             try{
-
+                //Prepare statement
+                LocalDateTime newFasciaOraria=prenotazione.getDataOraAppuntamento();
+                int id=prenotazione.getId();
+                st = conn.prepareStatement("UPDATE Prenotazione SET FasciaOraria_Data_e_ora=newFasciaOraria WHERE ID=id");
                 return true;
             }catch(SQLException ex){
                 new ErroreDialog(ex);
                 return false;
             }
-    }*/
+    }
 
     public String [] ottieniDettagliVisita(Prenotazione prenotazione) {
         try {
