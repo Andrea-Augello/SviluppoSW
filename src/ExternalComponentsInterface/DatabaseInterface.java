@@ -1,6 +1,7 @@
 package ExternalComponentsInterface;
 
 import Oggetti.*;
+import com.sun.javafx.binding.StringFormatter;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -430,19 +431,20 @@ public class DatabaseInterface {
                 PersonaleEntity medico=parserPersonale(queryResult);
                 medico.setMedico(medico);
                 String codiceRicetta=queryResult.getString("Numero_ricetta");
-                /* TO BE FINISHED
-                int urgenza=queryResult.getInt("");
-                int prestazione
-                /*
-                return new Prenotazione( paziente,  ricetta,  slotScelto,  medico);
-                */
+                int prestazione=queryResult.getInt("Prestazione.ID");
+
+                //We format from String to LocalDateTime
+                String str = queryResult.getString("FasciaOraria_Data_e_ora");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                LocalDateTime slotScelto = LocalDateTime.parse(str, formatter);
+
+                return new Prenotazione( paziente,  new Ricetta(codiceRicetta,prestazione),  slotScelto,  medico);
             } else {
                 return null;
             }
         } catch(Exception ex){
             return null;
         }
-        return null;
     }
 
 }
