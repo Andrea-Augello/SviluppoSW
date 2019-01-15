@@ -94,6 +94,8 @@ public class DatabaseInterface {
                 LocalDateTime newFasciaOraria=prenotazione.getDataOraAppuntamento();
                 int id=prenotazione.getId();
                 st = conn.prepareStatement("UPDATE Prenotazione SET FasciaOraria_Data_e_ora=newFasciaOraria WHERE ID=id");
+                //Execute
+                st.execute();
                 return true;
             }catch(SQLException ex){
                 new ErroreDialog(ex);
@@ -141,6 +143,20 @@ public class DatabaseInterface {
     }
 
     public List<Prenotazione> ottieniElencoPrenotazioni(PazienteEntity paziente) {
+        try{
+            //Prepare statement
+            String cf=paziente.getCodiceFiscale();
+            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione,Paziente WHERE Paziente.CF=cf AND Paziente.CF=Prenotazione.Paziente_CF");
+            //Execute
+            rs=st.executeQuery();
+            List<Prenotazione> prenotazioni = new ArrayList<>();
+            while(rs.next()) {
+                prenotazioni.add(parserPrenotazioni(rs));
+            }
+            return prenotazioni;
+        }catch(SQLException ex) {
+            new ErroreDialog(ex);
+        }
         return null;
     }
 
