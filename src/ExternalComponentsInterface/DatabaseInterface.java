@@ -160,13 +160,21 @@ public class DatabaseInterface {
         return null;
     }
 
+    // This method is not yes used
     public List<Prenotazione> ottieniElencoVisite(PazienteEntity paziente) {
-        return null;
+       return null;
     }
 
     public List<Prenotazione> ottieniElencoVisite(PersonaleEntity medico) {
-        return null;
-    }
+        try{
+            //Prepare statement
+
+            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione,Paziente WHERE  Paziente.CF=Prenotazione.Paziente_CF");
+
+        }catch (SQLException ex){
+            new ErroreDialog(ex);
+        }
+        return null;    }
 
     public List<Prenotazione> ottieniElencoVisite(LocalDateTime inizio, LocalDateTime fine) {
         return null;
@@ -285,14 +293,11 @@ public class DatabaseInterface {
 
     public Prenotazione ottieniPrenotazione(int id) {
         try {
-            st=conn.prepareStatement("SELECT * FROM Prenotazione,Ricetta,Medico,Paziente WHERE ");
-
-
-            /*
-            st.setInt(1,id);
-            */
-
+            //Prepare statement
+            st=conn.prepareStatement("SELECT * FROM Prenotazione WHERE Prenotazione.ID=id");
+            //Execute
             rs=st.executeQuery();
+            return parserPrenotazioni(rs);
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
