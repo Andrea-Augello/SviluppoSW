@@ -51,6 +51,7 @@ public class EffettuaPrenotazioneControl {
 		if(success) {
 			MailInterface.getInstance().notificaCreazionePrenotazione(prenotazione);
 		}
+		sceltaOrarioForm.dispose();
 	}
 
 	public void aggiungiOrario() {

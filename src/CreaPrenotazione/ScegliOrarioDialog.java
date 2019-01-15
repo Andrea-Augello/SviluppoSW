@@ -164,4 +164,8 @@ public class ScegliOrarioDialog {
             }
         });
     }
+
+    public void dispose() {
+        frame.dispose();
+    }
 }
