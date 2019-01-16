@@ -78,7 +78,10 @@ Per quanto riguarda la gestione e la progettazione delle interfacce grafiche son
 - __Swing widget toolkit :__ Framework appartenente alla Java Foundation Classes (JFC), utilizzato per strutturare la maggior parte delle interfacce grafice presenti nel software.  
 - __UI Designer :__ Plugin di IntelliJIdea messo a disposizione da jetbrains. Fornisce un supporto interattivo per l'editing delle Swing UI.  
 - __JCalendar :__ Libreria di Java utilizzata per semplificare la selezione delle date tramite un calendario.  
+
+Altre librerie utilizzate sono state:
 - __JavaMail :__ Package realizzato da Oracle che fornisce le classi necessarie per la gestione della posta elettronica in linguaggio Java. Supporta tutti i protocolli di posta elettronica tra i quali POP3 e SMTP.  
+- __PDF Clown :__ Libreria open source per manipolare file PDF aderendo rigorosamente alle specifiche ISO 32000-1.
 
 A livello di User Interface il sottosistema relativo, dato l'elevatissimo coupling, è stato smembrato e distribuito nei package della logica dell'applicazione.  
 
