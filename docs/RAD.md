@@ -40,8 +40,6 @@
 			- [Visualizza FSE](#visualizza-fse)
 				- [VisualizzaStoricoVisite](#visualizzastoricovisite)
 				- [StampaCartellaClinica](#stampacartellaclinica)
-				- [VisualizzaCartellaClinica](#visualizzacartellaclinica)
-				- [IndividuaPaziente ²](#individuapaziente-)
 			- [Inserisci Dettagli Visita](#inserisci-dettagli-visita)
 				- [InserisciDettagli](#inseriscidettagli)
 			- [Notifica Prenotazione](#notifica-prenotazione)
@@ -66,7 +64,6 @@
 				- [Sequenza ConfermaModifica](#sequenza-confermamodifica)
 				- [Sequenza VisualizzaStoricoVisite](#sequenza-visualizzastoricovisite)
 				- [Sequenza StampaCartellaClinica](#sequenza-stampacartellaclinica)
-				- [Sequenza VisualizzaCartellaClinica](#sequenza-visualizzacartellaclinica)
 				- [Sequenza InserisciDettagliVisita](#sequenza-inseriscidettaglivisita)
 				- [Sequenza InvioNotifica](#sequenza-invionotifica)
 		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
@@ -172,7 +169,7 @@ __Breve descrizione:__ Caso d'uso che permette di modificare, ed eventualmente e
 
 __Attori:__  _PersonaleMedico, PersonaleAmministrativo, Paziente_, DBMS
 
-__Breve descrizione:__ Caso d'uso che permette la lettura, e l'eventuale stampa, del Fascicolo Sanitario elettronico o, in un caso specifico, dello storico visite.
+__Breve descrizione:__ Caso d'uso che permette la lettura, e l'eventuale stampa, del Fascicolo Sanitario elettronico.
 
 [_Vista dettagliata_](#visualizza-fse)
 
@@ -502,24 +499,24 @@ __Postcondizioni:__ `L'utente è nuovamente nella schermata principale`
 
 ---
 ##### VisualizzaStoricoVisite
-__Attori:__  _Paziente, PersonaleAmministrativo_, DBMS  
+__Attori:__  _Paziente, PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ `L'utente si trova nella schermata principale`  
 __Flusso degli eventi:__
 ```
 1. Il caso d'uso inizia quando l'utente seleziona l'opzione "Visualizza
    fascicolo sanitario"
 	2. Il sistema chiede al DBMS tutte le visite già effettuate dal
-	   paziente per cui si sta operando.
+	   paziente per cui si sta operando e i dati correlati.
 3. Il DBMS restituisce i dati richiesti.
 	4. Il sistema mostra in una schermata l'elenco di tutte le
-	   visite riportando tipo di visita, data e costo.
+	   visite con rispettive informazioni.
 ```  
 __Postcondizioni:__  `L'utente è in grado di accedere correttamente al suo storico visite`  
 [_Diagramma delle sequenze_](#sequenza-visualizzastoricovisite)
 
 ---
 ##### StampaCartellaClinica
-__Attori:__  _PersonaleAmministrativo_, DBMS  
+__Attori:__  _PersonaleMedico, PersonaleAmministrativo_, DBMS  
 __Precondizioni:__ `L'utente ha visualizzato correttamente lo storico visite`  
 __Flusso degli eventi:__
 ```
@@ -532,31 +529,6 @@ __Flusso degli eventi:__
 ```  
 __Postcondizioni:__  `L'utente è in grado di stampare correttamente il documento FSE`  
 [_Diagramma delle sequenze_](#sequenza-stampacartellaclinica)
-
----
-##### VisualizzaCartellaClinica
-__Attori:__  _PersonaleMedico_, DBMS  
-__Precondizioni:__ `PersonaleMedico ha selezionato un paziente dalla schermata principale`  
-__Flusso degli eventi:__
-```
-1. PersonaleMedico seleziona l'opzione "Visualizza Cartella Clinica"
-	2. Il sistema chiede al DBMS le visite, comprese di tutte le
-	   informazioni allegate, già effettuate dal paziente per cui
-	   si sta operando.
-3. Il DBMS restituisce i dati richiesti.
-	4. Il sistema mostra una schermata riportante i dati anagrafici
-	   del paziente e l'elenco in ordine cronologico di tutte le
-	   visite effettuate, specificando per ognuna data, costo,
-	   tipo di visita,nome del medico che se ne è occupato e le
-	   sue annotazioni.
-```  
-__Postcondizioni:__  `PersonaleMedico può visualizzare i dettagli sulle visite passate del paziente`  
-[_Diagramma delle sequenze_](#sequenza-visualizzacartellaclinica)
-
----
-##### IndividuaPaziente ²  
-[_²Descrizione già presente qui_](#individuapaziente)  
-[_Diagramma delle sequenze_](#sequenza-individuapaziente)  
 
 ---
 
@@ -600,8 +572,7 @@ __Flusso degli eventi:__
    è iniziato il caso d'uso.
 	2. Il sistema chiede al DBMS l'elenco di tutti i pazienti che
 	   hanno una visita dopo l'ultima prenotazione già notificata
-	   e prima di 24 ore.
-3. Il DBMS restituisce al sistema le informazioni richieste.
+
 	4. Il sistema invia ad ogni paziente una notifica contenente le
 	   informazioni relative alle sue prenotazioni.
 ```  
@@ -723,11 +694,6 @@ SelezionaPazienteControl | Gestisce le operazioni per selezionare un paziente da
 ##### Sequenza StampaCartellaClinica
  ![StampaCartellaClinica](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/StampaCartellaClinica.png)
  [_Caso d'uso_](#stampacartellaclinica)
-
- ---
-##### Sequenza VisualizzaCartellaClinica
- ![VisualizzaCartellaClinica](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20sequenze/VisualizzaCartellaClinica.png)
- [_Caso d'uso_](#visualizzacartellaclinica)
 
   ---
 ##### Sequenza InserisciDettagliVisita
