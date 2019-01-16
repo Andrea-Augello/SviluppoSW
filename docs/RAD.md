@@ -6,8 +6,8 @@
 - [1. Introduzione](#1-introduzione)
 	- [1.1 Obiettivo del Sistema](#11-obiettivo-del-sistema)
 	- [1.2 Scopo del sistema](#12-scopo-del-sistema)
-	- [1.4 Definizioni, acronimi, e abbreviazioni](#14-definizioni-acronimi-e-abbreviazioni)
-	- [1.5 Riferimenti](#15-riferimenti)
+	- [1.3 Definizioni, acronimi, e abbreviazioni](#14-definizioni-acronimi-e-abbreviazioni)
+	- [1.4 Riferimenti](#15-riferimenti)
 - [2. Sistema corrente](#2-sistema-corrente)
 - [3. Sistema proposto](#3-sistema-proposto)
 	- [3.1 Requisiti funzionali](#32-requisiti-funzionali)
@@ -86,7 +86,7 @@ Lo scopo del sistema è di fornire ai cittadini un servizio che migliori drastic
 La conseguenza della maggiore efficienza si traduce in significative riduzioni dei costi e nel miglioramento dell'esperienza del cittadino in senso lato.
 
 
-## 1.4 Definizioni, acronimi, e abbreviazioni
+## 1.3 Definizioni, acronimi, e abbreviazioni
 
 Definizione/Acronimo  | 	Descrizione  
 ----------------------|------------  
@@ -100,7 +100,7 @@ SSN  | Servizio Sanitario Nazionale
 Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei cittadini alla spesa pubblica come controprestazione per l'assistenza sanitaria fornita dallo Stato. Esiste inoltre un sistema di esenzioni per reddito, fasce di età e servizi considerati "salvavita".
 
 
-## 1.5 Riferimenti
+## 1.4 Riferimenti
 - [Sanità digitale - Agenzia per l'Italia digitale](https://www.agid.gov.it/it/piattaforme/sanita-digitale)  
 - [Tarifari nazionale delle prestazioni del SSN](http://www.salute.gov.it/portale/temi/p2_6.jsp?id=3662&area=programmazioneSanitariaLea&menu=vuoto)  
 
