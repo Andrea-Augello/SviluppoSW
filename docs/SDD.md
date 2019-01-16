@@ -105,7 +105,7 @@ _Vincoli di Tupla_
 ### 3.5 Sicurezza e controllo degli accessi  
 
 
-Vista la natura sensibile dei dati gestiti dal sistema, per poter usufruire dei servizi proposti è necessario eseguire una procedura di autenticazione. Per tale scopo, ogni utente sarà provvisto di una password e vari identificativi caratterizzanti che potranno permettergli di accedere alle diverse aree del sistema. Alcune funzionalità del sistema, inoltre, saranno accessibili esclusivamente per determinate tipologie di utente.  
+Vista la natura sensibile dei dati gestiti dal sistema, per poter usufruire dei servizi proposti è necessario eseguire una procedura di autenticazione. A tal fine ogni utente sarà provvisto di una password e vari identificativi caratterizzanti che potranno permettergli di accedere alle diverse aree del sistema. Alcune funzionalità del sistema, inoltre, saranno accessibili esclusivamente da determinate tipologie di utente.  
 
 ### 3.6 Condizioni di boundary  
 
