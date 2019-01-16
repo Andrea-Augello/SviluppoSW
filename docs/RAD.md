@@ -109,8 +109,7 @@ Ad oggi il sistema di gestione prenotazioni ospedaliere è soltanto parzialmente
 Fino ad ora il sistema informatico è utilizzato esclusivamente per la memorizzazione delle varie informazioni e per l'invio notifiche al paziente, senza possibilità di risposta.
 # 3. Sistema proposto
 Il nostro sistema, tenendo conto delle problematiche riscontrate in quello corrente, si propone di eliminare tutti i disagi causati dall'assenza di una completa informatizzazione del sistema sanitario. Le prenotazioni e i loro livelli di urgenza saranno gestiti tramite il nostro software che, grazie ad un algoritmo , riuscirà a gestire automaticamente l'eventuale spostamento di prenotazioni causando meno problemi possibili. Non ne beneficerà soltanto il paziente, il quale sarà in grado di accedere ad un area riservata comodamente da casa(evitando così eventuali ritardi) ma anche il personale medico e amministrativo della struttura ospedaliera. In caso di impossibilità da parte del paziente il personale amministrativo sarà in grado di accedere all'area riservata dell'utente   velocizzando ulteriormente le procedure di gestione delle prenotazioni. Il personale medico sarà invece in grado di accedere e modificare la cartella clinica del paziente in maniera completamente elettronica. Informatizzando quasi totalmente le prestazioni sopra citate, il sistema proposto porterà notevoli miglioramenti sotto tutti i punti di vista raggiungendo obbiettivi di efficenza, robustezza, sicurezza e facilità di utilizzo.
-## 3.1 Panoramica
-## 3.2 Requisiti funzionali
+## 3.1 Requisiti funzionali
 - Il personale amministrativo, il personale medico e il paziente dovranno essere in grado di creare una prenotazione
 - Il personale amministrativo, il personale medico ed il paziente dovranno poter visionare il Fascicolo Sanitario Elettronico
 - Il paziente potrà visualizzare lo Storico delle sue visite ogni qual volta lo richiederà
@@ -124,15 +123,15 @@ Il nostro sistema, tenendo conto delle problematiche riscontrate in quello corre
 - Il sistema dovrà saper fare distinzione tra paziente, personale medico e personale amministrativo
 - Il sistema dovrà saper gestire differentemente visite intramoenia e visite con SSN
 
-## 3.3 Requisiti non funzionali
+## 3.2 Requisiti non funzionali
 - Per effettuare una prenotazione sarà necessario essere provvisti di ricetta
 - Il sistema dovrà impedire di utilizzare più volte la stessa ricetta per la medesima prestazione   
 - Il Fascicolo Sanitario Elettronico potrà essere stampato dal paziente solo tramite pagamento di una somma di denaro
 - Il sistema dovrà inviare al paziente una mail di reminder almeno 24 ore prima della visita.
 - Il sistema dovrà inviare una mail di notifica al Paziente ogni volta che viene creata o modificata una prenotazione a suo nome.
 
-## 3.4 Modelli del sistema
-### 3.4.1 Casi d'uso
+## 3.3 Modelli del sistema
+### 3.3.1 Casi d'uso
 #### Casi d'uso di alto livello.
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
 
@@ -579,7 +578,7 @@ __Postcondizioni:__  `Tutti i pazienti con visite in programma entro 24 ore hann
 [_Diagramma delle sequenze_](#sequenza-invionotifica)
 
 ---
-### 3.4.2 Modello degli oggetti
+### 3.3.2 Modello degli oggetti
 #### Lista delle classi
 
 Classe | Descrizione
@@ -621,7 +620,7 @@ SelezionaPazienteControl | Gestisce le operazioni per selezionare un paziente da
 ![Entity](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20classi/Entity.png)
 #### Diagramma delle classi
 ![Classi](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20classi/Tutte%20le%20classi.png)
-### 3.4.3 Modello dinamico
+### 3.3.3 Modello dinamico
 #### Diagrammi delle sequenze
 ---
 ##### Sequenza AutenticaPersonale
@@ -705,7 +704,7 @@ SelezionaPazienteControl | Gestisce le operazioni per selezionare un paziente da
  [_Caso d'uso_](#invionotifica)
 
  ---
-### 3.4.4 Interfaccia utente: navigazione e mock-up
+### 3.3.4 Interfaccia utente: navigazione e mock-up
 #### Login
 ---
 Schermata di login per PersonaleMedico
