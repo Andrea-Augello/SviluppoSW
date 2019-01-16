@@ -16,8 +16,8 @@
 			- [Progetto concettuale](#progetto-concettuale)
 			- [Progetto logico](#progetto-logico)
 		- [3.5 Sicurezza e controllo degli accessi](#35-sicurezza-e-controllo-degli-accessi)
-		- [3.6 Condizioni di boundary](#36-condizioni-di-boundary)
-	        - [3.7 Flusso controllo globale](#37-flusso-controllo-globale)
+		- [3.6 Condizioni di boundary](#36-condizioni-di-boundary)      
+		- [3.7 Flusso controllo globale](#37-flusso-controllo-globale)
 
 <!-- /TOC -->
 
