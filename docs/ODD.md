@@ -66,20 +66,20 @@
 
 ### 1.1 Trade-off e scelte nella progettazione degli oggetti
 - __Prestazioni vs Costi :__  
-Il sistema realizzato con un budget ristretto ha permesso la realizzazione di un prodotto creato a partire da librerie open source, minimizzando i costi ma al contempo permettendo di realizzare un sistema molto soddisfacente.  
+Il sistema, realizzato con un budget ristretto, ha permesso la creazione di un prodotto a partire da librerie open source, minimizzando i costi ma al contempo permettendo di realizzare prestazioni soddisfacenti.  
 
 - __Interfaccia vs Facilità d'utilizzo :__  
-Le interfacce utilizzate per il software, grazie all'utilizzo di form e di un layout semplice e minimale, permettono la migliore interazione possibile anche con un utente meno esperto nel campo informatico. Il tutto è facilitato da una semplice gestione del database.  
+Le interfacce utilizzate per il software, grazie all'utilizzo di form e di un layout semplici e minimali, permettono la migliore interazione possibile anche con utenti poco esperti nel campo informatico. Il tutto è facilitato da una semplice gestione del database.  
 
 - __Interfaccia vs Tempo di risposta :__  
 I tempi di risposta tra server e interfaccia sono molto rapidi e soddisfano a pieno le esigenze del sistema. Naturalmente all'aumentare della dimensione del Database aumentano anche i corrispettivi tempi di risposta e di ricerca nello stesso.  
 
 Per quanto riguarda la gestione e la progettazione delle interfacce grafiche sono state scelte le API di Java offerte da Oracle, tra le quali:
-- __Swing widget toolkit :__ Framework appartenente alla Java Foundation Classes (JFC), utilizzato per strutturare la maggior parte delle interfacce grafice presenti nel software.  
+- __Swing widget toolkit :__ Framework appartenente alla Java Foundation Classes (JFC), utilizzato per strutturare la maggior parte delle interfacce grafiche presenti nel software.  
 - __UI Designer :__ Plugin di IntelliJIdea messo a disposizione da jetbrains. Fornisce un supporto interattivo per l'editing delle Swing UI.  
 - __JCalendar :__ Libreria di Java utilizzata per semplificare la selezione delle date tramite un calendario.  
 
-Altre librerie utilizzate sono state:
+Altre librerie utilizzate sono:  
 - __JavaMail :__ Package realizzato da Oracle che fornisce le classi necessarie per la gestione della posta elettronica in linguaggio Java. Supporta tutti i protocolli di posta elettronica tra i quali POP3 e SMTP.  
 - __PDF Clown :__ Libreria open source per manipolare file PDF aderendo rigorosamente alle specifiche ISO 32000-1.
 
@@ -90,7 +90,7 @@ Il sistema è multi-utente: può accedervi qualsiasi tipo di utenza, dal pazient
 A tutta l'utenza vengono nascosti i meccanismi interni di prenotazione e più nello specifico l'algoritmo utilizzato per spostare le varie prenotazioni.
 Al paziente viene fornita una semplice e intuitiva schermata dalla quale può gestire comodamente tutte le sue prenotazioni ed eventualmente visualizzare anche lo storico delle prestazioni effettuate.
 Il personale amministrativo, tramite un'interfaccia simile a quella fornita al paziente, è in grado di effettuare le stesse operazioni ma con permessi più ampi come stampare lo storico delle visite di un determinato paziente.
-Infine, l'interfaccia a disposizione del personale medico è stata realizzata in modo da facilitare la sua professione permettendo di riempire completamente da software la cartella clinica di un suo paziente.  
+Infine, l'interfaccia a disposizione del personale medico è stata realizzata in modo da facilitare la sua professione, permettendo di riempire completamente da software la cartella clinica di un suo paziente.  
 
 Di seguito viene illustrata la vista d'insieme che racchiude tutte le classi utilizzate per lo sviluppo del nostro software.
 ![Package "TutteLeClassi"](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Object%20Design/TutteLeClassi.png)  
