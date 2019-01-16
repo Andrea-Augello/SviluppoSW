@@ -47,8 +47,6 @@ fronte del pagamento di una determinata cifra (il pagamento non deve essere gest
 
 _Parte opzionale: gestione dei pagamenti e delle ricevute._
 
-## [Q&A sui dettagli implementativi](https://andrea-augello.github.io/SviluppoSW/Dettagli)
-
 ## Documenti  
 *  #### [RAD](https://andrea-augello.github.io/SviluppoSW/RAD)
 *  #### [SDD](https://andrea-augello.github.io/SviluppoSW/SDD)
