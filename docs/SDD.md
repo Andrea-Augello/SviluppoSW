@@ -17,7 +17,7 @@
 			- [Progetto logico](#progetto-logico)
 		- [3.5 Sicurezza e controllo degli accessi](#35-sicurezza-e-controllo-degli-accessi)
 		- [3.6 Condizioni di boundary](#36-condizioni-di-boundary)
- 	    - [3.7 Flusso controllo globale](#37-flusso-controllo-globale)
+	        - [3.7 Flusso controllo globale](#37-flusso-controllo-globale)
 
 <!-- /TOC -->
 
@@ -27,7 +27,7 @@
 Lo scopo del sistema proposto è quello di automatizzare le attività di gestione delle prenotazioni ospedaliere per aggevolare il cittadino e il personale nell'organizzazione delle operazioni desiderate.
 
 ### 1.2 Archittettura software corrente
-Come già esplicato ampliamente in fase di analisi dei requisiti, si suppone che all'interno dell'ospedale non  venga utilizzato alcun software in grado di svolgere le operazioni complesse e automatiche proposte da questo sistema, che sono al momento svolte manualmente dagli impiegati.
+Come già esposto in fase di analisi dei requisiti si suppone che all'interno dell'ospedale non  venga utilizzato alcun software in grado di svolgere le complesse operazioni automatiche proposte da questo sistema, le quali sono al momento svolte manualmente dagli impiegati.
 
 ### 1.3 Obiettivi di progettazione
 - __Tempo di risposta__: il Sistema risponderà alle richieste impartite dall'utente in tempo reale, a meno che la pagina richiesta non sia particolarmente ricca di informazioni. In quest'ultimo caso potrà avvenire un ritardo di pochi secondi.  
@@ -121,6 +121,6 @@ _Fallimento_
 Il sistema lato Server fallirà in caso di problemi hardware, attacchi esterni o mancanza di elettricità. Stessa cosa potrà dirsi per il sistema da parte client, a meno che non si usino dispositivi non cablati.  
 
 
-### 3.7 Flusso controllo globale  
+## 3.7 Flusso controllo globale  
 Quando un utente si logga, vi è un accesso al __DataBase__, tramite una _Query_, che permette di controllare l'esistenza del soggetto. Dopo la conferma, l'utente potrà accedere a diverse operazioni messe a disposizione dal sistema, accessibili tramite un'interfaccia grafica.   
 Il controllo del flusso viene attuato principalmente dal __Server MySQL__ che si occupa di gestire gli accessi concorrenti da parte di più utenti. Ad esempio, durante la prenotazione di una visita intramoenia, al momento della conferma del Medico e dell'orario, __MySQL__ entra in una sezione critica gestendo la concorrenza ed evitando che più utenti scelgano le stesse caratteristiche di Prenotazione.
