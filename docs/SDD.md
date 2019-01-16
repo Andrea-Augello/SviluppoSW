@@ -64,8 +64,8 @@ Procediamo con la descrizione dettagliata dei sottosistemi dall'alto verso il ba
 - __Recupero e modifica delle informazioni__ >> Gestisce le connessioni con il DataBase, si occupa anche della conversione tra il formato in cui i dati sono rappresentati nel database e le entity nel sistema.  
 
 
-In fase di progettazione si è deciso di creare una nuova classe appartenente al sottosistema "Recupero e modifica delle informazioni" alla quale assegnare le operazioni che, nei diagrammi delle sequenza in analisi dei requisiti, risultavano essere messaggi mandati al DBSM.  
-Questa classe di fatto sostituirà il DBSM in tutte le interazioni con il sistema, per completezza si riporta la classe insieme ai suoi metodi.  
+In fase di progettazione si è deciso di creare una nuova classe appartenente al sottosistema "Recupero e modifica delle informazioni" alla quale assegnare le operazioni che, nei diagrammi delle sequenza in analisi dei requisiti, risultavano essere messaggi mandati al DBMS.  
+Questa classe di fatto sostituirà il DBMS in tutte le interazioni con il sistema, per completezza si riporta la classe insieme ai suoi metodi.  
 ![DatabaseInterface](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/System%20design/DatabaseInterface.png)
 
 ### 3.3 Mappatura hardware/software
