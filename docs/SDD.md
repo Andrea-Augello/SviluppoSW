@@ -27,15 +27,15 @@
 Lo scopo del sistema proposto è quello di automatizzare le attività di gestione delle prenotazioni ospedaliere per aggevolare il cittadino e il personale nell'organizzazione delle operazioni desiderate.
 
 ### 1.2 Archittettura software corrente
-Come già esposto in fase di analisi dei requisiti si suppone che all'interno dell'ospedale non  venga utilizzato alcun software in grado di svolgere le complesse operazioni automatiche proposte da questo sistema, le quali sono al momento svolte manualmente dagli impiegati.
+Come già esposto in fase di analisi dei requisiti, si suppone che all'interno dell'ospedale non venga utilizzato alcun software in grado di compiere le complesse operazioni automatiche proposte da questo sistema, le quali sono al momento svolte manualmente dagli impiegati.
 
 ### 1.3 Obiettivi di progettazione
 - __Tempo di risposta__: il Sistema risponderà alle richieste impartite dall'utente in tempo reale, a meno che la pagina richiesta non sia particolarmente ricca di informazioni. In quest'ultimo caso potrà avvenire un ritardo di pochi secondi.  
 - __Facilità di utilizzo__: l'utente effettuerà le proprie prenotazioni o modifiche di queste ultime nel minor numero possibile di passaggi.  
-- __Memoria__: Database escluso il sistema deve occupare uno spazio su disco inferiore ai 100 MB.  
+- __Memoria__: il DataBase, escluso il sistema, deve occupare uno spazio su disco inferiore ai 100 MB.  
 - __Estendibilità__: il sistema potrà essere esteso e modificato in futuro, secondo le nuove esigenze richieste, agendo sul codice.  
 - __Affidabilità__: i risultati prodotti dalle pagine rispecchieranno istante per istante la situazione ospedaliera, in modo da permettere ai vari utenti di non incorrere in errori di sistema e di organizzazione.  
-- __Robustezza__: il sistema tramite dei controlli deve impedire l'inserimento da parte degli utenti di input non validi.  
+- __Robustezza__: il sistema, tramite dei controlli, deve impedire l'inserimento da parte degli utenti di input non validi.  
 - __Disponibilità__: il sistema sarà disponibile ogni qual volta l'utente voglia utilizzarlo.  
 - __Sicurezza__: i dati personali non verranno utilizzati a fini diversi dall'organizzazione ospedaliera, vigeranno gli standard dell'industria nel campo della protezione dei dati. La sicurezza è garantita da login e password.  
 - __Portabilità__: il sistema è portabile in diverse piattaforme, in quanto realizzato in linguaggio Java.  
@@ -95,7 +95,7 @@ _Vincoli di Tupla_
 - Ogni attributo delle varie classi sarà vincolato in dimensione e tipo. I vincoli sono espressi nel successivo Progetto Logico.  
 - Non si potrà effettuare una _Prenotazione_ per un _Paziente_ ad un orario già previsto per altre _Prestazioni_ del medesimo.  
 - Ogni password dovrà contenere almeno 8 caratteri.
-- Una _Prenotazione_ può essere associata ad una _Fascia Oraria_ solo se c'è un _Medico_ che _esercita_ in quella _fascia oraria_ in grado di _erogare_ quella _prestazione_.
+- Una _Prenotazione_ può essere associata ad una _Fascia Oraria_ solo se c'è un _Medico_ che _esercita_ in quella _fascia oraria_ in grado di _erogare_ quella _Prestazione_.
 - Non possono essere presenti più _Prenotazioni_ per la stessa _Prestazione_ all'interno della medesima _Ricetta_.  
 
 #### Progetto logico  
