@@ -93,11 +93,11 @@ Definizione/Acronimo  | 	Descrizione
 ALPI  | Per _Attività Libero Professionista Intramoenia_ si intende l’attività che il personale aziendale, individualmente o in équipe, esercita fuori dell’impegno di servizio in regime ambulatoriale, ivi comprese le attività di diagnostica strumentale e di laboratorio, in favore e su libera scelta dell’assistito e con oneri a carico dello stesso. Tale attività è finalizzata a garantire l’espressione di una libera scelta dell’utente.  
 CUP|  Il servizio del _Centro Unico di Prenotazioni_ effettua prenotazioni di visite ed esami specialistici in regime di Servizio Sanitario Nazionale con l'Impegnativa del Medico, oppure in regime di libera professione.  
 FSE  | Il _Fascicolo Sanitario Elettronico_ è lo strumento attraverso il quale il cittadino può tracciare e consultare tutta la storia della propria vita sanitaria, condividendola con i professionisti sanitari per garantire un servizio più efficace ed efficiente.  
-Personale Amministrativo	| Personale dell'ospedale impiegato allo sportello del CUP per permettere la fruizione dei servizi anche ai pazienti che non utilizzano direttamente il software
+Personale Amministrativo	| Personale dell'ospedale impiegato allo sportello del CUP per permettere la fruizione dei servizi anche ai pazienti che non utilizzano direttamente il software.
 Personale Medico | Personale dell'ospedale, esperto in medicina, che si occupa della salute dei pazienti prevenendo, diagnosticando e curando le malattie. Può accedere alla loro cartella clinica personale.
 Ricetta  | La ricetta medica è un documento, redatto da un medico abilitato, che consente al paziente di prenotare visite specialistiche, esami diagnostici e di poter ritirare o acquistare farmaci che richiedono una prestazione medica.
 SSN  | Servizio Sanitario Nazionale  
-Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei cittadini alla spesa pubblica come controprestazione per l'assistenza sanitaria fornita dallo Stato. Esiste inoltre un sistema di esenzioni per reddito, fasce di età e servizi considerati "salvavita".
+Ticket  |    Il ticket sanitario è una quota di partecipazione diretta dei cittadini alla spesa pubblica come controprestazione per l'assistenza sanitaria fornita dallo Stato. Esiste inoltre un sistema di esenzioni per reddito, fasce di età e servizi considerati "salvavita".
 
 
 ## 1.4 Riferimenti
@@ -105,10 +105,10 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 - [Tarifari nazionale delle prestazioni del SSN](http://www.salute.gov.it/portale/temi/p2_6.jsp?id=3662&area=programmazioneSanitariaLea&menu=vuoto)  
 
 # 2. Sistema corrente
-Ad oggi il sistema di gestione prenotazioni ospedaliere è soltanto parzialmente supportato dall'utilizzo di tecnologia informatica. Molte operazioni, quali la prenotazione di prestazioni urgenti e, quindi, l'eventuale spostamento di altre prenotazioni(tenendo conto della loro urgenza) avvengono manualmente causando disagi non trascurabili. I pazienti, raggiunta la struttura ospedaliera,subiscono lunghi tempi di attesa consapevoli dell'alta probabilità di non ragiungere i propri obbiettivi. La mancanza di un supporto informatico valido e in gran parte autonomo comporta spreco di risorse, denaro e personale. Il paziente risulta essere vincolato da una gestione prettamente amministrativa, ritrovandosi spesse volte a subire complicazioni e ristrettezze. Qualsiasi operazione deve necessariamente essere affrontata a diretto contatto col personale amministrativo che si ritrova a gestire in modo non ottimale una quantità non poco rilevante di materiale.
+Ad oggi il sistema di gestione prenotazioni ospedaliere è soltanto parzialmente supportato dall'utilizzo di tecnologia informatica. Molte operazioni, quali la prenotazione di prestazioni urgenti e, quindi, l'eventuale spostamento di altre prenotazioni (tenendo conto della loro urgenza) avvengono manualmente causando disagi non trascurabili. I pazienti, raggiunta la struttura ospedaliera, subiscono lunghi tempi di attesa consapevoli dell'alta probabilità di non raggiungere i propri obiettivi. La mancanza di un supporto informatico valido e in gran parte autonomo comporta spreco di risorse, denaro e personale. Il paziente risulta essere vincolato da una gestione prettamente amministrativa, spesso subendo complicazioni e ristrettezze. Qualsiasi operazione deve necessariamente essere affrontata a diretto contatto col personale amministrativo che si ritrova a gestire in modo non ottimale una quantità non poco rilevante di materiale.
 Fino ad ora il sistema informatico è utilizzato esclusivamente per la memorizzazione delle varie informazioni e per l'invio notifiche al paziente, senza possibilità di risposta.
 # 3. Sistema proposto
-Il nostro sistema, tenendo conto delle problematiche riscontrate in quello corrente, si propone di eliminare tutti i disagi causati dall'assenza di una completa informatizzazione del sistema sanitario. Le prenotazioni e i loro livelli di urgenza saranno gestiti tramite il nostro software che, grazie ad un algoritmo , riuscirà a gestire automaticamente l'eventuale spostamento di prenotazioni causando meno problemi possibili. Non ne beneficerà soltanto il paziente, il quale sarà in grado di accedere ad un area riservata comodamente da casa(evitando così eventuali ritardi) ma anche il personale medico e amministrativo della struttura ospedaliera. In caso di impossibilità da parte del paziente il personale amministrativo sarà in grado di accedere all'area riservata dell'utente   velocizzando ulteriormente le procedure di gestione delle prenotazioni. Il personale medico sarà invece in grado di accedere e modificare la cartella clinica del paziente in maniera completamente elettronica. Informatizzando quasi totalmente le prestazioni sopra citate, il sistema proposto porterà notevoli miglioramenti sotto tutti i punti di vista raggiungendo obbiettivi di efficenza, robustezza, sicurezza e facilità di utilizzo.
+Il nostro sistema, tenendo conto delle problematiche riscontrate in quello corrente, si propone di eliminare tutti i disagi causati dall'assenza di una completa informatizzazione del sistema sanitario. Le prenotazioni e i loro livelli di urgenza saranno gestiti tramite il nostro software che, grazie ad un algoritmo, riuscirà a gestire automaticamente l'eventuale spostamento di prenotazioni causando meno problemi possibili. Non ne beneficerà soltanto il paziente, il quale sarà in grado di accedere ad un area riservata comodamente da casa (evitando così eventuali ritardi) ma anche il personale medico e amministrativo della struttura ospedaliera. In caso di impossibilità da parte del paziente il personale amministrativo sarà in grado di accedere all'area riservata dell'utente   velocizzando ulteriormente le procedure di gestione delle prenotazioni. Il personale medico sarà invece in grado di accedere e modificare la cartella clinica del paziente in maniera completamente elettronica. Informatizzando quasi totalmente le prestazioni sopra citate, il sistema proposto porterà notevoli miglioramenti sotto tutti i punti di vista raggiungendo obiettivi di efficenza, robustezza, sicurezza e facilità di utilizzo.
 ## 3.1 Requisiti funzionali
 - Il personale amministrativo, il personale medico e il paziente dovranno essere in grado di creare una prenotazione
 - Il personale amministrativo, il personale medico ed il paziente dovranno poter visionare il Fascicolo Sanitario Elettronico
@@ -116,7 +116,7 @@ Il nostro sistema, tenendo conto delle problematiche riscontrate in quello corre
 - Il personale medico dovrà poter inserire i dettagli della visita effettuata
 - Il sistema dovrà offrire funzionalità di reminder agli utenti che dovranno effettuare una o più visite
 - Il sistema dovrà gestire prestazioni sanitarie in dipendenza della politica dei differenti reparti
-- Il sistema dovrà sempre rispettare i tempi previsti dalla legge in base al codice di urgenza di ogni prenotazione registrata.
+- Il sistema dovrà sempre rispettare i tempi previsti dalla legge in base al codice di urgenza di ogni prenotazione registrata
 - Il sistema dovrà tenere informato il paziente sulla documentazione da portare all'eventuale visita
 - Il sistema dovrà saper gestire le prenotazioni in base alle scelte del personale medico, del paziente o del personale amministrativo,   modificandole se necessario, per una eventuale soluzione più efficiente
 - Il paziente e il personale amministrativo potranno modificare le prenotazioni ed eventualmente cancellarle
@@ -203,7 +203,7 @@ __Flusso degli eventi:__
 1. Il caso d'uso inizia quando un utente avvia il software.
 	2. Il sistema chiede all'utente di inserire il suo codice
 	   identificativo e password.
-3. L'utente inserisce il proprio codice identificativo e la sua password
+3. L'utente inserisce il proprio codice identificativo, la sua password
    e conferma.
 	4. Il sistema chiede al DBMS informazioni sull'utente individuato
 	   univocamente attraverso il codice che abbia password
@@ -262,7 +262,7 @@ __Attori:__ _PersonaleAmministrativo, Paziente_, DBMS
 __Precondizioni:__ `Il sistema è in una schermata di login per il Paziente o di individuazione paziente`  
 __Flusso degli eventi:__
 ```
-1. Il caso d'uso inizia quando ,durante un'operazione di autenticazione
+1. Il caso d'uso inizia quando, durante un'operazione di autenticazione
    di un paziente, Paziente o PersonaleAmministrativo selezionano la
    opzione "Registra paziente"
 	2. Il sistema mostra un form per inserire i dati necessari
@@ -589,7 +589,7 @@ EffettuaPrenotazioneControl | Gestisce le operazioni riguardanti la prenotazione
 ErroreDialog | Mostra a video all'utente che l'operazione da lui intrapresa non è andata a buon fine.
 FormRicetta | Permette l'inserimento dei dati relativi alla ricetta.
 FSEControl | Gestisce le operazioni per l'ottenimento del Fascicolo Sanitario Elettronico da parte dell'utente.
-FSEDialog | Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal       personale
+FSEDialog | Schermata che presenta lo Storico Visite richiesto precedentemente dal Paziente o il Fascicolo Sanitario richiesto dal       personale.
 GeneraRicettaControl | Gestisce le operazioni per la memorizzazione delle informazioni relative ad una ricetta.
 IndividuaPazienteForm | Schermata che presenta un box dove scrivere il CF del paziente che PersonaleAmministrativo vuole scegliere per continuare le operazioni desiderate.
 InserisciDettagliVisitaControl | Gestisce le operazioni per il corretto inserimento della diagnosi da parte del medico.
@@ -604,7 +604,7 @@ PazienteLoginForm | Il form attraverso cui Paziente può inserire il proprio cod
 PersonaleLoginForm | Il form attraverso cui PersonaleMedico e PersonaleAmministrativo possono inserire la propria matricola e proseguire le procedure di autenticazione.
 PersonaleEntity | All'interno del sistema i dati del personale sono racchiusi in questa classe.
 Prenotazione | Questa classe contiene i dati rilevanti della prenotazione mentre viene elaborata dal sistema.
-RegistrazioneForm | Il form che permette  di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.
+RegistrazioneForm | Il form che permette di immettere i dati personali di un paziente la prima volta che questo utilizza i servizi di SPRINT.
 RegistrazioneControl | Gestisce le operazioni necessarie per la registrazione di un nuovo paziente.
 Ricetta | Questa classe contiene i dati relativi alle ricetta mentre viene inserita nel DBMS.
 ScegliOrarioDialog | Durante le operazioni di prenotazione attraverso questa schermata l'utente può selezionare data e ora della visita tra quelli proposti dal sistema.
