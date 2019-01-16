@@ -10,10 +10,11 @@
 	- [1.5 Riferimenti](#15-riferimenti)
 - [2. Sistema corrente](#2-sistema-corrente)
 - [3. Sistema proposto](#3-sistema-proposto)
-	- [3.1 Requisiti funzionali](#31-requisiti-funzionali)
-	- [3.2 Requisiti non funzionali](#32-requisiti-non-funzionali)
-	- [3.3 Modelli del sistema](#33-modelli-del-sistema)
-		- [3.3.1 Casi d'uso](#331-casi-duso)
+	- [3.1 Panoramica](#31-panoramica)
+	- [3.2 Requisiti funzionali](#32-requisiti-funzionali)
+	- [3.3 Requisiti non funzionali](#33-requisiti-non-funzionali)
+	- [3.4 Modelli del sistema](#34-modelli-del-sistema)
+		- [3.4.1 Casi d'uso](#341-casi-duso)
 			- [Casi d'uso di alto livello.](#casi-duso-di-alto-livello)
 				- [EffettuaAutenticazione](#effettuaautenticazione)
 				- [CreaPrenotazione](#creaprenotazione)
@@ -43,11 +44,11 @@
 				- [InserisciDettagli](#inseriscidettagli)
 			- [Notifica Prenotazione](#notifica-prenotazione)
 			- [InvioNotifica](#invionotifica)
-		- [3.3.2 Modello degli oggetti](#332-modello-degli-oggetti)
+		- [3.4.2 Modello degli oggetti](#342-modello-degli-oggetti)
 			- [Lista delle classi](#lista-delle-classi)
 			- [Diagramma delle entity](#diagramma-delle-entity)
 			- [Diagramma delle classi](#diagramma-delle-classi)
-		- [3.3.3 Modello dinamico](#333-modello-dinamico)
+		- [3.4.3 Modello dinamico](#343-modello-dinamico)
 			- [Diagrammi delle sequenze](#diagrammi-delle-sequenze)
 				- [Sequenza AutenticaPersonale](#sequenza-autenticapersonale)
 				- [Sequenza AutenticaPaziente](#sequenza-autenticapaziente)
@@ -65,7 +66,7 @@
 				- [Sequenza StampaCartellaClinica](#sequenza-stampacartellaclinica)
 				- [Sequenza InserisciDettagliVisita](#sequenza-inseriscidettaglivisita)
 				- [Sequenza InvioNotifica](#sequenza-invionotifica)
-		- [3.3.4 Interfaccia utente: navigazione e mock-up](#334-interfaccia-utente-navigazione-e-mock-up)
+		- [3.4.4 Interfaccia utente: navigazione e mock-up](#344-interfaccia-utente-navigazione-e-mock-up)
 			- [Login](#login)
 			- [Schermata principale](#schermata-principale)
 			- [Creazione di una prenotazione](#creazione-di-una-prenotazione)
@@ -105,11 +106,12 @@ Ticket  |   Il ticket sanitario è una quota di partecipazione diretta dei citta
 - [Tarifari nazionale delle prestazioni del SSN](http://www.salute.gov.it/portale/temi/p2_6.jsp?id=3662&area=programmazioneSanitariaLea&menu=vuoto)  
 
 # 2. Sistema corrente
-Ad oggi il sistema di gestione prenotazioni ospedaliere è soltanto parzialmente supportato dall'utilizzo di tecnologia informatica. Molte operazioni come la prenotazione di prestazioni urgenti e, quindi, l'eventuale spostamento di altre prenotazioni tenendo conto della loro urgenza, avvengono manualmente con successivi disagi. I pazienti sono costretti a raggiungere l'ospedale per subirne le lunghe attese, con la consapevolezza che spesso i propri obiettivi non verranno raggiunti. La mancanza di un supporto informatico valido e in gran parte autonomo comporta spreco di risorse, denaro e personale. Il paziente risulta essere vincolato da una gestione prettamente amministrativa, ritrovandosi spesso a subire complicazioni e ristrettezze. Qualsiasi operazione dovrà necessariamente essere affrontata a diretto contatto col personale amministrativo che si ritroverà a gestire scomodamente una quantità non poco rilevante di materiale.
+Ad oggi il sistema di gestione prenotazioni ospedaliere è soltanto parzialmente supportato dall'utilizzo di tecnologia informatica. Molte operazioni, quali la prenotazione di prestazioni urgenti e, quindi, l'eventuale spostamento di altre prenotazioni(tenendo conto della loro urgenza) avvengono manualmente causando disagi non trascurabili. I pazienti, raggiunta la struttura ospedaliera,subiscono lunghi tempi di attesa consapevoli dell'alta probabilità di non ragiungere i propri obbiettivi. La mancanza di un supporto informatico valido e in gran parte autonomo comporta spreco di risorse, denaro e personale. Il paziente risulta essere vincolato da una gestione prettamente amministrativa, ritrovandosi spesse volte a subire complicazioni e ristrettezze. Qualsiasi operazione deve necessariamente essere affrontata a diretto contatto col personale amministrativo che si ritrova a gestire in modo non ottimale una quantità non poco rilevante di materiale.
 Fino ad ora il sistema informatico è utilizzato esclusivamente per la memorizzazione delle varie informazioni e per l'invio notifiche al paziente, senza possibilità di risposta.
 # 3. Sistema proposto
-Il nostro sistema, tenendo conto delle problematiche di quello corrente, si ripropone di eliminare tutti i disagi causati dall'assenza di una completa informatizzazione del sistema sanitario odierno. Le prenotazioni e i loro livelli di urgenza saranno gestiti tramite il nostro software che, grazie ad un algoritmo interno, riuscirà a gestire automaticamente l'eventuale spostamento di prenotazioni causando meno problemi possibili. Non ne beneficerà soltanto il paziente che sarà in grado di accedere ad un area riservata comodamente da casa, evitando così eventuali ritardi, ma anche il personale medico e amministrativo della struttura ospedaliera. In caso di impossibilità da parte del paziente, il personale amministrativo sarà in grado di accedere all'area riservata dell'utente ed eventualmente velocizzare ulteriormente le procedure di gestione delle prenotazioni. Il personale medico invece sarà in grado di accedere e modificare la cartella clinica del paziente in maniera completamente elettronica. Informatizzando quasi totalmente tutte le prestazioni sopra citate, il sistema proposto porterà notevoli miglioramenti sotto tutti i punti di vista includendo efficenza, robustezza, sicurezza e facilità di utilizzo.
-## 3.1 Requisiti funzionali
+Il nostro sistema, tenendo conto delle problematiche riscontrate in quello corrente, si propone di eliminare tutti i disagi causati dall'assenza di una completa informatizzazione del sistema sanitario. Le prenotazioni e i loro livelli di urgenza saranno gestiti tramite il nostro software che, grazie ad un algoritmo , riuscirà a gestire automaticamente l'eventuale spostamento di prenotazioni causando meno problemi possibili. Non ne beneficerà soltanto il paziente, il quale sarà in grado di accedere ad un area riservata comodamente da casa(evitando così eventuali ritardi) ma anche il personale medico e amministrativo della struttura ospedaliera. In caso di impossibilità da parte del paziente il personale amministrativo sarà in grado di accedere all'area riservata dell'utente   velocizzando ulteriormente le procedure di gestione delle prenotazioni. Il personale medico sarà invece in grado di accedere e modificare la cartella clinica del paziente in maniera completamente elettronica. Informatizzando quasi totalmente le prestazioni sopra citate, il sistema proposto porterà notevoli miglioramenti sotto tutti i punti di vista raggiungendo obbiettivi di efficenza, robustezza, sicurezza e facilità di utilizzo.
+## 3.1 Panoramica
+## 3.2 Requisiti funzionali
 - Il personale amministrativo, il personale medico e il paziente dovranno essere in grado di creare una prenotazione
 - Il personale amministrativo, il personale medico ed il paziente dovranno poter visionare il Fascicolo Sanitario Elettronico
 - Il paziente potrà visualizzare lo Storico delle sue visite ogni qual volta lo richiederà
@@ -123,15 +125,15 @@ Il nostro sistema, tenendo conto delle problematiche di quello corrente, si ripr
 - Il sistema dovrà saper fare distinzione tra paziente, personale medico e personale amministrativo
 - Il sistema dovrà saper gestire differentemente visite intramoenia e visite con SSN
 
-## 3.2 Requisiti non funzionali
+## 3.3 Requisiti non funzionali
 - Per effettuare una prenotazione sarà necessario essere provvisti di ricetta
 - Il sistema dovrà impedire di utilizzare più volte la stessa ricetta per la medesima prestazione   
 - Il Fascicolo Sanitario Elettronico potrà essere stampato dal paziente solo tramite pagamento di una somma di denaro
 - Il sistema dovrà inviare al paziente una mail di reminder almeno 24 ore prima della visita.
 - Il sistema dovrà inviare una mail di notifica al Paziente ogni volta che viene creata o modificata una prenotazione a suo nome.
 
-## 3.3 Modelli del sistema
-### 3.3.1 Casi d'uso
+## 3.4 Modelli del sistema
+### 3.4.1 Casi d'uso
 #### Casi d'uso di alto livello.
 ![Casi d'uso generali](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Casi%20d'uso/Casi%20d'uso%20generali.png)
 
@@ -578,7 +580,7 @@ __Postcondizioni:__  `Tutti i pazienti con visite in programma entro 24 ore hann
 [_Diagramma delle sequenze_](#sequenza-invionotifica)
 
 ---
-### 3.3.2 Modello degli oggetti
+### 3.4.2 Modello degli oggetti
 #### Lista delle classi
 
 Classe | Descrizione
@@ -620,7 +622,7 @@ SelezionaPazienteControl | Gestisce le operazioni per selezionare un paziente da
 ![Entity](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20classi/Entity.png)
 #### Diagramma delle classi
 ![Classi](https://andrea-augello.github.io/SviluppoSW/media/Diagrammi/Diagrammi%20delle%20classi/Tutte%20le%20classi.png)
-### 3.3.3 Modello dinamico
+### 3.4.3 Modello dinamico
 #### Diagrammi delle sequenze
 ---
 ##### Sequenza AutenticaPersonale
@@ -704,7 +706,7 @@ SelezionaPazienteControl | Gestisce le operazioni per selezionare un paziente da
  [_Caso d'uso_](#invionotifica)
 
  ---
-### 3.3.4 Interfaccia utente: navigazione e mock-up
+### 3.4.4 Interfaccia utente: navigazione e mock-up
 #### Login
 ---
 Schermata di login per PersonaleMedico
