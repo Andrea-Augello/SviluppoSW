@@ -40,6 +40,7 @@ public class ScegliOrarioDialog {
         frame.setLocationRelativeTo(null);
         frame.pack();
         frame.setVisible(true);
+        aggiornaOrari();
 
         confermaButton.addActionListener(new ActionListener() {
             @Override
