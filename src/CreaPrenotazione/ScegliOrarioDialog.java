@@ -73,7 +73,8 @@ public class ScegliOrarioDialog {
         DefaultListModel model = ((DefaultListModel) list1.getModel());
         model.clear();
         for (LocalDateTime data : orariDisponibili) {
-            if (Timestamp.valueOf(data).equals(calendario.getDate())) {
+            LocalDate convertedDate = data.toLocalDate();
+            if (convertedDate.equals(calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
                 model.addElement(data.toLocalTime());
             }
 
@@ -138,7 +139,8 @@ public class ScegliOrarioDialog {
             @Override
             public boolean isInvalid(Date date) {
                 for (LocalDateTime dataDisponibile : orariDisponibili) {
-                    if (Timestamp.valueOf(dataDisponibile).equals(date)) {
+                    LocalDate convertedDate = dataDisponibile.toLocalDate();
+                    if (convertedDate.equals(date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
                         return false;
                     }
                 }
