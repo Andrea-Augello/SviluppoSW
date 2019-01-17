@@ -76,4 +76,9 @@ public class Prenotazione  implements Comparable<Prenotazione>{
 	public int compareTo(Prenotazione o) {
 		return this.getDataOraAppuntamento().compareTo(o.getDataOraAppuntamento());
 	}
+
+	@Override
+	public String toString() {
+		return getId() + " - " +getPaziente() + " - " + getDescrizionePrestazione();
+	}
 }

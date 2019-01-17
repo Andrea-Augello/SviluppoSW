@@ -27,7 +27,6 @@ public class ScegliOrarioDialog {
     private JButton confermaButton;
     private JCalendar calendario;
     private JList list1;
-    private JComboBox annoCombo;
     private JFrame frame;
 
     public ScegliOrarioDialog(EffettuaPrenotazioneControl control, List<LocalDateTime> orariDisponibili) {
@@ -41,10 +40,6 @@ public class ScegliOrarioDialog {
         frame.setLocationRelativeTo(null);
         frame.pack();
         frame.setVisible(true);
-
-        if (annoCombo.getItemCount() < 2) {
-            annoCombo.setEnabled(false);
-        }
 
         confermaButton.addActionListener(new ActionListener() {
             @Override

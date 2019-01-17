@@ -17,6 +17,7 @@ public class MainScreenMedico extends MainScreen {
     private JButton inserisciDettagliSullaVisitaButton;
 
     public MainScreenMedico() {
+        prenotazioni = DatabaseInterface.getInstance().ottieniElencoVisite(PersonaleEntity.getMedico());
         JFrame frame = new JFrame("SPRINT");
         $$$setupUI$$$();
         frame.setContentPane(panel);
@@ -30,7 +31,6 @@ public class MainScreenMedico extends MainScreen {
         frame.pack();
         frame.setVisible(true);
 
-        prenotazioni = DatabaseInterface.getInstance().ottieniElencoVisite(PersonaleEntity.getMedico());
         visualizzaCartellaClinicaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

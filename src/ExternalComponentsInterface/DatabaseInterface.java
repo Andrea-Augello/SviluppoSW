@@ -176,7 +176,7 @@ public class DatabaseInterface {
             //We need the current day
             LocalDate dateCurrent = LocalDate.now();
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_TIME;
-            String timeStart="00:00:00";
+            String timeStart="00:00:01";
             LocalTime timeStartDay = LocalTime.parse(timeStart, dateTimeFormatter);
             String timeEnd="23:59:59";
             LocalTime timeEndDay = LocalTime.parse(timeEnd, dateTimeFormatter);
@@ -185,17 +185,17 @@ public class DatabaseInterface {
             //We format to DateTime Pattern
             String formattedDateTimeStart = dateTimeStart.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String formattedDateTimeEnd = dateTimeEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-
-            st = conn.prepareStatement("SELECT Prenotazione.* FROM Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? AND PersonaleMedico.ID=? AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Visita.Prenotazione_ID=Prenotazione.ID");
+            st = conn.prepareStatement("SELECT Prenotazione.*,Ricetta_Numero_ricetta AS Numero_ricetta FROM Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? AND PersonaleMedico.ID=? AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Visita.Prenotazione_ID=Prenotazione.ID");
             //Set field
             st.setString(1,formattedDateTimeStart);
             st.setString(2,formattedDateTimeEnd);
-            st.setInt(1,medico.getMatricola());
+            st.setInt(3,medico.getMatricola());
             //Execute
             rs=st.executeQuery();
             List<Prenotazione> prenotazioni = new ArrayList<>();
             while(rs.next()) {
-                prenotazioni.add(parserPrenotazioni(rs));
+                Prenotazione p = parserPrenotazioni(rs);
+                prenotazioni.add(p);
             }
             return prenotazioni;
         }catch (SQLException ex){
@@ -508,9 +508,12 @@ public class DatabaseInterface {
 
     private PersonaleEntity parserPersonale(ResultSet queryResult) {
         try{
-                int matricola = queryResult.getInt("ID");
-                String password = queryResult.getString("Password");
-                return new PersonaleEntity(matricola, password);
+            int matricola = queryResult.getInt("ID");
+            String password = queryResult.getString("Password");
+            String nome = queryResult.getString("Nome");
+            String cognome = queryResult.getString("Cognome");
+
+            return new PersonaleEntity(matricola, nome, cognome, password);
         } catch(Exception ex){
             return null;
         }
@@ -518,17 +521,18 @@ public class DatabaseInterface {
 
     private Prenotazione parserPrenotazioni(ResultSet queryResult) {
         try{
-                PazienteEntity paziente=parserPaziente(queryResult);
-                PersonaleEntity medico=parserPersonale(queryResult);
-                medico.setMedico(medico);
-                String codiceRicetta=queryResult.getString("Numero_ricetta");
-                int prestazione=queryResult.getInt("Prestazione.ID");
+            PazienteEntity paziente=parserPaziente(queryResult);
+            PersonaleEntity medico=parserPersonale(queryResult);
+            medico.setMedico(medico);
+            String codiceRicetta=queryResult.getString("Numero_ricetta");
+            int prestazione=queryResult.getInt("ID");
 
-                //We format from String to LocalDateTime
-                String str = queryResult.getString("FasciaOraria_Data_e_ora");
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                LocalDateTime slotScelto = LocalDateTime.parse(str, formatter);
-                return new Prenotazione( paziente,  new Ricetta(codiceRicetta,prestazione),  slotScelto,  medico);
+            //We format from String to LocalDateTime
+            String str = queryResult.getString("FasciaOraria_Data_e_ora");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            LocalDateTime slotScelto = LocalDateTime.parse(str, formatter);
+            Prenotazione prenotazione = new Prenotazione(paziente, new Ricetta(codiceRicetta, prestazione), slotScelto, medico);
+            return prenotazione;
         } catch(Exception ex){
             return null;
         }
