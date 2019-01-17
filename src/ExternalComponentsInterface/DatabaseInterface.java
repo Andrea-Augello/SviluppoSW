@@ -164,7 +164,6 @@ public class DatabaseInterface {
         return null;
     }
 
-    // This method is not yet used
     public List<Prenotazione> ottieniElencoVisite(PazienteEntity paziente) {
        return null;
     }
