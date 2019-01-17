@@ -59,12 +59,12 @@ public class ScegliOrarioDialog {
     }
 
     public void scegliOrario() {
-        if (list1.getSelectedIndex() > 0) {
+        if (!list1.isSelectionEmpty()) {
+            new ErroreDialog("Selezionare data e ora");
+        } else {
             LocalDate giornoScelto = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalTime oraScelta = (LocalTime) list1.getSelectedValue();
             control.finalizzaPrenotazione(LocalDateTime.of(giornoScelto, oraScelta));
-        } else {
-            new ErroreDialog("Selezionare data e ora");
         }
     }
 
@@ -142,8 +142,6 @@ public class ScegliOrarioDialog {
                     LocalDate convertedDate = dataDisponibile.toLocalDate();
                     if (convertedDate.equals(date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
                         return false;
-                    } else {
-                        System.out.println(convertedDate + "non appatta con" + date);
                     }
                 }
                 return true;
@@ -164,6 +162,7 @@ public class ScegliOrarioDialog {
                 return "Giorno non disponibile";
             }
         });
+        calendario.setDate(new Date());
 
         list1 = new JList(listModel);
     }
