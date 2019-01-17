@@ -22,7 +22,7 @@ public class ModificaPrenotazioneControl {
 	}
 
 	public void aggiornaPrenotazione() {
-		new ConfermaDialog(false, prenotazioneSelezionata);
+		new ConfermaDialog( false, prenotazioneSelezionata);
 	}
 
 	public void eliminaPrenotazione() {

@@ -92,7 +92,7 @@ public class PazienteEntity  implements Comparable<PazienteEntity>{
 	}
 
     public String toFormatted() {
-		return null;
+		return String.format("Nome: %s\nCognome: %s\nCodice Fiscale: %s\nData di nascita: %s", getNome(), getCognome(), getCodiceFiscale(), getDataDiNascita());
     }
 
 	@Override

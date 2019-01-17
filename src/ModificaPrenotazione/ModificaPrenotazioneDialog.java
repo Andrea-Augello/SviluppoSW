@@ -9,9 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.sql.Timestamp;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -49,8 +48,8 @@ public class ModificaPrenotazioneDialog {
 		frame.setLocationRelativeTo(null);
 
 		id.setText("" + prenotazioneSelezionata.getCodicePrestazione());
-		prestazione.setText("" + prenotazioneSelezionata.getDescrizionePrestazione());
-		data.setText(prenotazioneSelezionata.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")));
+		prestazione.setText("" + prenotazione.getDescrizionePrestazione());
+		data.setText(prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")));
 		orari.setVisible(false);
 
 		frame.pack();
@@ -67,15 +66,15 @@ public class ModificaPrenotazioneDialog {
 				cancellaPrenotazione();
 			}
 		});
-		calendario.addMouseListener(new MouseAdapter() {
+		calendario.addPropertyChangeListener(new PropertyChangeListener() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
+			public void propertyChange(PropertyChangeEvent evt) {
                 list1.clearSelection();
                 DefaultListModel model = ((DefaultListModel) list1.getModel());
                 model.clear();
                 for (LocalDateTime data : orariDisponibili) {
-                    if (Timestamp.valueOf(data).equals(calendario.getDate())) {
+					LocalDate convertedDate = data.toLocalDate();
+					if (convertedDate.equals(calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
                         model.addElement(data.toLocalTime());
                     }
 
@@ -85,14 +84,7 @@ public class ModificaPrenotazioneDialog {
 		confemraButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-                if (list1.getSelectedIndex() > 0) {
-                    LocalDate giornoScelto = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                    LocalTime oraScelta = (LocalTime) list1.getSelectedValue();
-                    prenotazioneSelezionata.setDataOraAppuntamento(LocalDateTime.of(giornoScelto, oraScelta));
-                    control.aggiornaPrenotazione();
-                } else {
-                    new ErroreDialog("Selezionare data e ora");
-                }
+                confermaOrario();
 			}
 		});
 	}
@@ -106,14 +98,21 @@ public class ModificaPrenotazioneDialog {
 	}
 
 	public void confermaOrario() {
-		control.aggiornaPrenotazione();
+		if (!list1.isSelectionEmpty()) {
+            LocalDate giornoScelto = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalTime oraScelta = (LocalTime) list1.getSelectedValue();
+            prenotazione.setDataOraAppuntamento(LocalDateTime.of(giornoScelto, oraScelta));
+            frame.dispose();
+            control.aggiornaPrenotazione();
+        } else {
+            new ErroreDialog("Selezionare data e ora");
+        }
 	}
 
 	public void mostraOrari(List<LocalDateTime> orariDisponibili) {
 		this.orariDisponibili = orariDisponibili;
 		bottoni.setVisible(false);
 		orari.setVisible(true);
-		//noinspection Duplicates
 		calendario.getDayChooser().addDateEvaluator(new IDateEvaluator() {
             @Override
             public boolean isSpecial(Date date) {
@@ -138,7 +137,8 @@ public class ModificaPrenotazioneDialog {
             @Override
             public boolean isInvalid(Date date) {
                 for (LocalDateTime dataDisponibile : orariDisponibili) {
-                    if (Timestamp.valueOf(dataDisponibile).equals(date)) {
+					LocalDate convertedDate = dataDisponibile.toLocalDate();
+					if (convertedDate.equals(date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
                         return false;
                     }
                 }
@@ -157,9 +157,11 @@ public class ModificaPrenotazioneDialog {
 
             @Override
             public String getInvalidTooltip() {
-                return "Giorno non disponibile";
+                return "Impossibile prenotare nel giorno indicato";
             }
         });
+
+		calendario.setDate(new Date());
 	}
 
 	/**
@@ -216,7 +218,7 @@ public class ModificaPrenotazioneDialog {
 		list1 = new JList();
 		orari.add(list1, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
 		confemraButton = new JButton();
-		confemraButton.setText("Confemra");
+		confemraButton.setText("Conferma");
 		orari.add(confemraButton, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
 		final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
 		panel.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 2, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
