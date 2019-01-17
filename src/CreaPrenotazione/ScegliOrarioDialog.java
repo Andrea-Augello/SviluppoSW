@@ -25,6 +25,7 @@ public class ScegliOrarioDialog {
 
     private EffettuaPrenotazioneControl control;
     private List<LocalDateTime> orariDisponibili;
+    private DefaultListModel<LocalDateTime> listModel;
     private JPanel panel;
     private JButton confermaButton;
     private JCalendar calendario;
@@ -34,6 +35,7 @@ public class ScegliOrarioDialog {
     public ScegliOrarioDialog(EffettuaPrenotazioneControl control, List<LocalDateTime> orariDisponibili) {
         this.control = control;
         this.orariDisponibili = orariDisponibili;
+        aggiornaOrari();
         frame = new JFrame("SPRINT - Scegli data e ora per la visita");
         $$$setupUI$$$();
         frame.setContentPane(panel);
@@ -42,7 +44,6 @@ public class ScegliOrarioDialog {
         frame.setLocationRelativeTo(null);
         frame.pack();
         frame.setVisible(true);
-        aggiornaOrari();
 
         confermaButton.addActionListener(new ActionListener() {
             @Override
@@ -70,14 +71,13 @@ public class ScegliOrarioDialog {
 
     private void aggiornaOrari() {
         list1.clearSelection();
-        DefaultListModel model = (DefaultListModel) (list1.getModel());
+        DefaultListModel model = listModel;
         model.clear();
         for (LocalDateTime data : orariDisponibili) {
             LocalDate convertedDate = data.toLocalDate();
             if (convertedDate.equals(calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
                 model.addElement(data.toLocalTime());
             }
-
         }
     }
 
@@ -163,6 +163,8 @@ public class ScegliOrarioDialog {
                 return "Giorno non disponibile";
             }
         });
+
+        list1 = new JList(listModel);
     }
 
     public void dispose() {
