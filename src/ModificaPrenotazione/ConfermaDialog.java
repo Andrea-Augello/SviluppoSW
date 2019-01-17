@@ -100,7 +100,6 @@ public class ConfermaDialog {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
         String message;
         if (isDestroying) {
             message = "Si sta per cancellare la prenotazione\n" + prenotazioneSelezionata;
