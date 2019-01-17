@@ -15,7 +15,7 @@ public class GeneraRicettaControl {
 	public GeneraRicettaControl() {
 		List<String> prestazioni = DatabaseInterface.getInstance().ottieniPrestazioniErogabili();
 		prestazioni.add("000 - RICOVERO");
-	    formDatiRicetta = new FormRicetta(this, prestazioni);
+		formDatiRicetta = new FormRicetta(this, prestazioni);
 	}
 
 	void ottieniDati() {
@@ -47,6 +47,6 @@ public class GeneraRicettaControl {
 	}
 
 	private boolean controllaCorrettezzaDati(Ricetta ricetta) {
-	    return DatabaseInterface.getInstance().verificaDuplicati(ricetta);
+	    return !DatabaseInterface.getInstance().verificaDuplicati(ricetta);
 	}
 }

@@ -392,17 +392,17 @@ public class DatabaseInterface {
 
     public List<String> ottieniPrestazioniErogabili(){
         try {
-            //Prepare statement
+                        //Prepare statement
             st = conn.prepareStatement("SELECT * FROM Prestazione");
             //Execute
             rs=st.executeQuery();
-            rs.next();
             List<String> prestazioniErogabili=new ArrayList<>();
             while(rs.next()) {
                 int id=rs.getInt("ID");
                 String idString=Integer.toString(id);
                 prestazioniErogabili.add(idString + " - " + rs.getString("Nome"));
             }
+
             return prestazioniErogabili;
         }catch(SQLException ex) {
             new ErroreDialog(ex);
@@ -463,13 +463,12 @@ public class DatabaseInterface {
         try {
             //Prepare statement
             String numeroRicetta=ricetta.getCodiceRicetta();
-            st = conn.prepareStatement("SELECT COUNT(Prenotazione.ID) FROM Ricetta,Prenotazione,Prestazione WHERE Ricetta.Numero_ricetta=? AND  Ricetta.Numero_ricetta = Prenotazione.Ricetta_Numero_ricetta AND Prenotazione.Prestazione_ID =Prestazione.ID");
+            st = conn.prepareStatement("SELECT * FROM Ricetta,Prenotazione,Prestazione WHERE Ricetta.Numero_ricetta=? AND  Ricetta.Numero_ricetta = Prenotazione.Ricetta_Numero_ricetta AND Prenotazione.Prestazione_ID =Prestazione.ID");
             //Set field
             st.setString(1, numeroRicetta);
             //Execute
             rs=st.executeQuery();
-            rs.next();
-            return rs.getInt("COUNT(Prenotazione.ID)") > 1;
+            return rs.next();
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
