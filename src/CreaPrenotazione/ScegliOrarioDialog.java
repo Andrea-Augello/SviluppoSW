@@ -140,6 +140,7 @@ public class ScegliOrarioDialog {
                 for (LocalDateTime dataDisponibile : orariDisponibili) {
                     LocalDate convertedDate = dataDisponibile.toLocalDate();
                     if (convertedDate.equals(date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
+                        System.out.println(convertedDate + "non appatta");
                         return false;
                     }
                 }
