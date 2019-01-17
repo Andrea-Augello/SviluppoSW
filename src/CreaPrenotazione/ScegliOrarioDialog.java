@@ -59,7 +59,7 @@ public class ScegliOrarioDialog {
     }
 
     public void scegliOrario() {
-        if (!list1.isSelectionEmpty()) {
+        if (list1.isSelectionEmpty()) {
             new ErroreDialog("Selezionare data e ora");
         } else {
             LocalDate giornoScelto = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
