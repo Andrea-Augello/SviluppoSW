@@ -249,7 +249,7 @@ public class DatabaseInterface {
         try {
             LocalDateTime safeTimeCondition=LocalDateTime.now().plusHours(24);
             //Prepare statement
-            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione WHERE Esercita_durante.FasciaOraria_Data_e_ora <=? AND Prestazione.ID=? AND Esercita_durante.FasciaOraria_Data_e_ora <= ? AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND NOT (Prenotazione.ID=Visita.Prenotazione_ID AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)");
+            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione WHERE Esercita_durante.FasciaOraria_Data_e_ora <=? AND Prestazione.ID=? AND Esercita_durante.FasciaOraria_Data_e_ora >= ? AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND NOT (Prenotazione.ID=Visita.Prenotazione_ID AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)");
             //Set field
             String formattedDateTime = limiteMassimo.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String formattedSafeTimeCondition = safeTimeCondition.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
