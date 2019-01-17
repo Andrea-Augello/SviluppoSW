@@ -33,6 +33,10 @@ public class ScegliOrarioDialog {
         listModel = new DefaultListModel<>();
         this.control = control;
         this.orariDisponibili = orariDisponibili;
+        for (LocalDateTime localDateTime : this.orariDisponibili) {
+            System.out.println(localDateTime);
+        }
+
         frame = new JFrame("SPRINT - Scegli data e ora per la visita");
         $$$setupUI$$$();
         aggiornaOrari();
