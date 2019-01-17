@@ -22,7 +22,7 @@ public class ScegliOrarioDialog {
 
     private EffettuaPrenotazioneControl control;
     private List<LocalDateTime> orariDisponibili;
-    private DefaultListModel<LocalDateTime> listModel;
+    private DefaultListModel<LocalDate> listModel;
     private JPanel panel;
     private JButton confermaButton;
     private JCalendar calendario;

@@ -11,8 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -24,6 +24,7 @@ public class ModificaPrenotazioneDialog {
     private Prenotazione prenotazione;
     private ModificaPrenotazioneControl control;
     private List<LocalDateTime> orariDisponibili;
+    DefaultListModel<LocalDate> listModel;
 
 	private JButton spostaPrenotazioneButton;
 	private JButton annullaPrenotazioneButton;
@@ -41,6 +42,7 @@ public class ModificaPrenotazioneDialog {
 	public ModificaPrenotazioneDialog(Prenotazione prenotazioneSelezionata, ModificaPrenotazioneControl control) {
 		this.control = control;
 		this.prenotazione = prenotazioneSelezionata;
+		listModel = new DefaultListModel<>();
 		frame = new JFrame("SPRINT - Modifica la prenotazione selezionata");
 		$$$setupUI$$$();
 		frame.setContentPane(panel);
@@ -70,12 +72,11 @@ public class ModificaPrenotazioneDialog {
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
                 list1.clearSelection();
-                DefaultListModel model = ((DefaultListModel) list1.getModel());
-                model.clear();
+                listModel.clear();
                 for (LocalDateTime data : orariDisponibili) {
 					LocalDate convertedDate = data.toLocalDate();
 					if (convertedDate.equals(calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
-                        model.addElement(data.toLocalTime());
+                        listModel.addElement(data.toLocalTime());
                     }
 
                 }
@@ -161,6 +162,7 @@ public class ModificaPrenotazioneDialog {
             }
         });
 
+		list1 = new JList(listModel);
 		calendario.setDate(new Date());
 	}
 
