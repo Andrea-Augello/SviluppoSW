@@ -104,4 +104,9 @@ public class PazienteEntity  implements Comparable<PazienteEntity>{
 			return compare;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return getCognome() + " " + getNome();
+	}
 }
