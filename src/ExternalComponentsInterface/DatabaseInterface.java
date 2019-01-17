@@ -531,7 +531,11 @@ public class DatabaseInterface {
             String str = queryResult.getString("FasciaOraria_Data_e_ora");
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             LocalDateTime slotScelto = LocalDateTime.parse(str, formatter);
+            //TODO USARE IL COSTRUTTORE GIUSTO!!!!!!!!!!!111!!
             Prenotazione prenotazione = new Prenotazione(paziente, new Ricetta(codiceRicetta, prestazione), slotScelto, medico);
+
+            System.out.println(prenotazione);
+
             return prenotazione;
         } catch(Exception ex){
             return null;
