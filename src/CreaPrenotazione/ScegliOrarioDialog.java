@@ -142,7 +142,7 @@ public class ScegliOrarioDialog {
                     if (convertedDate.equals(date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
                         return false;
                     } else {
-                        System.out.println(convertedDate + "appatta con" + date);
+                        System.out.println(convertedDate + "non appatta con" + date);
                     }
                 }
                 return true;
