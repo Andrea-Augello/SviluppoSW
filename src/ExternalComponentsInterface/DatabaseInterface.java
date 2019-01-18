@@ -164,9 +164,18 @@ public class DatabaseInterface {
         try{
             //Prepare statement
             String cf=paziente.getCodiceFiscale();
-            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleMedico,Prenotazione,Paziente,Prestazione,Eroga WHERE Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
+            //We need the current day
+            LocalDate dateCurrent = LocalDate.now();
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_TIME;
+            String timeStart="00:00:01";
+            LocalTime timeStartDay = LocalTime.parse(timeStart, dateTimeFormatter);
+            LocalDateTime dateTimeStart = LocalDateTime.of(dateCurrent, timeStartDay);
+            //We format to DateTime Pattern
+            String formattedDateTimeStart = dateTimeStart.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleMedico,Prenotazione,Paziente,Prestazione,Eroga WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
             //Set field
-            st.setString(1,cf);
+            st.setString(1,formattedDateTimeStart);
+            st.setString(2,cf);
             //Execute
             rs=st.executeQuery();
             List<Prenotazione> prenotazioni = new ArrayList<>();
