@@ -24,6 +24,22 @@ public class MailInterface {
         return instance;
     }
 
+    public static void main(String[] args) {
+        MailInterface.getInstance().test();
+    }
+
+    private void test() {
+        Message message = this.setMessage("cane@gatto.it");
+        try {
+            message.setText("AAA");
+            Transport.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Sent messagge successfully");
+
+    }
+
     private MailInterface() {
         username="OspedalePalermo";
         sourceMail="cup_ospedalePalermo@sprint.com";
