@@ -21,10 +21,11 @@ public class Ricetta  implements Comparable<Ricetta>{
 		setPrestazione(prestazione);
 	}
 
-    public Ricetta(String codiceRicetta, int codicePrestazione, LocalDateTime limiteMassimo) {
+    public Ricetta(String codiceRicetta, int codicePrestazione, LocalDateTime limiteMassimo, int regime) {
 		setCodiceRicetta(codiceRicetta);
 		setPrestazione(codicePrestazione);
 		this.limiteMassimo = limiteMassimo;
+		this.regime=getRegime();
     }
 
     public int getUrgenza() {
