@@ -421,8 +421,10 @@ public class DatabaseInterface {
             st.setString(2, formattedNow);
             //Execute
             rs=st.executeQuery();
-            rs.next();
-            String storicoVisite=("ID: " + rs.getInt("Prenotazione_ID") + "\nTipo di prestazione: " + rs.getString("Nome_prestazione") +"\nMedico: " + rs.getString("Nome") + " " + rs.getString("Cognome") + "\nDiagnosi: " + rs.getString("Diagnosi")+ "\nReferti: " + rs.getString("Referti") + "\nOsservazioni: " + rs.getString("Osservazioni") + "\n");
+            String storicoVisite = "\n";
+            while(rs.next()) {
+                storicoVisite += (String.format("ID: %d\nTipo di prestazione: %s\nMedico: %s %s\nDiagnosi: %s\nReferti: %s\nOsservazioni: %s\n", rs.getInt("Prenotazione_ID"), rs.getString("Nome_prestazione"), rs.getString("Nome"), rs.getString("Cognome"), rs.getString("Diagnosi"), rs.getString("Referti"), rs.getString("Osservazioni")));
+            }
             /*
                 "ID: " + ...+
                 "\nTipo di prestazione: "+...
