@@ -14,11 +14,13 @@
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <toolTipText value="Selezionare la prenotazione che si desidera modificare e cliccare &quot;Modifica&quot;"/>
+        </properties>
       </component>
       <component id="7a25d" class="javax.swing.JButton" binding="modificaButton" default-binding="true">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Modifica"/>

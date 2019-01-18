@@ -15,7 +15,7 @@ public class ScegliPrenotazioneControl {
 		if(listaPrenotazioni != null) {
 			this.form = new ScegliPrenotazioneDialog(this, listaPrenotazioni);
 		} else {
-			new ErroreDialog("Non è presente nessuna prenotazione modificabile")
+			new ErroreDialog("Non è presente nessuna prenotazione modificabile");
 		}
 	}
 

@@ -23,7 +23,7 @@ public class GeneraRicettaControl {
 	    if(codiceRicetta.matches("\\d{15}")) {
 			int codicePrestazione = formDatiRicetta.getCodicePrestazione();
 			int urgenza = formDatiRicetta.getUrgenza();
-			if(urgenza != null) {
+			if(urgenza > 0) {
 				ricetta = new Ricetta(codiceRicetta, urgenza, codicePrestazione);
 				if (controllaCorrettezzaDati(ricetta)) {
 					sceltaRegime();
@@ -32,10 +32,10 @@ public class GeneraRicettaControl {
 					formDatiRicetta.reset();
 				}
 			} else {
-				new ErroreDialog("Indicare l'urgenza.")
+				new ErroreDialog("Indicare l'urgenza.");
 			}
 		} else {
-	    	new ErroreDialog("Il codice inserito non è valido.<br/>Va inserito un codice di 15 numeri.")
+	    	new ErroreDialog("Il codice inserito non è valido.<br/>Va inserito un codice di 15 numeri.");
 		}
 	}
 
