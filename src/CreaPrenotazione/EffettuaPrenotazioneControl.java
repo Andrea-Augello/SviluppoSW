@@ -22,6 +22,7 @@ public class EffettuaPrenotazioneControl {
 		} else {
 		    listaOrariDisponibili = DatabaseInterface.getInstance().ottieniOrari(ricetta.getPrestazione(), ricetta.getLimiteMassimo());
 		    if(listaOrariDisponibili == null || listaOrariDisponibili.isEmpty()) {
+		    	System.out.println("BEEP BEEP MOTHERFUCKER");
 		    	aggiungiOrario();
 			}
 			sceltaOrarioForm = new ScegliOrarioDialog(this, listaOrariDisponibili );

@@ -161,7 +161,7 @@ public class ScegliOrarioDialog {
                 return "Giorno non disponibile";
             }
         });
-        calendario.setDate(new Date());
+        calendario.setDate(java.sql.Date.valueOf(orariDisponibili.get(0).toLocalDate()));
 
         list1 = new JList(listModel);
     }

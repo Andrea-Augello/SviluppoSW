@@ -73,10 +73,13 @@ public class DatabaseInterface {
             st.setString(1,prenotazione.getCodiceRicetta());
             st.setString(2,prenotazione.getPaziente().getCodiceFiscale());
             st.execute();
-
-
             //Prepare statement
-            st = conn.prepareStatement("INSERT INTO Prenotazione (Regime,Limite_massimo,Paziente_CF,FasciaOraria_Data_e_ora,Prestazione_ID, Ricetta_Numero_ricetta) VALUES (?, ?, ?, ?, ?, ?)");
+            st = conn.prepareStatement("SELECT MAX(ID) FROM prenotazione");
+            rs = st.executeQuery();
+            rs.next();
+            int newID = rs.getInt("MAX(ID)")+1;
+            //Prepare statement
+            st = conn.prepareStatement("INSERT INTO Prenotazione (ID, Regime,Limite_massimo,Paziente_CF,FasciaOraria_Data_e_ora,Prestazione_ID, Ricetta_Numero_ricetta) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
             // We first need to convert from LocalDateTime to String
             String formattedDateTime = prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             //Set field
@@ -86,13 +89,19 @@ public class DatabaseInterface {
             } else {
                 regime = "ALPI";
             }
-            st.setString(1, regime);
-            st.setString(2, prenotazione.getLimiteMassimo().format(DateTimeFormatter.ISO_LOCAL_DATE));
-            st.setString(3, prenotazione.getPaziente().getCodiceFiscale());
-            st.setString(4,formattedDateTime);
-            st.setInt(5, prenotazione.getCodicePrestazione());
-            st.setString(6,prenotazione.getCodiceRicetta());
+            st.setInt(1, newID);
+            st.setString(2, regime);
+            st.setString(3, prenotazione.getLimiteMassimo().format(DateTimeFormatter.ISO_LOCAL_DATE));
+            st.setString(4, prenotazione.getPaziente().getCodiceFiscale());
+            st.setString(5,formattedDateTime);
+            st.setInt(6, prenotazione.getCodicePrestazione());
+            st.setString(7,prenotazione.getCodiceRicetta());
             //Execute
+            st.execute();
+            //Preprare statemnt
+            st = conn.prepareStatement("INSERT INTO visita(Prenotazione_ID, PersonaleMedico_ID) VALUES (?,?)");
+            st.setInt(1,newID);
+            st.setInt(2, prenotazione.getMedico().getMatricola());
             st.execute();
             return true;
         }catch(SQLException ex) {
@@ -100,7 +109,7 @@ public class DatabaseInterface {
 
             return false;
         }
-    }
+  }
 
     public boolean modificaPrenotazione(Prenotazione prenotazione) {
             try{
@@ -274,21 +283,40 @@ public class DatabaseInterface {
     }
 
     public List<LocalDateTime> ottieniOrari(int prestazione, LocalDateTime limiteMassimo) {
+        //NON TOCCARE, QUALUNQUE MODIFICA ROMPE LA MAGIA DEGLI ELFI SQL
         try {
             LocalDateTime safeTimeCondition=LocalDateTime.now().plusHours(24);
             //Prepare statement
-            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione WHERE Esercita_durante.FasciaOraria_Data_e_ora <=? AND Prestazione.ID=? AND Esercita_durante.FasciaOraria_Data_e_ora >= ? AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND NOT (Prenotazione.ID=Visita.Prenotazione_ID AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)");
+            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora\n" +
+                    "FROM Esercita_durante,personalemedico\n" +
+                    "WHERE (Esercita_Durante.FasciaOraria_Data_e_ora, personalemedico.ID  )not IN(\n" +
+                    "\t\tSELECT esercita_durante.FasciaOraria_Data_e_ora, personalemedico.ID\n" +
+                    "\t\tFROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione,fasciaoraria\n" +
+                    "        WHERE(\n" +
+                    "\t\t\tPrestazione.ID=? \n" +
+                    "\t\t\tAND Prestazione.ID=Eroga.Prestazione_ID \n" +
+                    "\t\t\tAND Eroga.PersonaleMedico_ID=PersonaleMedico.ID \n" +
+                    "\t\t\tAND esercita_durante.PersonaleMedico_ID = PersonaleMedico.ID\n" +
+                    "\t\t\tAND Esercita_durante.FasciaOraria_Data_e_Ora = FasciaOraria.Data_e_ora\n" +
+                    "\t\t\tAND Prenotazione.ID=Visita.Prenotazione_ID \n" +
+                    "\t\t\tAND PersonaleMedico.ID=Visita.PersonaleMedico_ID \n" +
+                    "\t\t\tAND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora) \n" +
+                    "\t)\n" +
+                    "AND\tEsercita_durante.FasciaOraria_Data_e_ora <=? \n" +
+                    "AND Esercita_durante.FasciaOraria_Data_e_ora >= ? \n" +
+                    "GROUP BY esercita_durante.FasciaOraria_Data_e_ora");
             //Set field
             String formattedDateTime = limiteMassimo.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String formattedSafeTimeCondition = safeTimeCondition.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            st.setString(1,formattedDateTime);
-            st.setInt(2,prestazione);
+            st.setInt(1,prestazione);
+            st.setString(2,formattedDateTime);
             st.setString(3,formattedSafeTimeCondition);
             //Execute
             rs=st.executeQuery();
             Set<LocalDateTime> times = new TreeSet<>();
             while(rs.next()) {
                 times.add(rs.getObject("FasciaOraria_Data_e_ora",LocalDateTime.class));
+                System.out.println(rs.getObject("FasciaOraria_Data_e_ora",LocalDateTime.class));
             }
             return new ArrayList<>(times);
         }catch(SQLException ex) {
@@ -399,6 +427,7 @@ public class DatabaseInterface {
         return null;
     }
 
+    //TO DO
     public Prenotazione ottieniPrenotazioneSpostabile(int prestazione, LocalDateTime limiteTemporale) {
         return null;
     }

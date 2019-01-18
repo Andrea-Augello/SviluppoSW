@@ -15,7 +15,7 @@ public class FSEControl {
 	}
 
 	public void stampa() {
-		PDFInterface.getInstance().stampa(PazienteEntity.getPaziente().toFormatted()+content);
+		PDFInterface.getInstance().stampa(PazienteEntity.getPaziente().toFormatted()+"\n-----------------------------------------------------------------\n"+content);
 	}
 
 }
