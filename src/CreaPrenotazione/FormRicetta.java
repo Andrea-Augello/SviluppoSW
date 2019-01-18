@@ -159,6 +159,7 @@ public class FormRicetta {
         for (String prestazione : prestazioni) {
 			comboBox1.addItem(prestazione);
 		}
+        comboBox1.setSelectedIndex(0);
 	}
 
 }
