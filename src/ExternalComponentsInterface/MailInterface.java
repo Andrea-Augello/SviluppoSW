@@ -3,17 +3,14 @@ package ExternalComponentsInterface;
 import Oggetti.ErroreDialog;
 import Oggetti.Prenotazione;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Properties;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+
 
 public class MailInterface {
     private static MailInterface instance = new MailInterface();
@@ -27,11 +24,11 @@ public class MailInterface {
     public static void main(String[] args) {
         MailInterface.getInstance().test();
     }
-
+//il server l
     private void test() {
         Message message = this.setMessage("cane@gatto.it");
         try {
-            message.setText("AAA");
+            message.setText("VOOOOODOOOOOOOOOOOOOOOOOOOOOOOOOO");
             Transport.send(message);
         } catch (MessagingException e) {
             e.printStackTrace();

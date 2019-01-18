@@ -511,7 +511,11 @@ public class DatabaseInterface {
             st.setInt(1, medicoId);
             //Execute
             rs=st.executeQuery();
-            return ("Nome ambulatorio: " + rs.getString("Nome") + "\nNome reparto: " + rs.getString("Reparto_Nome") + "\n");
+            if(rs.next()) {
+                return ("L'ambulatorio " + rs.getString("Nome") + " del reparto " + rs.getString("Reparto_Nome") + "\n");
+            } else {
+                return "N/A, chiedere al centro informazioni";
+            }
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
@@ -527,7 +531,7 @@ public class DatabaseInterface {
                 LocalDate dataDiNascita = queryResult.getDate("Data_di_nascita").toLocalDate();
                 String telefono = queryResult.getString("Telefono");
                 String indirizzoEmail = queryResult.getString("Indirizzo_email");
-                return PazienteEntity.createInstance(codiceFiscale,nome,cognome,dataDiNascita,telefono,indirizzoEmail, password);
+                return PazienteEntity.createInstance(codiceFiscale,nome,cognome,dataDiNascita,indirizzoEmail, telefono, password);
         } catch(Exception ex){
             return null;
         }
