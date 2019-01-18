@@ -124,6 +124,14 @@ public class DatabaseInterface {
                 st.setInt(2, id);
                 //Execute
                 st.execute();
+                //Prepare statement
+                st = conn.prepareStatement("UPDATE Visita SET PersonaleMedico_ID=? WHERE Prenotazione_ID=?");
+                //Set field
+                st.setInt(1,prenotazione.getMedico().getMatricola());
+                st.setInt(2,prenotazione.getId());
+                //Execute
+                st.execute();
+                
                 return true;
             }catch(SQLException ex){
                 new ErroreDialog(ex);
