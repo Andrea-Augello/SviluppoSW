@@ -162,7 +162,7 @@ public class DatabaseInterface {
         try{
             //Prepare statement
             String cf=paziente.getCodiceFiscale();
-            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleMedico,Prenotazione,Paziente,Prestazione, WHERE Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
+            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleMedico,Prenotazione,Paziente,Prestazione,Eroga WHERE Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
             //Set field
             st.setString(1,cf);
             //Execute
