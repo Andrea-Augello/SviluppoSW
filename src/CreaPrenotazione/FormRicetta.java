@@ -175,7 +175,6 @@ public class FormRicetta {
 	}
 
 	private void createUIComponents() {
-		// TODO: place custom component creation code here
         comboBox1 = new JComboBox();
         for (String prestazione : prestazioni) {
 			comboBox1.addItem(prestazione);

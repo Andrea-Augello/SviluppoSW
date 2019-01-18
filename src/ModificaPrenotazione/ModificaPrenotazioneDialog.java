@@ -1,5 +1,6 @@
 package ModificaPrenotazione;
 
+import ExternalComponentsInterface.DatabaseInterface;
 import Oggetti.ErroreDialog;
 import Oggetti.Prenotazione;
 import com.toedter.calendar.IDateEvaluator;
@@ -102,7 +103,11 @@ public class ModificaPrenotazioneDialog {
         if (!list1.isSelectionEmpty()) {
             LocalDate giornoScelto = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalTime oraScelta = (LocalTime) list1.getSelectedValue();
-            prenotazione.setDataOraAppuntamento(LocalDateTime.of(giornoScelto, oraScelta));
+            LocalDateTime nuovoAppuntamento = LocalDateTime.of(giornoScelto, oraScelta);
+            prenotazione.setDataOraAppuntamento(nuovoAppuntamento);
+            if (prenotazione.getRicetta().getRegime() == 0) {
+                prenotazione.setMedico(DatabaseInterface.getInstance().ottieniMedicoDisponibile(nuovoAppuntamento, prenotazione.getCodicePrestazione()));
+            }
             frame.dispose();
             control.aggiornaPrenotazione();
         } else {

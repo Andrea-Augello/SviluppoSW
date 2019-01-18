@@ -56,6 +56,10 @@ public class Prenotazione  implements Comparable<Prenotazione>{
 		return medico;
 	}
 
+	public void setMedico(PersonaleEntity medico) {
+		this.medico = medico;
+	}
+
 	public Ricetta getRicetta() {
 		return ricetta;
 	}
@@ -67,7 +71,7 @@ public class Prenotazione  implements Comparable<Prenotazione>{
 	public LocalDateTime getLimiteMassimo(){
 		return this.ricetta.getLimiteMassimo();
 	}
-	
+
 	public String getCodiceRicetta() {
 		return this.ricetta.getCodiceRicetta();
 	}

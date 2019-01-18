@@ -17,7 +17,12 @@ public class ModificaPrenotazioneControl {
 	}
 
 	public void spostaPrenotazione(){
-		List<LocalDateTime> orariDisponibili = DatabaseInterface.getInstance().ottieniOrari(prenotazioneSelezionata.getCodicePrestazione(), prenotazioneSelezionata.getLimiteMassimo());
+		List<LocalDateTime> orariDisponibili;
+		if(prenotazioneSelezionata.getRicetta().getRegime() == 0) {
+			orariDisponibili = DatabaseInterface.getInstance().ottieniOrari(prenotazioneSelezionata.getCodicePrestazione(), prenotazioneSelezionata.getLimiteMassimo());
+		} else {
+			orariDisponibili = DatabaseInterface.getInstance().ottieniOrari(prenotazioneSelezionata.getMedico());
+		}
 		form.mostraOrari(orariDisponibili);
 	}
 
