@@ -27,6 +27,8 @@ public class FSEDialog {
         textArea1.setWrapStyleWord(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
+        textArea1.append(content);
+
         frame.pack();
         frame.setVisible(true);
         stampaButton.addActionListener(new ActionListener() {
@@ -53,7 +55,6 @@ public class FSEDialog {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
-        createUIComponents();
         panel = new JPanel();
         panel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         stampaButton.setText("Stampa");
@@ -69,9 +70,4 @@ public class FSEDialog {
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
-
-    private void createUIComponents() {
-        textArea1 = new JTextArea(content);
-    }
-
 }
