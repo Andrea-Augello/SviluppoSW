@@ -241,7 +241,5 @@ public class ModificaPrenotazioneDialog {
 
     private void createUIComponents() {
         calendario = new JCalendar(new Locale("IT"));
-        calendario.setMinSelectableDate(new Date());
-
     }
 }
