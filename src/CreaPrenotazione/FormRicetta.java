@@ -18,6 +18,12 @@ public class FormRicetta {
 	private JComboBox comboBox1;
 	private JTextField textField1;
 	private JButton confermaButton;
+	private JRadioButton aRadioButton;
+	private JRadioButton bRadioButton1;
+	private JRadioButton cRadioButton;
+	private JRadioButton dRadioButton1;
+	private JPanel prestazione;
+	private JPanel ricovero;
 	private int urgenza;
 
 	public FormRicetta(GeneraRicettaControl control, List<String> prestazioni) {
@@ -38,8 +44,24 @@ public class FormRicetta {
 		});
 		uRadioButton.addActionListener(e -> urgenza = 1);
 		bRadioButton.addActionListener(e -> urgenza = 2);
-		dRadioButton.addActionListener(e -> urgenza = 3);
-		pRadioButton.addActionListener(e -> urgenza = 4);
+		dRadioButton.addActionListener(e -> urgenza = 4);
+		pRadioButton.addActionListener(e -> urgenza = 5);
+		aRadioButton.addActionListener(e -> urgenza = 3);
+		bRadioButton1.addActionListener(e ->urgenza = 4);
+		cRadioButton.addActionListener(e -> urgenza = 5);
+		dRadioButton1.addActionListener(e ->urgenza = 6);
+		comboBox1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(comboBox1.getSelectedItem().equals("000 - RICOVERO")){
+					ricovero.setVisible(true);
+					prestazione.setVisible(false);
+				} else {
+					ricovero.setVisible(false);
+					prestazione.setVisible(true);
+				}
+			}
+		});
 	}
 
 	public void reset() {

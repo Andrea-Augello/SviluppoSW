@@ -30,16 +30,25 @@ public class Ricetta  implements Comparable<Ricetta>{
 		limiteMassimo = LocalDateTime.now();
 		switch (urgenza) {
 			case 1:
-				limiteMassimo = limiteMassimo.plusDays(3);
+				limiteMassimo = limiteMassimo.plusHours(72);
 				break;
 			case 2:
 				limiteMassimo = limiteMassimo.plusDays(10);
 				break;
 			case 3:
-				limiteMassimo = limiteMassimo.plusDays(60);
+				limiteMassimo = limiteMassimo.plusDays(30);
 				break;
 			case 4:
+				limiteMassimo = limiteMassimo.plusDays(60);
+				break;
+			case 5:
 				limiteMassimo = limiteMassimo.plusDays(180);
+				break;
+			case 6:
+				limiteMassimo = limiteMassimo.plusMonths(12);
+				break;
+			default:
+				limiteMassimo = limiteMassimo.minusDays(1);
 				break;
 		}
 	}
