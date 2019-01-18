@@ -392,11 +392,11 @@ public class DatabaseInterface {
 
     public List<String> ottieniPrestazioniErogabili(){
         try {
+            List<String> prestazioniErogabili=new ArrayList<>();
             //Prepare statement
             st = conn.prepareStatement("SELECT * FROM Prestazione");
             //Execute
             rs=st.executeQuery();
-            List<String> prestazioniErogabili=new ArrayList<>();
             while(rs.next()) {
                 int id=rs.getInt("ID");
                 String idString=Integer.toString(id);
