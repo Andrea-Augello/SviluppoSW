@@ -18,7 +18,7 @@ public class ScegliPrenotazioneDialog {
     private JFrame frame;
     private JButton modificaButton;
     private JPanel panel;
-    private JList list1;
+    private JList<Prenotazione> list1;
 
     public ScegliPrenotazioneDialog(ScegliPrenotazioneControl control, List<Prenotazione> prenotazioni) {
         this.control = control;
@@ -93,7 +93,6 @@ public class ScegliPrenotazioneDialog {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
         DefaultListModel<Prenotazione> listModel = new DefaultListModel<>();
         if (prenotazioni != null) {
             for (Prenotazione p : prenotazioni) {
@@ -102,7 +101,7 @@ public class ScegliPrenotazioneDialog {
         } else {
             new ErroreDialog("Nessuna prenotazione modificabile presente");
         }
-        list1 = new JList(listModel);
+        list1 = new JList<>(listModel);
         list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 }

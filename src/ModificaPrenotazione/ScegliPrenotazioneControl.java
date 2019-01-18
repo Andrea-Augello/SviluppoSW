@@ -11,7 +11,7 @@ public class ScegliPrenotazioneControl {
 	private ScegliPrenotazioneDialog form;
 
 	public ScegliPrenotazioneControl() {
-		List<Prenotazione> listaPrenotazioni = DatabaseInterface .getInstance().ottieniElencoPrenotazioni(PazienteEntity.getPaziente());
+		List<Prenotazione> listaPrenotazioni = DatabaseInterface.getInstance().ottieniElencoPrenotazioni(PazienteEntity.getPaziente());
 		if(listaPrenotazioni != null) {
 			this.form = new ScegliPrenotazioneDialog(this, listaPrenotazioni);
 		} else {

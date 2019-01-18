@@ -21,7 +21,7 @@ public class EffettuaPrenotazioneControl {
 			new SceltaMedicoDialog(this, DatabaseInterface.getInstance().ottieniListaMedici(ricetta.getPrestazione()));
 		} else {
 		    listaOrariDisponibili = DatabaseInterface.getInstance().ottieniOrari(ricetta.getPrestazione(), ricetta.getLimiteMassimo());
-		    if(listaOrariDisponibili == null) {
+		    if(listaOrariDisponibili == null || listaOrariDisponibili.isEmpty()) {
 		    	aggiungiOrario();
 			}
 			sceltaOrarioForm = new ScegliOrarioDialog(this, listaOrariDisponibili );
@@ -61,7 +61,6 @@ public class EffettuaPrenotazioneControl {
 		if(prenotazioneSpostata != null){
 			orarioOttenibile = prenotazioneSpostata.getDataOraAppuntamento();
 		}
-
 		if(orarioOttenibile == null){
 			new ErroreDialog("Impossibile prenotare una visita entro i tempi previsti per il codice di urgenza immesso");
 		} else {

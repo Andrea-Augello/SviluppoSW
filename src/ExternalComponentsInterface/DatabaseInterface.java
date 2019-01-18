@@ -182,6 +182,9 @@ public class DatabaseInterface {
             while(rs.next()) {
                 prenotazioni.add(parserPrenotazioni(rs));
             }
+            if (prenotazioni.isEmpty()) {
+                return null;
+            }
             return prenotazioni;
         }catch(SQLException ex) {
             new ErroreDialog(ex);
