@@ -27,6 +27,7 @@ public class GeneraRicettaControl {
 				ricetta = new Ricetta(codiceRicetta, urgenza, codicePrestazione);
 				if (controllaCorrettezzaDati(ricetta)) {
 					sceltaRegime();
+					formDatiRicetta.dispose();
 				} else {
 					new ErroreDialog("Impossibile procedere con la prenotazione:<br/>Nel sistema risulta già una prenotazione con questo numero di ricetta per la<br/>prestazione selezionata.");
 					formDatiRicetta.reset();

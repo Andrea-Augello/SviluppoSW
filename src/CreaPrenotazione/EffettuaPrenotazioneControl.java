@@ -40,6 +40,7 @@ public class EffettuaPrenotazioneControl {
 			prenotazioneSpostata.setDataOraAppuntamento(nuovoOrario);
 			boolean success = DatabaseInterface.getInstance().modificaPrenotazione(prenotazioneSpostata);
 			if(success) {
+				sceltaOrarioForm.dispose();
 				MailInterface.getInstance().notificaSpostamentoPrenotazione(prenotazioneSpostata);
 			}
 		}
