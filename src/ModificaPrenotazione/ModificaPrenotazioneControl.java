@@ -27,6 +27,9 @@ public class ModificaPrenotazioneControl {
 	}
 
 	public void aggiornaPrenotazione() {
+		if(prenotazioneSelezionata.getRicetta().getRegime()==0){
+			prenotazioneSelezionata.setMedico(DatabaseInterface.getInstance().ottieniMedicoDisponibile(prenotazioneSelezionata.getDataOraAppuntamento(), prenotazioneSelezionata.getCodicePrestazione()));
+		}
 		new ConfermaDialog( false, prenotazioneSelezionata);
 	}
 

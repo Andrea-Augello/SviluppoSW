@@ -32,12 +32,12 @@ public class ModificaPrenotazioneDialog {
     private JPanel panel;
     private JLabel id;
     private JLabel prestazione;
-    private JLabel data;
     private JPanel bottoni;
     private JPanel orari;
     private JCalendar calendario;
     private JList list1;
     private JButton confemraButton;
+    private JLabel data1;
     private JFrame frame;
 
     public ModificaPrenotazioneDialog(Prenotazione prenotazioneSelezionata, ModificaPrenotazioneControl control) {
@@ -52,7 +52,7 @@ public class ModificaPrenotazioneDialog {
 
         id.setText("" + prenotazioneSelezionata.getCodicePrestazione());
         prestazione.setText("" + prenotazione.getDescrizionePrestazione());
-        data.setText(prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")));
+        data1.setText(prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")));
         orari.setVisible(false);
 
         frame.pack();
