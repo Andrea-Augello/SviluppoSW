@@ -10,6 +10,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class DatabaseInterface {
     private Connection conn;
@@ -272,11 +274,11 @@ public class DatabaseInterface {
             st.setString(3,formattedSafeTimeCondition);
             //Execute
             rs=st.executeQuery();
-            List<LocalDateTime> times = new ArrayList<>();
+            Set<LocalDateTime> times = new TreeSet<>();
             while(rs.next()) {
                 times.add(rs.getObject("FasciaOraria_Data_e_ora",LocalDateTime.class));
             }
-            return times;
+            return new ArrayList<>(times);
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }

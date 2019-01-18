@@ -48,9 +48,10 @@ public class MailInterface {
 	
     private Message setMessage(String destinationMail){
         // Create a default MimeMessage object.
-       Message message = new MimeMessage(session);
+       Message message;
+        message = new MimeMessage(session);
 
-	   // Set From: header field of the header.
+        // Set From: header field of the header.
         try {
             message.setFrom(new InternetAddress(sourceMail));
         } catch (MessagingException e) {
