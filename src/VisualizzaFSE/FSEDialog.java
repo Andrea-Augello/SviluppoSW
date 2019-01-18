@@ -20,12 +20,12 @@ public class FSEDialog {
         JFrame frame = new JFrame("SPRINT - Fascicolo Sanitario Elettronico");
         $$$setupUI$$$();
         frame.setContentPane(panel);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
         textArea1.setEditable(false);
         textArea1.setLineWrap(true);
         textArea1.setWrapStyleWord(true);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         frame.pack();
         frame.setVisible(true);
@@ -43,10 +43,6 @@ public class FSEDialog {
 
     public void storicoVisite() {
 
-    }
-
-    private void createUIComponents() {
-        textArea1 = new JTextArea(content);
     }
 
     /**
@@ -72,6 +68,10 @@ public class FSEDialog {
      */
     public JComponent $$$getRootComponent$$$() {
         return panel;
+    }
+
+    private void createUIComponents() {
+        textArea1 = new JTextArea(content);
     }
 
 }
