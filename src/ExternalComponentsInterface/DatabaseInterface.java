@@ -131,7 +131,7 @@ public class DatabaseInterface {
                 st.setInt(2,prenotazione.getId());
                 //Execute
                 st.execute();
-                
+
                 return true;
             }catch(SQLException ex){
                 new ErroreDialog(ex);
