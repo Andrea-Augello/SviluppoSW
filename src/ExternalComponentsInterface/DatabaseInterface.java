@@ -66,11 +66,25 @@ public class DatabaseInterface {
   public boolean inserisciPrenotazione(Prenotazione prenotazione) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("INSERT INTO Prenotazione (ID,Regime,Limite_massimo,Paziente_CF,FasciaOraria_Data_e_ora,Prestazione_ID, Ricetta_Numero_ricetta) VALUES (?, ?, ?, ?, ?, ?)");
+            st = conn.prepareStatement("INSERT INTO Ricetta (Numero_ricetta, Paziente_CF) VALUES (?,? )");
+            //Set fields
+            st.setString(1,prenotazione.getCodiceRicetta());
+            st.setString(2,prenotazione.getPaziente().getCodiceFiscale());
+            st.execute();
+
+
+            //Prepare statement
+            st = conn.prepareStatement("INSERT INTO Prenotazione (Regime,Limite_massimo,Paziente_CF,FasciaOraria_Data_e_ora,Prestazione_ID, Ricetta_Numero_ricetta) VALUES (?, ?, ?, ?, ?, ?)");
             // We first need to convert from LocalDateTime to String
             String formattedDateTime = prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             //Set field
-            st.setString(1, prenotazione.getDescrizionePrestazione());
+            String regime;
+            if(prenotazione.getRicetta().getRegime()==0){
+                regime = "SSN";
+            } else {
+                regime = "ALPI";
+            }
+            st.setString(1, regime);
             st.setString(2, prenotazione.getLimiteMassimo().format(DateTimeFormatter.ISO_LOCAL_DATE));
             st.setString(3, prenotazione.getPaziente().getCodiceFiscale());
             st.setString(4,formattedDateTime);
