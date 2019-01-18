@@ -20,14 +20,22 @@ public class GeneraRicettaControl {
 
 	void ottieniDati() {
 	    String codiceRicetta = formDatiRicetta.getCodiceRicetta();
-	    int codicePrestazione = formDatiRicetta.getCodicePrestazione();
-	    int urgenza = formDatiRicetta.getUrgenza();
-		ricetta = new Ricetta(codiceRicetta,urgenza,codicePrestazione);
-		if(!controllaCorrettezzaDati(ricetta)){
-			new ErroreDialog("Impossibile procedere con la prenotazione:<br/>Nel sistema risulta già una prenotazione con questo numero di ricetta per la<br/>prestazione selezionata.");
-			formDatiRicetta.reset();
+	    if(codiceRicetta.matches("\\d{15}")) {
+			int codicePrestazione = formDatiRicetta.getCodicePrestazione();
+			int urgenza = formDatiRicetta.getUrgenza();
+			if(urgenza > 0) {
+				ricetta = new Ricetta(codiceRicetta, urgenza, codicePrestazione);
+				if (controllaCorrettezzaDati(ricetta)) {
+					sceltaRegime();
+				} else {
+					new ErroreDialog("Impossibile procedere con la prenotazione:<br/>Nel sistema risulta già una prenotazione con questo numero di ricetta per la<br/>prestazione selezionata.");
+					formDatiRicetta.reset();
+				}
+			} else {
+				new ErroreDialog("Indicare l'urgenza.");
+			}
 		} else {
-		    sceltaRegime();
+	    	new ErroreDialog("Il codice inserito non è valido.<br/>Va inserito un codice di 15 numeri.");
 		}
 	}
 
