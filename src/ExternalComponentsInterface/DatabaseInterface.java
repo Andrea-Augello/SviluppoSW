@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 import java.util.ArrayList;
@@ -181,7 +182,7 @@ public class DatabaseInterface {
             LocalDateTime dateTimeStart = LocalDateTime.of(dateCurrent, timeStartDay);
             //We format to DateTime Pattern
             String formattedDateTimeStart = dateTimeStart.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleMedico,Prenotazione,Paziente,Prestazione,Eroga WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
+            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleMedico,Prenotazione,Paziente,Prestazione,Eroga WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
             //Set field
             st.setString(1,formattedDateTimeStart);
             st.setString(2,cf);
@@ -221,7 +222,7 @@ public class DatabaseInterface {
             //We format to DateTime Pattern
             String formattedDateTimeStart = dateTimeStart.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String formattedDateTimeEnd = dateTimeEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM Paziente,Prestazione,Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? AND PersonaleMedico.ID=? AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Visita.Prenotazione_ID=Prenotazione.ID AND Prenotazione.Paziente_CF=Paziente.CF AND Prenotazione.Prestazione_ID=Prestazione.ID");
+            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM Paziente,Prestazione,Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? AND PersonaleMedico.ID=? AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Visita.Prenotazione_ID=Prenotazione.ID AND Prenotazione.Paziente_CF=Paziente.CF AND Prenotazione.Prestazione_ID=Prestazione.ID");
             //Set field
             st.setString(1,formattedDateTimeStart);
             st.setString(2,formattedDateTimeEnd);
@@ -246,7 +247,7 @@ public class DatabaseInterface {
             String formattedDateTimeStart = inizio.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String formattedDateTimeEnd = fine.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM Paziente,Prestazione,Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
+            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM Paziente,Prestazione,Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
             //Set field
             st.setString(1,formattedDateTimeStart);
             st.setString(2,formattedDateTimeEnd);
@@ -595,7 +596,9 @@ public class DatabaseInterface {
             LocalDateTime dataOraAppuntamento = LocalDateTime.parse(str, formatter);
             //We make a new Ricetta
             String codiceRicetta=queryResult.getString("Ricetta_Numero_ricetta");
-            Ricetta ricetta=new Ricetta( codiceRicetta,  id);
+            str = queryResult.getString("Limite_massimo");
+            LocalDateTime limiteMassimo = LocalDateTime.parse(str +" 12:00:00", formatter);
+            Ricetta ricetta=new Ricetta( codiceRicetta,  id, limiteMassimo);
 
             Prenotazione prenotazione = new Prenotazione ( ricetta,  medico,  id,  paziente,  descrizionePrestazione,  dataOraAppuntamento);
 
