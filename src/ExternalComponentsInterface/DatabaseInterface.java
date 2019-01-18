@@ -223,7 +223,7 @@ public class DatabaseInterface {
             String formattedDateTimeStart = inizio.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String formattedDateTimeEnd = fine.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM Paziente,Prestazione Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
+            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM Paziente,Prestazione,Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
             //Set field
             st.setString(1,formattedDateTimeStart);
             st.setString(2,formattedDateTimeEnd);
