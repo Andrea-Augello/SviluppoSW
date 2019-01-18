@@ -11,6 +11,7 @@ public class FormRicetta {
 	private final List<String> prestazioni;
 	private GeneraRicettaControl control;
 	private JPanel panel;
+	private JFrame frame;
 	private JRadioButton uRadioButton;
 	private JRadioButton bRadioButton;
 	private JRadioButton dRadioButton;
@@ -28,7 +29,7 @@ public class FormRicetta {
 
 	public FormRicetta(GeneraRicettaControl control, List<String> prestazioni) {
 		this.prestazioni = prestazioni;
-		JFrame frame = new JFrame("SPRINT - Inserisci i dati della ricetta");
+		frame = new JFrame("SPRINT - Inserisci i dati della ricetta");
 		$$$setupUI$$$();
 		frame.setContentPane(panel);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -182,4 +183,7 @@ public class FormRicetta {
         comboBox1.setSelectedIndex(0);
 	}
 
+	public void dispose() {
+	    frame.dispose();
+	}
 }
