@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -50,16 +52,16 @@ public class FormRicetta {
 		bRadioButton1.addActionListener(e ->urgenza = 4);
 		cRadioButton.addActionListener(e -> urgenza = 5);
 		dRadioButton1.addActionListener(e ->urgenza = 6);
-		comboBox1.addActionListener(new ActionListener() {
+		comboBox1.addPropertyChangeListener(new PropertyChangeListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				if(comboBox1.getSelectedItem().equals("000 - RICOVERO")){
-					ricovero.setVisible(true);
-					prestazione.setVisible(false);
-				} else {
-					ricovero.setVisible(false);
-					prestazione.setVisible(true);
-				}
+			public void propertyChange(PropertyChangeEvent evt) {
+                if(comboBox1.getSelectedItem().equals("000 - RICOVERO")){
+                    ricovero.setVisible(true);
+                    prestazione.setVisible(false);
+                } else {
+                    ricovero.setVisible(false);
+                    prestazione.setVisible(true);
+                }
 			}
 		});
 	}
