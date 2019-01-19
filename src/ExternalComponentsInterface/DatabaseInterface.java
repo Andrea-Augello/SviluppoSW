@@ -471,7 +471,7 @@ public class DatabaseInterface {
     public Prenotazione ottieniPrenotazione(int id) {
         try {
             //Prepare statement
-            st=conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, prenotazione.Regime, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione ,  prestazione.id AS Prestazione_ID, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale " +
+            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, prenotazione.Regime, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , prestazione.id AS Prestazione_ID, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale " +
                     "FROM Paziente,Eroga,Prestazione,Prenotazione,PersonaleMedico,Visita " +
                     "WHERE " +
                         "Prenotazione.ID=? " +

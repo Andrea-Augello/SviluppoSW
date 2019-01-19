@@ -118,6 +118,7 @@ public class ModificaPrenotazioneDialog {
         this.orariDisponibili = orariDisponibili;
         bottoni.setVisible(false);
         orari.setVisible(true);
+        frame.setSize(500, 800);
         calendario.getDayChooser().addDateEvaluator(new IDateEvaluator() {
             @Override
             public boolean isSpecial(Date date) {
@@ -230,6 +231,8 @@ public class ModificaPrenotazioneDialog {
         orari.add(confemraButton, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
         orari.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 2, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        final com.intellij.uiDesigner.core.Spacer spacer2 = new com.intellij.uiDesigner.core.Spacer();
+        panel.add(spacer2, BorderLayout.WEST);
     }
 
     /**

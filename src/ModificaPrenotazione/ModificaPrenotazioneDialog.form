@@ -151,6 +151,9 @@
           </grid>
         </children>
       </grid>
+      <vspacer id="8c7b9">
+        <constraints border-constraint="West"/>
+      </vspacer>
     </children>
   </grid>
 </form>
