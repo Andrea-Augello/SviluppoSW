@@ -36,7 +36,9 @@ public class DatabaseInterface {
 
     public void aggiornaDettagliVisita(Prenotazione visita, String [] dettagli) {
         try {
-            st = conn.prepareStatement("UPDATE Visita SET Diagnosi = ?, Referti = ?, Osservazioni = ?  WHERE Prenotazione_ID = ?");
+            st = conn.prepareStatement("UPDATE Visita " +
+                    "SET Diagnosi = ?, Referti = ?, Osservazioni = ? " +
+                    " WHERE Prenotazione_ID = ?");
             st.setString(1, dettagli[0]);
             st.setString(2, dettagli[1]);
             st.setString(3, dettagli[2]);
@@ -50,7 +52,8 @@ public class DatabaseInterface {
     public void inserisciPaziente(PazienteEntity paziente) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("INSERT INTO Paziente (CF,Password,Nome,Cognome,Data_di_nascita,Telefono,Indirizzo_email) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            st = conn.prepareStatement("INSERT INTO Paziente (CF,Password,Nome,Cognome,Data_di_nascita,Telefono,Indirizzo_email) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)");
             //Set field
             st.setString(1, paziente.getCodiceFiscale());
             st.setString(2, paziente.getPassword());
@@ -190,7 +193,15 @@ public class DatabaseInterface {
             LocalDateTime dateTimeStart = LocalDateTime.of(dateCurrent, timeStartDay);
             //We format to DateTime Pattern
             String formattedDateTimeStart = dateTimeStart.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, prenotazione.Regime, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleMedico,Prenotazione,Paziente,Prestazione,Eroga WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
+            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, prenotazione.Regime, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , prestazione.id AS Prestazione_ID, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale " +
+                    "FROM PersonaleMedico,Prenotazione,Paziente,Prestazione,Eroga " +
+                    "WHERE " +
+                        "Prenotazione.FasciaOraria_Data_e_ora >= ? " +
+                        "AND Paziente.CF=? " +
+                        "AND Paziente.CF=Prenotazione.Paziente_CF " +
+                        "AND Prenotazione.Prestazione_ID=Prestazione.ID " +
+                        "AND Prestazione.ID=Eroga.Prestazione_ID " +
+                        "AND Eroga.Prestazione_ID=PersonaleMedico.ID");
             //Set field
             st.setString(1,formattedDateTimeStart);
             st.setString(2,cf);
@@ -230,7 +241,16 @@ public class DatabaseInterface {
             //We format to DateTime Pattern
             String formattedDateTimeStart = dateTimeStart.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String formattedDateTimeEnd = dateTimeEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, prenotazione.Regime, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM Paziente,Prestazione,Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? AND PersonaleMedico.ID=? AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Visita.Prenotazione_ID=Prenotazione.ID AND Prenotazione.Paziente_CF=Paziente.CF AND Prenotazione.Prestazione_ID=Prestazione.ID");
+            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, prenotazione.Regime, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione ,  prestazione.id AS Prestazione_ID, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale " +
+                    "FROM Paziente,Prestazione,Prenotazione,PersonaleMedico,Visita " +
+                    "WHERE " +
+                        "Prenotazione.FasciaOraria_Data_e_ora >= ? " +
+                        "AND Prenotazione.FasciaOraria_Data_e_ora <= ? " +
+                        "AND PersonaleMedico.ID=? " +
+                        "AND PersonaleMedico.ID=Visita.PersonaleMedico_ID " +
+                        "AND Visita.Prenotazione_ID=Prenotazione.ID " +
+                        "AND Prenotazione.Paziente_CF=Paziente.CF " +
+                        "AND Prenotazione.Prestazione_ID=Prestazione.ID");
             //Set field
             st.setString(1,formattedDateTimeStart);
             st.setString(2,formattedDateTimeEnd);
@@ -255,7 +275,15 @@ public class DatabaseInterface {
             String formattedDateTimeStart = inizio.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String formattedDateTimeEnd = fine.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, prenotazione.Regime, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM Paziente,Prestazione,Prenotazione,PersonaleMedico,Visita WHERE Prenotazione.FasciaOraria_Data_e_ora >= ? AND Prenotazione.FasciaOraria_Data_e_ora <= ? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.Prestazione_ID=Prestazione.ID AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.Prestazione_ID=PersonaleMedico.ID");
+            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, prenotazione.Regime, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione ,  prestazione.id AS Prestazione_ID, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale " +
+                    "FROM Paziente,Prestazione,Prenotazione,PersonaleMedico,Visita,eroga " +
+                    "WHERE " +
+                        "Prenotazione.FasciaOraria_Data_e_ora >= ? " +
+                        "AND Prenotazione.FasciaOraria_Data_e_ora <= ? " +
+                        "AND Paziente.CF=Prenotazione.Paziente_CF " +
+                        "AND Prenotazione.Prestazione_ID=Prestazione.ID " +
+                        "AND Prestazione.ID=Eroga.Prestazione_ID " +
+                        "AND Eroga.Prestazione_ID=PersonaleMedico.ID");
             //Set field
             st.setString(1,formattedDateTimeStart);
             st.setString(2,formattedDateTimeEnd);
@@ -275,7 +303,12 @@ public class DatabaseInterface {
     public List<PersonaleEntity> ottieniListaMedici(int prestazione) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("SELECT *, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleMedico,Eroga,Prestazione WHERE PersonaleMedico.ID=Eroga.PersonaleMedico_ID AND Eroga.Prestazione_ID=Prestazione.ID AND Prestazione.ID=?");
+            st = conn.prepareStatement("SELECT *, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale " +
+                    "FROM PersonaleMedico,Eroga,Prestazione " +
+                    "WHERE " +
+                        "PersonaleMedico.ID=Eroga.PersonaleMedico_ID " +
+                        "AND Eroga.Prestazione_ID=Prestazione.ID " +
+                        "AND Prestazione.ID=?");
             //Set field
             st.setInt(1,prestazione);
             //Execute
@@ -292,7 +325,6 @@ public class DatabaseInterface {
     }
 
     public List<LocalDateTime> ottieniOrari(int prestazione, LocalDateTime limiteMassimo) {
-        //NON TOCCARE, QUALUNQUE MODIFICA ROMPE LA MAGIA DEGLI ELFI SQL
         try {
             LocalDateTime safeTimeCondition=LocalDateTime.now().plusHours(24);
             //Prepare statement
@@ -322,12 +354,12 @@ public class DatabaseInterface {
             st.setString(3,formattedSafeTimeCondition);
             //Execute
             rs=st.executeQuery();
-            Set<LocalDateTime> times = new TreeSet<>();
+            List<LocalDateTime> times = new ArrayList<>();
             while(rs.next()) {
                 times.add(rs.getObject("FasciaOraria_Data_e_ora",LocalDateTime.class));
                 System.out.println(rs.getObject("FasciaOraria_Data_e_ora",LocalDateTime.class));
             }
-            return new ArrayList<>(times);
+            return times;
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
@@ -410,7 +442,11 @@ public class DatabaseInterface {
         try {
             //Prepare statement
             if(isMedico) {
-                st = conn.prepareStatement("SELECT *, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleMedico WHERE ID=? AND Password = ?");
+                st = conn.prepareStatement("SELECT *, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale " +
+                        "FROM PersonaleMedico " +
+                        "WHERE " +
+                            "ID=? " +
+                            "AND Password = ?");
             } else {
                 st = conn.prepareStatement("SELECT *, personaleamministrativo.Nome AS Nome_Personale ,personaleamministrativo.Cognome AS Cognome_Personale, personaleamministrativo.ID AS ID_Personale , personaleamministrativo.Password AS Password_Personale " +
                         "FROM PersonaleAmministrativo " +
@@ -432,11 +468,18 @@ public class DatabaseInterface {
         return null;
     }
 
-    //DO NOT USE, NEEDS UPDATE
     public Prenotazione ottieniPrenotazione(int id) {
         try {
             //Prepare statement
-            st=conn.prepareStatement("SELECT * FROM Prenotazione WHERE Prenotazione.ID=?");
+            st=conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, prenotazione.Regime, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione ,  prestazione.id AS Prestazione_ID, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale " +
+                    "FROM Paziente,Eroga,Prestazione,Prenotazione,PersonaleMedico,Visita " +
+                    "WHERE " +
+                        "Prenotazione.ID=? " +
+                        "AND Paziente.CF=Prenotazione.Paziente_CF " +
+                        "AND Prenotazione.Prestazione_ID=Prestazione.ID " +
+                        "AND Prestazione.ID=Eroga.Prestazione_ID " +
+                        "AND Eroga.Prestazione_ID=PersonaleMedico.ID " +
+                    "GROUP BY prenotazione.ID");
             //Set field
             st.setInt(1, id);
             //Execute
@@ -448,19 +491,51 @@ public class DatabaseInterface {
         return null;
     }
 
-    //TO DO
     public Prenotazione ottieniPrenotazioneSpostabile(int prestazione, LocalDateTime limiteTemporale) {
+        List<PersonaleEntity> medici = ottieniListaMedici(prestazione);
+        Prenotazione bestCandidate = null;
+        for(PersonaleEntity m : medici){
+            try{
+                st = conn.prepareStatement("SELECT prenotazione.ID, prenotazione.Limite_massimo " +
+                        "FROM prenotazione, visita, personalemedico " +
+                        "WHERE " +
+                            "visita.PersonaleMedico_ID = ?" +
+                        "    AND visita.Prenotazione_ID = prenotazione.ID" +
+                        "    AND prenotazione.FasciaOraria_Data_e_ora < ?" +
+                        "ORDER BY prenotazione.Limite_massimo desc");
+                st.setInt(1, m.getMatricola());
+                st.setString(2, limiteTemporale.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+                rs = st.executeQuery();
+                if(rs.next()){
+                    Prenotazione candidate = ottieniPrenotazione(rs.getInt(1));
+                    if(bestCandidate == null){
+                        bestCandidate = candidate;
+                    } else {
+                        if(bestCandidate.compareTo(candidate) < 0){
+                            bestCandidate = candidate;
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                new ErroreDialog(e);
+            }
+        }
+        List<LocalDateTime> orari = ottieniOrari(bestCandidate.getCodicePrestazione(), bestCandidate.getLimiteMassimo());
+        if(orari != null && !orari.isEmpty()){
+            return bestCandidate;
+        }
         return null;
     }
 
     public boolean rimuoviPrenotazione(Prenotazione prenotazione) {
         try {
-            st = conn.prepareStatement("DELETE FROM Prenotazione WHERE ID=?");
-            st.setInt(1, prenotazione.getId());
-            st.execute();
             st=conn.prepareStatement("DELETE FROM Visita WHERE Prenotazione_ID=?");
             st.setInt(1, prenotazione.getId());
             st.execute();
+            st = conn.prepareStatement("DELETE FROM Prenotazione WHERE ID=?");
+            st.setInt(1, prenotazione.getId());
+            st.execute();
+
             return true;
         } catch (SQLException e) {
             new ErroreDialog(""+e);
@@ -493,7 +568,16 @@ public class DatabaseInterface {
             //Prepare statement
             String cf= paziente.getCodiceFiscale();
             String formattedNow = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            st = conn.prepareStatement("SELECT Visita.*,Prestazione.Nome AS Nome_prestazione,PersonaleMedico.Nome,PersonaleMedico.Cognome FROM Visita,Paziente,Prenotazione,PersonaleMedico,Eroga,Prestazione WHERE Paziente.CF=? AND Paziente.CF=Prenotazione.Paziente_CF AND Prenotazione.ID=Visita.Prenotazione_ID AND Visita.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Eroga.PersonaleMedico_ID AND Eroga.Prestazione_ID =Prestazione.ID AND Prenotazione.FasciaOraria_Data_e_ora<=?");
+            st = conn.prepareStatement("SELECT Visita.*,Prestazione.Nome AS Nome_prestazione,PersonaleMedico.Nome,PersonaleMedico.Cognome " +
+                    "FROM Visita,Paziente,Prenotazione,PersonaleMedico,Eroga,Prestazione " +
+                    "WHERE " +
+                        "Paziente.CF=? " +
+                        "AND Paziente.CF=Prenotazione.Paziente_CF " +
+                        "AND Prenotazione.ID=Visita.Prenotazione_ID " +
+                        "AND Visita.PersonaleMedico_ID=PersonaleMedico.ID " +
+                        "AND PersonaleMedico.ID=Eroga.PersonaleMedico_ID " +
+                        "AND Eroga.Prestazione_ID =Prestazione.ID " +
+                        "AND Prenotazione.FasciaOraria_Data_e_ora<=?");
             //Set field
             st.setString(1, cf);
             st.setString(2, formattedNow);
@@ -521,7 +605,14 @@ public class DatabaseInterface {
     public PersonaleEntity ottieniMedicoDisponibile(LocalDateTime slotScelto, int prestazione) {
         try {
             //Prepare statement
-            st = conn.prepareStatement("SELECT PersonaleMedico.*, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleMedico,Esercita_durante,Eroga,Prestazione WHERE Prestazione.ID=? AND Esercita_durante.FasciaOraria_Data_e_ora=? AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND PersonaleMedico.ID=Esercita_durante.PersonaleMedico_ID");
+            st = conn.prepareStatement("SELECT PersonaleMedico.*, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale " +
+                    "FROM PersonaleMedico,Esercita_durante,Eroga,Prestazione " +
+                    "WHERE " +
+                        "Prestazione.ID=? " +
+                        "AND Esercita_durante.FasciaOraria_Data_e_ora=? " +
+                        "AND Prestazione.ID=Eroga.Prestazione_ID " +
+                        "AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID " +
+                        "AND PersonaleMedico.ID=Esercita_durante.PersonaleMedico_ID");
             //Set field
             String formattedSlotScelto = slotScelto.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             st.setInt(1, prestazione);
@@ -543,7 +634,12 @@ public class DatabaseInterface {
         try {
             //Prepare statement
             String numeroRicetta=ricetta.getCodiceRicetta();
-            st = conn.prepareStatement("SELECT * FROM Ricetta,Prenotazione,Prestazione WHERE Ricetta.Numero_ricetta=? AND  Ricetta.Numero_ricetta = Prenotazione.Ricetta_Numero_ricetta AND Prenotazione.Prestazione_ID =Prestazione.ID");
+            st = conn.prepareStatement("SELECT * " +
+                    "FROM Ricetta,Prenotazione,Prestazione " +
+                    "WHERE " +
+                        "Ricetta.Numero_ricetta=? " +
+                        "AND  Ricetta.Numero_ricetta = Prenotazione.Ricetta_Numero_ricetta " +
+                        "AND Prenotazione.Prestazione_ID =Prestazione.ID");
             //Set field
             st.setString(1, numeroRicetta);
             //Execute
@@ -559,7 +655,11 @@ public class DatabaseInterface {
         try {
             int medicoId=medico.getMatricola();
             //Prepare statement
-            st=conn.prepareStatement("SELECT Ambulatorio.* FROM Ambulatorio,PersonaleMedico WHERE PersonaleMedico.ID=? AND PersonaleMedico.Ambulatorio_Nome=Ambulatorio.Nome");
+            st=conn.prepareStatement("SELECT Ambulatorio.* " +
+                    "FROM Ambulatorio,PersonaleMedico " +
+                    "WHERE " +
+                        "PersonaleMedico.ID=? " +
+                        "AND PersonaleMedico.Ambulatorio_Nome=Ambulatorio.Nome");
             //Set field
             st.setInt(1, medicoId);
             //Execute
@@ -608,6 +708,7 @@ public class DatabaseInterface {
             PazienteEntity paziente=parserPaziente(queryResult);
             PersonaleEntity medico=parserPersonale(queryResult);
             int id=queryResult.getInt("ID");
+            int  idPrestazione=queryResult.getInt("Prestazione_ID");
             String descrizionePrestazione=queryResult.getString("Nome_Prestazione");
 
             //We format from String to LocalDateTime
@@ -619,15 +720,15 @@ public class DatabaseInterface {
             str = queryResult.getString("Limite_massimo");
             LocalDateTime limiteMassimo = LocalDateTime.parse(str +" 12:00:00", formatter);
             String regime=rs.getString("Regime");
-            int regimeInt=0;
+            int regimeInt;
             if(regime.equals("SSN")){
                 regimeInt=0;
             }else{
                 regimeInt=1;
             }
-            Ricetta ricetta=new Ricetta( codiceRicetta,  id, limiteMassimo, regimeInt );
+            Ricetta ricetta=new Ricetta( codiceRicetta,  idPrestazione, limiteMassimo, regimeInt );
 
-            Prenotazione prenotazione = new Prenotazione ( ricetta,  medico,  id,  paziente,  descrizionePrestazione,  dataOraAppuntamento);
+            Prenotazione prenotazione = new Prenotazione ( ricetta,  medico, id ,  paziente,  descrizionePrestazione,  dataOraAppuntamento);
 
             return prenotazione;
         } catch(Exception ex){

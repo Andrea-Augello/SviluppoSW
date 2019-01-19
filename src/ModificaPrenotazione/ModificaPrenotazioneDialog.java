@@ -74,12 +74,11 @@ public class ModificaPrenotazioneDialog {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
                 list1.clearSelection();
-                DefaultListModel model = listModel;
-                model.clear();
+                listModel.clear();
                 for (LocalDateTime data : orariDisponibili) {
                     LocalDate convertedDate = data.toLocalDate();
                     if (convertedDate.equals(calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
-                        model.addElement(data.toLocalTime());
+                        listModel.addElement(data.toLocalTime());
                     }
 
                 }
@@ -95,6 +94,7 @@ public class ModificaPrenotazioneDialog {
 
     public void cancellaPrenotazione() {
         control.eliminaPrenotazione();
+        frame.dispose();
     }
 
     public void modificaPrenotazione() {
@@ -107,11 +107,8 @@ public class ModificaPrenotazioneDialog {
             LocalTime oraScelta = (LocalTime) list1.getSelectedValue();
             LocalDateTime nuovoAppuntamento = LocalDateTime.of(giornoScelto, oraScelta);
             prenotazione.setDataOraAppuntamento(nuovoAppuntamento);
-            if (prenotazione.getRicetta().getRegime() == 0) {
-                prenotazione.setMedico(DatabaseInterface.getInstance().ottieniMedicoDisponibile(nuovoAppuntamento, prenotazione.getCodicePrestazione()));
-            }
-            frame.dispose();
             control.aggiornaPrenotazione();
+            frame.dispose();
         } else {
             new ErroreDialog("Selezionare data e ora");
         }
@@ -242,5 +239,6 @@ public class ModificaPrenotazioneDialog {
 
     private void createUIComponents() {
         calendario = new JCalendar(new Locale("IT"));
+        list1 = new JList(listModel);
     }
 }

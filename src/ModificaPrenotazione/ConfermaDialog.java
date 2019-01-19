@@ -26,6 +26,13 @@ public class ConfermaDialog {
 
         frame = new JFrame("SPRINT - Conferma operazione");
         $$$setupUI$$$();
+
+        if(isDestroying){
+            descrizione.setText("Si sta per annullare la prenotazione " + prenotazioneSelezionata);
+        } else {
+            descrizione.setText("I nuovi dettagli della prenotazione sono: "+prenotazioneSelezionata);
+        }
+
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
@@ -48,18 +55,21 @@ public class ConfermaDialog {
     }
 
     public void prosegui() {
+        boolean success = false;
         if (isDestroying) {
-            boolean success = DatabaseInterface.getInstance().rimuoviPrenotazione(prenotazioneSelezionata);
+            success = DatabaseInterface.getInstance().rimuoviPrenotazione(prenotazioneSelezionata);
             if (success) {
                 MailInterface.getInstance().notificaCancellazionePrenotazione(prenotazioneSelezionata);
             }
         } else {
-            boolean success = DatabaseInterface.getInstance().modificaPrenotazione(prenotazioneSelezionata);
+            success = DatabaseInterface.getInstance().modificaPrenotazione(prenotazioneSelezionata);
             if (success) {
                 MailInterface.getInstance().notificaSpostamentoPrenotazione(prenotazioneSelezionata);
             }
         }
-        new ErroreDialog("Operazione fallita");
+        if(!success) {
+            new ErroreDialog("Operazione fallita");
+        }
     }
 
     /**
