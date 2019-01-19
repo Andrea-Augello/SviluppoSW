@@ -36,6 +36,7 @@ public class SceltaMedicoDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
                 scegliMedico();
+                frame.dispose();
 			}
 		});
 		comboBox1.addActionListener(new ActionListener() {
