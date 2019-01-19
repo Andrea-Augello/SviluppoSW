@@ -340,7 +340,17 @@ public class DatabaseInterface {
             String formattedSafeTimeCondition = safeTimeCondition.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             int matricolaMedico=medico.getMatricola();
             //Prepare statement
-            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione WHERE PersonaleMedico.ID=? AND Esercita_durante.FasciaOraria_Data_e_ora <= ? AND Prestazione.ID=Eroga.Prestazione_ID AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID AND NOT (Prenotazione.ID=Visita.Prenotazione_ID AND PersonaleMedico.ID=Visita.PersonaleMedico_ID AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)");
+            st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora " +
+                    "FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione " +
+                    "WHERE PersonaleMedico.ID=? " +
+                    "AND Esercita_durante.FasciaOraria_Data_e_ora <= ? " +
+                    "AND Prestazione.ID=Eroga.Prestazione_ID " +
+                    "AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID " +
+                    "AND NOT " +
+                        "(Prenotazione.ID=Visita.Prenotazione_ID " +
+                        "AND PersonaleMedico.ID=Visita.PersonaleMedico_ID " +
+                        "AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)" +
+                    "GROUP BY esercita_durante.FasciaOraria_Data_e_ora");
             //Set field
             st.setInt(1,matricolaMedico);
             st.setString(2,formattedSafeTimeCondition);
@@ -402,7 +412,9 @@ public class DatabaseInterface {
             if(isMedico) {
                 st = conn.prepareStatement("SELECT *, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleMedico WHERE ID=? AND Password = ?");
             } else {
-                st = conn.prepareStatement("SELECT *, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale FROM PersonaleAmministrativo WHERE ID=? AND Password = ?");
+                st = conn.prepareStatement("SELECT *, personaleamministrativo.Nome AS Nome_Personale ,personaleamministrativo.Cognome AS Cognome_Personale, personaleamministrativo.ID AS ID_Personale , personaleamministrativo.Password AS Password_Personale " +
+                        "FROM PersonaleAmministrativo " +
+                        "WHERE ID=? AND Password = ?");
             }
             //Set field
             st.setString(1, username);
