@@ -15,7 +15,9 @@ public class GeneraRicettaControl {
 
 	public GeneraRicettaControl() {
 		List<String> prestazioni = DatabaseInterface.getInstance().ottieniPrestazioniErogabili();
-		prestazioni.add("000 - RICOVERO");
+		if(PersonaleEntity.getMedico()!=null) {
+			prestazioni.add("000 - RICOVERO");
+		}
 		formDatiRicetta = new FormRicetta(this, prestazioni);
 	}
 
