@@ -2,8 +2,8 @@ package ModificaPrenotazione;
 
 import ExternalComponentsInterface.DatabaseInterface;
 import ExternalComponentsInterface.MailInterface;
-import Oggetti.ErroreDialog;
-import Oggetti.Prenotazione;
+import MainScreen.ErroreDialog;
+import Entity.Prenotazione;
 
 import javax.swing.*;
 import java.awt.*;

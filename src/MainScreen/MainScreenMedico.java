@@ -1,5 +1,8 @@
-package Oggetti;
+package MainScreen;
 
+import Entity.PazienteEntity;
+import Entity.PersonaleEntity;
+import Entity.Prenotazione;
 import ExternalComponentsInterface.DatabaseInterface;
 
 import javax.swing.*;

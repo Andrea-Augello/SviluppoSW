@@ -2,7 +2,7 @@ package VisualizzaFSE;
 
 import ExternalComponentsInterface.DatabaseInterface;
 import ExternalComponentsInterface.PDFInterface;
-import Oggetti.PazienteEntity;
+import Entity.PazienteEntity;
 
 import java.time.LocalDateTime;
 

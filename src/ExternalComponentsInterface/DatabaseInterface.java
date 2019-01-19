@@ -1,18 +1,19 @@
 package ExternalComponentsInterface;
 
-import Oggetti.*;
+import Entity.PersonaleEntity;
+import Entity.Prenotazione;
+import Entity.Ricetta;
+import MainScreen.ErroreDialog;
+import Entity.PazienteEntity;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class DatabaseInterface {
     private Connection conn;

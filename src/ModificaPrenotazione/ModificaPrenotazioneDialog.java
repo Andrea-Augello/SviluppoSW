@@ -1,8 +1,7 @@
 package ModificaPrenotazione;
 
-import ExternalComponentsInterface.DatabaseInterface;
-import Oggetti.ErroreDialog;
-import Oggetti.Prenotazione;
+import MainScreen.ErroreDialog;
+import Entity.Prenotazione;
 import com.toedter.calendar.IDateEvaluator;
 import com.toedter.calendar.JCalendar;
 

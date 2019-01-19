@@ -1,7 +1,7 @@
 package InserisciDettagliVisita;
 
 import ExternalComponentsInterface.DatabaseInterface;
-import Oggetti.Prenotazione;
+import Entity.Prenotazione;
 
 public class InserisciDettagliVisitaControl {
 	private InserisciDettagliVisitaDialog form;

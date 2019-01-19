@@ -1,7 +1,7 @@
 package CreaPrenotazione;
 
-import Oggetti.ErroreDialog;
-import Oggetti.PersonaleEntity;
+import MainScreen.ErroreDialog;
+import Entity.PersonaleEntity;
 
 import javax.swing.*;
 import java.awt.*;

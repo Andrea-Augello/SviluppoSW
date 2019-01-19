@@ -1,7 +1,7 @@
 package ModificaPrenotazione;
 
 import ExternalComponentsInterface.DatabaseInterface;
-import Oggetti.Prenotazione;
+import Entity.Prenotazione;
 
 import java.time.LocalDateTime;
 import java.util.List;

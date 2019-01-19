@@ -1,8 +1,12 @@
 package CreaPrenotazione;
 
+import Entity.PersonaleEntity;
+import Entity.Prenotazione;
+import Entity.Ricetta;
 import ExternalComponentsInterface.DatabaseInterface;
 import ExternalComponentsInterface.MailInterface;
-import Oggetti.*;
+import MainScreen.ErroreDialog;
+import Entity.PazienteEntity;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

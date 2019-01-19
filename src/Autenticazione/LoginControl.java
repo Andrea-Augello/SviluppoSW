@@ -1,7 +1,9 @@
 package Autenticazione;
 
+import Entity.PazienteEntity;
+import Entity.PersonaleEntity;
 import ExternalComponentsInterface.DatabaseInterface;
-import Oggetti.*;
+import MainScreen.*;
 
 public class LoginControl {
     int userType;

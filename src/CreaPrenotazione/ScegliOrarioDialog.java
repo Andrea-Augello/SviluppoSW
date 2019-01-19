@@ -1,6 +1,6 @@
 package CreaPrenotazione;
 
-import Oggetti.ErroreDialog;
+import MainScreen.ErroreDialog;
 import com.toedter.calendar.IDateEvaluator;
 import com.toedter.calendar.JCalendar;
 

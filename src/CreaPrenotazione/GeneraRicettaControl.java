@@ -1,9 +1,9 @@
 package CreaPrenotazione;
 
 import ExternalComponentsInterface.DatabaseInterface;
-import Oggetti.ErroreDialog;
-import Oggetti.PersonaleEntity;
-import Oggetti.Ricetta;
+import MainScreen.ErroreDialog;
+import Entity.PersonaleEntity;
+import Entity.Ricetta;
 
 import java.util.List;
 

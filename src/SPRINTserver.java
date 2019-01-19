@@ -1,7 +1,7 @@
 import ExternalComponentsInterface.DatabaseInterface;
 import ExternalComponentsInterface.MailInterface;
-import Oggetti.ErroreDialog;
-import Oggetti.Prenotazione;
+import MainScreen.ErroreDialog;
+import Entity.Prenotazione;
 
 import java.io.*;
 import java.time.LocalDateTime;

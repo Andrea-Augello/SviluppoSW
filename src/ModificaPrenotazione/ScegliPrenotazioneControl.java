@@ -1,9 +1,9 @@
 package ModificaPrenotazione;
 
 import ExternalComponentsInterface.DatabaseInterface;
-import Oggetti.ErroreDialog;
-import Oggetti.PazienteEntity;
-import Oggetti.Prenotazione;
+import MainScreen.ErroreDialog;
+import Entity.PazienteEntity;
+import Entity.Prenotazione;
 
 import java.util.List;
 

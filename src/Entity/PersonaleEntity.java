@@ -1,4 +1,6 @@
-package Oggetti;
+package Entity;
+
+import MainScreen.ErroreDialog;
 
 public class PersonaleEntity implements Comparable<PersonaleEntity> {
 	private static PersonaleEntity medicoSelezionato = null;

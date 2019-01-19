@@ -1,8 +1,8 @@
 package Autenticazione;
 
 import ExternalComponentsInterface.DatabaseInterface;
-import Oggetti.ErroreDialog;
-import Oggetti.PazienteEntity;
+import MainScreen.ErroreDialog;
+import Entity.PazienteEntity;
 
 public class RegistrazioneControl {
     RegistrazioneForm form;

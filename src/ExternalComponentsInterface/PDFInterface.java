@@ -1,22 +1,17 @@
 package ExternalComponentsInterface;
 
-import Oggetti.ErroreDialog;
 import org.pdfclown.documents.*;
 import org.pdfclown.documents.contents.composition.BlockComposer;
 import org.pdfclown.documents.contents.composition.PrimitiveComposer;
 import org.pdfclown.documents.Page;
 import org.pdfclown.documents.contents.composition.XAlignmentEnum;
 import org.pdfclown.documents.contents.composition.YAlignmentEnum;
-import org.pdfclown.documents.contents.fonts.Font;
 import org.pdfclown.documents.contents.fonts.StandardType1Font;
-import org.pdfclown.documents.contents.xObjects.FormXObject;
 import org.pdfclown.files.*;
 
 import java.awt.geom.Dimension2D;
-import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.io.IOException;
-import java.util.Date;
 import java.util.StringTokenizer;
 
 

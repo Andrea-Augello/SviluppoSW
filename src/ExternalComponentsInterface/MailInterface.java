@@ -1,7 +1,7 @@
 package ExternalComponentsInterface;
 
-import Oggetti.ErroreDialog;
-import Oggetti.Prenotazione;
+import MainScreen.ErroreDialog;
+import Entity.Prenotazione;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
