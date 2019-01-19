@@ -484,7 +484,9 @@ public class DatabaseInterface {
             st.setInt(1, id);
             //Execute
             rs=st.executeQuery();
-            return parserPrenotazioni(rs);
+            if(rs.next()) {
+                return parserPrenotazioni(rs);
+            }
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
@@ -686,19 +688,21 @@ public class DatabaseInterface {
                 String indirizzoEmail = queryResult.getString("Indirizzo_email");
                 return PazienteEntity.createInstance(codiceFiscale,nome,cognome,dataDiNascita,indirizzoEmail, telefono, password);
         } catch(Exception ex){
+            System.out.println(ex);
             return null;
         }
     }
 
     private PersonaleEntity parserPersonale(ResultSet queryResult) {
         try{
-            String nome = queryResult.getString("Nome_Personale");
+                String nome = queryResult.getString("Nome_Personale");
             String cognome = queryResult.getString("Cognome_Personale");
             String password = queryResult.getString("Password_Personale");
             int matricola = queryResult.getInt("ID_Personale");
 
             return new PersonaleEntity(matricola, nome, cognome, password);
         } catch(Exception ex){
+            System.out.println(ex);
             return null;
         }
     }
