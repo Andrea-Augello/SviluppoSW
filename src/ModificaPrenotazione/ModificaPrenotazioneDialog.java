@@ -118,7 +118,7 @@ public class ModificaPrenotazioneDialog {
         this.orariDisponibili = orariDisponibili;
         bottoni.setVisible(false);
         orari.setVisible(true);
-        frame.setSize(500, 800);
+        frame.setSize(500, 400);
         calendario.getDayChooser().addDateEvaluator(new IDateEvaluator() {
             @Override
             public boolean isSpecial(Date date) {
