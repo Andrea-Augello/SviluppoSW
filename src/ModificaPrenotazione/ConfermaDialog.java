@@ -29,6 +29,8 @@ public class ConfermaDialog {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
+        frame.pack();
+        frame.setVisible(true);
 
         confermaButton.addActionListener(new ActionListener() {
             @Override
