@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 public class FSEControl {
 	private String content;
 
-	public FSEControl() {
+	public FSEControl(boolean canPrint) {
 	    content = DatabaseInterface.getInstance().ottieniStoricoVisite(PazienteEntity.getPaziente(), LocalDateTime.now());
-	    new FSEDialog(this, content);
+	    new FSEDialog(this, content, canPrint);
 	}
 
 	public void stampa() {

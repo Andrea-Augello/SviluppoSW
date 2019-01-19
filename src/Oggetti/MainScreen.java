@@ -22,19 +22,15 @@ public abstract class MainScreen {
 	}
 
 	public void visualizzaStoricoVisite() {
-		new FSEControl();
+		new FSEControl(false);
 	}
 
 	public void visualizzaCartellaClinica() {
-		new FSEControl();
+		new FSEControl(true);
 	}
 
 	public void inserisciDettagliVisita(Prenotazione visita) {
 		new InserisciDettagliVisitaControl(visita);
-	}
-
-	public void updateInformazioniPaziente() {
-
 	}
 
 	public void individuaPaziente(){

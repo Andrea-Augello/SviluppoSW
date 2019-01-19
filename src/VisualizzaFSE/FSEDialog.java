@@ -13,7 +13,7 @@ public class FSEDialog {
     private JPanel panel;
     private JTextArea textArea1;
 
-    public FSEDialog(FSEControl control, String content) {
+    public FSEDialog(FSEControl control, String content, boolean canPrint) {
         this.control = control;
         this.content = content;
 
@@ -27,6 +27,10 @@ public class FSEDialog {
         textArea1.setWrapStyleWord(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
+        if(!canPrint){
+            stampaButton.setEnabled(false);
+            stampaButton.setToolTipText("Per stampare la cartella clinica è necessario rivolgersi al personale e pagare la marca da bollo");
+        }
         textArea1.append(content);
 
         frame.pack();

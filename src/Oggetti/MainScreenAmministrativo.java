@@ -36,7 +36,7 @@ public class MainScreenAmministrativo extends MainScreen {
         visualizzaUnFascicoloSanitarioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                visualizzaStoricoVisite();
+                visualizzaCartellaClinica();
             }
         });
         modificaUnaPrenotazioneButton.addActionListener(new ActionListener() {

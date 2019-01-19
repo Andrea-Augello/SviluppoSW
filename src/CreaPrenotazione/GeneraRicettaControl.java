@@ -2,6 +2,7 @@ package CreaPrenotazione;
 
 import ExternalComponentsInterface.DatabaseInterface;
 import Oggetti.ErroreDialog;
+import Oggetti.PersonaleEntity;
 import Oggetti.Ricetta;
 
 import java.util.List;
@@ -26,8 +27,12 @@ public class GeneraRicettaControl {
 			if(urgenza > 0) {
 				ricetta = new Ricetta(codiceRicetta, urgenza, codicePrestazione);
 				if (controllaCorrettezzaDati(ricetta)) {
-					sceltaRegime();
-					formDatiRicetta.dispose();
+					if(PersonaleEntity.getMedico() == null){
+						SSN();
+					} else {
+						sceltaRegime();
+						formDatiRicetta.dispose();
+					}
 				} else {
 					new ErroreDialog("Impossibile procedere con la prenotazione:<br/>Nel sistema risulta già una prenotazione con questo numero di ricetta per la<br/>prestazione selezionata.");
 					formDatiRicetta.reset();
