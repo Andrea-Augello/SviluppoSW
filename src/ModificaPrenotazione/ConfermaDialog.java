@@ -27,10 +27,10 @@ public class ConfermaDialog {
         frame = new JFrame("SPRINT - Conferma operazione");
         $$$setupUI$$$();
 
-        if(isDestroying){
+        if (isDestroying) {
             descrizione.setText("Si sta per annullare la prenotazione " + prenotazioneSelezionata);
         } else {
-            descrizione.setText("I nuovi dettagli della prenotazione sono: "+prenotazioneSelezionata);
+            descrizione.setText("I nuovi dettagli della prenotazione sono: " + prenotazioneSelezionata);
         }
 
         frame.setContentPane(panel);
@@ -67,7 +67,7 @@ public class ConfermaDialog {
                 MailInterface.getInstance().notificaSpostamentoPrenotazione(prenotazioneSelezionata);
             }
         }
-        if(!success) {
+        if (!success) {
             new ErroreDialog("Operazione fallita");
         }
     }
