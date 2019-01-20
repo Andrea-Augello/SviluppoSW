@@ -40,11 +40,11 @@ public class DatabaseInterface {
         try {
             st = conn.prepareStatement("UPDATE Visita " +
                     "SET Diagnosi = ?, Referti = ?, Osservazioni = ? " +
-                    " WHERE Prenotazione_ID = ?");
+                    " WHERE visita.Prenotazione_ID = ?");
             st.setString(1, dettagli[0]);
             st.setString(2, dettagli[1]);
             st.setString(3, dettagli[2]);
-            st.setInt(4,visita.getCodicePrestazione());
+            st.setInt(4,visita.getId());
             st.execute();
         } catch (SQLException e) {
             new ErroreDialog(""+e);
@@ -597,9 +597,11 @@ public class DatabaseInterface {
                 new ErroreDialog(e);
             }
         }
-        List<LocalDateTime> orari = ottieniOrari(bestCandidate.getCodicePrestazione(), bestCandidate.getLimiteMassimo());
-        if(orari != null && !orari.isEmpty()){
-            return bestCandidate;
+        if(bestCandidate!=null) {
+            List<LocalDateTime> orari = ottieniOrari(bestCandidate.getCodicePrestazione(), bestCandidate.getLimiteMassimo());
+            if (orari != null && !orari.isEmpty()) {
+                return bestCandidate;
+            }
         }
         return null;
     }
