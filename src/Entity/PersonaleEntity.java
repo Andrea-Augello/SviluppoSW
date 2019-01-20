@@ -27,9 +27,6 @@ public class PersonaleEntity implements Comparable<PersonaleEntity> {
 	}
 
 	public static PersonaleEntity getMedico(){
-		if(medicoSelezionato == null){
-			new ErroreDialog("Impossibile procedere con l'operazione selezionata", true);
-		}
 		return medicoSelezionato;
 	}
 
