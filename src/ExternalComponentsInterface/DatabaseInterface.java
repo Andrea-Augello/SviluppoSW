@@ -454,6 +454,7 @@ public class DatabaseInterface {
                             "AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora) " +
                         ") " +
                         "AND PersonaleMedico.ID=? " +
+                        "AND esercita_durante.PersonaleMedico_ID = personalemedico.ID " +
                         "AND Esercita_durante.FasciaOraria_Data_e_ora <= ? " +
                         "AND Prestazione.ID=Eroga.Prestazione_ID " +
                     "GROUP BY esercita_durante.FasciaOraria_Data_e_ora");
