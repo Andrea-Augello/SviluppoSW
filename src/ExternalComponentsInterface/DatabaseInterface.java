@@ -82,10 +82,11 @@ public class DatabaseInterface {
                     newID = 1;
                 }
 
-                st = conn.prepareStatement("INSERT INTO Ricovero(ID, Data_inizio, Paziente_CF) VALUES (?,?,?)");
+                st = conn.prepareStatement("INSERT INTO Ricovero(ID, Data_inizio, Data_fine, Paziente_CF) VALUES (?,?,?,?)");
                 st.setInt(1, newID);
-                st.setString(2, prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-                st.setString(3, prenotazione.getPaziente().getCodiceFiscale());
+                st.setString(2, prenotazione.getDataOraAppuntamento().toLocalDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+                st.setString(3, "0000-00-00");
+                st.setString(4, prenotazione.getPaziente().getCodiceFiscale());
                 st.execute();
 
                 st = conn.prepareStatement("INSERT INTO Effettua(Ricovero_ID, PersonaleMedico_ID) VALUES(?,?)");
@@ -411,14 +412,20 @@ public class DatabaseInterface {
             //Prepare statement
             st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora " +
                     "FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione " +
-                    "WHERE PersonaleMedico.ID=? " +
-                    "AND Esercita_durante.FasciaOraria_Data_e_ora <= ? " +
-                    "AND Prestazione.ID=Eroga.Prestazione_ID " +
-                    "AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID " +
-                    "AND NOT " +
-                        "(Prenotazione.ID=Visita.Prenotazione_ID " +
-                        "AND PersonaleMedico.ID=Visita.PersonaleMedico_ID " +
-                        "AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)" +
+                    "WHERE (Esercita_Durante.FasciaOraria_Data_e_ora, personalemedico.ID  )not IN(" +
+                        "SELECT esercita_durante.FasciaOraria_Data_e_ora, personalemedico.ID " +
+                        "FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione,fasciaoraria " +
+                        "WHERE(" +
+                            " Eroga.PersonaleMedico_ID=PersonaleMedico.ID " +
+                            "AND esercita_durante.PersonaleMedico_ID = PersonaleMedico.ID " +
+                            "AND Esercita_durante.FasciaOraria_Data_e_Ora = FasciaOraria.Data_e_ora " +
+                            "AND Prenotazione.ID=Visita.Prenotazione_ID " +
+                            "AND PersonaleMedico.ID=Visita.PersonaleMedico_ID " +
+                            "AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora) " +
+                        ") " +
+                        "AND PersonaleMedico.ID=? " +
+                        "AND Esercita_durante.FasciaOraria_Data_e_ora <= ? " +
+                        "AND Prestazione.ID=Eroga.Prestazione_ID " +
                     "GROUP BY esercita_durante.FasciaOraria_Data_e_ora");
             //Set field
             st.setInt(1,matricolaMedico);
@@ -624,7 +631,7 @@ public class DatabaseInterface {
             rs=st.executeQuery();
             String storicoVisite = "\n";
             while(rs.next()) {
-                storicoVisite += (String.format("Codice prenotazione: %d\nTipo di prestazione: %s\nMedico: %s %s\nDiagnosi: %s\nReferti: %s\nOsservazioni: %s\n-----------------------------\n\n", rs.getInt("Prenotazione_ID"), rs.getString("Nome_prestazione"), rs.getString("Nome"), rs.getString("Cognome"), rs.getString("Diagnosi"), rs.getString("Referti"), rs.getString("Osservazioni")));
+                storicoVisite += (String.format("Codice prenotazione: %d\nTipo di prestazione: %s\nMedico: %s %s\nDiagnosi: %s\nReferti: %s\nOsservazioni: %s\n-----------------------------\n", rs.getInt("Prenotazione_ID"), rs.getString("Nome_prestazione"), rs.getString("Nome"), rs.getString("Cognome"), rs.getString("Diagnosi"), rs.getString("Referti"), rs.getString("Osservazioni")));
             }
             /*
                 "ID: " + ...+

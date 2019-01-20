@@ -28,14 +28,22 @@ public class EffettuaPrenotazioneControl {
 		    if(listaOrariDisponibili == null || listaOrariDisponibili.isEmpty()) {
 		    	aggiungiOrario();
 			}
-			sceltaOrarioForm = new ScegliOrarioDialog(this, listaOrariDisponibili );
+			if (listaOrariDisponibili != null && !listaOrariDisponibili.isEmpty()) {
+				sceltaOrarioForm = new ScegliOrarioDialog(this, listaOrariDisponibili );
+			} else {
+				new ErroreDialog("Impossibile prenotare una visita entro i tempi previsti dal codice di urgenza immesso.");
+			}
 		}
 	}
 
 	public void prenotaMedico(PersonaleEntity medicoScelto) {
 		medico = medicoScelto;
 		listaOrariDisponibili = DatabaseInterface.getInstance().ottieniOrari(medicoScelto);
-		sceltaOrarioForm = new ScegliOrarioDialog(this, listaOrariDisponibili );
+		if(listaOrariDisponibili == null || listaOrariDisponibili.isEmpty()) {
+			new ErroreDialog("Impossibile effettuare la prenotazione, non è presente alcuno slot orario ottenibile");
+		} else {
+			sceltaOrarioForm = new ScegliOrarioDialog(this, listaOrariDisponibili);
+		}
 	}
 
 	public void finalizzaPrenotazione(LocalDateTime slotScelto) {
@@ -68,12 +76,9 @@ public class EffettuaPrenotazioneControl {
 		if(prenotazioneSpostata != null){
 			orarioOttenibile = prenotazioneSpostata.getDataOraAppuntamento();
 		}
-		if(orarioOttenibile == null){
-			new ErroreDialog("Impossibile prenotare una visita entro i tempi previsti per il codice di urgenza immesso");
-		} else {
+		if (orarioOttenibile != null) {
 			listaOrariDisponibili = new ArrayList<>();
 			listaOrariDisponibili.add(orarioOttenibile);
 		}
 	}
-
 }
