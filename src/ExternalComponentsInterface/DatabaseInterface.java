@@ -14,6 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class DatabaseInterface {
     private Connection conn;
@@ -353,20 +354,22 @@ public class DatabaseInterface {
         return null;
     }
 
-/***  Codice per riempire di orari il database
+/***  Codice per riempire di orari il database***
 
 
     public static void main(String[] args) {
         DatabaseInterface.getInstance().riempiOrari();
     }
     public void riempiOrari(){
+        Random numGenerator = new Random();
         for(int i = 0; i < 800; i++){
             LocalDate d= LocalDate.now().plusDays(i);
-            for(int j = 0; j < 10; j+=1){
-                LocalTime t = LocalTime.MIDNIGHT.plusHours(8).plusHours(j);
+            for(int j = 1; j <= 12; j+=1){
+                LocalTime t = LocalTime.MIDNIGHT.plusHours(8).plusHours(Math.abs(numGenerator.nextInt()%10));
                 try{
-                    st= conn.prepareStatement("INSERT INTO fasciaoraria(Data_e_ora) VALUES (?)");
+                    st= conn.prepareStatement("INSERT INTO esercita_durante(fasciaoraria_data_e_ora, personalemedico_id) VALUES (?,?)");
                     st.setString(1, LocalDateTime.of(d,t).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")).toString());
+                    st.setInt(2,j);
                     st.execute();
                 }catch (SQLException e){
 
@@ -375,7 +378,7 @@ public class DatabaseInterface {
         }
     }
 
- ***/
+ // ***/
 
     public List<LocalDateTime> ottieniOrari(int prestazione, LocalDateTime limiteMassimo) {
         if(prestazione == 0){
@@ -391,29 +394,32 @@ public class DatabaseInterface {
             LocalDateTime safeTimeCondition=LocalDateTime.now().plusHours(24);
             //Prepare statement
             st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora\n" +
-                    "FROM Esercita_durante,personalemedico\n" +
+                    "FROM Esercita_durante,personalemedico, fasciaoraria, eroga " +
                     "WHERE (Esercita_Durante.FasciaOraria_Data_e_ora, personalemedico.ID  )not IN(\n" +
-                    "\t\tSELECT esercita_durante.FasciaOraria_Data_e_ora, personalemedico.ID\n" +
-                    "\t\tFROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione,fasciaoraria\n" +
+                            "SELECT esercita_durante.FasciaOraria_Data_e_ora, personalemedico.ID\n" +
+                            "FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione,fasciaoraria\n" +
                     "        WHERE(\n" +
-                    "\t\t\tPrestazione.ID=? \n" +
-                    "\t\t\tAND Prestazione.ID=Eroga.Prestazione_ID \n" +
-                    "\t\t\tAND Eroga.PersonaleMedico_ID=PersonaleMedico.ID \n" +
-                    "\t\t\tAND esercita_durante.PersonaleMedico_ID = PersonaleMedico.ID\n" +
-                    "\t\t\tAND Esercita_durante.FasciaOraria_Data_e_Ora = FasciaOraria.Data_e_ora\n" +
-                    "\t\t\tAND Prenotazione.ID=Visita.Prenotazione_ID \n" +
-                    "\t\t\tAND PersonaleMedico.ID=Visita.PersonaleMedico_ID \n" +
-                    "\t\t\tAND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora) \n" +
-                    "\t)\n" +
-                    "AND\tEsercita_durante.FasciaOraria_Data_e_ora <=? \n" +
+                                "Prestazione.ID=Eroga.Prestazione_ID \n" +
+                                "AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID \n" +
+                                "AND esercita_durante.PersonaleMedico_ID = PersonaleMedico.ID\n" +
+                                "AND Esercita_durante.FasciaOraria_Data_e_Ora = FasciaOraria.Data_e_ora\n" +
+                                "AND Prenotazione.ID=Visita.Prenotazione_ID \n" +
+                                "AND PersonaleMedico.ID=Visita.PersonaleMedico_ID \n" +
+                    "           AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora) \n" +
+                    "   ) " +
+                    "AND esercita_durante.FasciaOraria_Data_e_ora = FasciaOraria.Data_e_ora " +
+                    "AND Esercita_durante.FasciaOraria_Data_e_ora <=? \n" +
                     "AND Esercita_durante.FasciaOraria_Data_e_ora >= ? \n" +
+                    "AND esercita_durante.PersonaleMedico_ID = personalemedico.ID "+
+                    "AND Eroga.PersonaleMedico_ID = personalemedico.ID "+
+                    "AND eroga.Prestazione_ID = ? "+
                     "GROUP BY esercita_durante.FasciaOraria_Data_e_ora");
             //Set field
             String formattedDateTime = limiteMassimo.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String formattedSafeTimeCondition = safeTimeCondition.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            st.setInt(1,prestazione);
-            st.setString(2,formattedDateTime);
-            st.setString(3,formattedSafeTimeCondition);
+            st.setString(1,formattedDateTime);
+            st.setString(2,formattedSafeTimeCondition);
+            st.setInt(3,prestazione);
             //Execute
             rs=st.executeQuery();
             List<LocalDateTime> times = new ArrayList<>();
