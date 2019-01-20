@@ -411,14 +411,20 @@ public class DatabaseInterface {
             //Prepare statement
             st = conn.prepareStatement("SELECT Esercita_durante.FasciaOraria_Data_e_ora " +
                     "FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione " +
-                    "WHERE PersonaleMedico.ID=? " +
-                    "AND Esercita_durante.FasciaOraria_Data_e_ora <= ? " +
-                    "AND Prestazione.ID=Eroga.Prestazione_ID " +
-                    "AND Eroga.PersonaleMedico_ID=PersonaleMedico.ID " +
-                    "AND NOT " +
-                        "(Prenotazione.ID=Visita.Prenotazione_ID " +
-                        "AND PersonaleMedico.ID=Visita.PersonaleMedico_ID " +
-                        "AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora)" +
+                    "WHERE (Esercita_Durante.FasciaOraria_Data_e_ora, personalemedico.ID  )not IN(" +
+                        "SELECT esercita_durante.FasciaOraria_Data_e_ora, personalemedico.ID " +
+                        "FROM Esercita_durante,Visita,PersonaleMedico,Eroga,Prestazione,Prenotazione,fasciaoraria " +
+                        "WHERE(" +
+                            " Eroga.PersonaleMedico_ID=PersonaleMedico.ID " +
+                            "AND esercita_durante.PersonaleMedico_ID = PersonaleMedico.ID " +
+                            "AND Esercita_durante.FasciaOraria_Data_e_Ora = FasciaOraria.Data_e_ora " +
+                            "AND Prenotazione.ID=Visita.Prenotazione_ID " +
+                            "AND PersonaleMedico.ID=Visita.PersonaleMedico_ID " +
+                            "AND Prenotazione.FasciaOraria_Data_e_ora=Esercita_durante.FasciaOraria_Data_e_ora) " +
+                        ") " +
+                        "AND PersonaleMedico.ID=? " +
+                        "AND Esercita_durante.FasciaOraria_Data_e_ora <= ? " +
+                        "AND Prestazione.ID=Eroga.Prestazione_ID " +
                     "GROUP BY esercita_durante.FasciaOraria_Data_e_ora");
             //Set field
             st.setInt(1,matricolaMedico);
