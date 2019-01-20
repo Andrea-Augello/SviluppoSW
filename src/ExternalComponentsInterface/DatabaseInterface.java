@@ -326,6 +326,15 @@ public class DatabaseInterface {
     }
 
     public List<LocalDateTime> ottieniOrari(int prestazione, LocalDateTime limiteMassimo) {
+        if(prestazione == 0){
+            List<LocalDateTime> times = new ArrayList<>();
+            LocalDateTime orario = LocalDateTime.of(LocalDate.now(), LocalTime.of(10,00));
+            do{
+                times.add(orario);
+                orario = orario.plusDays(1);
+            }while(orario.compareTo(limiteMassimo)<0);
+            return times;
+        }
         try {
             LocalDateTime safeTimeCondition=LocalDateTime.now().plusHours(24);
             //Prepare statement
