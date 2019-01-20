@@ -223,15 +223,18 @@ public class DatabaseInterface {
             LocalDateTime dateTimeStart = LocalDateTime.of(dateCurrent, timeStartDay);
             //We format to DateTime Pattern
             String formattedDateTimeStart = dateTimeStart.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, prenotazione.Regime, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , prestazione.id AS Prestazione_ID, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale " +
-                    "FROM PersonaleMedico,Prenotazione,Paziente,Prestazione,Eroga " +
+            st = conn.prepareStatement("Select prenotazione.ID "+
+                    "From prenotazione "+
+            // st = conn.prepareStatement("SELECT Paziente.*, Prenotazione.Limite_massimo, prenotazione.Regime, Prenotazione.ID, Prenotazione.Ricetta_Numero_ricetta, Prenotazione.FasciaOraria_Data_e_ora, Prestazione.Nome AS Nome_Prestazione , prestazione.id AS Prestazione_ID, PersonaleMedico.Nome AS Nome_Personale ,PersonaleMedico.Cognome AS Cognome_Personale, PersonaleMedico.ID AS ID_Personale , PersonaleMedico.Password AS Password_Personale " +
+            //        "FROM PersonaleMedico,Prenotazione,Paziente,Prestazione,Eroga " +
                     "WHERE " +
                         "Prenotazione.FasciaOraria_Data_e_ora >= ? " +
-                        "AND Paziente.CF=? " +
-                        "AND Paziente.CF=Prenotazione.Paziente_CF " +
-                        "AND Prenotazione.Prestazione_ID=Prestazione.ID " +
-                        "AND Prestazione.ID=Eroga.Prestazione_ID " +
-                        "AND Eroga.Prestazione_ID=PersonaleMedico.ID");
+                        "AND prenotazione.Paziente_CF=? " +
+            //            "AND Paziente.CF=Prenotazione.Paziente_CF " +
+            //            "AND Prenotazione.Prestazione_ID=Prestazione.ID " +
+            //            "AND Prestazione.ID=Eroga.Prestazione_ID " +
+            //            "AND Eroga.Prestazione_ID=PersonaleMedico.ID");
+                        "");
             //Set field
             st.setString(1,formattedDateTimeStart);
             st.setString(2,cf);
@@ -239,7 +242,7 @@ public class DatabaseInterface {
             rs=st.executeQuery();
             List<Prenotazione> prenotazioni = new ArrayList<>();
             while(rs.next()) {
-                prenotazioni.add(parserPrenotazioni(rs));
+                prenotazioni.add(ottieniPrenotazione(rs.getInt(1)));
             }
             if (prenotazioni.isEmpty()) {
                 return null;
@@ -553,7 +556,7 @@ public class DatabaseInterface {
                         "AND Paziente.CF=Prenotazione.Paziente_CF " +
                         "AND Prenotazione.Prestazione_ID=Prestazione.ID " +
                         "AND Prestazione.ID=Eroga.Prestazione_ID " +
-                        "AND Eroga.Prestazione_ID=PersonaleMedico.ID " +
+                        "AND visita.PersonaleMedico_ID=PersonaleMedico.ID " +
                     "GROUP BY prenotazione.ID");
             //Set field
             st.setInt(1, id);
