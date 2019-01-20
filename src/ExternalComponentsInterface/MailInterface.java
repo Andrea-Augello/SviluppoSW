@@ -42,7 +42,7 @@ public class MailInterface {
               }
            });
     }
-	
+
     private Message setMessage(String destinationMail){
         // Create a default MimeMessage object.
        Message message;
