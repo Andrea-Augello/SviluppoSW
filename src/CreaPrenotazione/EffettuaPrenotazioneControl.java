@@ -48,7 +48,10 @@ public class EffettuaPrenotazioneControl {
 				MailInterface.getInstance().notificaSpostamentoPrenotazione(prenotazioneSpostata);
 			}
 		}
-	    if(medico == null){
+		if(ricetta.getPrestazione() == 0){
+			medico = PersonaleEntity.getMedico();
+		}
+		if(medico == null){
 	    	medico = DatabaseInterface.getInstance().ottieniMedicoDisponibile(slotScelto, ricetta.getPrestazione());
 		}
 		Prenotazione prenotazione = new Prenotazione(PazienteEntity.getPaziente(),ricetta, slotScelto, medico);
