@@ -37,7 +37,10 @@ public class GeneraRicettaControl {
 						formDatiRicetta.dispose();
 					}
 				} else {
-					new ErroreDialog("Impossibile procedere con la prenotazione:<br/>Nel sistema risulta già una prenotazione con questo numero di ricetta per la<br/>prestazione selezionata.");
+					new ErroreDialog("Impossibile procedere con la prenotazione:<br/>" +
+							"Nel sistema risulta già una prenotazione con questo numero di ricetta per la<br/>" +
+							"prestazione selezionata.<br/>" +
+							"Oppure il numero di ricetta inserito corrisponde ad una ricetta intestata ad un'altra persona.");
 					formDatiRicetta.reset();
 				}
 			} else {

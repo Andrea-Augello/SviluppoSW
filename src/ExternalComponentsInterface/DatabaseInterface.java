@@ -709,6 +709,8 @@ public class DatabaseInterface {
 
     public boolean verificaDuplicati(Ricetta ricetta) {
         try {
+            boolean duplicati;
+            boolean usatoDaAltri;
             //Prepare statement
             String numeroRicetta=ricetta.getCodiceRicetta();
             st = conn.prepareStatement("SELECT * " +
@@ -721,11 +723,22 @@ public class DatabaseInterface {
             st.setString(1, numeroRicetta);
             //Execute
             rs=st.executeQuery();
-            return rs.next();
+            duplicati = rs.next();
+
+            st = conn.prepareStatement("SELECT *" +
+                    "FROM Ricetta " +
+                    "Where " +
+                    "  Ricetta.Numero_ricetta = ? "+
+                    "  AND  NOT ricetta.Paziente_CF = ?");
+            st.setString(1, numeroRicetta);
+            st.setString(2,PazienteEntity.getPaziente().getCodiceFiscale());
+            rs = st.executeQuery();
+            usatoDaAltri = rs.next();
+            return duplicati || usatoDaAltri;
         }catch(SQLException ex) {
             new ErroreDialog(ex);
         }
-        return false;
+        return true;
     }
 
     public String ottieniPosizioneMedico(PersonaleEntity medico){
