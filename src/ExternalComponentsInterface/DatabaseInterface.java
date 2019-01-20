@@ -353,6 +353,30 @@ public class DatabaseInterface {
         return null;
     }
 
+/***  Codice per riempire di orari il database
+
+
+    public static void main(String[] args) {
+        DatabaseInterface.getInstance().riempiOrari();
+    }
+    public void riempiOrari(){
+        for(int i = 0; i < 800; i++){
+            LocalDate d= LocalDate.now().plusDays(i);
+            for(int j = 0; j < 10; j+=1){
+                LocalTime t = LocalTime.MIDNIGHT.plusHours(8).plusHours(j);
+                try{
+                    st= conn.prepareStatement("INSERT INTO fasciaoraria(Data_e_ora) VALUES (?)");
+                    st.setString(1, LocalDateTime.of(d,t).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")).toString());
+                    st.execute();
+                }catch (SQLException e){
+
+                }
+            }
+        }
+    }
+
+ ***/
+
     public List<LocalDateTime> ottieniOrari(int prestazione, LocalDateTime limiteMassimo) {
         if(prestazione == 0){
             List<LocalDateTime> times = new ArrayList<>();
