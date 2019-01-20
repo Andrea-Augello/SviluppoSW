@@ -12,7 +12,7 @@ public class InserisciDettagliVisitaControl {
 		this.visita = visita;
 		dettagli = DatabaseInterface.getInstance().ottieniDettagliVisita(visita);
 		if(dettagli == null){
-			dettagli = new String[]{" ", " ", " "};
+			dettagli = new String[]{"", "", ""};
 		}
 		form = new InserisciDettagliVisitaDialog(this, dettagli);
 	}

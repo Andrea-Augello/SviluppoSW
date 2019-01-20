@@ -43,7 +43,8 @@ public class PDFInterface {
         composer.setFont(new StandardType1Font(document, StandardType1Font.FamilyEnum.Helvetica, false, false), 12);
         StringTokenizer st = new StringTokenizer(testo,"\n");
         while(st.hasMoreTokens()){
-            blockComposer.showText(st.nextElement().toString());
+            String currentLine = st.nextElement().toString();
+            blockComposer.showText(currentLine);
             blockComposer.showBreak();
         }
         blockComposer.end();

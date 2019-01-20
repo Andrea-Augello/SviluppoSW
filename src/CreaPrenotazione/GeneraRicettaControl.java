@@ -30,6 +30,7 @@ public class GeneraRicettaControl {
 				ricetta = new Ricetta(codiceRicetta, urgenza, codicePrestazione);
 				if (controllaCorrettezzaDati(ricetta)) {
 					if(PersonaleEntity.getMedico() != null){
+						formDatiRicetta.dispose();
 						SSN();
 					} else {
 						sceltaRegime();

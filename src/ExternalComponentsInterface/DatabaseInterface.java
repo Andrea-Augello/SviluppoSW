@@ -82,10 +82,11 @@ public class DatabaseInterface {
                     newID = 1;
                 }
 
-                st = conn.prepareStatement("INSERT INTO Ricovero(ID, Data_inizio, Paziente_CF) VALUES (?,?,?)");
+                st = conn.prepareStatement("INSERT INTO Ricovero(ID, Data_inizio, Data_fine, Paziente_CF) VALUES (?,?,?,?)");
                 st.setInt(1, newID);
-                st.setString(2, prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-                st.setString(3, prenotazione.getPaziente().getCodiceFiscale());
+                st.setString(2, prenotazione.getDataOraAppuntamento().toLocalDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+                st.setString(3, "0000-00-00");
+                st.setString(4, prenotazione.getPaziente().getCodiceFiscale());
                 st.execute();
 
                 st = conn.prepareStatement("INSERT INTO Effettua(Ricovero_ID, PersonaleMedico_ID) VALUES(?,?)");
@@ -630,7 +631,7 @@ public class DatabaseInterface {
             rs=st.executeQuery();
             String storicoVisite = "\n";
             while(rs.next()) {
-                storicoVisite += (String.format("Codice prenotazione: %d\nTipo di prestazione: %s\nMedico: %s %s\nDiagnosi: %s\nReferti: %s\nOsservazioni: %s\n-----------------------------\n\n", rs.getInt("Prenotazione_ID"), rs.getString("Nome_prestazione"), rs.getString("Nome"), rs.getString("Cognome"), rs.getString("Diagnosi"), rs.getString("Referti"), rs.getString("Osservazioni")));
+                storicoVisite += (String.format("Codice prenotazione: %d\nTipo di prestazione: %s\nMedico: %s %s\nDiagnosi: %s\nReferti: %s\nOsservazioni: %s\n-----------------------------\n", rs.getInt("Prenotazione_ID"), rs.getString("Nome_prestazione"), rs.getString("Nome"), rs.getString("Cognome"), rs.getString("Diagnosi"), rs.getString("Referti"), rs.getString("Osservazioni")));
             }
             /*
                 "ID: " + ...+
