@@ -71,6 +71,33 @@ public class DatabaseInterface {
     }
 
   public boolean inserisciPrenotazione(Prenotazione prenotazione) {
+        if(prenotazione.getCodicePrestazione()==0){
+            try {
+                st = conn.prepareStatement("SELECT MAX(ID) FROM Ricovero");
+                rs = st.executeQuery();
+                int newID;
+                if(rs.next()) {
+                    newID = rs.getInt("MAX(ID)")+1;
+                } else {
+                    newID = 1;
+                }
+
+                st = conn.prepareStatement("INSERT INTO Ricovero(ID, Data_inizio, Paziente_CF) VALUES (?,?,?)");
+                st.setInt(1, newID);
+                st.setString(2, prenotazione.getDataOraAppuntamento().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+                st.setString(3, prenotazione.getPaziente().getCodiceFiscale());
+                st.execute();
+
+                st = conn.prepareStatement("INSERT INTO Effettua(Ricovero_ID, PersonaleMedico_ID) VALUES(?,?)");
+                st.setInt(1,newID);
+                st.setInt(2, prenotazione.getMedico().getMatricola());
+                st.execute();
+
+                return true;
+            } catch (SQLException e){
+                return false;
+            }
+        }
         try {
             //Prepare statement
             st = conn.prepareStatement("INSERT INTO Ricetta (Numero_ricetta, Paziente_CF) VALUES (?,? )");
